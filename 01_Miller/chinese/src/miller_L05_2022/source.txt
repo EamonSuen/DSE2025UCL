@@ -1,0 +1,197 @@
+# 01_Miller/DSE2022AUS_Lecture7/Abridged Unobserved Heterogeneity and Finite Dependence.pdf  (26 pages)
+# id | English (inline math is a rough reconstruction; check it)
+
+@page 1
+kce32df | Unobserved Heterogeneity and Finite Dependence
+#= k2e9fff | Robert A. Miller  ⇒ =
+k7b86ce | DSE at ANU
+k4bd03b | December 2022
+k779ae8 | Miller (DSE at ANU)
+k2551c3 | CCP 2
+@page 2
+#= kd05b0c | Finite Dependence  ⇒ 有限依赖
+k437658 | Short panels, when S $<\mathrm{T}$
+k06353d | Suppose the sampling period, $S$, falls short of the time horizon $T$.
+k923f47 [2L] | Rather than express $u_{jt}(x)$ as a sum to $T$, we express $u_{jt}$ as a sum to $S$ and then use the value function at $S+1$:
+keb8423 [2L] | Since the CCPs and state transitions are identified up to $S$, the utility flows would be exactly identified if $V_{S+1}(x)$ was known.
+k21c04c [2L] | However $V_{S+1}(x)$ is endogenous and depends on CCPs that occur after the sample ends.
+@page 3
+#= ke0d6b1 | Definition  ⇒ 定义
+kb5e556 [2L] | This complication is overcome when a property called **finite** **dependence** holds.
+k0cfdcd [2L] | A pair of choices $\{i,j\}$ exhibits $\rho-period$ dependence at $(t,x_t)$ if there exist a pair of sequences of decision weights:
+k7e5514 | $\{\omega_{k\tau}(t,x_{\tau},i)\}_{(k,\tau)=(1,t+1)}^{(J,t+\rho)}$ and $\{\omega_{k\tau}(t,x_{\tau},j)\}_{(k,\tau)=(1,t+1)}^{(J,t+\rho)}$
+#= kfb0e3a | such that for all $x_{t+\rho+1}\in\{1,\ldots,X\}$:  ⇒ 使得对所有 $x_{t+\rho+1}\in\{1,\ldots,X\}$：
+#= kebf090 | Finite dependence:  ⇒ 有限依赖：
+kbdd00b | can be tested without specifying utilities.
+k09cf18 | holds in most published empirical applications.
+#= k8295d7 | extends to games by conditioning on the player as well.  ⇒ 通过同时以参与人为条件，可推广到博弈。
+@page 4
+#= k95eb6a | Representing utility  ⇒ 表示效用
+k61c7bd | If there is finite dependence for $(t,x_t,i,j)$, then:
+k529a44 | To apply finite dependence in estimation:
+k48f150 | estimate the transition terms $f_{jt}(x_{t+1}|x)$
+k7a31bb | form $\kappa_{\tau}(x_{\tau}|t,x_t,j)$ terms with transitions and weights $\omega_{k\tau}(t,x_{\tau},j)$
+k5b77a3 | estimate the CCPs $p_t(x_t)$
+kdbcf6f | plug CCPs into $\psi_j[p_t(x_t)]$ terms
+k883159 | estimate utility $u_{jt}(x_t)$ terms using (2) using Minimum Distance
+@page 5
+#= kee87ff | Simple Examples of Finite Dependence  ⇒ 有限依赖的简单例子
+#= kdf5860 | Terminal choices  ⇒ 终止性选择
+k38aa94 [3L] | Terminal choices and renewal choices are widely assumed in structural econometric applications of dynamic optimization problems and games.
+k3b10ed [2L] | A terminal choice ends the evolution of the state variable with an absorbing state that is independent of the current state.
+kef9f8a | If the first choice denotes a terminal choice, then:
+kf99b61 | for all $(t,x)\in T\times X$ and hence:
+k9dbb8f | Setting $\omega_{k\tau}(t,x,i)$ = 0 for all $(x,i)$ and $k\not=1$, Equation (2) implies:
+@page 6
+k69448b | Renewal choices
+#= k7118c5 | Similarly a renewal choice yields a probability distribution of the state variable next period that does not depend on the current state.  ⇒ 类似地，更新性选择使下一期状态变量的概率分布不依赖于当前状态。
+#= k9352e3 | If the first choice is a renewal choice, then for all $j\in\{1,\ldots,J\}$:  ⇒ 若第一个选择是更新性选择，则对所有 $j\in\{1,\ldots,J\}$：
+k5edc66 | In this case Equation (2) implies:
+@page 7
+#= k98038e | An example of 2-period finite dependence  ⇒ 两期有限依赖的例子
+#= ka6bf10 | How does finite dependence work when $\rho>1?$  ⇒ 当 $\rho>1$ 时，有限依赖如何发挥作用？
+#= k8973bc | Consider the following model of labor supply and human capital.  ⇒ 考虑如下劳动供给与人力资本模型。
+#= k77df3f | In each of $T$ periods an individual chooses:  ⇒ 在 $T$ 期中的每一期，个体选择：
+#= k19c2ef | $d_{2t}$ = 1 to work  ⇒ $d_{2t}=1$：工作
+#= k580fe5 | $d_{1t}$ = 1 to stay home.  ⇒ $d_{1t}=1$：待在家中。
+k5043ed | She accumulates human capital, $x_t$, from working. If:
+kac0624 | $d_{1t}$ = 1 then $x_{t+1}=x_t$.
+ke8f571 | $d_{2t}$ = 1 and $t>1$ then $x_{t+1}=x_t+1$.
+kae76d2 | $d_{j=2,t=1}$ = 1 then
+#= kecc431 | 2 with probability 0.5  ⇒ 2，概率为 0.5
+#= kcac8ed | 1 with probability 0.5  ⇒ 1，概率为 0.5
+#= k39b8d1 | Summarizing, human capital only increases with work, by a unit, except in the first period, when it might jump to two.  ⇒ 总之，人力资本只随工作每次增加一个单位，但第一期例外，此时可能跳升到 2。
+@page 8
+#= k8bb7d6 | Establishing finite dependence in the labor supply example  ⇒ 在劳动供给例子中建立有限依赖
+kb3272e | When $t>1$, work one period out of the next two, and:
+k155b98 | set $\omega_{1,t+1}(t,x_{\tau},2)$ = 1, implying $\omega_{2,t+1}(t,x_{\tau},2)=0$
+kf485b4 | set $\omega_{2,t+1}(t,x_{\tau},1)$ = 1, implying $\omega_{1,t+1}(t,x_{\tau},1)=1$
+k806f01 | to attain 1-period dependence with $x_{t+2}=x_t+1$.
+kb029d4 | When $t$ = 1 after:
+kfc2561 [2L] | staying home at $t$ = 1 (that is $d_{11}$ = 1), work for the next two periods; equivalently set $\omega_{k\tau}(t,x,j)$ so that:
+k5bcde6 [2L] | working at $t$ = 1 (that is $d_{21}$ = 1), work in period 2 only if human capital increases one unit at $t$ = 1; equivalently set $\omega_{k\tau}(t,x,j)$ so that:
+kfe4562 | to attain 2-period dependence with $x_3=2$.
+@page 9
+#= k587cc4 | Nonstationary search model  ⇒ 非平稳搜寻模型
+#= kad3171 | Consider a simple search model in which all jobs are temporary, lasting only one period.  ⇒ 考虑一个简单的搜寻模型，其中所有工作都是临时性的，只持续一期。
+#= k5743c1 | Each period $t\in\{1,\ldots,T\}$ an individual may:  ⇒ 每期 $t\in\{1,\ldots,T\}$，个体可以：
+#= k79f2e5 | stay home by setting $d_{1t}=1$  ⇒ 令 $d_{1t}=1$，待在家中
+#= kf7bfaf | or apply for temporary employment setting $d_{2t}=1$.  ⇒ 或令 $d_{2t}=1$，申请临时工作。
+#= k3cba54 | Job applicants are successful with probability $\lambda_t$, time varying job offer arrival rates.  ⇒ 求职者以概率 $\lambda_t$ 成功，即工作机会到达率随时间变化。
+#= k32ae04 | Experience $x\in\{1,\ldots,X\}$ increases by one unit with each period of work, up to $X$, and does not depreciate.  ⇒ 经验 $x\in\{1,\ldots,X\}$ 每工作一期增加一个单位，最多到 $X$，且不会折旧。
+k1505f1 | Current utility $u_{jt}(x_t)$ depends on choices, time and experience.
+@page 10
+#= k11a17a | Finite dependence in this search model  ⇒ 该搜寻模型中的有限依赖
+kcd5a4c | For all $(t,x_t)$ with $x_t<X$ set:
+#= k1d15b6 | $d_{1t}$ = 1 (stay home) and then "apply for employment" with weight:  ⇒ $d_{1t}=1$（待在家中），然后以如下权重“申请工作”：
+#= kf714a0 | $d_{2t}$ = 1 (seek work) and then stay home:  ⇒ $d_{2t}=1$（寻找工作），然后待在家中：
+k9350cf | to attain one-period dependence since:
+ka3df5e | $1-\lambda_t$ for $x_{t+3}=x_t$
+k24e296 | $\lambda_t$ for $x_{t+3}=x_t+1$
+kd8755d | Note that if $\lambda_t>\lambda_{t+1}$ then $\omega_{2,t+1}(t,x_t,1)>1$ and
+@page 11
+#= k2473e9 | Introduction  ⇒ 导论
+k43adf6 | Extension to dynamic games
+kf6ca77 | In principle these results also apply to games.
+k0da6e7 [3L] | Aside from games with terminal actions, one-period dependence is rare, because a rival’s response typically depends on choices made by everyone in the previous period.
+k87b6f9 | Suppose player interdependencies only arise through payoffs and let:
+@page 12
+kcd9ff5 | Establishing Finite Dependence in Games
+k8c6b70 | Finite dependence in games
+keb4bae [2L] | A key feature of the incomplete information games settings we consider is that at $t$, when the players other than $n$ collectively choose
+k5ff613 | $d_t^{(\sim n)}$, they condition on (and can respond to) $d_{t-1}^{(n)}$, but not on $d_t^{(n)}$.
+k3953b5 [2L] | Our approach to determining finite dependence in games exploits this feature in the following way:
+k720a40 | Find the set of weight sequences that induce the other players
+kdd013d [2L] | matching up the weight distributions of $x_{t+\rho+1}^{(\sim n)}$, conditional on $x_t$, satisfying:
+kfbb6b2 | With one last choice of weight pairs at $t+\rho$, set $\omega_{k,t+\rho}^{(n)}⟦?⟧x_{t+\rho},i⟦?⟧$ and
+k61a9dd | $\omega_{k,t+\rho}^{(n)}⟦?⟧x_{t+\rho},j⟦?⟧$ to line up the joint distribution of the states of
+k20e18f | everyone, and incorporating the restrictions that give (4).
+@page 13
+k5fbee8 | Aligning the joint distributions in the case of renewal
+k8865e5 [2L] | First suppose that for each $x\in\mathcal{A}_{\tau}$, there is an action $d^{(n)}(x)$ yielding some fixed $x^{(n)}\in X^{(n)}$ for sure.
+ke8baeb [2L] | For example assume a renewal state denoted by $x^{(n)}\in\mathcal{X}^{(n)}$ can reached from any $x^{(n)}\in\mathcal{X}^{(n)}$ in one period with certainty.
+kb7060f | In this case the joint distribution across the two paths is aligned in
+kae7801 | $\tau$ + 1 if there exists a weight sequence satisfying:
+@page 14
+kf3a8ed | Distributional Assumptions about the Unobserved Variables
+kbde25b | Motivating example: Rust’s (1987) bus engine revisited
+k3fc550 [2L] | What if we want to relax assumption that the distribution of unobserved variables is known?
+k3611ca [2L] | Then we must place identifying assumptions on the way systematic payoffs are parameterized.
+kc6ed64 [2L] | Recall Mr. Zurcher decides whether to replace the existing engine $(d_{1t}$ = 1), or keep it for at least one more period $(d_{2t}=1)$.
+k6f314f [2L] | Bus mileage advances 1 unit $(x_{t+1}=x_t$ + 1) if Zurcher keeps the engine $(d_{2t}$ = 1) and is set to zero $\mathrm{otherwise}(x_{t+1}$ = 0 if $d_{1t}=1)$.
+k1f24d2 | Transitory iid choice-specific shocks, $\epsilon_{jt}$ are Type 1 Extreme value.
+#= k4500ea | Zurcher sequentially maximizes expected discounted sum of payoffs:  ⇒ Zurcher 依次最大化收益的期望贴现和：
+@page 15
+#= kcc64d7 | Motivating Example  ⇒ 引例
+#= k0588b5 | ML Estimation when CCP’s are known (infeasible)  ⇒ CCP 已知时的 ML 估计（不可行）
+#= kb0f79a | To show how the EM algorithm helps, consider the infeasible case where $s\in\{1,\ldots,S\}$ is unobserved but $p(x,s)$ is known.  ⇒ 为说明 EM 算法的作用，考虑一个不可行的情形：$s\in\{1,\ldots,S\}$ 不可观测，但 $p(x,s)$ 已知。
+#= k69589b | Let $\pi_s$ denote population probability of being in unobserved state $s$.  ⇒ 令 $\pi_s$ 表示处于不可观测状态 $s$ 的总体概率。
+#= kfd3b91 | Supposing $\beta$ is known the ML estimator for this "easier" problem is:  ⇒ 假设 $\beta$ 已知，这个“更容易”的问题的 ML 估计量为：
+#= kc03a92 | where $p\equiv p(x,s)$ is a string of probabilities assigned/estimated for each $(x,s)$ and $l(d_{nt}|x_{nt},s_n,p,\theta)$ is derived from our representation of the conditional valuation functions and takes the form:  ⇒ 其中 $p\equiv p(x,s)$ 是对每个 $(x,s)$ 指定/估计的一串概率，$l(d_{nt}|x_{nt},s_n,p,\theta)$ 由条件价值函数的表示推出，其形式为：
+#= k9bbed8 | Maximizing over the sum of a $\log $ of summed products is computationally burdensome.  ⇒ 对“乘积之和的对数”的总和求最大值，计算负担很重。
+@page 16
+#= k521510 | Why EM is attractive (when CCP’s are known)  ⇒ 为什么 EM 有吸引力（当 CCP 已知时）
+#= ke98aa4 | The EM algorithm is a computationally attractive alternative to directly maximizing the likelihood.  ⇒ 与直接最大化似然函数相比，EM 算法在计算上更具吸引力。
+#= k4f4105 | Denote by $d_n\equiv(d_{n1},\ldots,d_{nT}$ ) and $x_n\equiv(x_{n1},\ldots,x_{nT}$ ) the full sequence of choices and mileages observed in the data for bus $n$.  ⇒ 记 $d_n\equiv(d_{n1},\ldots,d_{nT})$ 与 $x_n\equiv(x_{n1},\ldots,x_{nT})$ 为数据中观测到的公交车 $n$ 的完整选择序列与里程序列。
+#= ke4eaf2 | At the $m^{th}$ iteration:  ⇒ 在第 $m$ 次迭代：
+@page 17
+#= k37dba6 | Steps in our algorithm when s is unobserved and CCP’s are unknown  ⇒ $s$ 不可观测且 CCP 未知时的算法步骤
+#= ka6b485 | Our algorithm begins by setting initial values for $\theta^{(1)},\pi^{(1)}$, and $p^{(1)}(\cdot)$:  ⇒ 算法首先为 $\theta^{(1)}$、$\pi^{(1)}$ 和 $p^{(1)}(\cdot)$ 设定初始值：
+#= k401035 | ⟪Step 1⟫ Compute $q_{ns}^{(m+1)}$ as:  ⇒ ⟪第 1 步⟫ 按下式计算 $q_{ns}^{(m+1)}$：
+#= k851ee9 | ⟪Step 2⟫ Compute $\pi_s^{(m+1)}$ according to:  ⇒ ⟪第 2 步⟫ 按下式计算 $\pi_s^{(m+1)}$：
+ka07aa4 | ⟪Step 3⟫ Update $p^{(m+1)}(x,s)$ using one of two rules below
+#= ke4c859 | ⟪Step 4⟫ Obtain $\theta^{(m+1)}$ from:  ⇒ ⟪第 4 步⟫ 由下式得到 $\theta^{(m+1)}$：
+@page 18
+#= kd9788e | Updating the CCP’s  ⇒ 更新 CCP
+#= k33dc13 | Take a weighted average of decisions to replace engine, conditional on $x$, where weights are the conditional probabilities of being in unobserved state $s$.  ⇒ 在给定 $x$ 时，对更换发动机的决策取加权平均，权重为处于不可观测状态 $s$ 的条件概率。
+#= k550c6c | ⟪Step $3\mathrm{A}$⟫ Update CCP’s with:  ⇒ ⟪第 3A 步⟫ 用下式更新 CCP：
+#= kfac7fe | Or in a stationary infinite horizon model use identity from model that likelihood returns CCP of replacing the engine:  ⇒ 或者在平稳的无限期模型中，利用模型中“似然函数返回更换发动机的 CCP”这一恒等式：
+#= kef2d1e | ⟪Step $3\mathrm{B}$⟫ Update CCP’s with:  ⇒ ⟪第 3B 步⟫ 用下式更新 CCP：
+@page 19
+kce5004 | First Monte Carlo
+#= k530d37 | Finite horizon renewal problem  ⇒ 有限期更新问题
+#= k109f5d | Suppose $s\in\{0,1\}$ equally weighted.  ⇒ 假设 $s\in\{0,1\}$ 的权重相等。
+#= kbc8df6 | There are two observed state variables  ⇒ 有两个可观测状态变量
+#= k33eeee | total accumulated mileage:  ⇒ 累计总里程：
+#= k958f57 | if  ⇒ 若
+#= k724a92 | permanent route characteristic for the bus, $x_2$, that systematically affects miles added each period.  ⇒ 公交车的永久性路线特征 $x_2$，它系统地影响每期新增的里程。
+#= k02ae8e | We assume $\Delta_t\in\{0,0.125,\ldots,24.875,25\}$ is drawn from:  ⇒ 我们假设 $\Delta_t\in\{0,0.125,\ldots,24.875,25\}$ 取自：
+#= kb8b6fc | and $x_2$ is a multiple 0.01 drawn from a discrete equi-probability distribution between 0.25 and 1.25.  ⇒ 而 $x_2$ 是 0.01 的倍数，取自 0.25 到 1.25 之间的离散等概率分布。
+@page 20
+#= k714c1f | Let $\theta_{0t}$ be an aggregate shock (denoting cost fluctuations say).  ⇒ 令 $\theta_{0t}$ 为总量冲击（比如代表成本波动）。
+#= k3b6dd6 | The difference in current payoff from retaining versus replacing the engine is:  ⇒ 保留与更换发动机的当期收益之差为：
+#= k6ec777 | Denoting the observed state variables by $x_t\equiv(x_{1t},x_2)$ , this translates to:  ⇒ 将可观测状态变量记为 $x_t\equiv(x_{1t},x_2)$，上式可写为：
+@page 21
+#= k58baa0 | Table 1 of Arcidiacono and Miller (2011, page 1854)  ⇒ Arcidiacono and Miller（2011，第 1854 页）的表 1
+@page 22
+k378f57 | Second Monte Carlo
+k9482c5 | Structure
+k73310d [2L] | Entrants pay startup cost to compete in the market, but not incumbents.
+ka5b584 [2L] | Paying startup cost now transforms entrant into incumbent next period.
+k9512bf | Declining to compete in any given period is tantamount to exit.
+k5131c9 | When a firm exits another firm potentially enters next period.
+k7ba4be | There are two sources of dynamics in this model:
+kb32dc9 [3L] | An entrant depreciates startup cost over its anticipated lifetime. Becoming an incumbent reduces the probability of other firms entering the market, and hence increases expected profits.
+@page 23
+k064c68 | Two observed state variables
+kda2fd7 [4L] | Each market has a permanent market characteristic, denoted by $x_1$, common to each player within the market and constant over time, but differing independently across markets, with equal probabilities on support $\{1,\ldots,10\}$.
+k1de48e [2L] | The number of firm exits in the previous period is also common knowledge to the market, and this variable is indicated by:
+k31e92d [2L] | This variable is a useful predictor for the number of firms that will compete in the current period.
+k7c05cd [2L] | Intuitively, the more players paying entry costs, the lower the expected number of competitors.
+@page 24
+kbfa110 | Unobserved (Markov chain state) variables, and price equation
+k721500 [2L] | The unobserved state variable $s_t\in\{1,\ldots,5\}$ follows a first order Markov chain.
+k1003f6 [4L] | We assume that the probability of the unobserved variable remaining unchanged in successive periods is fixed at some $\pi\in(0,1)$, and that if the state does change, any other state is equally likely to occur with probability $(1-\pi)/4$.
+kf7e91d [2L] | We generated also price data on each market, denoted by $w_t$, with the equation:
+keed182 [3L] | where $\eta_t$ is distributed as a standard normal disturbance independently across markets and periods, revealed to each market after the entry and exit decisions are made.
+@page 25
+kb9985a | Utility and number of firms and markets
+k9ff884 | The flow payoff of an active firm $i$ in period $t$, net of private
+k3dc92e | information $\epsilon_{2t}^{(i)}$ is modeled as:
+k685e40 | We normalize exit utility as $U_1⟦?⟧x_t^{(i)},s_t^{(i)},d_t^{(-i)}⟦?⟧=0$
+k5b3b53 | We assume $\epsilon_{jt}^{(i)}$ is distributed as Type 1 Extreme Value.
+k0181cb | The number of firms in each market in our experiment is 6.
+k674ac2 | We simulated data for 3,000 markets, and set $\beta=0.9$.
+k6cb928 [2L] | Starting at an initial date with 6 entrants in the market, we ran the simulations forward for twenty periods.
+@page 26
+kec09f3 | Table 2 of Arcidiacono and Miller (2011, page 1862)

@@ -1,0 +1,218 @@
+# Schjerning, Lecture 17: Estimating static discrete-choice games of incomplete information — 中文译文
+@page 1
+k1937d3 | 第 17 讲：估计⟪静态⟫离散选择
+k4fc18b | 不完全信息博弈与
+k271fb9 | 多重均衡
+kdd7074 | Bertel Schjerning，哥本哈根大学
+k2aad1e | 2025 年计量经济学会动态结构计量经济学
+k150909 | 暑期学校
+kf63ce8 | 伦敦大学学院（UCL）
+kca0a10 | 2025 年 6 月 30 日—7 月 7 日
+@page 2
+k592958 | 估计不完全信息离散选择博弈：
+kc7ca16 | 简单的静态例子
+k838a4d | Su（Quant Mark Econ，2014）
+k57d55f | 苏哲霖（Che-Lin Su），1974—2017
+@page 3
+k8182bb | 估计不完全信息博弈
+ke0ee57 | Pakes, Ostrovsky and Berry，2007
+kb89ced | 各种两步 CCP 估计量：伪 ML、矩方法、$\min\chi^2$
+kd5f126 | Bajari, Benkard and Levin，2007
+k4786b7 | 利用均衡不等式的两步最小距离估计量
+k70489a | Aguirregabiria and Mira，2007
+kbde449 | 递归两步 CCP 估计量
+k27a776 | Pesendorfer and Schmidt-Dengler，2008
+k63bc36 | 两步最小二乘
+k8f40dc | Kasahara and Shimotsu，2012
+k26c2e8 | 修正（阻尼）NPL
+k3af7ea | Su，2013 以及 Egesdal, Lai and Su，2015
+kcbd035 | 约束最优化（MPEC）
+@page 4
+kffdeaf | 例：静态进入博弈
+kaaba1f | 两家企业：$a$ 与 $b$
+k45eb12 | 行动：每家企业有两种可能的行动：
+k2d9edb | $1$，若企业 a 选择进入市场
+k4b8070 | $0$，若企业 a 选择不进入市场
+kc8fcfa | $1$，若企业 b 选择进入市场
+k4568b5 | $0$，若企业 b 选择不进入市场
+@page 5
+k4ec51f | 例：不完全信息静态进入博弈
+kc42339 | 效用：企业的事后收益
+kdce903 | $(\alpha,\beta)$：待估计的结构参数
+kc54e6f | $(x_a,x_b)$：企业的可观测类型；**共同知识**
+ke93358 | $\epsilon_a=(\epsilon_{a0},\epsilon_{a1})$，$\epsilon_b=(\epsilon_{b0},\epsilon_{b1})$：企业的不可观测类型，
+ke88c0c | 私人信息
+kfc4035 | $(\epsilon_a,\epsilon_b)$ 只有各企业自己能观测到，对手企业和计量经济学家都观测不到
+@page 6
+k1c83ad | 假设误差项 $(\epsilon_a,\epsilon_b)$ 服从第一类极值分布
+kef8137 | 贝叶斯纳什均衡 $(p_a,p_b)$ 满足
+@page 7
+kc520de | 静态博弈例子：参数
+k500233 | 我们始终考虑一个竞争非常激烈的博弈
+k326b29 | 垄断利润：$\alpha*x_j=5*x_j$
+ked6764 | 双寡头利润：$\beta*x_j=-11*x_j$
+kcad9dc | 企业类型：$(x_a,x_b)=(0.52,0.22)$
+@page 8
+kfb4c4d | 静态博弈例子：三个贝叶斯纳什均衡
+@page 9
+k7b64e7 | 静态博弈例子：求解均衡
+@page 10
+k09caaa | ⟪求解方法：⟫逐次逼近⟪与⟫二分法⟪相结合⟫
+k01f3e4 | 逐次逼近（SA）
+k7ef67b | 收敛到最近的稳定均衡。
+k43d1ba | 分别从 $p_a=0$ 与 $p_a=1$ 开始 SA。
+k365273 | 唯一均衡（$\mathrm{K}=1$）：SA 从任何地方出发都会收敛到它。
+kff4a46 | 三个均衡（$\mathrm{K}=3$）：两个稳定，一个不稳定。
+kd819f7 | 更多均衡（$\mathrm{K}>3$）：在该模型中不会出现。
+k8dc295 | 二分法
+k8243e9 | 用它来找不稳定的均衡（若 $\mathrm{K}=3$）。
+kf69b0b | 二分法反复将区间一分为二，并选出不动点（或根）必然所在的子区间。
+kad3ed3 | 两个稳定均衡确定了初始的搜索区间。
+k0697ac | 二分法非常简单而稳健，但也相对较慢。
+@page 11
+kdf8930 | 静态博弈例子：数据生成与识别
+kdc48e5 | 数据生成过程（DGP）：数据由单一均衡生成
+ke2ebde | 两个参与人使用⟪同一个⟫均衡进行 1000 次博弈
+k312a12 | 数据：$X=\{(d_a^i,d_b^i)_{i=1}^{1000},(x_a,x_b)=(0.52,0.22)\}$
+kb23e6e | 给定数据 $X$，我们希望恢复结构参数 $\alpha$ 与 $\beta$
+@page 12
+k945408 | 静态博弈例子：极大似然估计
+k001a4b | 最大化似然函数
+k8cc029 | $p_a(\alpha,\beta)$ 与 $p_b(\alpha,\beta)$ 是贝叶斯纳什均衡方程的解
+@page 13
+k44dcee | 静态博弈例子：用 NFXP 求 MLE
+k19572d | 外层循环
+k83f72f | 选择 $(\alpha,\beta)$ 以最大化似然函数
+k5e73a6 | 内层循环：
+k1f6e7b | 对给定的 $(\alpha,\beta)$，求解 BNE 方程的⟪所有⟫均衡：
+ka30de8 | 选择使似然值最高的均衡：
+kbbc99a | 使得
+@page 14
+k1f6c0c | NFXP 的似然作为 $(\alpha,\beta)$ 的函数——均衡 1
+@page 15
+k0012c6 | NFXP 的似然作为 $(\alpha,\beta)$ 的函数——均衡 2
+@page 16
+k7e61d0 | NFXP 的似然作为 $(\alpha,\beta)$ 的函数——均衡 3
+@page 17
+kf97f5e | 静态博弈例子：用 MPEC 求 MLE
+k43d5c5 | 约束条件：$p_a$ 与 $p_b$ 是贝叶斯纳什均衡方程的解
+@page 18
+k4eedce | 蒙特卡洛结果
+ke4c501 | 均衡 1
+kfa7b4f | 均衡 2
+kd6f62f | 均衡 3
+k199643 | 真实 alpha=5.0
+k87241e | 参数 $\alpha$ 的估计值
+k70ef13 | 数据分别由三个均衡生成
+@page 19
+k1730c6 | 几点说明
+ke3a88d | 对 NFXP 而言，似然函数关于 $\alpha$ 和 $\beta$ 不连续
+ka8e8e1 | MPEC 的目标函数和约束关于其变量 $\theta=(\alpha,\beta,p_a,p_b)$ 是光滑的
+kc8d9d3 | 目标函数不可微，甚至不连续
+k65fbe4 | $\to$ 标准的推断定理不适用。
+kd19e0b | 这个问题极其简单：$p_a$ 与 $p_b$ 都是标量。当它们是参与人
+k32e30e | Bellman 方程的高维解时，求解 $p_a$ 与 $p_b$ 要困难得多？
+k58d361 | 通过对参与人的 Bellman 方程进行迭代，我们无法找到所有均衡？我们也许能找到一个均衡，但不一定是数据中实际进行的那个。
+@page 20
+k2f0280 | 多市场估计
+k2373fa | 有 25 个不同的市场，即 25 对可观测类型
+ka0f010 | $x_a$ 上的网格有 5 个点，在区间 $[0.12,0.87]$ 内等距分布，$x_b$ 亦然
+kbdb474 | 使用相同的真实参数值：$(\alpha_0,\beta_0)$
+k1e5901 | 对每个 $(x_a^m,x_b^m)$ 的市场，求解 $(p_a^m,p_b^m)$ 的 BNE 条件。
+k0665c6 | 25 个市场中的大多数都存在多重均衡
+k554e85 | 对每个市场，（随机）选择一个均衡来生成该市场的 1000 个数据点
+k066c7a | 生成数据所用的均衡可能因市场而异——在每个市场掷一次硬币。
+@page 21
+k2d4979 | 不同 $(x_a^m,x_b^m)$ 下的均衡个数
+kf2db63 | ⟪图：⟫均衡个数
+@page 22
+ke441d2 | NFXP——多市场估计
+k0be67f | 外层循环：
+k49c75b | ⟪内层循环：⟫对给定的 $(\alpha,\beta)$，在每个市场 $m=1,..,M$ 求解 BNE 方程的所有均衡 $k=1,..,K$：即 $p_a^{m,k}(\alpha,\beta)$ 与 $p_b^{m,k}(\alpha,\beta)$ 是下式的解
+k4b2ada | 这里我们同样在每个市场 $m$ 选择使似然值最高的均衡
+@page 23
+ke54fb2 | 多市场估计——MPEC
+kb3eeae | 约束最优化表述
+k39f2d8 | 约束条件
+k7cde78 | MPEC 并不对每个参数试验值都显式求解 BNE 方程、找出每个市场的所有均衡。
+k9428c3 | 但参数的个数要多得多。
+kafe0ca | MPEC 与 NFXP 都基于完全信息极大似然（FIML）估计量。
+@page 24
+k44dc2d | NFXP：蒙特卡洛——多市场（$\mathrm{M}=25,\mathrm{T}=50$）
+k2c3b72 | 初始值 $\alpha_0=\alpha,\beta_0=\beta$
+kf5a4f6 | 不同市场随机选择均衡
+k67667f | 真实 beta=-11.0
+@page 25
+kaee395 | MPEC：蒙特卡洛——多市场（$\mathrm{M}=25,\mathrm{T}=50$）
+@page 26
+k6857c5 | p：真实选中值 − 估计值
+@page 27
+kaaf2c6 | MPEC 与 NFXP：多市场
+k0a2f85 | NFXP：
+k9cb624 | 最优化问题中有 2 个参数
+ka312ca | 可以估计数据中实际进行的均衡 $p_a^{m,k*}$ 与 $p_b^{m,k*}$（但在存在观测等价均衡的模型中，可能无法同时识别结构参数与均衡概率）
+k7360d1 | 需要找出每个市场的所有均衡
+k3775c1 | （在更复杂的问题中非常困难）
+k72a948 | 需要好的完全求解方法
+kcd1e0c | MPEC：
+k5b44df | 最优化问题中有 $2+2M$ 个参数
+k357bcd | 并不总能收敛到数据中实际进行的均衡，
+kb6f84b | 尽管 NFXP 表明 $p_a^{m,k*}$ 与 $p_b^{m,k*}$ 实际上是可识别的
+k0dc3d2 | 市场较多时存在局部极小值。
+k343786 | 免责声明：MPEC 的实现比较粗糙。
+ke8b2fb | 请使用 AMPL/Knitro
+@page 28
+kc39f95 | 最小二乘估计量
+k2cf8c9 | Pesendorfer and Schmidt-Dengler（2008）
+k54dd89 | 第 1 步：由数据估计 $\hat{p}=(\hat{p}_a,\hat{p}_b)$
+k6eb79c | 第 2 步：求解
+kd29462 | 对于动态博弈，马尔可夫完美均衡条件刻画为
+ka0639a | 第 1 步：由数据估计 $\hat{p}$
+@page 29
+k6b818a | 两步方法：伪极大似然
+kecd89b | 在两步方法中
+k1fb64e | 或等价地
+@page 30
+k17e281 | Aguirregabiria and Mira（2007）
+k4fa518 | NPL 对两步方法进行迭代
+k6c98fe | 第 1 步：由数据估计 $\hat{p}^0=(\hat{p}_a^0,\hat{p}_b^0)$，令 $k=0$
+kaf7b95 | 第 2 步：
+k68620d | 重复
+k5af0a3 | ⟪2.1⟫ 求解
+k931a4a | ⟪2.2⟫ 对 $\hat{p}^k$ 做一次最优反应迭代
+kc2761d | ⟪2.3⟫ 令 $k:=k+1$；
+k40b3e1 | **直到** $(\alpha^k,\beta^k)$ 与 $(\hat{p}_a^k,\hat{p}_b^k)$ 收敛
+@page 31
+k00780f | 蒙特卡洛结果：均衡 1 下的 NPL
+ka55937 | ⟪图：⟫均衡 1——$\hat{p}_j=1/N\sum_i I(d_j=1)$
+k212896 | =
+ke937e5 | =
+@page 32
+kf6b38f | 蒙特卡洛结果：均衡 2 下的 NPL
+k0368ea | ⟪图：⟫均衡 2——$\hat{p}_j=1/N\sum_i I(d_j=1)$
+ke881d7 | =
+k54564f | =
+@page 33
+k293e61 | 蒙特卡洛结果：均衡 3 下的 NPL
+k1e6102 | ⟪图：⟫均衡 3——$\hat{p}_j=1/N\sum_i I(d_j=1)$
+k201a95 | =
+k71f573 | =
+@page 34
+kb53677 | 结论
+k18d300 | 用 NFXP/MPEC 实现的 MLE 在统计上是有效的
+kec931f | NFXP 的计算量令人望而生畏，因为需要对每个 $\theta$ 计算所有均衡，并求不连续似然函数的最大值
+k8b0b20 | MPEC 计算速度更快，但可能陷入数据中并未实际进行的均衡处的局部极小值。
+kf605cd | 两步估计量——计算快速，但在小样本中无效率
+k5bd0a7 | 且有偏。
+kf0366d | NPL（Aguirregabiria and Mira 2007）本应弥合这一差距，但在估计存在多重均衡的博弈时可能不稳定。
+k5572a4 | 动态博弈的估计是一个有趣但具有挑战性的计算最优化问题
+k3a7443 | 多重均衡使似然函数不连续 $\to$ 非标准的推断与计算复杂性
+kad9c8d | 多重均衡导致不确定性问题和识别问题。
+k046f8f | 当转向动态模型时，所有这些问题都会被放大几个数量级
+# figure captions (previously treated as hidden)
+k9da9c5 | ⟪图：⟫最优反应函数交点处的均衡
+k888a6f | ⟪图：⟫二阶最优反应函数上的不动点
+k39a1ad | ⟪图：⟫由均衡 1 生成的数据
+k222b86 | ⟪图：⟫由均衡 2 生成的数据
+k7219d5 | ⟪图：⟫由均衡 3 生成的数据
+k334ff4 | =

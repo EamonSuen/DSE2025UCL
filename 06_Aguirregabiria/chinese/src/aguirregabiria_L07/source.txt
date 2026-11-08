@@ -1,0 +1,295 @@
+# 06_Aguirregabiria/Lecture_7_Sequential_Estimation_DDC_Games/slides/slides_dynamic_games_sequential_estimation.pdf  (45 pages)
+# id | English (inline math is a rough reconstruction; check it)
+
+@page 1
+k5162f2 | SEQUENTIAL ESTIMATION OF
+kc68786 | DYNAMIC DISCRETE CHOICE GAMES
+kf49d7e | LECTURE 7
+#= k92a337 | Econometric Society Summer School  ⇒ 计量经济学会暑期学校
+#= k0776fa | in Dynamic Structural Econometrics  ⇒ 动态结构计量经济学
+#= ke4db0a | Victor Aguirregabiria (University of Toronto)  ⇒ Victor Aguirregabiria（多伦多大学）
+#= k648cfd | UCL – July 1st, 2025  ⇒ UCL，2025 年 7 月 1 日
+#= k68f749 | Victor Aguirregabiria  ⇒ =
+#= kd60990 | DDC Games  ⇒ DDC 博弈
+@page 2
+#= k5964ba | OUTLINE  ⇒ 提纲
+k4a9316 | Structure of empirical dynamic games
+kc67d69 | Markov Perfect Equilibrium
+k7fa605 | Dynamic Games with Incomplete Information
+kc44a52 | Sequential Estimation
+kdc154b | NPL Estimator
+ka693d9 | Alternative algorithms to compute NPL estimator
+k03240b | Fixed point iterations.
+kafdc6f | Newton’s method.
+k962e09 | Spectral method.
+@page 3
+kdc14e1 | Structure of dynamic games of oligopoly competition
+k71a53e | Structure of Dynamic Games
+@page 4
+kd34fdc | BASIC STRUCTURE
+k7fd312 | Time is discrete and indexed by $t$.
+k34f16f | The game is played by $N$ firms that we index by $i$.
+k99dfc8 [2L] | The action is taken to maximize the expected and discounted flow of profits in the market,
+k543847 | $\delta_i\in(0,1)$ is the discount factor, and $\pi_{it}$ is firm i’s profit at period $t$.
+keaa89f | Every period $t$, firms make a investment/dynamic decision: $a_{it}$.
+k902ace | Here I focus on discrete choice games: $a_{it}\in\mathcal{A}=\{0,1,\ldots,J\}$
+@page 5
+kd110c8 | DECISIONS, STATES, and PROFITS
+kc40eb5 [2L] | Current profit $\pi_{it}$ depends on the firms’s own action $a_{it}$, other firms’ actions, $a_{-it}=\{a_{jt}:j\not=i\}$, and a vector of state variables $x_t$.
+kd43dcb | $x_t$ includes:
+k3e1d00 [2L] | Endogenous state variables that depend on the firms’ investment decisions in previous periods, e.g., capital stocks.
+kc317cd | Exogenous state variables affecting costs and consumer demand.
+@page 6
+k73d403 | EXAMPLE: DYNAMIC COMPETITION IN PRODUCT QUALITY
+k3715ba [2L] | Each firm has a ⟪differentiated product.⟫ Consumer demand depends on products’ qualities $(k_{it})$ and prices $(p_{it})$.
+k70c533 | State $x_t$ consists of:
+kc35a17 | Endogenous product qualities: $k_t=(k_{1t},k_{2t},\ldots,k_{Nt})$.
+k6b98a8 | Exogenous variables affecting demand or costs: $z_t=(z_{1t},z_{2t},\ldots,z_{Nt})$.
+kf739a7 [2L] | Given $x_t$, firms’ compete in prices a la Bertrand, and this determines ⟪Bertrand equilibrium⟫ variable profits for each firm: $r_i(x_t)$.
+ke9225e [2L] | The total profit, $\pi_{it}$, consists on $r_i(x_t)$ minus the cost of investing in quality improvement: $IC_i(a_{it},k_{it})$:
+k44e6e1 | Quality stock evolves endogeneously according to the transition rule:
+@page 7
+k22e7b0 | EVOLUTION OF THE STATE VARIABLES
+k3165b9 [2L] | ⟪Exogenous common knowledge state variables:⟫ follow an exogenous Markov process with transition probability function
+kc29b2a [2L] | ⟪Endogenous state variables:⟫ The form of the transition rule depends on the application:
+ka7762e | Market entry: $k_{it}=a_{it-1}$, such that $k_{i,t+1}=a_{it}$
+kaea647 | Investment without depreciation: $k_{i,t+1}=k_{it}+a_{it}$.
+kaac82d | Investment - deterministic depreciation: $k_{i,t+1}=\lambda(k_{it}+a_{it})$
+kd5eb52 | Investment - stochastic depreciation: $k_{i,t+1}=k_{it}+a_{it}-\xi_{i,t+1}$
+ka9e08c [2L] | In a compact way, we use $f_x(x_{t+1}|a_t,x_t)$ to represent the transition probability function of all the state variables.
+@page 9
+kb8b3e8 | OPTIMAL DECISION RULE IN THE DYNAMIC GAME
+kad59d3 | Suppose that firm $i$ believes that the other firms in the market behave
+kf04987 | now and in the future – according to the strategy function:
+ke14b16 | $\alpha_j(\mathcal{I}_t)$ for any $j\not=i$
+k35cdec [2L] | where $\mathcal{I}_t$ is a particular specification of the information used by firms at period $t$. More specifically:
+k13d7b7 | Given these beliefs $\alpha_{-i}$, firm $i$ has the following the payoff:
+k77e0a6 | and the transition probability for the state variables:
+@page 10
+kd35c5c | BEST RESPONSE \& NASH EQUILIBRIUM
+kbbf47b [3L] | Given $\pi_i^{\alpha}(a_{it},\mathrm{x}_t)$ and $f_{\mathcal{I},i}^{\alpha}(\mathcal{I}_{t+1}|a_{it},\mathcal{I}_t)$, we can define the best response of firm $i$ as the solution to the single-agent DP problem defined by this Bellman equation:
+k551987 [2L] | Let $BR_i(\alpha_{-i})$ be the optimal strategy function that solves this DP problem. It is a best response to the beliefs $\alpha_{-i}$.
+k844ab6 [2L] | A ⟪Nash Equilibrium⟫ of this dynamic game consists of an N-tuple of strategy functions $\{\alpha_i(\mathcal{I}_t):i=1,2,\ldots,N\}$ such that, for every firm $i$:
+k3df1fc | That is:
+k24cd45 | Every firm behaves according to its best response strategy.
+kc6ebcf | Beliefs are rational, i.e., the actual firms’ strategies in equilibrium.
+@page 11
+k9475a9 | MARKOV PERFECT EQUILIBRIUM
+k2b6ea3 [3L] | The previous definition of Nash Equilibrium depends on the choice of the information set $\mathcal{I}_t$. We have as many types of NE as possible selections of $\mathcal{I}_t$.
+k5d9a7e [2L] | Most dynamic IO models assume Markov Perfect Equilibrium (MPE), (Maskin \& Tirole, ECMA 1988; Ericson \& Pakes, REStud 1995).
+k7edd71 [2L] | ⟪This solution concept corresponds to NE when⟫ players’ strategies are functions of only payoff-relevant state variables, $\mathcal{I}_t=\mathrm{x}_t$.
+k4f4661 | Why this restriction?:
+kc3b675 [4L] | ⟪Rationality (Maskin \& Tirole):⟫ if other players use this type of strategies, a player cannot make higher payoffby conditioning its behavior on non-payoffrelevant information (e.g., lagged values of the state variables)
+k526ae7 [2L] | ⟪Dimensionality:⟫ It is convenient because it reduces the dimensionality of the state space.
+@page 12
+k9fa4fd | MARKOV PERFECT EQUILIBRIUM – DEFINITION
+k9db97d | Let $\alpha=\{\alpha_i(\mathrm{x}_t):i=1,2,\ldots,N\}$ be a set of strategy functions.
+kd03203 [2L] | A MPE is an N-tuple of strategy functions $\alpha$ such that every firm is maximizing its value given the strategies of the other players.
+k09430a [2L] | For given strategies of the other firms, the decision problem of a firm is a single-agent dynamic programming (DP) problem.
+@page 13
+ke160dc | MARKOV PERFECT EQUILIBRIUM: Best Response DP
+k7270e2 [2L] | Let $V_i^{\alpha}(\mathrm{x}_t)$ be the value function of the DP problem that describes the best response of firm $i$ to the strategies of the other firms in $\alpha$.
+k2f15bb | This value function is the unique solution to the Bellman equation:
+k98f622 | with (here, I consider there is no time-to-build):
+#= ka5230b | and:  ⇒ 以及：
+@page 14
+k83c4b7 | MPE — EXISTENCE
+ka1ee2c [3L] | Doraszelski \& Satterhwaite (RAND, 2010) show that ⟪existence⟫ of a MPE in pure strategies ⟪is not guaranteed⟫ in this model ⟪when the⟫ ⟪choice set for $a_{it}$ is discrete.⟫
+k1464f2 [3L] | A possible approach to guarantee existence is to allow for mixed strategies. However, computing a MPE in mixed strategies poses important computational challenges.
+kfa14f9 [2L] | To establish existence, Doraszelski \& Satterhwaite (RAND, 2010) propose ⟪incorporating private information state variables.⟫
+k9ff1a9 | This incomplete information version of Ericson-Pakes model has been
+ke0efd1 | ⟪the one adopted in most⟫ **empirical applications.**
+k188e1d [3L] | The main reason is that – as we illustrate below – i.i.d. private information shocks are very ⟪convenient type of unobservables from⟫ ⟪an econometric point of view.⟫
+@page 15
+kf608d3 | Dynamic Games
+kb55474 | with Incomplete Information
+@page 16
+kccea4b | PRIVATE INFORMATION SHOCKS
+k5d40ca [2L] | State variables in $\mathrm{x}_t$ are known to all the firms in the market at period $t$ (common knowledge).
+k121c2e | In addition, a firm’s investment cost function $IC_i(.)$ depends on a
+kd678ed | vector of state variables $\varepsilon_{it}$ with two properties:
+k7dd2e9 | $\varepsilon_{it}$ is ⟪private information of firm $i$.⟫ It is unknown to the other firms.
+k773810 [2L] | $\varepsilon_{it}$ is ⟪i.i.d. over time and independent across firms⟫ with CDF $G_i$ that has full support on $R^{|A|}$.
+kab716f | Strategy functions are now $\alpha_i(\mathrm{x}_t,\varepsilon_{it})$.
+k494424 | MPE has the same definition as above but with strategies $\alpha_i(\mathrm{x}_t,\varepsilon_{it})$.
+@page 17
+k34376d | CONDITIONAL CHOICE PROBABILITIES
+k609efb [2L] | It is very convenient to represent a firm’s strategy using ⟪Conditional⟫ ⟪Choice Probability (CCP) function.⟫ For any value $(a,\mathrm{x})$:
+k6cc4ab [2L] | Since function $P_i$ results from integrating function $\alpha_i$ over the continuous variables in $\varepsilon_{it},P_i$ is a lower dimensional object than $\alpha_i$.
+k8e1c77 [3L] | In discrete choice games with $\varepsilon_{it}(a_{it})$ entering additively in the profit function, there is a ⟪one-to-one relationship⟫ between best-response strategy functions $\alpha_i(\mathrm{x}_t,\varepsilon_{it})$ and its CCP function $P_i(.|\mathrm{x}_t)$.
+kaedbd0 | It is obvious that given $\alpha_i(\mathrm{x}_t,\varepsilon_{it})$ there is a unique $P_i(.|\mathrm{x}_t)$.
+k040f6b [3L] | The inverse relationship – given $P_i(.|\mathrm{x}_t)$ there is a unique best response function $\alpha_i(\mathrm{x}_t,\varepsilon_{it})$ – is a corollary of ⟪Hotz-Miller inversion⟫ ⟪Theorem.⟫
+@page 18
+k1a019b | MPE as FIXED POINT OF a MAPPING IN CCPs
+k5bd10b [2L] | Given strategy functions described by CCP functions **P,** we can define ⟪expected profit $\pi_i^P$⟫ and ⟪expected transition $f_i^P$⟫ as:
+k139762 | ⟪We also define⟫ expected conditional-choice values:
+k52e061 | with:
+@page 19
+ke4ef07 [2L] | A MPE is a vector of CCPs, **P $\equiv\{P_i(a_i|\mathrm{x})$** : for any $(i,a_i,\mathrm{x})\}$, such that, for any $(i,a,\mathrm{x})$:
+k3fe524 [2L] | This system of equations defines a Fixed Point mapping from the space of CCPs **P** into itself:
+kad4f1f [2L] | ⟪Mapping $\Psi(.)$ is continuous. Therefore,⟫ by Brower’s Fixed Point Theorem an equilibrium exists.
+k910f24 | In general, this model has multiple equilibria.
+@page 20
+ke0bd08 | MPE IN TERMS OF CCPs:
+k91e973 | AN EXAMPLE
+kc296bb | Suppose that vector $\varepsilon_{it}’\mathrm{s}$ are iid Extreme Value Type I.
+k3c978c | Then, a MPE is a vector **P $\equiv\{P_i(a|\mathrm{x})$** : for any $(i,a,\mathrm{x})\}$, such that:
+k46148c | where
+kf7d3bf | and $V_i^P$ is the unique solution to the Bellman equation:
+@page 21
+kf2ae67 | SEQUENTIAL ESTIMATION
+@page 22
+k83a953 | ESTIMATION – PRELIMINARIES
+k1c8f08 [2L] | Primitives of the model: $\{\pi_i,\beta_i,f_x,G_{\varepsilon}\}$, can be described in terms of a vector of parameters $\theta$ that is unknown to the researcher.
+k52731d | It is convenient to distinguish four sub-vectors in $\theta,(\theta_{\pi},\theta_f,\beta,,\theta_{\varepsilon})$.
+k458c11 [2L] | In most empirical applications, the main challenge is in the ⟪estimation of ”dynamic parameters” in $\theta_{\pi}$:⟫
+k4176fd | $\theta_f$ can be estimated ”outside” of the dynamic decision model.
+kf40b52 [2L] | Consumer demand and firms’ variable costs – which are part of $\theta_{\pi}-$ can be estimated ”outside” of the dynamic decision model.
+kf3b4ae | Most applications assume that $\theta_{\varepsilon}$ (distribution of $\varepsilon)$ and $\beta$ are known.
+kcc0053 [2L] | Often, the focus in the estimation of the dynamic game is parameters capturing dynamics, i.e., investment costs, entry/exit costs, fixed costs.
+@page 23
+k879289 | OUTLINE ON ESTIMATION
+k96f552 | Maximum Likelihood Est. (MLE) of models with ⟪unique equilibrium⟫
+k56fa00 | ⟪Rust’s⟫ **Nested Fixed Point (NFXP)** ⟪algorithm.⟫
+kb08865 | Maximum Likelihood Est. (MLE) of models with ⟪multiple equilibria⟫
+k37cfe9 | Sequential ⟪CCP methods⟫
+@page 24
+ke4fe8e | Estimation Methods
+k1406fb | 4.1. MLE WITH UNIQUE EQUILIBRIUM
+@page 25
+k65dea9 | MLE: MODELS WITH UNIQUE EQUILIBRIUM
+kfdaea5 [2L] | There exist sufficient conditions implying that a dynamic game has a unique equilibrium for every possible value of the parameters $\theta$.
+k013505 | An example of sufficient conditions for equilibrium uniqueness are:
+k3f916e | Finite horizon $T$.
+ka833fe [3L] | Within every period $t$, firms make decisions sequentially: firm 1 first, firm 2 second, ..., firm $N$ last. These decisions become common knowledge to the firms later in the sequence.
+kb1fde9 [2L] | Let $P_{it}(a_{it}|\mathrm{x}_t,\theta)$ be the equilibrium CCP function for firm $i$ at period $t$ when the vector of parameters is $\theta$.
+k095f3b [2L] | The ⟪full log-likelihood function⟫ is: $\ell(\theta)=\sum_{m=1}^M\ell_m(\theta)$, where $\ell_m(\theta)$ is the contribution of market $m$:
+@page 26
+k1636e4 | NESTED FIXED POINT (NFXP) ALGORITHM
+kb6da0f | The MLE is:
+kb2ca03 [3L] | Rust’s NFXP algorithm is a method to compute the MLE. It combines BHHH iterations ⟪(outer algorithm)⟫ with equilibrium solution algorithm ⟪(inner algorithm)⟫ for each trial value $\theta$.
+k3fa528 | Start at an initial guess: $⟦?⟧\theta_0$.
+k6f08be | At every ⟪outer iteration $k$,⟫ apply a BHHH iteration:
+k47da9d [3L] | The score vector $\partial\ell_m(⟦?⟧\theta_k)/\partial\theta$ depends on $\partial\log P_i(a_{imt}|\mathrm{x}_{mt},⟦?⟧\theta_k)/\partial\theta$. To obtain these derivatives, the ⟪inner algorithm⟫ solves for the equilibrium CCPs given $⟦?⟧\theta_k$ using fixed point iterations.
+ka5edd8 | Outer BHHH iterations until $||⟦?⟧\theta_{k+1}-⟦?⟧\theta_k||<$ small constant
+@page 27
+k167424 | 4.2. MLE WITH MULTIPLE EQUILIBRIA
+k1838c7 | NFXP with Multiple Equilibria
+ke9d903 | MPEC
+@page 28
+ke3ffe2 | NFXP WITH MULTIPLE EQUILIBRIA
+k60c57e [2L] | Let $\mathcal{P}(\theta)$ the set of regular MPE associated with a value $\theta$ of the structural parameters.
+k8df251 [2L] | Doraszelski \& Satterwaite (2011) show that for every value of $\theta$ the set $\mathcal{P}(\theta)$ is discrete and finite.
+k7e8a52 [2L] | Suppose that the model has a structure such that we have an algorithm to compute the equilibrium set $\mathcal{P}(\theta)$ for any trial value of $\theta$.
+k41ed34 [2L] | For instance, the Recursive Lexicographic Search (RLS) algorithm in Iskhakov, Rust, \& Schjerning (2016).
+k1fd7c8 | Then, the MLE is defined as:
+@page 29
+k5161d6 | The NFXP algorithm proceeds as follows.
+kd62ff8 | Start at initial guess, $\theta^0$.
+k740602 [2L] | ⟪Inner Iteration-S - Solution:⟫ At iteration $n$ + 1, given $\theta^n$, apply RLS algorithm to find the set of equilibria $\mathcal{P}(\theta^n)$.
+kd3faf6 [2L] | ⟪Inner Iteration-M - Max in $\tau$:⟫ Maximize in $\tau$: Select the equilibrium type $\tau^*(\theta^n)$ with the largest value of the likelihood given $\theta^n$.
+k3a19ec [2L] | ⟪Outer Iteration - BHHH:⟫ Given the equilibrium-specific log-likelihood function $\ell^{\tau*(\theta n)}(\theta)$, apply BHHH algorithm to obtain new $\theta^{n+1}$.
+kd94628 | Iterate until $||\theta^{n+1}-\theta^n||<$ cconv.
+@page 30
+kf8fc7e | MPEC WITH MULTIPLE EQUILIBRIA
+ka20b39 [2L] | With Multiple Equilibria, $\ell(\theta)$ is not a function but a correspondence. The MLE cannot be defined as the argmax of $\ell(\theta)$.
+kf5847c [2L] | To define the MLE in a model with multiple equilibria, it is convenient to define an extended or ⟪Pseudo Likelihood function.⟫
+ke63bee | For arbitrary values of $\theta$ and firms’ CCPs **P,** define:
+k1dace1 | where $\Psi_i$ is the best response probability function.
+@page 31
+k353f26 [2L] | ⟪The MLE is the pair $(⟦?⟧\theta_{MLE},\mathrm{P}⟦?⟧_{MLE})$ that⟫ maximizes $Q$ subject to the constraint that CCPs are equilibrium strategies:
+kba406e | $⟦?⟧⟦?⟧$ subject to: **P** = $\Psi(\theta,\mathrm{P})$
+kcebfc5 | Or using the Lagrangian function:
+k5fdb13 | The F.O.C. are the Lagrangian equations:  «The F.O.C. are the Lagrangian equations:»
+@page 32
+ke7bf14 [2L] | A Newton method can be used to obtain a root of this system of Lagrangian equations.
+k97abd4 [2L] | ⟪A key computational problem is the⟫ very high dimensionality of this system of equations.
+kcc637a [3L] | The most costly part of this algorithm is the ⟪calculation of the⟫ ⟪Jacobian matrix $▽_P\Psi(⟦?⟧\theta,\mathrm{P}⟦?⟧)$.⟫ In dynamic games, in general, this is not a sparse matrix, and can contain billions or trillions of elements.
+kd50108 [3L] | The evaluation of the best response mapping $\Psi(\theta$, **P)** for a new value of **P** requires solving for a valuation operator and solving a system of equations with the same dimension as **P.**
+@page 33
+k77f226 | 4.3. SEQUENTIAL CCP METHODS
+@page 34
+k1736e3 | TWO-STEP CCP METHODS
+kd4870c [2L] | Methods that avoid solving for firms’ best responses or an equilibrium, even once.
+k13db5e [3L] | ⟪Hotz \& Miller (REStud, 1993)⟫ was a seminal contribution on this class of methods. They show that the conditional choice values can be written as known functions of CCPs, transition probabilities, and $\theta$.
+ke23c3d | Suppose that one-period profit is linear-in-parameters:
+k401d51 | where $h(a_{it},a_{-it},\mathrm{x}_t)$ is a vector of known functions to the researcher.
+k9e1c9d | The conditional-choice value function $v_i^P(a_{it},\mathrm{x}_t)$ is:
+k296888 | where future actions, $a_{t+j}$, are taken according to equilibrium CCPs.
+@page 35
+k6ec254 | We can write:
+kcdd403 [3L] | Given firms’ equilibrium CCPs, $P,\beta$, and the transition probability of **x,** we can calculate these present values using, for instance, forward Monte Carlo Simulation.
+@page 36
+kd17d98 [3L] | Given this representation of conditional choice values, the pseudo likelihood function $Q(\theta$, **P)** has practically the same structure as in a static or reduced form discrete choice model.
+ke5c287 [2L] | Best response probabilities that enter in $Q(\theta$, **P)** can be seen as the choice probabilities in a standard random utility model:
+kd411ef [3L] | Given $⟦?⟧h_i^P(.,\mathrm{x}_{mt})$ and $⟦?⟧e_i^P(.,\mathrm{x}_{mt})$ and a parametric specification for the distribution of $\varepsilon$ (e.g., logit, probit), the vector of parameters $\theta_i$ can be estimated as in a standard logit or probit model.
+@page 37
+keec66b | The method proceeds in two steps.
+kd51d15 [2L] | Let $\mathrm{P}⟦?⟧^0$ be a consistent nonparametric estimator of true $\mathrm{P}^0$. The two-step estimator of $\theta$ is defined as:
+k66bcd3 [2L] | Under standard regularity conditions, this two-step estimator is root-M consistent and asymptotically normal.
+kc37b56 [2L] | It can be extended to incorporate market unobserved heterogeneity (e.g., Aguirregabiria \& Mira (2007); Arcidiacono \& Miller (2011)).
+k330ead [2L] | Monte Carlo Simulation can be used to compute present values: Bajari, Benkard, \& Levin (2007).
+k4c4680 [2L] | Limitation: Finite sample bias due to imprecise estimates of CCPs in the first step.
+@page 38
+kef8a7b | Nested Pseudo Likelihood (NPL)
+k56ef94 | Imposes equilibrium restrictions but does NOT require:
+kd3fc01 | Repeatedly solving for MPE for each trial value of $\theta$ (as NFXP)
+kcb1696 | Computing $▽_P\Psi(⟦?⟧\theta,\mathrm{P}⟦?⟧)$ (as NFXP and MPEC)
+k3dd0ea | A NPL $(⟦?⟧\theta_{NPL},\mathrm{P}⟦?⟧_{NPL})$, that satisfy two conditions:
+k96af94 | given $\mathrm{P}⟦?⟧_{NPL}$, we have that: $⟦?⟧\theta_{NPL}=\mathrm{argmax}_{\theta}Q(\theta,\mathrm{P}⟦?⟧_{NPL})$
+kc5df79 | given $⟦?⟧\theta_{NPL}$, we have that: $\mathrm{P}⟦?⟧_{NPL}=\Psi(⟦?⟧\theta_{NPL},\mathrm{P}⟦?⟧_{NPL})$
+k430100 [3L] | The NPL estimator is consistent and asymptotically normal under the same regularity conditions as the MLE. For dynamic games, the NPL estimator has larger asymptotic variance than the MLE.
+@page 39
+k06b713 | An algorithm to compute the NPL is the ⟪NPL fixed point algorithm.⟫
+k96c9e8 | Starting with an initial $\mathrm{P}⟦?⟧_0$, at iteration $k\geq1$:
+kf53ac2 | ⟪(Step 1)⟫ given $\mathrm{P}⟦?⟧_{k-1},⟦?⟧\theta_k=\mathrm{argmax}_{\theta}Q(\theta,\mathrm{P}⟦?⟧_{k-1})$;
+kc91336 | ⟪(Step 2)⟫ given $⟦?⟧\theta_k,\mathrm{P}⟦?⟧_k=\Psi(⟦?⟧\theta_k,\mathrm{P}⟦?⟧_{k-1})$.
+k87b417 [2L] | A natural choice for the initial $\mathrm{P}⟦?⟧_0$ is a frequency estimator of CCPs using the data.
+k8e810e [2L] | Step 1 is very simple in most applications. It has the same comp. cost as obtaining the MLE in a static single-agent discrete choice model.
+kc75400 [2L] | Step 2 is equivalent to solving once a system of linear equations with the same dimension as **P.**
+k6e597c [3L] | A limitation of this fixed point algorithm is that ⟪convergence is not⟫ ⟪guaranteed.⟫ An alternative algorithm that has been used to compute NPL is a ⟪Spectral Residual algorithm.⟫
+@page 40
+k35d9eb | Algorithms to Compute the NPL Estimator
+k1b5527 [2L] | The NPL estimator can be described as a fixed point in the space of the vector of CCPs:
+k6a90d7 | where $\phi⟦?⟧\mathrm{P}⟦?⟧⟦?⟧$ is the ⟪NPL mapping:⟫
+kfb07ae | $\Psi(\mathrm{P},\theta)$ is the equilibrium mapping. $\theta⟦?⟧(\mathrm{P}⟦?⟧)$ is Pseudo MLE mapping.
+kfaf141 | We study 3 algorithms to compute the NPL estimator.
+k08fecd | Fixed point iterations in the NPL mapping $\phi$.
+k66fa80 | Newton’s method to solve system of equations **P $-\phi(\mathrm{P})=0$**
+kf3235e | Spectral residual method to solve system of equations **P $-\phi(\mathrm{P})=0$**
+k2f8a0d [2L] | does not guarantee convergence. (2) does, but it is impractical in most applications. (3) has advantages relative to (1) \&(2).
+@page 41
+kfbde18 | Fixed Point NPL Iterations
+k968737 | Let $\mathrm{P}^0\equiv\{\mathrm{P}_i^0$ : for any $i\}$ be arbitrary vector of CCPs.
+ke7a021 | At iteration $n$:
+k4a8396 | We check for convergence:
+kf44544 | if $⟦?⟧⟦?⟧\mathrm{P}^n-\mathrm{P}^{n-1}⟦?⟧⟦?⟧\leq\kappa$ then $\mathrm{P}^n$ and $\theta^n=\theta⟦?⟧(\mathrm{P}^{n-1})$ is the NPL
+k60de01 | if $⟦?⟧⟦?⟧\mathrm{P}^n-\mathrm{P}^{n-1}⟦?⟧⟦?⟧>\kappa$ then Proceed to iteration $n+1$
+k734bef | where $\kappa$ is a small positive constant, e.g., $\kappa=10^{-6}$.
+kf71a75 | **Convergence is NOT guaranteed.** ⟪This is a serious limitation.⟫
+@page 42
+k59969d | Newton’s Method
+k521da7 | Define the function f(P) $\equiv\mathrm{P}-\Psi⟦?⟧\mathrm{P},\theta⟦?⟧(\mathrm{P})⟦?⟧$.
+k48d5f2 | Finding the NPL estimator is equivalent to finding a zero (root) of $f$.
+k0e496e | We can use Newton’s method to find a root of $f$.
+kd701d7 | $(▽f(\mathrm{P})$ is the Jacobian matrix)
+k5b4344 | We check for convergence: $⟦?⟧⟦?⟧\mathrm{P}^n-\mathrm{P}^{n-1}⟦?⟧⟦?⟧\leq\kappa$
+k84adac | ⟪Convergence is guaranteed⟫ (to one of the multiple equilibria).
+@page 43
+kd8cb36 [2L] | The main computational cost of a Newton’s iteration comes from the computation of Jacobian matrix $▽f(\mathrm{P})$.
+k6fbf99 [2L] | There is not a closed-form expression for the derivatives in this matrix. And in this class of models, this matrix is not sparse.
+k014dba [4L] | This matrix is of dimension $N|\mathcal{A}||\mathcal{X}|\times N|\mathcal{A}||\mathcal{X}|$, and the computation of one single element in this matrix involves solving many single-agent dynamic programming problems, each of them with a complexity $O(|\mathcal{X}|^3)$.
+k1c2611 [2L] | In summary, Newton’s method is not practical in most empirical applications, in which $|\mathcal{X}|$ is greater than $10^5$.
+@page 44
+kd75f8a | Spectral Residual Method
+k9b05fe [2L] | It is a general method for solving high-dimension systems of nonlinear equations, f(P) = 0.
+kb081ea | It has two very attractive features:
+k015f95 | It is derivative free, and the cost of one iteration is equivalent to
+k7100ed | evaluation f(P) – the same cost as one fixed point iteration.
+kdb4180 | It converges to a solution under mild regularity conditions –
+kc3cf72 | similar good convergence properties to Newton’s.
+@page 45
+k04d8bf | Spectral methods propose the following updating rule/iteration:
+k61686d | where $\alpha_n$ is the spectral steplength, which is a scalar.
+k0ef419 [2L] | Different updating rules have been proposed in the literature. Barzilai and Borwein (1988) is commonly used:
+kc6a1cb [3L] | The intuition for the convergence of the Spectral Residual method is that the updating of $\alpha_n$ can guarantee the right direction to convergence.

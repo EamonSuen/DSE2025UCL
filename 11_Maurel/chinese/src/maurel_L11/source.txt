@@ -1,0 +1,335 @@
+# 11_Maurel/College_Learning_DSE_AM.pdf  (109 pages)
+# id | English (inline math is a rough reconstruction; check it)
+
+@page 1
+kecde73 | Learning and Dynamic Schooling Decisions
+k25803f | DSE Summer School
+k38974f | Arnaud Maurel
+k1a17d5 | Duke University, NBER and IZA
+kca9e36 | July 2, 2025
+kab1510 | Maurel (Duke)
+@page 2
+#= k2473e9 | Introduction  ⇒ 导论
+k315ab8 [2L] | Structural estimation of dynamic discrete choice models of schooling decisions started in the $90’\mathrm{s}$.
+k070fd6 [2L] | Builds on estimation methods for dynamic discrete programming models (Miller, 1984; Wolpin, 1984; Pakes, 1986; Rust, 1987...).
+ka5937f [2L] | Initial applications in labor focused on post-schooling decisions (e.g. labor supply, Eckstein and Wolpin, 1989).
+ka9fb55 [2L] | Keane and Wolpin (1997): dynamic life-cycle model of schooling, labor force participation and occupational decisions.
+@page 4
+kfd4de3 | Introduction (Cont’d)
+kd7da87 [2L] | Dynamic structural approach: consistent with Ben Porath’s dynamic human capital accumulation model.
+k137968 [2L] | Explicitly model human capital investment as resulting from an intertemporal optimization problem.
+k59c544 [2L] | At any given period $t$, forward-looking agents make the decision that maximizes their expected lifetime utility.
+k8c3407 [2L] | Typically assume that agents perfectly know their own characteristics.
+k9e023b [3L] | Today: relax this assumption, allowing agents to have imperfect information and learn about their own characteristics (e.g. ability/productivity).
+@page 7
+kf22d37 | Relevant literatures
+k9117a6 [4L] | **Schooling investments under imperfect information about ability:** Altonji (1993); Arcidiacono (2004); Stange (2012); Stinebrickner and Stinebrickner (2012, 2014), Thomas (2019); Proctor (2022); Larroucau and Rios (2022); Arcidiacono et al. (2025)...
+ka29db2 [3L] | **Occupational choice with learning:** Miller (1984); James (2012); Antonovics and Golan (2012); Papageorgiou (2014); Sanders (2014); Hincapi´e (2020); Pastorino (2024); de Paula et al. (2025)...
+k49b07f [2L] | **Dynamic learning models:** Erdem and Keane (1996); Crawford and Shum (2005); Ching et al. (2013); Aguirregabiria and Jeon (2020); Bunting et al.
+k212439 | We will now cover in detail Arcidiacono, Aucejo, Maurel and Ransom (JPE,
+@page 11
+#= kd6a061 | Motivation  ⇒ 动机
+k97d782 [2L] | Substantial returns to receiving a four-year college degree (Heckman et al., 2006, Goldin and Katz, 2008, Bound and Turner, 2011, Ashworth et al., 2021).
+k531b19 [2L] | Low bachelor’s completion rates: in the US, 40\% of the students entering four-year college do not earn a bachelor’s degree within six years (NCES,
+kc7fd8c [2L] | Imperfect information, and learning, likely to play a role in the decision to leave college.
+@page 13
+k188e9c | Motivation (Cont’d)
+k1ab7d9 | Learning can take place both in college and in the labor market.
+k37f3ff | Students often take breaks before completing their degree.
+k12adbf [2L] | In the NLSY97, 43\% of the individuals who left college before graduation returned to college at some point (stopouts).
+kfe8220 [2L] | Descriptive evidence suggests that learning about schooling ability and labor market productivity plays a role.
+k30669c [2L] | Those with negative GPA shocks more likely to leave college in the following period.
+k8f894b [2L] | Those with negative wage shocks more likely to come back to college in the following period.
+@page 15
+k0efc2e | Overview
+ke43037 [2L] | What are the extent of imperfect information on ability, and its impact on schooling/occupational choices \& school-to-work transitions?
+k447194 | Using the NLSY97, we estimate a dynamic model that allows:
+k6bf1d3 [2L] | Individuals to enroll or re-enroll in two or four-year colleges (Science/non-Science majors) in every period.
+kdb2685 | Work part-time, full-time, or not at all - potentially while in college.
+k892f12 [2L] | Two sectors: blue- and white-collar. White-collar jobs only available with probability $\lambda$.
+k81e545 | Learn about their ability through GPA and wages.
+@page 19
+k458b9e | Choice sets and expectations
+ka5d441 | Choice set before college graduation:
+k2392c7 | School: 2-year; 4-year science, 4-year non-science, none.
+kf91add [2L] | Work: i) Part-time, Full-time, none; and ii) blue-collar or white-collar job $(\mathrm{prob}.\lambda<1$ if haven’t worked in white-collar in $t-1)$.
+k7dbe70 | Home: reference alternative.
+k9f39ab | College graduates choose among the different work alternatives.
+k492dbb [2L] | Time is discrete, individuals choose the sequence of actions maximizing the present value of expected lifetime utility.
+k6ee129 | Expectation wrt. the distribution of:
+k5f1737 | Future idiosyncratic shocks;
+kb6f6cd | Ability signals associated with the alternative choice paths;
+k2655a2 | Aggregate labor market shocks;
+k1b49f7 | Receiving an offer in white-collar sector;
+kb9c21e | College graduation.
+@page 23
+k847ff4 | Information structure
+k84804d | Two main dimensions of unobserved heterogeneity:
+k8c9c86 [2L] | Individuals have imperfect information about their schooling ability and labor market productivity.
+k52403c [2L] | College: learn about their ability by observing their performance (GPA) at the end of the year.
+k03ffc3 [2L] | Gap between observed and expected GPA is an ability signal, which is used to update their belief in a Bayesian fashion.
+ka21d61 [2L] | Also provides some information about their ability in other types of colleges and majors, along with their productivity $\to$ correlated learning.
+kd6b467 | Same for wages.
+k2700a9 | Permanent unobserved (to the econometrician only) heterogeneity.
+kbf90fc [2L] | Throughout the analysis, maintain the assumption that agents have rational expectations.
+@page 29
+k53fc7d | Learning - notations
+k381f8e | Focus on the unknown portion of ability.
+kb1e052 | Ability is multidimensional, given by $A=(A_{i2},A_{i4s},A_{i4ns},A_{iw},A_{ib})'$.
+k97f9b5 [2L] | Denote $S_{it}$ as the vector of noisy signals the individual has received in period $t$.
+kcb87fa | Signals from grades, wages, or both.
+k57bafa | The prior ability mean is $E_{it}(A_i)$ where at $t$ = 1 expected ability is zero.
+k2d3f85 [2L] | Denote the prior variance $\Sigma_{it}(A_i)$ where at $t$ = 1 the prior variances is the population variance.
+kc996c8 [2L] | Denote $\mathrm{Ω}_{it}$ as a $5\times5$ matrix with 1 divided by the transitory variances on the diagonal for signals received and zeros everywhere else.
+@page 32
+k269c46 | Learning - updating
+kdf5f38 [2L] | Assuming ability and signals are normally distributed, $E_{it}(A_i)$ and $\Sigma_{it}(A_i)$ are updated according to (DeGroot, 1970):
+kddb8c6 [2L] | With additional signals, prior variance moves towards zero, giving more weight to the prior and less to the signal.
+k4ef7f6 | Unidimensional case: reduces down to the usual formula
+@page 34
+k7e15a1 | Grades
+kf24265 [3L] | Grades in two-year colleges and in the first two years of four-year colleges are given by, denoting by $\tau$ the period of college enrollment and $j$ the type of college/major :
+k8f9fee [2L] | where $X_{ij\tau}$ is known to the individual i (demographics, ability, work while in college), $A_{ij}$ is an unknown ability factor, and $\varepsilon_{ij\tau}$ is a noise distributed
+k80f5b9 | Noisy signal on ability $A_{ij}$ given by:
+@page 36
+kefac06 | Grades (Cont’d)
+kbadedd [2L] | Let $AI_{ij\tau}=\gamma_{0j}+X_{ij\tau}\gamma_{1j}+A_{ij}$ (academic index). For four-year colleges and periods $\tau>2$, grades are given by:
+k2d3b99 [2L] | Parsimonious location-scale specification that allows returns to ability to vary across periods of college enrollment and majors.
+k54af92 [2L] | Graduation probability: depends on demographics, observed ability, current ability beliefs, accumulated years of college and major.
+@page 39
+k060718 | Wages
+kefa285 | Wages in the white-collar sector:
+k0c3be1 | Wages in the blue-collar sector:
+k8c9bac [3L] | Productivity shocks $(\varepsilon_{iwt},\varepsilon_{ibt})$: normally distributed (with sector-specific variances), independent over time, across sectors, and of the other state variables.
+kdbc5f5 [2L] | Aggregate shocks: individuals form expectations over the $(\delta'_t)'_{t\geq t+1}$ assuming an AR(1) process.
+@page 42
+k8f8dab | Wages (Cont’d)
+k73fc72 | For in-school work, log-wages in sector $l$ given by:
+kdd7e70 | where $PI_{ilt}=\gamma_{0l}+X_{ilt}\gamma_{1l}+A_{il}$ (sector-l productivity index).
+ke35cae | Allow for noisier signals from in-school vs. out-of-school work.
+k273f5c [3L] | Controls: demographics, completed years of college (and major for white-collar wages), HS GPA, experiences in blue- and white-collar sectors, and work part-time.
+@page 44
+k0b8b22 | Flow utilities and consumption
+k2470b9 [2L] | Flow utility for a particular schooling $(j)$ /work (intensity $k$, sector $l)$ combination is:
+k3fe16c | where the $(\varepsilon_{ijklt})’\mathrm{s}$ are distributed i.i.d. Type 1 extreme value.
+kea046f | CRRA utility of consumption $(\theta$ set using grid search):
+k903c66 [2L] | Consumption depends on labor income, parental transfers, tuition fees and educational grants/loans.
+k869f1c [2L] | Decisions based on expected utility of consumption, as individuals don’t see their actual wages until after the choice is made.
+@page 47
+#= k47a106 | Consumption  ⇒ 消费
+#= k8fcd25 | with  ⇒ ，用
+kf1e0d0 | if working \& not in school \& $\mathrm{t}<T^*$
+k901945 | if working while in school \& $\mathrm{t}<T^*$
+kd315c0 | if in school \& not working \& $\mathrm{t}<T^*$
+k40315a | if working \& not in school \& $t\geq T^*$
+ka13be3 | if not in school \& not working
+k7ac680 [2L] | where $W_t$ denotes labor income, $PT_t$ parental transfers, $G_t$ educational grants, $L_t$ educational loans, $TF$ tuition and fees and $SLR_t$ loan repayment.
+k4b1578 [2L] | Consumption floor $C=$2,800$ (Hai and Heckman, 2017); assume loan repayment begins after $T^*$.
+@page 48
+k9daa7e | Flow utilities and consumption (Cont’d)
+kbf423f | State variables that transition over time are:
+k7dd2aa | Prior ability means and variances.
+kc1ee6b [2L] | Age, experiences, accumulated schooling and four-year college degree. Lagged decisions (switching costs).
+kf67fcc | Accumulated debt.
+kb1e642 | Aggregate shocks to the labor market.
+ka23e6a [2L] | Also allow for unobserved (to the econometrician only) heterogeneity in preferences.
+@page 50
+k1b9e10 | Value functions
+kb16bcd | The conditional value function is given by:
+k79bf38 [2L] | Given that the $\varepsilon’\mathrm{s}$ are i.i.d. Type 1 extreme value and white collar offers are uncertain
+k4ae9fa | ooo  «ooo»
+k3a5b27 | 5 0 1 bg  «$\exp (\mathrm{v}_{jkB}(\mathrm{Z}_{it11}))!!\mathrm{Z}_{it},\mathrm{d}_{it}5(\mathrm{j},\mathrm{k},\mathrm{l}),\mathrm{Offer}_{ilt11}$ 5 0 1 bg»
+k0343bb | oo  «oo»
+kc24f90 [2L] | Information set of the individual at the beginning of period $t$ includes the ability signals received from periods 1 to $t-1$.
+@page 51
+kd536e7 | Finite dependence
+kbaaa06 [2L] | We re-express the future payoffs to avoid solving the full backward recursion problem.
+ke2edc0 [2L] | This is key to the computational feasibility of estimation for this type of correlated learning model.
+k1ca14b [2L] | Conditional on the one-period-ahead state variables besides $\varepsilon$, the following equalities hold:
+kd51b99 | for any choice $\{j',k',l'\}$.
+kb498e1 [3L] | Allows to reformulate the estimation problem such that the differenced future utility term depends only on CCPs a few periods ahead and flow utilities.
+k0850c7 [3L] | Need to choose choice sequences, given two different initial choices, such that the same distribution of states results from both paths (finite dependence paths).
+@page 54
+k222de7 | Finite dependence (Cont’d)
+k2660ed [2L] | For alternatives (say, $a)$ that do not involve white-collar work, this is straightforward.
+kf8f1b5 | Consider the paths $\{a,home,home\}$ and $\{home,a,home\}$.
+kb3b6cc [2L] | One can check that both choice paths result in the same distribution of states, and hence the same expected future utility at $t+3$.
+k068309 [2L] | $v_a-v_{home}$ obtained as a function of the flow utilities and CCPs two periods ahead.
+k261a84 [2L] | For choices involving white-collar work, this requires more work since $\mathrm{prob}$. of receiving a white-collar offer $\lambda<1$.
+kb30326 [2L] | 2-period finite dependence still holds using a weighted choice sequence (weight above 1 on taking a white-collar job).
+@page 58
+ke6b1d1 | Data: NLSY97
+k697381 [2L] | The NLSY97 is a nationally representative sample of 8,984 Americans born between Jan 1, 1980 and Dec 31, 1984.
+k65709c [3L] | Respondents were first interviewed in 1997 and have continued to be interviewed annually (for a total of 17 Rounds as of 2016, which is the last point in our sample).
+k07534c [3L] | Restrict to males and drop individuals who did not complete high school or who were missing key variables such as AFQT, SAT, HS grades or parental education.
+k7e70b2 | 22,398 person-year observations containing 2,300 people.
+@page 60
+#= keb3f6e | Identification  ⇒ 识别
+kc66b88 [2L] | Key difficulty: tell apart heterogeneity (known by the agents) from uncertainty.
+k3213f6 [2L] | This paper: identification exploits a measurement system for the (known) heterogeneity components.
+kf14d74 [2L] | Three (binary) dimensions, 8 types in total: schooling ability, preferences and work motivation.
+kc72570 | Schooling ability: ASVAB, SAT scores.
+kb26e14 | Schooling preferences: School tardiness, discipline, took extra classes.
+kb8650b [2L] | Work motivation: self-assessment of work standard and work ethics, beliefs about future labor supply.
+k737bc9 | Measurements
+kd02ef4 [2L] | Use results from Allman et al. (2009) on finite mixture models with multiple measurements to identify the distribution of het. types.
+@page 64
+kafab40 | Identification (Cont’d)
+ke96e68 | Conditional on known heterogeneity, selection on observables only.
+k462b37 | Selection on ability based on ability beliefs.
+kf5bfef [2L] | Outcome equation parameters (grades and wages) identified via a control function argument.
+k58d53f [2L] | Cond. value functions and flow utilities: identified from the type-specific CCPs, using standard inversion results (Hotz and Miller, 1993).
+k4654ef [2L] | Choice probabilities conditional on obs. state variables and measurements: finite mixture of the type-specific CCPs.
+k95c117 | Key identifying assumption: measurements $\perp\perp$ choices $|$ het. types.
+@page 68
+k239777 | Beyond this application, general challenge for learning models in general.
+k14e907 [2L] | Bunting, Diegert and Maurel (2025) study identification of a general class of learning models.
+k3cc746 [2L] | Relative to Arcidiacono et al. (2025): (much) more flexible on the decision process, and does not rely on measurements for the latent factors.
+k31a434 [2L] | Normality maintained for the distribution of unknown heterogeneity and the signals, but distribution-free on the know heterogeneity component.
+ke4967f [2L] | Things are simpler in a “pure learning” (no known het.) environment, allowing for distribution-free identification.
+@page 71
+k024c08 | Estimation steps (pure learning case)
+k7547c8 | Consider first the case without (known) unobserved heterogeneity.
+kb8a692 [2L] | Step 1: Use the EM algorithm to estimate parameters of the wage and grade equations, along with the ability covariance matrix.
+kea1446 | Step 2 (Flow utility parameters):
+k5d1dd7 [2L] | Estimate reduced-form conditional choice probabilities (CCP) using flexible logits.
+k3deb09 [2L] | Use the CCPs and distributions of the signals to form expected future value terms.
+k9db6a6 [2L] | Estimate a multinomial logit with a pre-calculated adjustment term on the school/work choices (the future value term).
+k2d56de | $\to$ Estimation is very quick (few $\min $. only).
+@page 75
+kf9db8b | Step 1: Estimation of outcome and learning parameters
+k77ef0d [2L] | Use the EM algorithm (Dempster et al., 1977) applied to a case where unobserved heterogeneity is continuous.
+kd8df5f [2L] | Iterate, until convergence, between E(xpectation)- and M(aximization)-steps.
+kcd4cbd [3L] | **M-step:** taking as given the posterior ability distribution, maximize the expected complete log-likelihood of the outcomes (separable across sectors).
+kef4e90 [2L] | For grades (lower-classmen), boils down to OLS on obs. characteristics and expected ability.
+kc86aa8 [2L] | **E-step:** given the outcome parameters, update posterior ability distribution (mean and variance) using the previous Bayesian updating formulas.
+@page 79
+k6a97bc | Adding heterogeneity types
+k1e778d [2L] | Breaks down the separability between choice and outcome components of the likelihood.
+k7693e3 [2L] | Use an adaptation of the EM algorithm to reinstate the separability between the two stages at the maximization step.
+k13d433 | Two-stage estimation (Arcidiacono and Miller, 2011):
+k6516fd [2L] | EM estimation of the measurement system, unobserved heterogeneity distribution and CCPs.
+k2d9585 [2L] | Estimation of the learning and structural parameters, using as weights the posterior type probabilities.
+kc7a95b [2L] | Step 2: similar to the case w/o types, but now maximize instead the expectation of the type-specific log-likelihood.
+@page 81
+kbe2fed | Estimation results: parameters
+kbba489 | Takeaways:
+ka148d2 [2L] | Returns to college higher in the white-collar sector than in the blue-collar sector.
+kbcdaee | Same is true for majoring in STEM.
+kcc708e [2L] | Expected academic abilities significantly affect the utilities of the college options $\to$ cost of effort.
+k377d2c [2L] | Working in college lowers expected grades, and working full time makes college unattractive.
+k0f4654 | High switching costs associated with changing work or schooling options.
+k46e2c9 | College graduates have higher white-collar offer rates.
+@page 86
+kfe9981 | Abilities and learning
+k330836 | White-collar
+k14189a | Blue-collar
+ka1a77a | 4 yr Sci.
+kebc2fe | 4 yr Non-Sci.
+k384b51 | 2 yr  «2 yr»
+k0b8c54 [2L] | Correlation matrix White-collar
+k4ae03c [2L] | (Population) Variances Variances of Raw Outcomes
+@page 87
+k67868c | Abilities and learning (Cont’d)
+k3a9e14 [2L] | Students have a substantial amount of uncertainty about their own abilities by the end of high school.
+kdd0c92 | 1 std. increase in ability accounts for about half of a grade point.
+k94ddba | In the white-collar (blue-collar) sector: 36\% (27\%) increase in wages.
+ka38889 | Speed of learning heterogeneous across choice paths.
+k585fe9 [2L] | Wages are less informative when working while in college: signal-to-noise ratio 0.20 vs. 0.49.
+@page 91
+kd968de | Counterfactual simulations
+k904210 | We consider two counterfactual scenarios:
+k29f504 | Individuals have full information about their abilities in all sectors.
+k5e3a27 | + always possible to work in the white-collar sector.
+kbe50b7 | Requires solving the model, done backwards from retirement age $(T=65)$.
+k40214b [2L] | In both scenarios, agents are fully informed about their abilities $\to$ no need to integrate over the prior ability distribution to solve the DP problem.
+k6b94cb [2L] | Fairly high dimensional state space, kept tractable using simplifying assumptions.
+k02ae74 [3L] | In particular: no schooling decisions after 28, (data-driven) caps in school and work experience variables, discretized AR(1) aggregate labor market shock process...(see Appendix J for more details).
+@page 95
+k5b9d8e | Information and educational choices
+#= kf24b3a | Counterfactuals  ⇒ 反事实
+kf44e37 | Full info. \&
+k51a5a2 | Baseline Full info.
+k1a7a0c | no search
+kbae7d5 | Status
+k1d06a0 | model
+k1b05d6 | alone
+ke62726 | frictions
+k73e4d5 [5L] | Continuous completion (CC), Science Continuous completion (CC), Non-Science Stop out (SO) but graduated Science Stop out (SO) but graduated Non-Science Stop out (SO) then drop out
+k969137 | Truncated
+k4fc79e | Drop out (DO)
+kcf7bdd | Never went to college
+kc5492c | Graduate from 4-year college
+kd95068 | Ever Switch Major
+k6696b0 | Time to degree
+@page 96
+k9458d5 | Information and labor market outcomes
+k234e11 [2L] | Average full-time $\log $ wage, relative to blue-collar non-graduates in baseline
+kb34279 | Choice shares (\%)
+kf0a5ab | Sector and Education Level
+k4bbfa9 | Baseline Counterfactual No Frictions Cfl Baseline Counterfactual No Frictions Cfl
+kf9bcb4 [3L] | White collar, Science graduate White collar, Non-Science graduate White collar, Non-graduate
+ka1e8f7 | Blue collar, Science graduate
+kccb016 [3L] | Blue collar, Non-Science graduate Blue collar, Non-graduate Remainder
+@page 97
+k1e3085 | Concluding remarks
+ka918ee | Number of exciting research avenues ahead.
+kc9386b [2L] | Recent advances on the econometric front and on the data/measurement side allow to make progress on important questions.
+k8439b5 [3L] | Consumption value of schooling and preferences are key determinants of educational and occupational choices (Carneiro et al, 2003; Wiswall and Zafar, 2015; Arcidiacono et al, 2020).
+k2684bd | What is the role played by learning about preferences in schooling decisions?
+k80cc44 [2L] | Much of the literature assumes Rational Expectations and Bayesian updating.
+kcc5ad2 | More research needed to understand, in particular:
+k01238e | How agents form and update their beliefs.
+k32a1c2 [2L] | Incorporate departures from RE/Bayesian updating in dynamic models of schooling decisions.
+@page 102
+kda0995 | Grade shocks and college attrition
+k9a36b9 [2L] | Difference between actual and expected period-t grades (by $t$ + 1 period college decision):
+k6417a7 | Residual
+k97a227 | Std Dev
+k87b90a | Mean diff T (p-val)
+k1bd8d0 | Dropout from 4-year college \& science
+k333991 | Stay in school (any type)
+k3a3e2d | Dropout from 4-year college \& non-science
+kf36ca2 | Dropout from 2-year college
+@page 103
+ke27c35 | Wage shocks and college attrition
+k6cafc9 [2L] | Log-wage residuals at time $t$ conditional on $t$ + 1 decision and stopping-out at some point during the sample period:
+k262826 | Residual Std Dev Mean diff T (p-val)
+k4e4d59 | Stay in the labor force
+kdc035a | Return to school
+@page 104
+ke2f74a | Missing majors and GPAs
+k5483d3 | GPA and college majors are missing at a non-trivial rate.
+kf27b95 [3L] | We deal with this issue by treating the (first) instance of unobserved GPA or major as another latent variable. Simple extension of the previous procedure.
+k26faa4 [2L] | First stage: now also estimate the distribution of unobserved majors and GPAs (discretized into quartiles), conditional on each heterogeneity type.
+k59ea5d [2L] | Second stage: weighted multinomial logit, where the weights are given by $Pr(Type,Major,GPA|data)$ (instead of $Pr(Type|data))$.
+#= kb52b36 | Back  ⇒ 返回
+@page 106
+ka91f2a | Transitory variances
+k170a28 | Period
+kd96b2d | Skilled
+k0319c3 | Unskilled 4 yr Sci. 4 yr Non-Sci.
+@page 107
+k72367e | Schooling ability:
+kc36746 | ASVAB Arithmetic Reasoning
+kbce420 | ASVAB Coding Speed
+k3ae8cf | ASVAB Mathematical Knowledge
+k2e0da9 | ASVAB Numerical Operations
+k2476e0 | ASVAB Paragraph Comprehension
+ke7b204 | ASVAB Word Knowledge
+k490703 | SAT I Math
+k08b0b0 | SAT I Verbal
+@page 108
+kbddafa | Measurements (Cont’d)
+kb75bb2 | Schooling preferences:
+k1e0ab9 [2L] | Number of times the individual reported being late for school without excuse
+ke17549 [2L] | How strongly the individual agrees with the following statement: “When I was in school, I broke the rules regularly”
+kee5441 [2L] | How many hours per week the individual spent taking extra classes (such as music lessons, etc.)
+k59e3a0 [2L] | If the individual ever took classes during a school break (this could either be for remedial or accelerative reasons)
+k955d8d [2L] | If the individual took classes during break, the reason for doing so (e.g. “To accelerate, for fun, for enrichment” or “To make up classes”)
+@page 109
+ka3ae24 | Work motivation:
+kec83e2 [2L] | How strongly the individual agrees with the following statement: “I have high standards at work”
+ka25ed3 [2L] | How strongly the individual agrees with the following statement: “I make every effort to do what is expected of me”
+k658f5a [2L] | The individual’s subjective likelihood of working part- or full-time at age 30 (reported as a percent chance on a scale from 0-100)
+kf5a733 [2L] | The parent’s subjective likelihood of the individual working part- or full-time at age 30 (reported on the same scale as above)

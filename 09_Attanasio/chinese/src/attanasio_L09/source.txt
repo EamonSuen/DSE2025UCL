@@ -1,0 +1,1093 @@
+# 09_Attanasio/DSE-New-measurements.pdf  (235 pages)
+# id | English (inline math is a rough reconstruction; check it)
+
+@page 1
+k27d3ac | The Design and Use of New Measures
+kf5df6f | Orazio P. Attanasio
+kf91413 | Yale \& NBER
+ka156c5 | Expectations and Learning in Dynamic Structural Model
+k5fc0ec | Econometric Society Summer School in Dynamic Structural Econometrics
+kdff1ca | University College London -July $2^{nd}2025$
+@page 2
+#= k2473e9 | Introduction  ⇒ 导论
+#= kcdd629 | Outline  ⇒ 提纲
+k7a4968 [2L] | Measurement and Theory 2.1 What to measure and how
+k932cb6 | 2.2 Measurement Systems
+kc0ca90 | 2.3 Normalization and anchoring
+k9408db | 2.4 Strategies for measurement
+#= keb01bf | Examples  ⇒ 例子
+k06b6f1 | 3.1 Subjective Expectations
+k1f2049 | 3.2 Risk sharing and imperfect information
+k24588d | Attanasio, O.P.
+k2332d9 | New Measurament Tools
+k1d908a | DSE - July $2nd$ 2025
+@page 3
+k6e0264 [2L] | For many years, most economists thought that good empirical work can only be based on a limited set of measures.
+@page 4
+k568739 | The prevalent perception has been that:
+k5d20b4 | we can only credibly use measures of:
+kbcd57d | what people buy (or do);
+kb2fb9b | their resources;
+k05bd86 | prices.
+@page 5
+kbedb71 | ... and from these measures we could possibly infer:
+kd0e26c | preferences and other structural parameters;
+kcee547 | features of market structure.
+@page 6
+kc71787 | However, identifciation could only be achieved with strong assumptions on:
+ka77607 | tastes, beliefs, expectations, and information.
+@page 7
+k12181a [2L] | These strong assumptions were needed because ⟪preference and attitudes, beliefs⟫ ⟪and subjective expectations⟫ were largely perceived as unmeasurable.
+@page 8
+k31389d [2L] | ⟪Skepticism towards questions that pose⟫ hypothetical situations ⟪and evidence⟫ ⟪from⟫ stated rather than actual choices.
+@page 9
+kfd9b5b | There were good reasons for relying on a revealed preferences approach.
+@page 10
+k422210 | Measuring hypotheticals, preferences, attitudes is fret with many difficulties.
+kf82de2 | Framing effects and several biases;
+k987f22 | Debate on the use Contingent Valuation,
+k1c24e7 | Hausman (1994, 2012b,a).... from dubious to hopeless.
+@page 11
+k310d38 | What are we measuring? What are we modelling?
+kd5f3bf | Stigler and Becker (1977): “De Gustibus Non Est Disputandum”.
+k9ebc23 [3L] | “... tastes neither change capriciously nor differ importantly between people’. [...] one does not argue over tastes for the same reason that one does not argue over the Rocky Mountains - both are there, will be there next year, too, and are the same to all men.”
+@page 12
+k6f0b58 | The discussion of what to measure and how goes back a long time;
+@page 13
+k8e130b | Block and Marschak (1960) on RUM, cited by Caplin (2012);
+k950d31 [8L] | ‘’Our particular way of defining the class of basic observations and, correspondingly, of the directly testable conditions is to some extent arbitrary. Depending on the range of possible experiments and other observations, it may be preferable to defnie the class more narrowly [ .. ] [or] more broadly. Following the practice of psychologists, ⟪we might admit the ranking, by the subject, of three or⟫ ⟪more objects as an observable fact, although the subject observed action consists⟫ ⟪in this case of $a$ verbal statement. [..] We might even admit as observable the⟫ ⟪subject verbal statements of the relative intensity of his preferences”.⟫
+kaf8c25 | Stated preferences and conjoint analysis:
+kc3facf | Luce (1956, 1959); Luce and Tukey (1964); Luce and Suppes (1965).
+@page 14
+k92fd0e | Haavelmo (1958) presidential address is another important example:
+kb5908c [12L] | I think most of us feel that if we could use explicitly such variables as, e.g., what people think prices or incomes are going to be, or variables expressing what people think the effects of their actions are going to be, ⟪we would be able to establish relations that could be more accurate⟫ ⟪and have more explanatory value.⟫ But because the statistics on such variables are not very far developed, we do not take the formulation of theories in terms of these variables seriously enough. ⟪It is my belief⟫ ⟪that if we can develop more explicit and a priori convincing economic⟫ ⟪models in terms of these variables, which are realities in the minds of⟫ ⟪people even if they are not in the current statistical yearbooks, then⟫ ways and means can and will eventually be found to obtain actual measurements of such data.
+@page 15
+k25d8e0 [2L] | ... but the consensus went towards an almost exclusive revealed preference approach.
+@page 16
+k7a2aad | ... with the possible exception of experimental economics.
+k543f9f [2L] | Experimental economists have been trying a variety of different methods to measure ⟪preferences, beliefs and attitudes;⟫
+k2345eb | Lab work on various mechanisms to elicit primitives.
+@page 17
+k9cfcc4 | More recently experiments have been brought to the field and collected together
+ke08ee6 | with observational data to measure:
+k805a0a | preference for and attitudes towards redistribution and attitudes towards migrants;
+k15a5ac | bargaining and social preferences;
+k67b6a1 | reciprocity in confilct areas;
+k0dde08 | willingness to compete.
+#= k5d20d0 | References  ⇒ 参考文献
+@page 18
+k4e0770 | Things have been changing
+k309e92 | There are some interesting discussions about what we could and should
+k738c6d | measure:
+kfb7b29 [3L] | Contributions in the volume edited by Caplin and Schott (2008) and in particular the discussion between Gul and Pesendorfer for mindless economics v Camerer for mindful economics.
+k610769 | Several studies now use stated preferences to model consumption behavior;
+k1711bc [2L] | ... and recent innovations go beyond using stated (in addition to) revealed preferences.
+@page 19
+kc2e358 | Researchers have been moving away from models that imply full rationality:
+k7021c4 | Robustness;
+k1798ca | Non-rational beliefs;
+k2400d4 | Learning.
+@page 20
+kb529db | .... and some innovative work has been done in terms of measurement.
+k6d36a9 | Eliciting data on policy preferences;
+k19a40b | Eliciting data on information.
+@page 21
+k134230 | Measurement of subjective expectations.
+k354fba | Data on subjective expectations may allow avoiding strong assumptions.
+k764c74 | These data are being used to estimate models of:
+k270b76 | retirement choices;
+k973837 | education and occupation choices;
+k1880dc | income and earnings dynamics.
+k5fc761 | Measurement of beliefs and perceptions.
+k1e423f | Measurement of attitudes.
+@page 22
+kd946af [2L] | Answers to questions about choices and events in counterfactual situations make the identification of structural models of behavior easier.
+@page 23
+k6eb53d [2L] | I will start by briefly discussing some of the conceptual issues are stake: This discussion is largely based on Alm˚as, Attanasio, and Jervis (2024)
+kcd0d9b | What to measure and how:
+k327e1a | it should be informed by the economic models one works on.
+@page 24
+k8372b2 [2L] | I will start by briefly discussing some of the conceptual issues are stake: This discussion is largely based on Alm˚as et al. (2024)
+k1738b9 | It may be useful to go beyond standard concepts and attempt to measure:
+k4ff9b7 | Attitudes;
+k92ba7c | Subjective expectations;
+ka43a99 | Beliefs;
+k6d1267 | Choices in hypothetical situations: ⟪thought experiments⟫
+@page 25
+k9a738b [3L] | Such measures allow the empirical study of more complex models and ⟪might⟫ ⟪achieve identification⟫ of the structural parameters and the establishment of causal links ⟪under weaker sets of assumptions⟫ (see Heckman and Pinto (2023))
+@page 26
+kc0a0ab | Measurement systems and the importance of measurement error
+kf798bb | Measurement error is pervasive and important and should be recognized as such;
+k92739b [2L] | Augmenting the theoretical models we consider with a measurement system could be useful to the design of survey strategies.
+k9685ee | Methodological issues in using factor models as measurement systems:
+k347587 | Metric and anchoring;
+kdf1bca | Cardinality.
+@page 27
+k30f4bb | I will then provide some examples of measurement work and its use:
+kf1da8a | Subjective expectations and their use
+k869541 | Estimating flexible income processes in India and Colombia.
+@page 28
+k4d54f9 | The quality of information and risk sharing
+k3f36db | Quality of information in extended families networks in Tanzania.
+@page 29
+k72e433 | Parental investment and beliefs about the process of child development
+k74cf8b | A static model applied to Colombian data;
+k8cd187 | The adaptability of beliefs: learning in India.
+@page 30
+k4affb1 | Measurement and Theory
+@page 31
+kf074dc | What to measure and how
+@page 32
+k4304ab | Measurement and Theory: the issues at stake
+kb762b5 | Much of the material in this section is taken from Alm˚as et al. (2024)
+k080e5e | Economic models often use abstract constructs that are not directly observable.
+@page 33
+kc7a3a0 [2L] | The measures we collect and use in empirical work are (and should be) driven by the theoretical framework that organizes our thinking.
+@page 34
+kfb3447 | Examples:
+k789360 [3L] | The work by Keynes, Kutznets, Stone, and others and the development of National Accounts: Keynes (1936); Kuznets et al. (1937); Kuznets (1941); Gilbert et al. (1949); Stone (1984).
+ka62e8a [2L] | Demand systems and price indexes: Stone (1954); Christensen et al. (1975); Deaton and Muellbauer (1980).
+@page 35
+k80cffc | For many years, the prevalent practice among most economists was the almost
+kda7dc9 | exclusive use of choice data, or objectively measureble variables
+k4c3dc9 | Consumption, income, prices, even anthropomteric....
+k9795a3 [2L] | ... but not attitudes, choices in hypothetical situations, beliefs, subjective expectations
+@page 36
+kb72b82 | Interesting discussions in the $1950\mathrm{s}$:
+k8b1436 | Tobin (1959); Katona (1959) on buying intentions.
+@page 37
+k3afcc8 | Even at that time some researchers tried out and justified alternative measures;
+k8ebb75 | Juster (1966) on buying intentions and purchasing probabilities;
+k2c8465 | Katona’s work on the Michigan survey and consumer sentiment Katona (1974);
+k53f708 | Curtin (2016) provides a nice survey;
+k34f1b6 [2L] | Juster and Shay (1964) hypothetical car loans to estimate the elasticity to maturity and interest rates.
+@page 38
+ke810ea | Revealed preferences become the main approach in economics:
+k852e88 | Samuelson (1938, 1948); Arrow (1959)
+kefb236 [5L] | “I propose, therefore, that we start anew in direct attack upon the problem, dropping off the last vestiges of the utility analysis. This does not preclude the introduction of utility by any who may care to do so, nor will it contradict the results attained by use of related constructs. It is merely that the analysis can be carried on more directly and from a difefrent set of postulates”, Samuelson (1938).
+@page 39
+k3363b5 | Measurement and Theory: The issues at stake
+kb025ab [2L] | An approach based exclusively on choice data can be very restrictive, as it precludes the analysis of important phenomena and of a wide sets of models.
+@page 40
+k624710 | The use of such measurements should complement the use of choice data and
+k33f259 | such measures should be validated:
+k236283 | Samuelson (1938) ends his paper with:
+k0d56b6 [7L] | “In concluding this exposition, it may be well to sound a warning. Woe to any who deny any one of the three $\mathrm{postulates}^*$ here! For they are, of course, deducible as theorems from the conventional analysis. They are less restrictive than the usual set-up, and logically equivalent to the reformulation of Hicks and Allen. It is hoped however, that the orientation given here is more directly based upon those elements which must be taken as data by economic science, and is more meaningful in its formulation.”
+k536949 | ⟪*⟫ I. confronted with a given set of prices and with a given income, our idealised individual will
+kd4362c | always choose the same set of goods.
+k3fab7a | behaviour is independent of the units in which prices are expressed.
+k51e495 | In any two price and income situations and corresponding quantities of consumer’s goods
+k852677 | given by equations (1.0) the individual must always behave consistently in the sense that
+k505085 | (5.12) and (5.22) cannot hold simultaneously.
+@page 41
+ke58c45 | Manski (1990) argued that the issue is not ⟪what⟫ is being measured, but
+k63bd81 | the specific tools and questionnaires ⟪being used.⟫
+k96392e [2L] | In the same paper, Manski notices that intention data, while not used much by economists, are widely used in other disciplines.
+@page 42
+k2c49b7 | Beyond standard measures
+k9e8e0e | Limiting the set of admissable measures leads to strong assumptions are forced
+kb224c0 | on the empirical models that are estimated.
+k59b385 [2L] | The lack of data on ⟪subjective expectations⟫ often implies assuming ⟪rational expectations;⟫
+@page 43
+k578bd8 | The lack of data on ⟪subjective expectations⟫ often implies assuming
+k512c53 | rational expectations;
+k26174c [2L] | ⟪The lack of data on⟫ subjective beliefs about the returns to investment opportunities ⟪often implies assuming perfect knowledge of the relevant processes;⟫
+@page 44
+k7beb88 [2L] | ⟪The lack of data on the⟫ quality of information in networks or extended families ⟪often implies assuming complete information.⟫
+@page 45
+ka6947f [3L] | The use of data on subjective expectations and choices in counterfactual situations ⟪changes the nature of the residuals⟫ of the equations that are estimated and therefore the nature of identification.
+k3abfef [2L] | This is particularly relevant for the estimation of models with lagged dependent variables or selection.
+@page 46
+k7e81ee [2L] | One issue with measures that go beyond choices and objectively measured variables is that they might be difficult to obtain.
+k8604c9 [2L] | What we often have are ⟪markers⟫ related to the ⟪latent factors⟫ that populate the theoretical models we use.
+@page 47
+ka880cf | Data on:
+k2ef03a | Attitudes
+#= k538e99 | Beliefs  ⇒ 信念
+k3fb966 | Subjective expectations and counterfactuals
+k59a683 | need to be validated with choice data.
+@page 48
+k0079a2 | Measurement Systems
+@page 49
+k9f9280 | Measurement error and its modeling
+kfc93c1 [2L] | The best approach to the difficulties of designing and implementing new measurement tools is to recognise explicitely the presence of ⟪measurement error.⟫
+k81e892 | In the literature this is explicitly recognised with the construction of a
+k17a6b8 | ⟪measurement system,⟫ see the fundamental contribution of Cunha, Heckman,
+kab20c1 | and Schennach (2010) and Cunha and Heckman (2008).
+@page 50
+kff7656 | A ⟪Measurement System⟫ relates available measures to unobserved latent factors.
+@page 51
+ka2b847 | The constructions of a careful measurement system presents key challenges:
+k340692 | what is the nature of measurement error? is it uncorrelated across measures?
+@page 52
+ke3e485 | what is the metric of the unobserved latent factors?
+@page 53
+kccf89a | is it comparable across different contexts and different times?
+@page 54
+k17147a | do the latent factors have cardinality?
+@page 55
+kbd17ef [2L] | Some of these challenges can be tackled when designing questionnaires and their deployment.
+@page 56
+k4eaada | A Measurement System for Child Development
+k07102a | Suppose we are studying child development in the early years.
+kdf7eb6 | Suppose we assume that child development has three dimensions:
+k9822dd | Cognition and language;
+ke278d6 | Internalising Socio-emotional Skills;
+kecde53 | Externalising Socio-emotional Skills.
+@page 57
+k1a1602 | We can represent such a system as:
+k9af0b8 | $\theta_{i,t}^j$ is factor $j$ for individual $i$ at time $t$;
+ke56f06 | $m_{i,t}^{jk}$ is measure $k$ for factor $j$;
+k6de732 | $\epsilon_{i,t}^{jk}$ is an additive measurement error ;
+k5b3062 [2L] | $\alpha_t^{j,k}$ and $\beta_t^{j,k}$ are parameters representing the discriminating and saliency properties of a measurement item.
+@page 58
+#= k8b5939 | Assumptions  ⇒ 假设
+ka02fe3 | At least 2 measures $m_{i,t}^{jk}$ per factor are available;
+kb5f2a8 | Measurement errors are independent across at least two measures;
+@page 59
+k3f3ef8 [2L] | Although non-parametric identification might be possible with enough measures, assumptions about the distribution of the factors $\theta$ are typically used.
+@page 60
+kdd9dfb | In this example, each measure is determined by only one factor.
+k1ae037 | This is a dedicated system;
+kab64c4 | This assumption can be somewhat relaxed.
+@page 61
+k6699f2 | Existing measures and measurement systems
+kd231eb [2L] | ⟪A good measurement system could be interpreted as⟫ an effective way to aggregate and summarize the available measures ⟪and items.⟫
+@page 62
+kd10581 [2L] | This is analogous to the scoring algorithms that are often used in psychometrics, where a set of (often binary) variables are converted into a score.
+@page 63
+k79980a | Often available measures use pre-defined scoring algorithms.
+k7ee81e | Examples of child development measures:
+ka652fb [2L] | Bayley Scales of Infant Development; Woodcock Johnson; MacArthur-Bates Communicative Development Inventories (MB-CDIs).
+ke903a1 [2L] | These scoring algorithms were constructed calibrating on obsolete samples and/or are over-simplifeid.
+@page 64
+k0d115e | Using predefined scoring algorithms in all contexts is not necessary and can be
+k8e2567 | very misleading and inefficient.
+k329616 | Different measurement systems and scoring algorithms should be used.
+k40b466 | adapting to the context and the nature of the items (continuous, discrete, binary).
+@page 65
+k7db85b [3L] | Estimating an explicit measurement system from the individual available items also allows felxibility about functional form assumptions on the distribution of latent factors.
+@page 66
+k662f27 | Normalization and anchoring
+@page 67
+k64aca2 | Scaling: the importance of anchoring
+k66b7e2 | We need to fix the metric for the unobserved factors:
+k55446b | Normalise at least one of $\alpha’\mathrm{s}$ and one of the $\beta’\mathrm{s}$ per factor;
+k4dd5f9 | Normalise the mean and variance of the $\theta$.
+@page 68
+k99e036 | These normalisations define the scale and location of the unobservable factors;
+k7593d9 | e.g child development: height at 2 or wages at 22?
+@page 69
+k91922f | The metric used to evaluate the unobserved latent factors is important:
+kac6b10 | Comparability across different contexts;
+k45e72d [2L] | e.g. in measuring child development, comparing across different ages and measuring growth;
+kdafdc3 | Evaluating the size of the impact achieved by certain interventions.
+@page 70
+k724edc | Some of the normalisations are not innocuous:
+kaedb35 | Normalising $\beta_t^{jk}=1,\forall t$ for a specific measure $k$ is a very strong assumption.
+k325588 | Analogous considerations apply for the $\alpha’\mathrm{s}$.
+kb85d97 | Agostinelli and Wiswall (2016) have some interesting work on this.
+k8bdf04 [2L] | The lack of longitudinal data covering long periods with the same measure is an additional problem.
+@page 71
+k41ab0f | Issues when different items are available over different ages or different cohorts.
+k5a78a3 | Link adjacent ages with similar items to establish bridges over the entire life cycle,
+kd393ef | Attanasio et al. (2020) look at child development from age 6 to 72 months.
+@page 72
+kd0ed3c | This problem is common to many data sets.
+@page 73
+k144feb | Cognitive Skills in the UK Millenium Cohort Study
+kc0893a | The MCS is one of the best cohort studies and follows children born in 2000.
+k7f93ec [2L] | We have several measures of development in different dimensions: cognition, internalising and externalising skills and more.
+@page 74
+k62b6bb | Children are observed at birth and ages 3, 5, 7, 11, 14 and 17.
+@page 75
+k0279c0 | Cognitive Skills in the MCS
+k64e7c9 | Age 9 months
+kf8ae11 [2L] | Denver Developmental Screening Test and MacArthur Communication Development Inventory
+kaed0af | Age 3
+k38d9c5 [2L] | Bracken Basic Concepts subscales (colours, etc) and British Ability Scales ⟪(BAS) Naming Vocabulary⟫
+ke2574a | Age 5
+k9be53c [2L] | ⟪BAS Naming Vocabulary, Pattern Construction,⟫ and Picture Similarities scales
+ka70dd6 | Age 7
+kde730f [2L] | ⟪BAS Pattern Construction,⟫ Word Reading scales, and NFER Number Skills
+k9967f7 | Age 11
+k83f06c [2L] | BAS Verbal Similarities scale, ⟪Cambridge Gambling Task,⟫ and Spatial Working Memory
+k58944e | Age 14
+ke11b82 [2L] | ⟪Cambridge Gambling Task⟫ and Applied Psychology Unit Vocabulary test
+k15092e | Age 17
+k7d709f | Number Analogies activity and GCSE grades by subject
+@page 76
+k8d7fe3 | Strategies for measurement
+@page 77
+k9e48b4 | Data collection strategies
+kc65b77 [2L] | Specifying precisely the measurement system and the assumptions that will be required to use the available measures can inform the way data are collected.
+@page 78
+kb46112 | One can design survey methods to ensure that crucial assumptions hold.
+@page 79
+kbe7d19 | E.g. independence of measurement errors of different items is a key assumption.
+k18483c | This assumption can be insured by appropriate survey features:
+k9e6e21 | randomise evaluators assignment for different measures;
+k67500d | timing of data collection.
+@page 80
+kb4bcf6 | More generally, the economic model one uses should dictate and direct:
+k16ac95 | the type of measures collected;
+k9b2c88 | how they are collected.
+@page 82
+kb5caaf | Subjective Expectations
+@page 83
+kceff92 | The design and use of subjective expectations data
+k4053bb | My first example is about measures of subjective expectations.
+k4dad57 [2L] | This is based on work I have done with Manolo Arellano, Sam Crossman and Victor Sancibrian: Arellano, Attanasio, Crossman, and Sancibri´an (2024)
+@page 84
+kf1bd15 [2L] | This is based on work I have done with Manolo Arellano, Sam Crossman and Victor Sancibrian: Arellano et al. (2024)
+k9c7b57 [2L] | Data on subjective expectations have become relatively common, following the path-breaking work of Manski (2004) and collaborators.
+k14651a [2L] | It is now established that well designed questionnaires can be used to elicit the probability distribution of future uncertain variables.
+kd52263 [2L] | $\to$ it is possible to go beyond point expectations and obtain subjective probability distributions or subjective CDFs.
+@page 85
+kf81808 | It is also possible to elicit conditional expectations of future events.
+k0031bc | The NYFed data are a good example:
+k32898a | Expectations of receiving an offer... and
+k14b59f | Expectations of best offer conditional on receiving an offer;
+@page 86
+kcdbc2a [2L] | It is then possible to use these data to estimate complex models of individual behavior.
+@page 87
+kfae3c3 | However, some important challenges are still present, even for variables such as
+ke74537 | income:
+ke74d35 | Anchoring: elicited or current income?
+@page 88
+k5fe9bf | Unit of observation: individual or household?
+@page 89
+k8687c8 | If several individuals within the household: joint or marginals?
+@page 90
+k439c83 | The use of subjective expectations data
+k50a56f | A first use of the data is in the validation of the question obtained.
+k54908c [2L] | This can be done by relating the answers to observable variables including actual realizations of the variables.
+@page 91
+k3679ea | It is also possible to devise questions that embed consistency tests.
+@page 92
+k2ebf2f [2L] | The existing evidence is that it is possible to obtain consistent and meaningful answers if questions posed properly.
+@page 93
+k8cce67 | The ‘right’ way to ask questions may be context specific.
+kd2930e | Some preliminary questions can serve as ‘training’ of the respondents.
+@page 94
+k84bb16 | Using subjective expectations data
+kd8a514 [2L] | Once the data are available, they constitute an important opportunity to estimate more flexible models.
+k491f2f [2L] | From an econometric point of view, they can provide identification of simple and complex models under much weaker conditions.
+@page 95
+k9e7338 [2L] | The additional information comes from the fact that future and current variables are different objects, changing the nature of the residuals.
+@page 96
+kcf57a4 [2L] | This same logic applies when questions about conditional expectations are available.
+@page 97
+k69a961 [2L] | I will provide an example on a simple model of household income taken from some recent work from Arellano et al. (2024)
+@page 98
+ke958a9 | Data - India and Colombia
+k7fa439 [2L] | For both India and Colombia, we use data on total household income expectations for poor households.
+k10c94a [2L] | For India, we use data collected for the evaluation of a microfinance intervention (loans for cow or buffalo) in Andhra Pradesh.
+@page 99
+ka3f52a [2L] | Two waves of data (collected in Jan/Feb 2008, April/June 2009); 774 households in 65 villages in the balanced panel.
+@page 100
+k4f826c [2L] | Attanasio \& Augsburg (2016) confirm the soundness of responses to the income expectations module.
+@page 101
+k957a3f [2L] | The income expectations questions refer to total household income $a$ year from now.
+@page 102
+ke7c50f [2L] | For Colombia, we use data collected for the evaluation of a conditional cash transfer (CCT) programme in Colombia (Familias en Acci´on).
+k30ded0 | Households in SISBEN 1 (the lowest socioeconomic classification).
+k4292a6 [2L] | We use two waves collected in July/Nov.2003, Nov.2005/Mar.2006; 2,230 households in the balanced panel.
+@page 103
+k93d27a | Income expectations refer to total household income next month.
+@page 104
+k7c947d | Eliciting expectations
+k5373f0 [2L] | In each wave of the surveys, subjective expectations about future income were elicited.
+k52c4cc [2L] | First by asking the $\max .\&\min $. possible income the household might earn over the next period.
+k873967 | Then 3 probabilities are elicited using a ruler, $\pi_A,\pi_B,\pi_C$
+k9ec81a | (as in Dominitz \& Manski 1997 and others):
+k023a4d | Min.
+kea17cf | Max.
+k2924a0 | $A=0.75*$ Min. $+0.25*$ Max.; $B=0.5*(Min+Max.)$;
+kf284ea | $C=0.25*$ Min. $+0.75*$ Max.;
+@page 105
+#= ke5e429 | Data  ⇒ 数据
+k22e84c | Similar methods were used in India and Colombia.
+k3699dd [2L] | The main difference is that the expectations of future income refers to next month in Colombia and next year in India.
+keba7b2 | In both cases these are very poor households.
+kf9160c | Density  «rotated»
+k899c3f | India, first wave
+k5e1bd9 [3L] | India, second wave Colombia, first wave Colombia, second wave
+k31036a | Total household income, annual, 2010 USD PPP
+k56faa0 [2L] | Note. The Figure shows the distribution of total household income in the two study populations, in 2010 PPP USD. Monthly income in Colombia is annualized for comparability.
+k3dbea1 | ⟪Figure:⟫ Household income across study populations.
+@page 106
+k0624b7 | Validation : India
+k5a7750 [2L] | To check whether the subjective expectations make sense we plot the subjective mean against actual income.
+k2ed946 | ⟪Figure:⟫ India: current income and reported midpoint
+k73dd30 | Round 1
+k4425c2 | Round 2
+k850aee | Elicited midpoint (in logs)  «rotated»
+k073b58 | Current income (in logs)
+k0760f0 | Correlation:
+k3212e7 | Note. The solid black corresponds to the linear regression fit.
+@page 107
+kc8a810 | Validation : Colombia
+ka4da13 | ⟪Figure:⟫ Colombia: current income and reported midpoint
+@page 108
+kc74f09 | Modeling approach
+ke40567 [2L] | Subjective expectations data give us information on perceived conditional cdf which we match to the parameters of a structural model.
+@page 109
+kac1485 [2L] | A household’s subjective probability distribution of $(\log )$ future income $y_{i,t+1}$ is $F_{it}(r)=\Pr ⟦?⟧y_{i,t+1}<r|I_{it}⟦?⟧;I_{it}$ is the information available to household $i$ at $t$.
+@page 110
+kf18172 | The survey elicitation process yields ⟪noisy measurements $p_{jit}$ of $F_{it}⟦?⟧r_{jit}⟦?⟧$⟫ for
+@page 111
+k88d61f [3L] | The survey elicitation process yields ⟪noisy measurements $p_{jit}$ of $F_{it}⟦?⟧r_{jit}⟦?⟧$⟫ for $r_{jit}=r_{it}^{min}+⟦?⟧r_{it}^{max}-r_{it}^{min}⟦?⟧j/4(j=1,2,3)$ or of the subjective cumulative odds $\ell_{jit}^*=logit⟦?⟧F_{it}⟦?⟧r_{jit}⟦?⟧⟦?⟧$, where $logit(p)=\ln [p/(1-p)]$.
+@page 112
+k163c2c | We only observe 3 points of $F_{it}$ for each unit, but many across units.
+kd2e44b | We assume (plausibility) that elicitation errors are additive:
+kffa4dd [2L] | where $\ell_{jit}=logit⟦?⟧p_{jit}⟦?⟧$ are the observed cumulative odds and $\varepsilon_{jit}$ is an elicitation measurement error independent of $I_{it}$.
+kacc7f0 | The set $I_{it}$ consists of time-varying and time-invariant characteristics.
+k15b568 | The time varying variables include observable current income $y_{it}$ and indicators
+k04c833 | DSE - July  «DSE - July $2nd$ 2025»
+k004be8 | 2025  «DSE - July $2nd$ 2025»
+k9a3d14 | f th  «f th»
+kfa6af6 | th  «th»
+k99e48d | i th  «i th»
+@page 113
+k5d3f24 | Information set: time invariant variables
+kf718bd [2L] | We adopt a latent variable approach assuming that time-invariant characteristics are captured by an unobservable individual effect $\alpha_i$.
+@page 114
+k43ccdb [2L] | This effect is intended to capture both household-level characteristics and geographical (e.g. village level) characteristics.
+@page 115
+k479356 | Therefore, our models take the form
+k1ac59f | where $g$ is a nondecreasing function in its first argument.
+@page 116
+k48fa8c | We note that the individual effect $\alpha_i$ may be correlated with $⟦?⟧r_{jit},y_{i,t},x_{i,t}⟦?⟧$.
+@page 117
+k1528e9 | Linear model
+k20de16 [2L] | We first consider a linear autoregressive model with logistic shocks (ignoring $x_{i,t}$ for notational simplicity):
+kceb2ee | $v_{i,t+1}\sim$ Logistic independent of $⟦?⟧y_{i,t},\alpha_i⟦?⟧$.
+@page 118
+k0ba6e4 | The corresponding conditional cdf is:
+@page 119
+k0ec019 | Therefore, in this case $g$ is linear:
+k200f60 | where $\beta_0=1/\sigma,\beta_1=-\rho/\sigma$ and $\eta_i=-\alpha_i/\sigma$.
+@page 120
+ke62eee | Linear model: Using subjective expectation vs observed income
+k510307 [3L] | This is a linear panel model with fixed effects and strictly exogenous regressors that can be consistently estimated by within-groups to produced unbiased estimates.
+@page 121
+k0b5bd4 | Despite superficial similarities there are profound differences between the two
+k84a9cf | approaches.
+kf3c054 | ⟪1⟫ An AR(1) model without fixed effects can be estimated on a single cross-section,
+keb0651 | with subjective expectations., Two waves are needed for fixed effects.
+kabb40a | ⟪2⟫ Estimation of subjective expectation models does not suffer from Nickell bias.
+k626b39 [2L] | The reason is that outcomes are not future incomes but points in the predictive distribution;
+k73a483 [2L] | Therefore the error term does not contain future shocks but only measurement error in predictive probabilities.
+@page 122
+k8655d3 | ⟪3⟫ The subjective expectation approach does not force households to have rational
+kac5a57 | expectations in the sense of optimal statistical forecasts.
+@page 123
+k47b3cc | Non linear models
+ka7cb11 [2L] | This model can be generalised to include non linearities and interactions with observables.
+k7cc6e8 [2L] | In the paper we consider a version of the Arellano Blundell and Bonhomme (2017) model:
+@page 124
+k4a9449 | A similar approach can be used in estimation.
+@page 125
+k641346 [2L] | Given the nonlinearity, the model properties will vary with the current income realisation, the quantile of the shocks and the distribution of fixed effects.
+k4de0c4 | We report:
+k73aff7 | Interquartile ranges;
+k785f66 | The Bowley-Kelley measure of skewness for different quantiles;
+k03d00d | The ABB measure of persistence:
+@page 126
+kfaa5a5 | Results: linear model
+kfb4aa9 | Models with or without fixed effects
+ke7abe8 [2L] | When the model includes household fixed effects, we also report how much of this variation is explained by village effects
+@page 127
+kf7f9dd | Indian data
+k7d8c9c [2L] | Measured persistence by $\rho$ is around unity without fixed effects and 0.94 when fixed effects are included.
+ka93ab6 [2L] | The inclusion of fixed effects absorbs quite a bit of the variability in the estimated $\sigma$.
+@page 128
+ka39620 | India: linear $AR(1)$: with and without fixed effects
+ka7577e | No FE
+ke3c5f7 | FE  «FE»
+k8ff086 | IQR0.75
+k2333ac | IQR0.90
+k58148f | $\sigma2\eta$ village
+k85ee57 | Note. $n=2230\times6;95\%$ block bootstrap CI
+@page 129
+k556319 | Colombian data
+ke9d588 [2L] | Estimated $\rho$ is close to unity without fixed effects, but the estimates are halved when fixed effects are included.
+@page 130
+k4dd65a | Colombia: linear $AR(1)$ with and without fixed effects
+@page 131
+k73b1c4 | India: linear model with observable controls
+kf3420c [2L] | We first generalise the model adding controls on the sources of income and shocks.
+keeb093 | $\leq2$ sources
+kba0194 | 3 sources
+kf8448c | $4+$ sources
+k5c5f02 | No shock
+k3703cd | Health
+kb444dd | Agricultural
+k6e6a6f | Other
+k9137aa | Note. n parenthesis we report 90\% block bootstrap CI (1000 repetitions).
+k0424f6 | Table  «Table $\mathrm{I}^A\mathrm{n}^t\mathrm{d}^{ta}\mathrm{i}^{nasi}—^{o,O.}\mathrm{l}^P\mathrm{i}^.\mathrm{near}$ model augmented with household charac eris ics (shocks and income $^{50/110}$»
+k1046a9 | model augmented with household charac eris ics (shocks and income  «Table $\mathrm{I}^A\mathrm{n}^t\mathrm{d}^{ta}\mathrm{i}^{nasi}—^{o,O.}\mathrm{l}^P\mathrm{i}^.\mathrm{near}$ model augmented with household charac eris ics (shocks and income $^{50/110}$»
+@page 132
+k6d290d | 0\% farm
+k7acadb | 50\% farm
+kace4dc | 75\% farm
+k785998 | ⟪Table:⟫ India — linear model augmented with household characteristics (shocks and income
+@page 133
+kbef341 | Colombia: linear model with observable controls
+kb68424 | 1 earner
+k63b5b4 | 2 earners
+k6746f7 | 3+ earners
+k82c510 | 0\% regular
+k4d0e30 | 75\% regular
+k638e73 | 100\% regular
+@page 135
+k122c2e | Results on non-linear models: Colombia
+kcaa69a [2L] | In the Colombian data introducing observables does matter for deviations from linearity.
+@page 136
+kb9a5e8 [2L] | High persistence is concentrated among households with 3+ earners with low income and negative shocks.
+@page 137
+k32915f [2L] | As in India, we observe skewness decreasing with income (ABB-like), but with values in the positive range.
+@page 138
+k3fb388 [2L] | The linear AR(1) model is not as strongly rejected on the Colombian data as it was for India, but it can still be rejected.
+@page 139
+k018027 | Results on non-linear models: India
+k44c8aa | We now consider a non-linear flexible model with additive fixed effects:
+kf9ae44 | Note. In parenthesis we report 90\% block bootstrap CI (1000 repetitions).
+k1525b8 | xible model (add  «xible model (add»
+@page 140
+k2ddf98 | Density at different levels of current income
+@page 141
+k5079de | Persistence in India at different quantiles and at different current income
+@page 142
+k094273 | lexible model (a  «lexible model (a»
+kd4f506 | ix  «ix»
+ke41926 | cts)  «cts)»
+@page 143
+k5177e7 | Density in Colombia at different level of current income
+kd392c6 | Note. The figure reports estimates of nonlinear persistence for Colombia for the flexible model with
+k313a3d | additive fixed effects in (??) Specifications also include year (survey round) dummies See Figure  «additive fixed effects in (??) Specifications also include year (survey round) dummies See Figure»
+@page 144
+kc12131 | Persistence in Colombia at different quantiles and at different current income
+@page 145
+k112069 | Risk sharing and imperfect information
+@page 146
+k7deced | Information frictions in extended families in Tanzania
+k9ef37f | The third example is about a novel **measure of information quality.**
+kef5673 | This material is based on Attanasio and Krutikova (2020)
+@page 147
+ke2a969 | Information issues have received a considerable amount of attention in different
+k14700e | contexts
+k74a79c | contract theory;
+k813771 | financial markets;
+kb25d20 | insurance.
+@page 148
+k4192a9 | In the context we study the focus is on’imperfect’ insurance of idiosyncratic risk.
+@page 149
+kb04e66 | I will therefore :
+kf96e56 | Present a data set with information on extended families in Tanzania;
+k5d3592 | Propose a measure of information asymmetry.
+@page 150
+k6a2cf2 | Sketch a model of the effect of the specific friction we consider on risk sharing.
+@page 151
+kd55fad | Relate information asymmetry to risk sharing and vulnerability to shocks.
+@page 152
+keac5e1 [2L] | Consider a new measure of network centrality constructed from the information quality measure and relate it to risk sharing and vulnerability to shocks.
+@page 153
+k9f9219 | The Tanzania KHDS data
+k895de9 [2L] | We use the Kagera Health and Development Survey (KHDS) - a unique longitudinal data set from Tanzania.
+k4bef86 [2L] | Kagera is a relatively isolated region, far from the capital, where agriculture remains main source of income
+@page 154
+k7969ba | Study follows individuals from baseline (1991-1994 wave) sample of 915
+k1e2d9f | households from 51 communities in Kagera region for 20 years
+k59c0d9 | Wave 1991-94 (4 rounds)
+k0c3266 | Wave 2004
+kc6dc07 | Wave 2010
+@page 155
+k8c6a77 | Very rich and high quality data collected, including:
+k9c9c27 | Demographics;
+k1252c8 | Consumption;
+k4a5b3f | Income (including transfers) and wealth;
+k9b3779 | Reciprocal information on wealth indicators.
+ke8991d [2L] | Exceptionally low attrition due to huge tracking effort - 2010 sample includes at least one individual from 92\% of baseline households
+@page 156
+k09e096 | ⟪Figure:⟫ Sample 1991-1994
+@page 157
+k558996 | ⟪Figure:⟫ Sample 2004
+@page 158
+k8bab22 | ⟪Figure:⟫ Sample 2010
+@page 159
+k58fabf | Sample
+kc2beae | ⟪Table:⟫ KHDS Sample
+kec7b59 | Round
+kfc5d4b | HH  «HH»
+k4f36eb | Ext HH
+k941f1f | HH per Ex
+ka487ec | Mean dist w/in HH
+kc3e3cd | 74.74km (152.15)  «74.74km (152.15)»
+k5c117d | 137.96km (185.63)  «137.96km (185.63)»
+@page 160
+k4c6a93 | Wealth information
+ke6629e [2L] | All individuals within an extended family are asked a number of questions about the ownership of a variety of assets.
+kb7f314 [2L] | We are interested in questions about asset ownership of those individuals as a measure of their wealth and income.
+@page 161
+k6a751a | Each household member is asked whether they own:
+kfcda54 | house;
+kcae393 | land;
+kcf860b | oxen/bulls, dairy cows, non-dairy cows, other big livestock;
+k470ffc | phone (mobile or landline);
+k12f82a | video-equipment, TV, camera;
+k43ce59 | Car, motorbike, other vehicle
+@page 162
+kd315ae | Information on asset holding by other extended household members.
+k4457df [2L] | All individuals within an extended family are also asked the same questions about the asset ownership by all other household members.
+k8c659b | It is therefore possible to compare:
+k284d58 | actual asset ownership (as reported in the questionnaire)
+k43a90e | asset ownership as reported by all oher household members.
+@page 163
+kddf433 | This information can be used to construct measures of asymmetric information.
+@page 164
+k03f3d1 | Measuring asymmetric information
+ke0c113 [2L] | We judge the amount and quality of information among two individuals looking at the quality of information about assets.
+@page 165
+k3e2b93 [2L] | The assumption is that discrepancies and imprecisions about asset ownership information reflect information about income flows and shocks.
+@page 166
+k8b9cc4 [2L] | We use the available information on asset ownership to construct a ‘wealth’ index using an IRT model.
+@page 167
+k6d3be6 | This delivers, for each individual $j$ belonging to household $h,\hat{\theta}_j^{jh}=\mathrm{ˆ}f(\mathrm{X}_j^{jh})$
+#= k46148c | where  ⇒ 其中
+kde7427 | the function $\mathrm{ˆ}f()$ is estimated from an IRT on asset ownership data
+k603215 [2L] | $\mathrm{X}_j^{jh}$ is the vector of ownership of different assets referring to individual $j$ as declared by $j$ themselves.
+@page 168
+ke486f2 | Asymmetric information
+k6228fb [2L] | Each household member is asked the same ownership questions about other household members;
+@page 169
+k0b6ce0 [2L] | Using parameters from ”true” model (i.e. own assets) we construct an index for reported asset ownership.
+@page 170
+ke4fe12 [2L] | $\hat{\theta}_j^{kh}=\mathrm{ˆ}f(\mathrm{X}_j^{kh})$ is the wealth index for individual $j$ as perceived by individual $k$ in household $h$.
+@page 171
+k11c034 | Distribution of wealth index from asset ownership
+k93f478 | ⟪Figure:⟫ Kdensity of ”true” asset ownership $\theta$
+@page 172
+k24a93e | Distribution of ’true’ and ’perceived wealth index
+kbc3fb3 | ⟪Figure:⟫ Kdensity of ”true” \& ”reported” asset ownership $\theta)$
+@page 173
+k78c540 [4L] | Asymmetric information between $j$ and $k$ belonging to extended household $g$ is approximated by the difference between the wealth indicator of individual $j$ as estimated using own report and that estimated from the report of individual $k$ about j’s asset ownership.
+@page 174
+kd165db | In particular we consider 3 different measures:
+@page 175
+k569a3f | For each of these measures, we construct an index that varies between 0 and 1:
+@page 176
+kd8e565 | Properties of our measure of asymmetric information
+#= k51cda5 | Mean  ⇒ 均值
+kcfe86a | SD  «SD»
+ke61ba4 | Quality of information by distance btw households
+k4cb291 | (0.4km)  «$\mathrm{Q}1$ (0.4km)»
+kc32c42 | (4.2km)  «$\mathrm{Q}2$ (4.2km)»
+kb1d2fe | (17.2km)  «$\mathrm{Q}3$ (17.2km)»
+k637ca1 | (81.6km)  «$\mathrm{Q}4$ (81.6km)»
+k525161 | (613.5km)  «$\mathrm{Q}5$ (613.5km)»
+@page 177
+k787c7c [2L] | Quality of information by last time households spoke Less Than A Month Ago
+kd30dcd | Less Than A Year Ago
+kd728a3 | Less Than 2 Years Ago
+k044c4c | Less Than 5 Years Ago
+kd05a93 | More Than 5 Years Ago
+kc52549 | Don’t Remember
+@page 178
+k6b3802 | Network structures and position in the network
+kb6986b [2L] | Given that we are studying networks, we can consider the structure of the network and the position of each member in the network.
+@page 179
+kf7c16b [2L] | We consider each pair of individual members and determine if a meaningful relation exists between them using the data on the quality of information.
+@page 180
+k43cd10 | Typically, in network analysis ‘adjacency matrixes’ are made of 0 and 1
+k6b20e6 | indicating whether two individuals know each other.
+kb97f9e | $\alpha_{ij}=1$ if individual $i$ knows individual $j$.
+@page 181
+k0e8ec5 | Such matrices are then used to compute various properties of networks.
+@page 182
+k6914b7 | In our analysis we construct adjacency matrices with $\alpha_{ij}^{g,\ell},\ell=1,2,3$.
+k6143e0 | We note that $\alpha_{ij}^g\in[0,1]$
+keadcca | .... and these matrices can be asymmetric.
+@page 183
+k1ae8f0 | Asymmetric weighted adjacency matrixes
+k0f0453 [2L] | Given the asymmetric information matrixes for each extended family, we can construct different properties for each network.
+@page 184
+k7d0727 [2L] | Given an adjacency matrix $A^{g,\ell}$, we construct measures of their position in the network.
+ka829da [2L] | We use measures of degree centrality, which can be obtained averaging, for each household, the elements of the row or the columns of the adjacency matrix.
+kf95661 [2L] | As the matrices are not symmetric, the measures obtained averaging the rows or the columns are different.
+@page 185
+k75f7ec | Asymmetric weighted adjacency matrix
+kf70db4 [3L] | Averaging over the rows of the adjacency matrix $A^{g,\ell}$ we get the in-degree centrality, that is the average quality of the information the network has about the wealth of household $i$
+k42558d | where $K_g$ is the number of households in family $g$.
+@page 186
+ka73d8d [2L] | Analogously, we can construct the out-degree centrality measure for household $i$ averaging the elements of the matrix $A^{g,\ell}$ corresponding to column $i$.
+k9526ea [2L] | Finally, we can also define the quality of information in family $g$ averaging the individual measures as:
+@page 187
+k149727 | Descriptive statistics on the quality of information
+k665b47 | ⟪Figure:⟫ Kdensity of $InQ_i^{h,\ell}$
+@page 188
+k0f41b9 | ⟪Figure:⟫ Kdensity of $OutQ_i^{h,\ell}$
+@page 189
+k479242 | ⟪Table:⟫ Summary statistics and correlation matrix: network centrality measures
+ka73bf0 | InQ  «InQ»
+kcd1d49 | OutQ  «OutQ»
+kfd0a55 | Household level
+k27c056 | Family network
+@page 190
+k9722e2 | Risk sharing: a conceptual framework
+ke452c5 | We start considering risk sharing within extended family $g$.
+k68aeea | Individual $j$ belonging to household $g$ receives a stochastic endowment $y_t^{j,g}$.
+kc02ff5 [2L] | $y$ is perishable: this can be easily relaxed, (we do not consider saving for simplicity here).
+@page 191
+k1f8e5b [2L] | $y¯_t^g$ may include transfers received as a part of a risk sharing agreement with other families.
+k652e81 [2L] | Individual $j$ receives utility from consumption $c_t^j$, which equals to their endowment plus a transfer $\tau_t^j$, which can be negative :
+@page 192
+k650f4b | Perfect risk sharing
+kba09d2 [2L] | The implications under perfect risk sharing can be derived considering a social planner problem, as in Townsend (1994).
+kf426df | $\lambda_{j,g}$ is the Pareto weight given to individual $j$, which allows for inequality and is
+k518919 | assumed to be constant.
+k8ace0f [2L] | $\mu^t()$ is a probability measure of the stochastic endowment $y_t^j$, which reflects the available (and public) information.
+kada388 | $y_t^{j,g}$ is completely observable (ex-post) and can be contracted upon.
+@page 193
+k6d48c7 [2L] | The first order conditions for this problem, in the absence of frictions (information, enforceability) after taking logs are:
+ke437a3 | with $\nu_t^g$ the multiplier of the aggregate resource constraint for group $g$.
+k83423c | Note:
+k785e19 | the right hand side, $\nu_t$ does not depend on $j$;
+k17dc0b | $\lambda_{i,g}$ does not depend on $t$.
+k0f2df2 [2L] | the f.o.c. does not depend on $\mu^t()$ : the condition applies in any state of the world and any history.
+@page 195
+kca7e82 | Taking logs:
+@page 196
+k096788 | Taking differences across time periods:
+@page 197
+ka47a31 | Testing perfect risk sharing
+k41b9fe [2L] | Both the level and difference specifications do not depend on individual resources, controlling for group resources.
+k1a3301 | These restrictions can be tested as in Townsend (1994):
+k76d9eb | where $\tilde{\epsilon}_t^{i,g}$ and $\epsilon_t^{i,g}$ reflect measurement error and other unobservables.
+k9e9311 [2L] | The coefficients $\tilde{\gamma}$ and $\gamma$ measure the vulnerability of a single individual to idiosyncratic shocks; they should be 0 under perfect risk sharing.
+ka6b734 [2L] | This test is based only on consumption and endowment data and does not require information about the decentralization.
+@page 198
+k35e87c | In the absence of income information, one can use data on idiosyncratic shocks.
+@page 199
+k501002 | We first estimate a version of the equation in differences.
+ka5a2c4 [2L] | where $\gamma_{01}$ and $\gamma_{02}$ measure the effect of ’bad’ and ’good’ idiosyncratic shocks on changes in $\log $ consumption, which should be 0 under perfect risk sharing.
+@page 200
+kbc431d [2L] | We then allow these coefficients depend on the average quality of information in group $g$.
+@page 201
+k085481 [2L] | Finally, we consider the quality of the information available to individual $j$ and of the about individual $j$: inward and outward degree centrality.
+@page 202
+ke9a5f5 | Risk sharing and network information quality
+k7e2a56 | ⟪Table:⟫ Sensitivity of risk-sharing to quality of information within family network
+k891170 | Inf. quality measure
+k71f8e7 | none
+k69a81e | Bad shock in 2010
+k3298bf | Good shock in 2010
+ke557d6 | Good shock X mean degree cent $IQh,\ell$
+k04bae5 | Bad shock X mean degree cent $IQh,\ell$
+k733fd2 | Constant
+#= k461eba | Observations  ⇒ 观测数
+@page 203
+k1a5b6d | Standard errors in parentheses
+k055a5a | Dep $\mathrm{var}$ = change in lnpcconsumption btw 2004-2010 (2010 prices); Family network FE
+kfcb0df | Shock = 1 if reported by anyone in household
+@page 204
+kcef5b9 | Risk sharing and asymmetric information
+k80e307 [2L] | This evidence shows that networks with better information quality are ‘closer to perfect risk sharing’ than networks with worse information.
+ka38e30 [2L] | Notice that the variation in quality of information is across networks/ extended families.
+@page 205
+k22d2ad [2L] | This evidence is silent about possible risk sharing happening with other households or families outside the network.
+@page 206
+kd0a8ba | The next step is to look at evidence about the quality of information regarding
+keba240 | individual households in each network
+k5f7f87 [2L] | Inward degree centrality (how much the rest of the network knows about the household receiving a shock)
+k6cb491 [2L] | Outward degree centrality (how much an individual household knows about the rest of the network.
+@page 207
+k0b5867 [2L] | These measures can be distinguished because the adjacence matrices are possibly asymmetric.
+@page 208
+k79e7ad | Risk sharing and in-degree centrality
+kfb33b2 | ⟪Table:⟫ Risk-sharing and quality of information family network has about affected households
+k97041c | In-degree cent. measure
+k35bea0 | HH indegree cent InQ  «HH indegree cent InQ»
+k3bb8d7 | Good shock X HH indegree cent InQ  «Good shock X HH indegree cent InQ»
+kc7dbbf | Bad shock X HH indegree cent InQ  «Bad shock X HH indegree cent InQ»
+k51585a | Shock = 1 if reported by anyone in the household
+@page 209
+kc137e8 | Risk sharing and out-degree centrality
+k8616e8 | ⟪Table:⟫ Risk-sharing and quality of information affected households have about family network
+k713236 | Out-degree centr. measure
+k2a222c | HH outdegree cent OutQ  «HH outdegree cent OutQ»
+kb510cd | Good shock X HH outdegree cent OutQ  «Good shock X HH outdegree cent OutQ»
+k717a0a | Bad shock X HH outdegree cent OutQ  «Bad shock X HH outdegree cent OutQ»
+@page 210
+k4f1d0f | Risk sharing and the quality of information
+ke9a4b4 [2L] | This evidence shows that the amount of risk sharing within extended families observed in our sample depends on the quality of information as measured.
+@page 211
+k8375ab [3L] | Furthermore, it shows that what seems to matter is the quality of the information that the extended family on average has about the individual affected by a shock, whether positive or negative.
+k2d633f | Outward centrality does not matter.
+@page 212
+k69ee17 [2L] | The next steps of this research is to provide a more structural interpretation to these results.
+@page 213
+k8c7d08 | Risk sharing in networks: a more structural approach
+kaa620d [2L] | In a recent paper, Ambrus, Gao, and Mil´an (2021) consider risk sharing in a network.
+kd615f9 [2L] | In their set-up, two members of a (potential) risk sharing group are either connected or not.
+k88b5c3 [2L] | If a connection exists, there is no asymmetric information, and endowment are fully observed.
+ka1f72b | Transfers can only be contracted among members who are connected.
+@page 214
+k27e2d3 | Risk sharing in networks.
+k2c927f | Ambrus et al. (2021) derive several important and interesting results,
+k81c3c4 | considering endowment processes with different levels of connections.
+k0a8875 [2L] | Pareto efficient allocations equalise expected ratios of marginal utility for each connected pair of individuals (conditional on local information).
+k157a14 [2L] | The variability of consumption of a given individual depends on their position in the network.
+k302186 [2L] | More central individuals, in many situations, end up with more variable consumption.
+@page 215
+kda9173 [2L] | Our data suggest an important extension: connections might not be 0/1 but could be stronger and weaker.
+@page 216
+k6658ba | This makes the theory more complex but, probably, more realistic.
+@page 217
+#= k481817 | References I  ⇒ 参考文献 I
+k279431 | Agostinelli, F. and M. Wiswall (2016). Estimating the technology of children’s skill
+kb62aa9 | formation. Technical report, National Bureau of Economic Research.
+k5537d1 | Alan, S. and S. Ertac (2019). Mitigating the gender gap in the willingness to
+ke9b007 [2L] | compete: Evidence from a randomized field experiment. Journal of the European Economic Association 17(4), 1147–1185.
+k2aea63 | Alesina, A. and G.-M. Angeletos (2005). Fairness and redistribution. American
+k4e55ab | economic review 95(4), 960–980.
+k7240d0 | Alesina, A., S. Stantcheva, and E. Teso (2018). Intergenerational mobility and
+k3e6e45 | preferences for redistribution. American Economic Review 108(2), 521–54.
+k3f3971 | Alm˚as, I., O. Attanasio, and P. Jervis (2024, July). Presidential address: Economics
+k464100 | and measurement: New measures to model decision making. Econometrica 92(4),
+@page 218
+#= kb3ab67 | References II  ⇒ 参考文献 II
+k12c984 | Alm˚as, I., L. Berge, K. Bjorvatn, V. Somville, and B. Tungodden (2020). Adverse
+k3942d0 [2L] | selection into competition: Evidence from a large-scale field experiment in tanzania. NHH Working paper.
+k479ddb | Alm˚as, I., A. Cappelen, E. Sørensen, and B. Tungodden (2020). Fairness across the
+k294223 | world: preferences and beliefs. Technical report, NHH working paper.
+k549970 | Alm˚as, I., A. W. Cappelen, and B. Tungodden (2020). Cutthroat capitalism versus
+ke42eb4 [2L] | cuddly socialism: Are americans more meritocratic and efficiency-seeking than scandinavians? Journal of Political Economy 128(5), 1753–1788.
+kd9b77a | Ambrus, A., W. Gao, and P. Mil´an (2021, 12). Informal Risk Sharing with Local
+kc29d84 | Information. The Review of Economic Studies 89(5), 2329–2380.
+k57b3ef | Ameriks, J., J. Briggs, A. Caplin, M. Lee, M. D. Shapiro, and C. Tonetti (2020).
+k9eb7c4 [2L] | Older americans would work longer if jobs were flexible. American Economic Journal: Macroeconomics 12(1), 174–209.
+@page 219
+#= k2b060f | References III  ⇒ 参考文献 III
+k292ec6 | Arcidiacono, P., V. J. Hotz, A. Maurel, and T. Romano (2017). Ex ante returns and
+kd0f1d6 | occupational choice. Unpublished manuscript.
+k0fd750 | Arellano, M., O. Attanasio, S. Crossman, and V. Sancibri´an (2024, September).
+k1eca94 [3L] | Estimating flexible income processes from subjective expectations data: Evidence from india and colombia. Working Paper 32922, National Bureau of Economic Research.
+k109b80 | Arrow, K. J. (1959). Rational choice functions and orderings. Economica 26(102),
+k901680 | Attanasio, O., R. Bernal, M. Giannola, and M. Nores (2020). Child development in
+kc0a338 | the early years. Technical report, NBER, WP No 27812.
+k27d2e4 | Attanasio, O., T. Boneva, and C. Rauh (2019). Parental beliefs about returns to
+k152085 [2L] | different types of investments in school children. NBER Working Papers 25513, National Bureau of Economic Research, Inc.
+@page 220
+k6c05c4 | References IV
+k322f0e | Attanasio, O. and S. Krutikova (2020, 07). JEEA-FBBVA LECTURE 2019:
+k3a3208 [2L] | Consumption Insurance in Networks with Asymmetric Information: Evidence from Tanzania. Journal of the European Economic Association 18(4), 1589–1618.
+kbda555 | Attanasio, O. P. and K. M. Kaufmann (2014). Education choices and returns to
+kdd079d [2L] | schooling: Mothers’ and youths’ subjective expectations and their role by gender. Journal of Development Economics 109, 203–216.
+kf63063 | Baranov, V., S. Bhalotra, P. Biroli, and J. Maselko (2020). Maternal depression,
+ked673f [2L] | women’s empowerment, and parental investment: Evidence from a randomized controlled trial. American Economic Review 110(3), 824–59.
+kafe275 | Becker, A., B. Enke, and A. Falk (2020). Ancient origins of the global variation in
+kd3356d | economic preferences. In AEA Papers and Proceedings, Volume 110, pp. 319–23.
+kb66f26 | Ben-Akiva, M. E., D. McFadden, K. Train, et al. (2019). Foundations of stated
+k6f4d49 | preference elicitation: Consumer behavior and choice-based conjoint analysis. Now.
+@page 221
+k78ce9a | References V
+kd743fe | Bianchi, F., S. C. Ludvigson, and S. Ma (2020). Belief distortions and
+kde7c5e [2L] | macroeconomic fluctuations. Technical report, National Bureau of Economic Research.
+kda3a1e | Blass, A. A., S. Lach, and C. F. Manski (2010). Using elicited choice probabilities to
+k00c6fe [2L] | estimate random utility models: Preferences for electricity reliability. International Economic Review 51(2), 421–440.
+k905859 | Block, H. D. and J. Marschak (1960). Random orderings and stochastic theories of
+kdd3a1b [2L] | response. In I. Olkin, S. Ghurye, W. Hoeffding, W. Madow, and H. Mann (Eds.), Contributions to Probability and Statistics. Stanford University Press.
+kc21670 | Boneva, T. and C. Rauh (2018). Parental beliefs about returns to educational
+kd653dc [2L] | investments—the later the better? Journal of the European Economic Association 16(6), 1669–1711.
+@page 222
+k52e040 | References VI
+kfcfb64 | Cappelen, A., J. List, A. Samek, and B. Tungodden (2020). The effect of
+k032962 | early-childhood education on social preferences. Journal of Political
+kf6af68 | Economy 128(7), 000–000.
+k6422c7 | Cavatorta, E. and B. Groom (2020). Does deterrence change preferences? evidence
+k5548d2 | from a natural experiment. European Economic Review, 103456.
+k3c2b76 | Charness, G., U. Gneezy, and A. Imas (2013). Experimental methods: Eliciting risk
+k7516a1 | preferences. Journal of Economic Behavior \& Organization 87, 43–51.
+ka29426 | Chen, X., L. P. Hansen, and P. G. Hansen (2020). Robust identification of investor
+kf43205 | beliefs. Technical report, National Bureau of Economic Research.
+kf0dc13 | Christensen, L. R., D. W. Jorgenson, and L. J. Lau (1975). Transcendental
+kdb420c | logarithmic utility functions. The American Economic Review 65(3), 367–383.
+ka3ecde | Cunha, F., I. Elo, and J. Culhane (2013). Eliciting maternal beliefs about the
+k589b69 | technology of skill formation. NBER Working Paper 19144.
+@page 223
+kbaeb2a | References VII
+kdb943f | Cunha, F. and J. H. Heckman (2008). Formulating, identifying and estimating the
+kf431c5 [2L] | technology of cognitive and noncognitive skill formation. The Journal of Human resources 43(4), 738–782.
+kf532a2 | Cunha, F., J. J. Heckman, and S. M. Schennach (2010). Estimating the technology
+k51b390 | of cognitive and noncognitive skill formation. Econometrica 78(3), 883–931.
+k48395c | Curtin, R. (2016). Katona: a founder of behavioral economics. In Handbook of
+k4dacf3 | Behavioral Economics, pp. 30–47. Routledge.
+k0fe9a1 | Danz, D., L. Vesterlund, and A. J. Wilson (2020). Belief elicitation: Limiting truth
+k56f8db [2L] | telling with information on incentives. Technical report, National Bureau of Economic Research.
+ke707cf | de Bresser, J. (2019). The role of heterogeneous expectations in life cycle models:
+k04d085 | Evaluating the accuracy of counterfactuals.
+@page 224
+kbbb1bf | References VIII
+kbddf2c | Deaton, A. and J. Muellbauer (1980). An almost ideal demand system. The
+k93ce6f | American economic review 70(3), 312–326.
+k65fb0e | Dizon-Ross, R. (2019). Parents’ beliefs about their children’s academic ability:
+kb0b352 | Implications for educational investments. American Economic Review 109(8),
+kee1d5b | Dohmen, T., A. Falk, D. Huffman, and U. Sunde (2018). On the relationship
+k1bcf38 | between cognitive ability and risk preference. Journal of Economic
+k7253e6 | Perspectives 32(2), 115–34.
+k8bf267 | Falk, A., A. Becker, T. Dohmen, B. Enke, D. Huffman, and U. Sunde (2018). Global
+k7ef2f9 | evidence on economic preferences. The Quarterly Journal of Economics 133(4),
+k30cb0e | Falk, A. and J. Hermle (2018). Relationship of gender differences in preferences to
+k817fb0 | economic development and gender equality. Science 362(6412).
+@page 225
+k947d1f | References IX
+k85b2df | Ghisolfi, S. (2020). Requiring contributions during bargaining increases inequality in
+k9eb8e8 | outcomes. Working paper.
+kfcacfe | Gilbert, M., C. Clark, J. Stone, F. Perroux, D. Lieu, Evelpides, F. Divisia, Tinbergen,
+k2be647 [2L] | Kuznets, Smithies, et al. (1949). The measurement of national wealth: discussion. Econometrica: Journal of the Econometric Society, 255–272.
+kd709c4 | Giustinelli, P., C. F. Manski, and F. Molinari (2019). Precise or imprecise
+k793f9d [2L] | probabilities? evidence from survey response on late-onset dementia. Technical report, NBER.
+kd369bf | Haavelmo, T. (1958). The role of the econometrician in the advancement of
+k5a2395 | economic theory. Econometrica 26(3), 351–357.
+k689732 | Hansen, L. P. and T. J. Sargent (1981). A note on wiener-kolmogorov prediction
+ke8326a | formulas for rational expectations models. Economics Letters 8(3), 255–260.
+@page 226
+kbe6af5 | References X
+ke360b6 | Hausman, D. M. (1994). The philosophy of economics: An anthology. Cambridge
+ka8e6bd | University Press.
+k099310 | Hausman, J. $(2012\mathrm{a})$. Contingent valuation: from dubious to hopeless. Journal of
+k8b76d8 | Economic Perspectives 26(4), 43–56.
+kdb9707 | Hausman, J. A. $(2012\mathrm{b})$. Contingent valuation: $A$ critical assessment. Elsevier.
+k01562c | Heckman, J. J. and R. Pinto (2023, December). Econometric causality: The central
+k2d6e95 [2L] | role of thought experiments. Working Paper 31945, National Bureau of Economic Research.
+k1533b1 | Hossain, T. and R. Okui (2013). The binarized scoring rule. Review of Economic
+k08890b | Studies 80(3), 984–1001.
+k53bfb5 | Juster, F. T. (1966). Consumer buying intentions and purchase probability: An
+kf231e9 | experiment in survey design. Journal of the American Statistical
+ka27f84 | Association 61(315), 658–696.
+@page 227
+k52699e | References XI
+k034dcf | Juster, F. T. and R. P. Shay (1964). Consumer Sensitivity to Finance Rates: An
+kc19a07 | Empirical and Analytical Investigation. NBER.
+k6ac6c7 | Karadja, M., J. Mollerstrom, and D. Seim (2017). Richer (and holier) than thou? the
+k342ac6 [2L] | effect of relative income improvements on demand for redistribution. Review of Economics and Statistics 99(2), 201–212.
+k9c3d25 | Katona, G. (1959). On the predictive value of consumer intentions and attitudes: A
+k9e5d48 | comment. The Review of Economics and Statistics, 317–317.
+k85fc3c | Katona, G. (1974). Understanding consumer attitudes. Surveys of Consumers 1976,
+k857505 | Kesternich, I., F. Heiss, D. McFadden, and J. Winter (2013). Suit the action to the
+k9e2006 [2L] | word, the word to the action: Hypothetical choices and real decisions in medicare part d. Journal of Health Economics 32(6), 1313–1324.
+k9066da | Keynes, J. M. (1936). The general theory of interest, employment and money.
+@page 228
+kd10156 | References XII
+k7e26bf | Kindermann, F., J. Le Blanc, M. Piazzesi, and M. Schneider (2019). Learning about
+k4ba893 [2L] | housing cost-survey evidence from german house price booms. Technical report, mimeo, Stanford University.
+kb30059 | Kuziemko, I., M. I. Norton, E. Saez, and S. Stantcheva (2015). How elastic are
+k0f7b32 | preferences for redistribution? American Economic Review 105(4), 1478–1508.
+k236ded | Kuznets, S. (1941). Statistics and economic history. The Journal of Economic
+ka18420 | History 1(1), 26–41.
+k0346cf | Kuznets, S. et al. (1937). National income and capital formation, 1919-1935. NBER
+kf1a842 | Books.
+k63cce7 | List, J., J. Pernaudet, and D. . Suskind (2020). It all starts with beliefs: Addressing
+k155d17 | the roots of educational inequities by changing parental beliefs. Technical report.
+ke8a29a | Luce, R. and P. Suppes (1965). Preference, utility, and subjective utility. Handbook
+kbdf577 | of Mathematical Psychology, III, New York: Wiley, 249–409.
+@page 229
+k775fdd | References XIII
+k1bf07c | Luce, R. D. (1956). Semiorders and a theory of utility discrimination. Econometrica,
+kfd79fc | Journal of the Econometric Society, 178–191.
+kd29311 | Luce, R. D. (1959). Choice Behavior. $A$ Theoretical Analysis. New York: Wiley.
+k6cb749 | Luce, R. D. and J. W. Tukey (1964). Simultaneous conjoint measurement: A new
+k7a675c | type of fundamental measurement. Journal of mathematical psychology 1(1),
+k5c233e | Manski, C. F. (2004). Measuring expectations. Econometrica 72(5), 1329–1376.
+k81bb50 | Manski, C. F. and F. Molinari (2010). Rounding probabilistic expectations in surveys.
+kf09e9e | Journal of Business \& Economic Statistics 28(2), 219–231.
+k3b0be3 | Miller, G., $\acute{\mathrm{A}}$. De Paula, and C. Valente (2020). Subjective expectations and demand
+kd9edfd | for contraception. Technical report, National Bureau of Economic Research.
+kcb9ff7 | Nyarko, Y. and A. Schotter (2002). An experimental study of belief learning using
+k8f3295 | elicited beliefs. Econometrica 70(3), 971–1005.
+@page 230
+k835959 | References XIV
+k2f8296 | Potter, S. (2016). The advantages of probabilistic survey questions: remarks at the it
+k9e1363 [2L] | forum and rcea bayesian workshop, keynote address, rimini, italy, may 2016. Technical report, Federal Reserve Bank of New York.
+k69c9e3 | Potter, S., M. Del Negro, G. Topa, and W. Van der Klaauw (2017). The advantages
+kc79890 | of probabilistic survey questions. Review of Economic Analysis 9(1), 1–32.
+ke9df03 | Samuelson, P. A. (1938). A note on the pure theory of consumer’s behaviour.
+kc4a4a9 | Economica 5(17), 61–71.
+kf73326 | Samuelson, P. A. (1948). Consumption theory in terms of revealed preference.
+ke661fc | Economica 15(60), 243–253.
+k8a69e1 | Stigler, G. J. and G. S. Becker (1977). De gustibus non est disputandum. The
+k052d59 | American Economic Review 67(2), 76–90.
+kadac8b | Stone, R. (1954). Linear expenditure systems and demand analysis: an application to
+k06dfe4 | the pattern of british demand. The Economic Journal 64(255), 511–527.
+@page 231
+k9edd6b | References XV
+kc5525b | Stone, R. (1984). Richard stone-prize lecture: The accounts of society. Nobelprize.
+k7cdc0f | org. Nobel Media AB.
+kb9f5d3 | Tobin, J. (1959). On the predictive value of consumer intentions and attitudes. The
+kbcbc13 | review of economics and statistics, 1–11.
+kff9387 | Van der Klaauw, W. and K. I. Wolpin (2008). Social security and the retirement and
+k5a5cde | savings behavior of low-income households. $J$. of Econometrics 145(1-2), 21–42.
+k9cf086 | Wiswall, M. and B. Zafar (2015). Determinants of college major choice:
+k839d43 | Identification using an information experiment. The Review of Economic
+kf65ec3 | Studies 82(2), 791–824.
+kd0a921 | Zheng, Y., J. Pantano, et al. (2012). Using subjective expectations data to allow for
+keb8308 [2L] | unobserved heterogeneity in hotz-miller estimation strategies. In 2012 Meeting Papers, Number 940. Society for Economic Dynamics.
+@page 232
+kf3f600 | Appendix
+ka9e81b | Experimental literature
+kb5da2c | Nyarko and Schotter (2002);
+k83b9b4 | Hossain and Okui (2013);
+k300454 | Danz, Vesterlund, and Wilson (2020);
+k8937b3 | Charness, Gneezy, and Imas (2013).
+k67eefd | Lab in the field:
+k8506f4 | Alesina, Stantcheva, and Teso (2018) Alm˚as, Cappelen, and Tungodden (2020) ;
+ke14910 | Ghisolfi(2020) and Cappelen, List, Samek, and Tungodden (2020);
+k10d27b | Cavatorta and Groom (2020) ;
+kce3173 | Alan and Ertac (2019) and Alm˚as, Berge, Bjorvatn, Somville, and Tungodden
+#= kb52b36 | Back  ⇒ 返回
+@page 233
+k083645 [2L] | References: stated preferences, deviation from rational expectations and beliefs and policy preferences
+kb3d4cb | Stated preferences:
+kbbb33c | Ben-Akiva, McFadden, Train, et al. (2019);
+k87cfd7 | Kesternich, Heiss, McFadden, and Winter (2013);
+ke8aefa | Blass, Lach, and Manski (2010);
+k6c0c0f | Ameriks, Briggs, Caplin, Lee, Shapiro, and Tonetti (2020).
+k7d781c | Deviations from rational expectations:
+kd909dd | Hansen and Sargent (1981);
+k4f160d | Chen, Hansen, and Hansen (2020);
+k478640 | Kindermann, Le Blanc, Piazzesi, and Schneider (2019);
+k629a4c | Bianchi, Ludvigson, and Ma (2020).
+k4152b3 | Beliefs and policy preferences:
+k8e4f19 | Kuziemko, Norton, Saez, and Stantcheva (2015);
+k9438ac | Karadja, Mollerstrom, and Seim (2017);
+kfda173 | Alesina and Angeletos (2005).
+@page 234
+k8d90bb | References: subjective expectations
+k29dca7 | Collecting subjective expectations data:
+k9dfc3f | Manski (2004);
+kd88746 | Manski and Molinari (2010);
+k254db4 | Giustinelli, Manski, and Molinari (2019);
+k74c2e9 [2L] | NY Fed work on collecting subjective expectations data systematically (Potter, Del Negro, Topa, and Van der Klaauw, 2017; Potter, 2016).
+k742a13 | ...and using it.:
+kd7930d | Van der Klaauw and Wolpin (2008);
+k528f96 | de Bresser (2019);
+k1abc06 | Arcidiacono, Hotz, Maurel, and Romano (2017);
+k8bd79a | Wiswall and Zafar (2015);
+kdfb81a | Zheng, Pantano, et al. (2012);
+k319a3c | Attanasio and Kaufmann (2014);
+@page 235
+kf779f0 | References: beliefs, attitudes, preferences
+kd40e48 [2L] | Cunha, Elo, and Culhane (2013), ?, Baranov, Bhalotra, Biroli, and Maselko (2020), List, Pernaudet, and Suskind (2020) on beliefs about child development;
+kbdce88 | Dizon-Ross (2019); **?** on perceptions of ability;
+k608666 [2L] | Boneva and Rauh (2018); Attanasio, Boneva, and Rauh (2019) on returns to education.
+k0fb4c1 [2L] | Miller, De Paula, and Valente (2020) on beliefs about contraception effectiveness.
+kb70b5b [2L] | **?** collect and use data about self-perceptions about academic achievement among high school students in Mexico;
+ka4f3ad [2L] | Andrew Caplin and collaborators have been working with Vanguard samples, engineering new measures and questions:
+ka18a14 | Ameriks et al. (2020).
+kf8d7b7 [2L] | Falk, Becker, Dohmen, Enke, Huffman, and Sunde (2018); Becker, Enke, and Falk (2020); Falk and Hermle (2018); Dohmen, Falk, Huffman, and Sunde (2018);
+k116490 | Alm˚as, Cappelen, Sørensen, and Tungodden (2020);
+k6b632a | t l (2015) ttit d  «t l (2015) ttit d»
+k2ddd3a | d i fo  «d i fo»
+k41c76e | ti  «ti»

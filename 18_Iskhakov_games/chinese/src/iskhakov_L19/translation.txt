@@ -1,0 +1,334 @@
+# Iskhakov, Kristensen & Rust, Lecture 19: Estimating directional dynamic games with multiple equilibria (NRLS) — 中文译文
+# 与第 18 讲相同的句子自动沿用 iskhakov_L18 的译文。
+@page 1
+k370875 | 第 19 讲：
+k9abb79 | 估计具有多重均衡的
+k6ae669 | 方向性动态博弈：完全求解 MLE
+k2a408b | Fedor Iskhakov，澳大利亚国立大学 ⏎ Dennis Kristensen，伦敦大学学院
+@page 2
+k9cc790 | NRLS 估计量的构造
+k309c10 | 蒙特卡洛模拟
+@page 3
+kd801ac | 嵌套递归词典序搜索（NRLS）
+k234f39 | 来自 $M$ 个独立市场、$T$ 期的数据
+k74f52d | 令所有 MPE 均衡的集合为 $\mathcal{E}=\{1,\ldots,K(\theta)\}$
+ka39d9f | 外层循环
+kf8a493 | 对结构参数 $\theta$ 最大化似然函数
+k42f1f6 | 内层循环
+k8747a3 | 对均衡选择最大化似然函数
+ka30165 | 在组织成 RLS 树的离散集合上求函数的最大值
+@page 4
+k319706 | 状态空间上的似然
+k1172b9 | 给定均衡 $k$ 的选择概率 $P_i^k(a|x)$，似然为
+kc5b982 | 令 $\iota$ 标记状态空间中的点
+kd32404 | $\iota=1$ 为初始点，$\iota=S$ 为终止状态
+k619405 | 记 $n_\iota$ 为状态 $x_\iota$ 的观测数，$n_\iota^{a_i}$ 为参与人 $i$ 在 $x_\iota$ 采取行动 $a_i$ 的观测数
+kc5ed55 | 则特定均衡下的似然可以计算为
+@page 5
+kea9ea4 | 数据在状态空间上的分布
+kd4b919 | 1000 个市场，5 期，从棱锥顶点开始
+ke122ec | 数据在状态空间上的分布
+k9b3173 | 企业 1 的投资次数（对数）
+k5bc50a | 企业 2 的投资次数（对数）
+k0054e0 | 企业 1 的 CCP，取值于 [0,1]
+k2ab491 | 企业 2 的 CCP，取值于 [0,1]
+kf7fd9c | =
+k17670d | 总次数与投资次数（对数）
+k24b665 | 状态空间，(ic, ic1, ic2)
+@page 6
+k29c0d6 | 分支定界（BnB）法
+kb06a79 | Land and Doig，1960，Econometrica
+k035c58 | 求解⟪离散规划⟫问题的经典方法
+k3e6b63 | 在离散集合上最大化/最小化一个函数
+k306bee | 将可行方案集合的逐级细分组织成一棵⟪树⟫
+k76b496 | 设定一个⟪界函数⟫，表示在给定子集上可达到的最优目标值
+kea8291 | 单调性：界函数必须关于集合参数的基数弱递减（对 $\max$ 问题而言）
+k676c3d | 在单点集上计算时，必须等于准则函数
+k0f54f1 | 舍弃那些界低于当前已达到的最优目标值的方案子集
+k59753c | BnB 方法有几种变体，
+k31cf13 | 区别在于具体实现
+k9b6b05 | BnB 方法有若干扩展
+@page 7
+k054062 | BnB 理论：分支
+k91d8b6 | $\max f(x)$ s.t. $x\in\Omega$
+k5c25cc | $f(x):R^n\to R$ 目标函数
+keb8f5d | ⟪$\Omega$⟫ 可行 $x$ 的集合
+k803d81 | $\mathcal{P}_j(\Omega)$：把 $\Omega$ 划分为 $k_j+1$ 个子集，$k_0=0$，$\mathcal{P}_0(\Omega)=\Omega$
+k64bbbb | $\{\mathcal{P}_j(\Omega)\}_{j=1,\ldots,J}$ ⟪是由 $J$ 个⟫逐步细化的划分构成的序列
+kf4aa15 | $\forall j=1,\ldots,J$，$\forall i=1,\ldots,k_j$，$\forall j'<j$：$\exists i'\in\{1,\ldots,k_{j'}\}$，使得 $\Omega_{ji}\subset\Omega_{j'i'}$
+@page 9
+k33a580 | BnB 理论：定界
+k958eca | $g(\Omega_{ij}):2^{\Omega}\to R$ 界函数：从 $\Omega$ 的子集映射到实数轴
+kd7f1d8 | 对单点集有 $g(\{x\})=f(x)$，即当 $\Omega_{ij}=\{x\}$ 时
+ka041d9 | 界函数的单调性
+k43d97c | 对最小化问题，不等号方向应反过来
+@page 10
+k66a08a | 结合 NRLS 的 BnB
+kf8a806 | **分支：**RLS 树
+k72cebc | **定界：**界函数是在满足以下条件的状态子集上计算的⟪部分似然⟫
+k9292e1 | s.t.
+k73e4a6 | 随着加入更多数据而单调下降
+kabab59 | 在 RLS 树的叶子处等于完整的对数似然
+@page 11
+k90fc3f | RLS 树上的 BnB，第 1 步
+k298ad0 | =
+@page 12
+k36b084 | RLS 树上的 BnB，第 2 步
+k919a0f | =
+k370221 | =
+kebd906 | =
+@page 13
+k4a7119 | RLS 树上的 BnB，第 3 步
+kbe9efc | =
+k0171f5 | =
+k9c6765 | =
+@page 14
+k76e3f0 | RLS 树上的 BnB，第 4 步
+k7c84bf | =
+k2f2cb1 | =
+k0c5ea4 | =
+@page 15
+k106a2e | RLS 树上的 BnB，第 5 步
+k8c96fe | =
+kc93fc4 | =
+kec51d1 | =
+@page 16
+k1128fa | RLS 树上的 BnB，第 6 步
+k3a1530 | =
+@page 17
+kd5ef80 | RLS 树上的 BnB，第 7 步
+k39a7a3 | =
+@page 18
+k13839e | RLS 树上的 BnB，第 8 步
+k5b3c1f | =
+@page 19
+k8f55a3 | RLS 树上的 BnB，第 9 步
+ke3785e | =
+k23d69d | =
+kfc9ae6 | =
+@page 20
+kf48199 | RLS 树上的 BnB，第 10 步
+k1d5031 | =
+@page 21
+k7e8e60 | RLS 树上的 BnB，第 11 步
+kfad0fe | =
+@page 22
+k97b05c | RLS 树上的 BnB，第 12 步
+@page 23
+ke26d08 | RLS 树上的 BnB，第 28 步
+kc90453 | =
+k61757a | =
+k3d43d4 | =
+k69dd07 | =
+@page 24
+kd8f3d1 | RLS 树上的 BnB，第 29 步
+k7377cc | =
+@page 25
+ka68896 | RLS 树上的 BnB，第 30 步
+k580de7 | =
+@page 26
+kf1f3c5 | RLS 树上的 BnB，第 31 步
+@page 27
+k69cc51 | RLS 树上的 BnB，第 33 步
+@page 28
+k4ab544 | RLS 树上的 BnB，第 34 步
+@page 29
+k428455 | 非参数的似然定界
+ka5d59b | 用频率 $n_\iota^a/n_\iota$ 替换选择概率 $P_i^k(a|x_\iota;\theta)$
+ka239d9 | 非参
+kd941ea | 只取决于数据中的计数！
+k026695 | 不难⟪从代数上⟫证明，对任意 $Z^{\mathcal{S}}$（$\approx$ Gibbs 不等式）
+k7bc0b5 | 因此，在 RLS 树遍历的任一步 $\iota$，都可以用经验似然对部分似然进行⟪乐观的外推⟫
+kde2d63 | 增广的部分似然是 BnB 中强得多的界
+@page 30
+kefc8b9 | 非参数的似然定界
+k85386b | 左侧为 $\iota=S=14$（终止状态），右侧为 $\iota=1$（初始状态）
+k06c080 | BnB 图：均衡树中被展开的分支
+k785c20 | 最大均衡的部分似然
+kc346b3 | 部分非参数似然
+k4d4607 | 界
+k9ff29e | 各均衡的部分对数似然
+@page 31
+kce3bb2 | 使用非参数似然界的 BnB
+k5c2316 | 贪婪遍历 + 非参数似然界
+@page 32
+kec5223 | 使用非参数似然界的 BnB，较大样本
+ka867d5 | 在真实 $\theta$ 处，当 $N\to\infty$ 时非参数似然 $\to$ 参数似然 $\Rightarrow$ 计算量更少
+@page 33
+k89944a | 较大样本中的完全枚举 RLS
+k9c0e36 | 与上一页相比，大部分计算都被省去了！
+@page 34
+kc760da | 用非参数似然改进 BnB
+kf543a8 | 对任意数据量，非参数似然在代数上都大于或等于参数似然
+ke9bca2 | 用非参数似然界增广的 BnB 给出更紧的定界规则 $\to$ 计算量更少
+k7b830c | 随着 $M\to\infty$，数据更多
+kf2c616 | 非参数对数似然收敛到似然线
+kdf2002 | 图中两条蓝线之间的带宽缩小
+k35b911 | $\to$ 定界规则更紧
+kf99828 | $\to$ 计算量更少
+kcb47a5 | 对任意样本量都是 MLE，而且数据越多越容易计算！
+@page 36
+kd07f9a | 马尔可夫完美均衡
+k5d1a4c | ⟪MPE 是一对⟫策略组合⟪与⟫价值函数
+keed4e0 | 简洁记法
+ke83bdb | 所有马尔可夫完美均衡的集合
+ka64b96 | $\Psi^V:\mathbf{V},\mathbf{P}\to$ ⟪$\mathbf{V}$⟫ Bellman 算子
+k768a9a | $\Psi^P:\mathbf{V},\mathbf{P}\to$ ⟪$\mathbf{P}$⟫ 选择概率公式（logit）
+k043c8c | Hotz-Miller 反演
+@page 37
+k8ab53b | 动态随机博弈的估计方法
+kf3f1ee | 两步（CCP）估计量
+k6eb29a | 速度快，但可能有较大的有限样本偏误
+k5e971c | Hotz, Miller（1993）；Altug, Miller（1998）；Pakes, Ostrovsky, and Berry（2007）；Pesendorfer, Schmidt-Dengler（2008）
+k10556c | 估计 CCP $\to\hat{\mathbf{P}}$
+k8360db | 矩方法 • 最小距离 • 伪似然
+k15a11c | 嵌套伪似然（NPL）
+k1636c2 | 递归的两步伪似然
+ka9ab6e | 在效率与可处理性之间架起桥梁
+k93c4a4 | 存在多重均衡时不稳定
+k2e96d4 | Aguirregabiria, Mira（2007）；Pesendorfer, Schmidt-Dengler（2010）；Kasahara and Shimotsu（2012）；Aguirregabiria, Marcoux（2021）
+@page 38
+kc67cdb | 均衡不等式（BBL）
+k8c0712 | 最小化单侧偏差
+k6449f4 | 在大型模型中计算上可行
+k3da856 | Bajari, Benkard, Levin（2007）
+kc2e895 | 带均衡约束的数学规划（MPEC）
+ka3f6ff | 将 MLE 写成约束最优化问题
+kc717fd | 不依赖于问题的结构
+k28a668 | 计算问题的规模大得多
+k5c93f2 | Su（2013）；Egesdal, Lai and Su（2015）
+k17436d | $\max\mathcal{L}(\mathbf{Z},\mathbf{P})$，约束条件为 $\mathbf{V}=\Psi^V(\mathbf{V},\mathbf{P},\theta)$，$\mathbf{P}=\Psi^P(\mathbf{V},\mathbf{P},\theta)$
+k430e42 | 全部解的同伦 MLE
+kab1061 | Borkovsky, Doraszelski and Kryukov（2010）
+@page 39
+kb5aa39 | NRLS 概览
+k6d9151 | 稳健且在计算上可行$^{(?)}$的 MLE 估计量
+k2fd30a | ⟪适用于⟫方向性动态博弈（DDG）
+ka87fda | 依靠完全求解算法，可以证明在一定正则条件下能计算出全部 MPE
+k633161 | 采用巧妙的离散规划方法，在有限的均衡集合上最大化似然函数
+k461623 | 对 MPE 的多重性完全稳健
+kd38f16 | 放松“数据中只有单一均衡”的假设
+k671913 | 通向均衡选择规则的估计
+@page 40
+ke5764b | 模型中只有单一均衡 ⏎ 数据中只有一个均衡
+kb34b35 | 模型中有多重均衡 ⏎ 数据中进行的是同一个均衡
+ke49f1b | 模型中有多重均衡 ⏎ 数据中也有多重均衡：
+k1f5a12 | 长面板：每个市场进行各自的均衡
+kc8a031 | 若干组市场各自进行相同的均衡
+k231d63 | （今天不讲）
+@page 41
+ka1e003 | 实现细节
+k0ae4e7 | 两步估计量、NPL 与 EPL
+k346a48 | Matlab 无约束优化器（使用数值导数）
+k69c45e | 由频率估计量得到 CCP
+k7408e6 | 最多 120 次迭代（NPL 与 EPL）
+kcb2025 | Matlab 约束优化器（内点法），使用解析导数
+k65e4aa | MPEC-VP：对价值与选择概率同时施加约束（如 Egesdal, Lai and Su，2015）
+k658bf4 | MPEC-P：以选择概率表示约束 + Hotz-Miller 反演（变量数减半）
+k200892 | 以两步估计量为初始值
+k053692 | 估计参数 $k_1$
+ke94f14 | ⟪样本量：⟫1000 个市场，5 期
+kaef148 | 参数的选择保证了对状态空间的良好覆盖，以及所有状态下非退化的 CCP
+@page 42
+k6afcae | 蒙特卡洛 A，第 1 次运行：无多重性
+k8c1517 | 真实参数下的均衡个数：1 ⏎ 数据中的均衡个数：1
+kc56498 | =
+k4e0a5c | =
+k512bad | =
+kf9e5d2 | =
+kb7015e | =
+k6b2042 | =
+kd69d2d | 真实 $k_1=3.5$ ⏎ 偏误
+k2b4489 | =
+k2c1092 | =
+kb5d1f1 | 100 次中收敛的次数
+k45b370 | 均衡条件得到满足（两步法除外）
+k0207a3 | 几乎所有 MLE 估计量都一致到最后一位
+kf62b02 | NPL 与 EPL 估计量接近 MLE
+@page 43
+k55d6ee | 蒙特卡洛 B，第 1 次运行：少量多重性
+ka872c7 | 真实参数下的均衡个数：3 ⏎ 数据中的均衡个数：1
+k49554c | 数据生成均衡：⟪稳定⟫
+k5d911b | 真实 $\mathrm{k}1=7.5$ ⏎ 偏误
+k63b5d5 | 100 次中的运行次数
+kd87ac3 | MPEC 的收敛性变差
+k67226e | 均衡条件得到满足，但估计量开始收敛到错误的均衡
+kcc029b | （由相对于数据生成均衡的 KL 散度可见）
+@page 44
+ke3938e | 似然对应
+k4b2528 | 线条用对称 KL 散度构造
+k02d098 | 不同均衡下的样本似然
+k7a6c61 | =
+ka5a6ce | =
+ka8ceb7 | 样本数据的对数似然
+k0c11e2 | 对数似然 ⏎ 真实 $\mathrm{k}1=7.50$
+kbca14a | 参数 $\mathrm{k}1$
+@page 45
+kf47f75 | 蒙特卡洛 B，第 2 次运行：少量多重性，不稳定
+k6bbebd | 数据生成均衡：⟪不稳定⟫
+ke1a2c4 | NPL 估计量无法收敛
+k9fff8b | MPEC 也有类似的收敛问题
+ke64aea | EPL 估计量表现良好
+k6c0b53 | Aguirregabiria, Marcoux（2021）
+@page 46
+ke1d36f | =
+@page 47
+k88e273 | 蒙特卡洛 B，第 3 次运行：不连续的似然
+k4e0ae9 | 真实参数下的均衡个数：9 ⏎ 数据中的均衡个数：1
+kdedb52 | 数据生成均衡：不稳定，接近“悬崖”
+kaba57d | 类似的收敛问题
+kf14bbf | EPL、NPL 与 MPEC 的估计较差
+k39b38a | （约束得到满足，但似然低、KL 散度高）
+@page 48
+kf93374 | =
+k86139c | 对数似然 ⏎ 真实 $\mathrm{k}1=3.50$
+@page 49
+k26e47a | 蒙特卡洛 B，第 4 次运行：大量多重性
+k3284fe | 真实参数下的均衡个数：⟪2455⟫ ⏎ 数据中的均衡个数：1
+k221c2d | 枚举全部均衡（RLS）的用时：10 分 39 秒
+ke7c433 | =
+k43e360 | 真实 $\mathrm{k}1=3.75$ ⏎ 偏误
+k8e8eec | =
+ka1d71c | =
+kaafa93 | 100 次中的运行次数 ⏎ CPU 时间
+k294940 | NPL 与 EPL 存在严重的收敛问题
+k4bc31c | 均衡识别较差（似然低、KL 散度高）
+ked0b5f | NRLS 的 CPU 时间相当（比完全枚举快得多）
+@page 50
+k0fdf47 | 蒙特卡洛 C：数据中的多重均衡
+kaeeddb | 下一步的方向：
+k99943d | 假设每个市场⟪在不同时期⟫进行⟪同一个⟫均衡
+k434242 | 分组固定效应，组由所进行的均衡定义
+k589311 | 联合分组固定效应估计
+k7fbdcd | 将市场划分为进行不同均衡的组，与 $\theta$ 一起估计
+k4c5448 | 对每个市场在所有均衡上计算最大似然，并把它“分配”到相应的组（估计+分类）
+kf967a5 | 计算要求非常高：逐个市场做 BnB，非参数改进不起作用
+k86c0c3 | 两步分组固定效应估计
+k0efc8c | 第 1 步：基于某些可观测特征对市场进行划分（K 均值聚类）
+k986546 | 第 2 步：估计 $\theta$，允许不同组有不同的均衡
+kc1e7aa | 额外的计算成本很小！
+ke04b0a | Bonhomme, Manresa（2015）；Bonhomme, Lamadon, Manresa（2022）
+@page 51
+kc977dd | 结论：Bertrand 投资模型
+kaf0724 | 均衡中可能出现多种内生协调
+k37e8d4 | 完全的租金耗散与垄断结果都可以作为 MPE 得到支持。
+kfecafe | MPE 均衡数量众多，存在类似“无名氏定理”的结果
+@page 52
+kbb69c2 | 结论：动态博弈的求解
+k73fceb | 当均衡不唯一时，计算算法会无意中充当⟪均衡选择机制⟫
+k2fd93f | 当状态空间存在方向性时，状态递归算法优于时间迭代
+ka06ccf | 大量的马尔可夫完美均衡带来新的挑战：
+k3a5afe | 企业如何在某个特定均衡上实现协调？
+kf41525 | 实证应用的难度增加。
+k4bb78c | 从数据中识别均衡选择规则的前景令人生畏。
+k11447f | 存在多重均衡的动态博弈的估计
+@page 53
+kf454a3 | 结论：NRLS 估计量
+k7aca48 | 针对一类特定动态博弈——方向性动态博弈（DDG）——的完全求解 MLE 估计量
+k43f775 | 嵌套循环：外层似然 $\max$ + 内层模型求解器
+k80790a | 需要在所有均衡的集合上最大化 $\leftrightarrow$
+kacaff4 | 艰巨的计算任务
+kbb30f1 | 巧妙的 BnB 算法，不在不太可能的 MPE 上浪费时间
+kb2291e | NRLS 是针对一类特定动态博弈——方向性动态博弈（DDG）——的 MLE 估计量
+k8d3d38 | 对均衡的多重性完全稳健
+ka19391 | 能够识别数据中的多重均衡

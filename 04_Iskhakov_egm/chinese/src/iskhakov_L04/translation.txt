@@ -1,0 +1,592 @@
+# Iskhakov, Lecture 4: Endogenous grid point methods (EGM, DC-EGM and extensions) — 中文译文
+@page 1
+kb4e6a3 | 引言
+k40b74f | EGM
+k0de882 | DC-EGM
+kaa1db5 | 多维情形
+k9c622c | 内生网格点方法（EGM、DC-EGM 及其扩展）
+ke38d9c | DSE2025：计量经济学会
+k2a8bd0 | 动态结构计量经济学暑期学校
+k86feae | =
+k5276b5 | 澳大利亚国立大学
+k10de36 | DSE2025，伦敦大学学院
+k53cfd2 | 2025 年 6 月 30 日
+@page 2
+k08d81a | 离散选择与连续选择？
+k090fba | 经济学中，离散选择与连续选择往往同时存在
+kb459b9 | 工作多少 ⟪+⟫ 何时退休/成为企业家
+ke3e080 | 储蓄多少 ⟪+⟫ 何时买房/买车/买耐用品
+kbc6000 | 买哪辆车 ⟪+⟫ 开多少
+k879a39 | 用传统求解方法时往往分开建模：
+k209592 | 离散选择 $\to$ 在有限集合上优化
+kcfe9da | 连续选择 $\to$ 一阶条件 + 凹性（?）
+kaf1c17 | 动态 $\to$ 动态规划（VFI、策略迭代、时间迭代）
+@page 3
+k8b605e | 在离散—连续选择模型中：
+k661227 | 本质上的非凹性
+k6f6718 | 一阶条件并不充分
+ka25141 | 价值函数有拐点 + 策略函数不连续
+k24769b | 传统方法并不理想
+k2e2754 | 需要在状态空间的每个点上使用全局优化器
+k4a16a8 | 需要定位并跟踪拐点与不连续点
+k0e5f9d | 需要针对非光滑对象的特殊数值程序
+k13de1b | $\Rightarrow$ 内生网格点方法
+@page 4
+k8c7c1f | 本讲安排
+k77f8ab | ⟪仅⟫用于连续选择的原始 EGM
+k11e3ed | 只适用于特定（但有趣且重要）的模型（随机增长模型、消费—储蓄（缓冲存量）模型）
+kaa25fd | ⟪不含偏好冲击的⟫离散—连续选择 DC-EGM ⏎ 适用于含一个连续选择及额外离散选择的模型 ⏎ ⟪棘手而吓人⟫
+ka5d31d | ⟪含偏好冲击的⟫离散—连续选择 DC-EGM
+kfa1251 | 适用于含一个连续选择及额外离散选择的模型 ⏎ 结构性偏好冲击或 logit 平滑
+kd748e4 | 好得多，可以用
+kb5240c | 关于多维扩展与偶尔起作用的约束的一些说明
+@page 5
+kcc2910 | 什么是 EGM？
+kd94dd9 | 内生网格点方法——求解动态随机消费/储蓄问题的快速方法
+kd04a06 | 有限期与无限期
+kffa2ec | 严格凹、单调且可微的效用函数
+k6d67cb | 一个连续状态变量（财富），以及
+k88b372 | 一个连续选择（消费）
+k3aa71b | 状态变量运动规律的特定结构（跨期预算约束）
+k5a8959 | 能很好地处理可能起作用的借贷约束
+@page 6
+k6fb395 | 用于离散—连续问题的 DC-EGM
+k83be4d | 扩大可求解的问题类别：
+k5e46bd | A1. 严格凹、单调且可微的效用函数
+k44f4d5 | 具有特定运动规律的连续状态 $M_t$
+k9ea90b | 额外的（离散）状态变量 $st_t$
+k862476 | A2. $st_t$ 的转移概率与 $M_t$ 无关
+kff0489 | 一个连续选择变量 $(c_t)$ 与一个$^{\star}$离散选择变量 $d_t$
+ka7e5ae | 两种形式：
+kd77610 | ⟪不含偏好冲击：⟫DC-EGM 在价值函数与策略函数上迭代，给出离散决策最优阈值（离散策略）的精确解
+ka5cdf5 | ⟪含偏好冲击：⟫DC-EGM 在⟪离散选择特定的⟫价值函数与策略函数上迭代，给出各离散备选项的选择概率
+@page 7
+k86e8d4 | 学习要点 = 需要记住的内容
+k53d46c | ⟪如果模型含有⟫一个连续⟪（消费）选择以及⟫额外的离散选择 $\to$ ⟪使用 DC-EGM⟫
+k6b7679 | 在常规情形中，DC-EGM ⟪避免了所有求根⟫运算
+kc717fc | 若效用在连续选择与离散选择之间可分，DC-EGM 可以非常容易地处理信贷约束
+k8c3415 | 极值偏好冲击 $\to$ 解的⟪性质好得多⟫
+k0cce45 | 比传统方法更快、更准确
+@page 9
+kd22092 | 简单的消费/储蓄模型（Phelps）
+k3cdcf3 | 手头现金，$t$ 期可用的全部资源 ⏎ $t$ 期期末的资产（储蓄）
+k1fe349 | $\tilde{R}$：储蓄的确定性或随机回报
+k516deb | $u(c)$：当期消费的效用
+@page 10
+k0ae599 | 解析解（Hakansson，1970；Phelps，1962）
+kc85044 | =
+kad5243 | 是原始要素的函数，
+@page 11
+kfb6c6c | 解析解：价值函数
+ke100df | 简单退休问题的解析解（价值函数）
+@page 12
+kb84e13 | 解析解：消费规则
+k3db157 | 简单退休问题的解析解（$c^*$）
+@page 13
+k9b9a31 | 简单的消费/储蓄模型（Deaton）
+k025500 | 手头现金，$t$ 期可用的全部资源 ⏎ $t$ 期期末的资产（储蓄） ⏎ 储蓄的确定性回报
+k4b2ebd | $\tilde{y}$：随机收入
+kd73bf1 | 没有解析解！
+@page 14
+k15edc9 | 传统方法：价值函数迭代
+k7d4903 | 在 $M_t$ 上设定网格。对网格上的每个点：
+ke626f8 | 在最后一期计算 $V_T(M_T)=\max_{0\leq c_T\leq M_T}\{u(c_T)\}$，并
+kb08a3e | 有了 $t+1$ 期的价值函数，逆向推到 $t$ 期，并
+k7a8d2b | 利用 Bellman 方程计算
+@page 15
+k006511 | 见代码仓库中的 code/python 目录
+ke09542 | Phelps 与 Deaton 模型
+kce709d | 运行 VFI 求解器
+@page 16
+k184904 | 欧拉方程
+k9391d2 | Bellman 方程：$V_t(M_t)=\max_{0\leq c_t\leq M_t}\left\{u(c_t)+\beta EV_{t+1}\left(\tilde{R}(M_t-c_t)\right)\right\}$
+k7131b5 | Bellman 方程的一阶条件：$u'(c_t)=\beta E\left[\frac{\partial V_{t+1}(M_{t+1})}{\partial M_{t+1}}\tilde{R}\right]$
+k4f042a | 包络定理：
+k49d9ec | 刻画⟪内点解的欧拉方程：$u'(c_t)=\beta E\left[u'(c_{t+1})\tilde{R}\right]$⟫
+@page 17
+kcd20b0 | 传统方法：求解欧拉方程
+kae3c5a | 在最后一期计算
+kc80727 | 有了 $t+1$ 期的最优消费规则 $c_{t+1}^*(M_{t+1})$，逆向推到 $t$ 期，并
+kbc66b9 | ⟪由⟫方程求出 $c_t$
+kcc6268 | 以恢复 $c_t^*(M_t)$
+kce3ab7 | 当 $M_t$ 小到信贷约束起作用时，欧拉方程不成立，需要特殊处理
+@page 18
+kb4c399 | 如果不需要求根会怎样？
+k206a61 | 相对较慢：在状态空间的每个点上都要做迭代数值优化！
+k3e916f | 在非凸问题中很难找到全局最优
+k8d16da | 由于固定网格上没有信贷约束开始起作用的那个点，精度会有损失
+k9f97f2 | 即使使用最先进的求解器也是如此！
+kf5f2b1 | 快得多：在状态空间的每个点上都不需要迭代方法
+kac02ee | 更准确：利用了问题的解析结构
+@page 19
+k9bb371 | 内生网格点方法（EGM）
+k889dcf | Carroll 2006，Economics Letters
+kc89e65 | 求解动态随机最优化问题的内生网格点方法。
+kcb1f4a | 不在状态空间的每个点上搜索最优决策（传统方法）
+k2f8078 | 而是寻找使任意选定的决策（消费 $\to$ 储蓄）成为最优的状态变量（资产水平）（EGM）
+@page 20
+k89657b | EGM 算法
+kecbc68 | 从 $c_T^\star=M_T$ 开始。在每一期 $t=T,T-1,..,1$：
+k6b3d6d | 从固定（或自适应）网格中取下一个值 $A$ = 当期储蓄（$=M_t-c_t$）
+k0932c9 | 跨期预算约束：$A\to M_{t+1}$
+k97cd71 | $t+1$ 期的策略函数：$M_{t+1}\to c_{t+1}$
+k3b0f5b | 反解欧拉方程：$c_{t+1}\to c_t$
+k24fc69 | 期内预算约束：$c_t+A=M_t\to c_t(M_t)$
+@page 26
+k30d3e8 | 把 EGM 一步看作参数曲线
+kb5ca75 | 给定任一策略函数 $c_0(M)$，更新后的策略函数 $c(M)$ 由一条⟪参数曲线⟫给出
+k449a86 | $A$ 是取非负值的参数
+@page 27
+k3e4490 | Matlab 实现（minimal.m）
+k77b9c6 | =
+k1de19d | =
+k044f18 | =
+kd36fcd | =
+k324f8c | =
+k454e64 | =
+@page 28
+k3ad8c6 | EGM 的精度与速度
+k13abca | 传统欧拉方法
+k871dcc | 运行时间
+k65b61d | 37 秒　0.11 秒
+k003479 | $c_t^\star$ 的最大绝对误差 ⏎ $c_t^\star$ 的平均绝对误差 ⏎ $V_t(M)$ 的最大绝对误差 ⏎ $V_t(M)$ 的平均绝对误差
+@page 29
+kcceada | 比较 VFI 与 EGM 求解器的速度
+k53e9df | 用 VFI 与 EGM 的解模拟平坦的消费路径
+@page 30
+k4e395e | EGM 与信贷约束
+k48567d | 效用函数单调且凹 $\Rightarrow$
+k8f8ffe | 期末资产 $A_t=M_t-c_t$ 关于 $M_t$ 不减
+k3c24a1 | 当 $A$ ⟪$=0$⟫ 时，EGM 循环给出界定信贷约束区域的手头现金值 $M_t^{cc}$
+ka1081e | 对所有 $M_t<M_t^{cc}$，信贷约束起作用 $\Rightarrow c_t=M_t$
+kfc4501 | 信贷约束区域内的消费规则是 $(0,0)$ 与 $(M_t^{cc},M_t^{cc})$ 之间的 $45^{\circ}$ 线
+ke1bbd0 | 就像把点 $(0,0)$ 与 $(M_t^{cc},M_t^{cc})$“连起来”一样简单
+@page 32
+k74d585 | 信贷约束与价值函数
+k06110d | EGM 之所以能很好地处理信贷约束，是因为从来不需要计算接近零的消费的效用
+k0546c4 | 当必须计算价值函数时这无法避免，但……
+k0d6a83 | $EV_{t+1}(0)$——以 $A_t=0$ 结束 $t$ 期的期望价值
+ka65370 | 当 $M_t<M_t^{cc}$ 时，价值函数有解析形式！
+@page 34
+k632285 | EGM 的推广
+k196210 | Iskhakov, Jørgensen, Rust, Schjerning，QE 2017
+kc61aed | The Endogenous Grid Method for Discrete-Continuous Dynamic Choice Models with (or without) Taste Shocks
+k3cafcc | 即 DC-EGM 论文
+kfffcb9 | 两种形式：含与不含 EV 偏好冲击
+k88e82b | 为实证应用设计的求解方法
+kee1e69 | Giulio Fella，RED 2014
+k8460b1 | A Generalized Endogenous Grid Method for Non-Smooth and Non-Concave Problems
+k1b7dd6 | 识别问题中欧拉方程不足以保证最优的区域
+k3b5f51 | 在这些区域内使用全局优化方法（VFI），区域外使用 EGM
+ka01595 | 与不含偏好冲击的 DC-EGM 类似
+@page 35
+k25e5b9 | 简单退休模型
+k070602 | =
+kc013c0 | $R,W$：退休与工作⟪状态 $st_t$⟫，按照
+k80a7cd | ⟪离散选择 $d\in\{R,W\}$⟫演化 ⏎ 确定性的工资收入
+@page 36
+kb134b3 | 解析解
+@page 37
+kb1564f | 价值
+kd0dc4a | 手头现金
+@page 38
+k35ca2f | 如何处理离散/连续选择
+k7acc74 | 目标：
+kac1c47 | 避免求根
+kc12a5f | 保持对信贷约束的高效处理
+kc44b7b | 对每个离散选择 $d$ 与每个状态 $st$ 进行 EGM 一步
+k132145 | 计算 $d$ 特定的价值函数与消费规则
+kf9c479 | 比较 $d$ 特定的价值函数，找出最优切换点（计算上包络）
+k99103d | 由最优切换点重建整体的消费规则与价值函数
+@page 39
+k1e86fa | 比较 $d$ 特定的价值函数，找出最优切换点（计算上包络）
+@page 42
+k529742 | 不需要求根！
+kc6c175 | 高效处理信贷约束（稍后展示）
+kb6ed7c | 需要计算价值函数
+kcd71e9 | 需要计算上包络
+@page 43
+k5abcd1 | 欧拉方程仍是必要条件吗？
+k8f30b0 | Clausen \& Strub，2010—2016
+k6a78a6 | A General and Intuitive Envelope Theorem.
+k9ac72d | 证明了欧拉方程对最优连续消费仍是必要条件。
+@page 44
+kee04e5 | $T$ 期：选择特定的价值函数
+k88da19 | 选择特定的价值函数
+k8a5fd9 | 价值函数
+k80357a | 退休 ⏎ 工作
+kaecf96 | M（手头现金）
+@page 45
+k418d6b | $T-1$ 期：选择特定的价值函数
+@page 46
+k75a794 | =
+kbcca4f | 上包络
+@page 47
+k89943c | $T-1$ 期：最优消费
+k12067c | 最优消费
+kb9c014 | 手头现金
+@page 48
+k090aa7 | 那么，发生了什么
+k100a17 | $d$ 特定的价值函数相交
+k90287e | （由于收入与工作负效用之间的权衡）
+k51a0f0 | 价值函数的⟪上包络⟫有一个拐点，合并后的消费函数有一个不连续点
+@page 49
+kcb2565 | $T-2$ 期：选择特定的价值函数
+@page 50
+k97d721 | $T-2$ 期：次级上包络
+@page 51
+k2840dc | 价值函数的⟪上包络⟫有一个拐点，
+kc98767 | 合并后的消费函数有一个不连续点
+k54f8f6 | 价值函数的导数在拐点处
+k1b4a8d | 不连续
+k92c767 | 对某些财富值（在内生网格上），欧拉方程有两个解！
+k35af16 | 若对内生网格点排序 $\to$ ⟪锯齿区域⟫
+@page 52
+kc114da | 欧拉残差的多个零点
+k8dc8d4 | 不同手头现金值下的欧拉残差
+k28fa10 | =
+k84ce6d | 欧拉残差
+@page 53
+k626d62 | $T-2$ 期：次级上包络：检测
+k0b5d20 | 次级包络
+@page 54
+k7de650 | $T-2$ 期：次级上包络：结果
+@page 55
+ke52e27 | 如何用算法检测“锯齿”区域？
+kb74178 | 在对效用函数与跨期预算约束的弱正则条件下，储蓄函数弱递增：$A_t(M'_t)\geq A_t(M''_t)$⟪，对所有 $t$ 与所有 $M'_t\geq M''_t$ 成立。⟫
+k9f180f | 注意：储蓄函数仍可能有“向上”的跳跃
+k19dcc3 | 将 $A$ 上的外生网格按⟪升序⟫排列
+ka70a5e | 那么只要欧拉方程是充分条件，$M$ 上的内生网格点序列也必须⟪是升序的⟫
+k26c848 | 每当内生网格⟪“向回弯折”⟫，就把内生网格分成若干个点的子集
+kea3419 | 在这些子集上的各段计算⟪上包络⟫
+k27c4b7 | 删除次优的内生网格点
+k5fcb4a | 找到拐点并将其加入内生网格
+@page 56
+kf2ae28 | 最优消费会怎样？
+k6d3236 | =
+k8dce17 | 价值
+@page 57
+k47a106 | 消费
+@page 58
+k30d5db | 另一种方法：快速上包络扫描（FUES）
+k239a46 | Loretti Dobrescu, Akshay Shanker（2022）
+kb689ef | Fast Upper-Envelope Scan for Discrete-Continuous Dynamic Programming
+kea1fd7 | 给定价值函数的内生网格点与相应的最优消费：
+k3949cc | 将内生网格点按升序排列
+kb2faff | 为消费的变化选定一个跳跃阈值
+k1496e0 | 给定内生网格上相邻的两个点，若价值“函数”下降，同时消费出现跳跃，则将该点作为劣点删除
+kd35a15 | 继续处理排序后内生网格上的下一个点
+ke56a84 | 不依赖于储蓄函数的单调性
+k86546e | 可以推广到更高维
+k80921c | 但依赖于预设的阈值，可能导致所求模型解不准确
+@page 59
+kec67df | $T-2$ 期：价值函数、主要拐点与次级拐点
+k90a8fa | 退休
+k00040b | 工作
+k33ac7a | 次级拐点 ⏎ 退休阈值
+@page 60
+k28c14b | $T-2$ 期：最优消费
+@page 61
+kfcb1aa | 最优消费（多期）
+@page 62
+k7052b5 | 最优退休（多期）
+k56dbf6 | 所示状态：工作
+@page 63
+ka21bf3 | 完整的 DC-EGM 算法
+k4ec9d6 | 从最后一期开始，计算最优消费规则与价值函数。沿时间逆向循环：
+kd1656c | 在 $d$ 特定价值函数的“锯齿”区域上计算“次级”上包络，并更新相应的消费规则
+@page 64
+k8adfb4 | 完整解的性质
+k09a70e | 价值函数非凹，并且有⟪拐点⟫
+k7be778 | 消费函数有⟪不连续点⟫
+k5d4d43 | 不连续点/拐点会随时间⟪传播⟫并⟪累积⟫
+ke20719 | 这些性质是模型本身的属性。
+k9206a4 | 任何求解方法都必须处理这些复杂性。
+kf8f8de | DC-EGM 与解析解完全吻合！
+@page 65
+ke0f42f | 用 model\_retirement.m 复现该解
+kb97412 | 模拟 $\beta R=1$ 时的消费路径，并讨论解的精度
+@page 66
+k6c2305 | 随机回报 $\tilde{R}$
+kb28e96 | 随机冲击确实有帮助，⟪然而：⟫
+kcea9bb | ⟪只能⟫平滑⟪次级⟫拐点
+k3662f9 | 主要拐点（在离散选项之间切换）⟪仍然存在⟫
+k6320be | 未必能平滑所有拐点：$t$ 期最优消费连续但急剧的下降，可能在 $t-1$ 期导致不连续点/拐点
+k655cfa | 欧拉方程中的期望必须对不连续函数求取
+k5bcab2 | 粗糙的计算会带来更多拐点/不连续点
+k45d5d8 | 需要对各个“连续”区间分别积分
+@page 67
+kf19076 | $T-3$ 期：$\sigma=0.1$ 时的最优消费
+@page 68
+k0c56a9 | $T-3$ 期之前：$\sigma=0.1$ 时的最优消费
+k8f0bc0 | 退休阈值
+ka96ccb | 退休阈值 ⏎ 次级下降
+@page 69
+k3b03d3 | $T-3$ 期：$\sigma=.2$ 时的最优消费
+@page 70
+k4538db | $T-3$ 期：$\sigma=.2$ 时的价值函数
+k1e58b8 | 次级拐点 ⏎ 退休阈值
+@page 71
+k8c4009 | $T-3$ 期：$\sigma=.22$ 时的最优消费
+@page 72
+kf841b9 | $T-3$ 期：$\sigma=.22$ 时的价值函数
+@page 73
+k5adbda | 服从极值分布的偏好冲击
+kfb5743 | ⟪平滑⟫主要拐点
+k703ad5 | 极值分布——期望有闭式解，且是实证应用中的标准设定
+k969320 | 两种可以互换的解释
+kbde2b3 | 结构性的：不可观测的状态变量
+k159e92 | logit 平滑：用来简化求解
+kc51a80 | 与模型中的其他冲击协同作用
+kb6f1af | EV 偏好冲击平滑主要拐点
+k274839 | 随机回报平滑次级拐点
+k0328f7 | 一般而言不能保证完全平滑：次级拐点可能持续存在
+@page 75
+kd0271c | 含偏好冲击的退休问题
+k20da93 | ⟪用⟫选择特定的⟪价值函数⟫重新表述
+k19a816 | =
+@page 76
+k6cae17 | 平滑的欧拉方程
+k4145c6 | 不含偏好冲击——⟪“不连续的”⟫欧拉方程：
+k74e055 | 含 EV 偏好冲击——⟪平滑的⟫欧拉方程：
+k321bc3 | 选择概率
+@page 77
+kc17049 | 无偏好冲击
+ka53606 | 欧拉残差值
+k7dbae7 | 消费，c
+@page 78
+k901a51 | 含偏好冲击的 DC-EGM
+k93b770 | 比较 $d$ 特定的价值函数，找出最优切换点（计算上包络）
+@page 79
+k04b975 | 有了 EV 偏好冲击，DC-EGM 变得⟪更简单⟫
+k24c14e | 问题用⟪选择特定的价值函数⟫重新表述
+kb192b8 | 主要上包络的计算被⟪对数和⟫的计算所取代
+k9ab236 | 期望的计算更容易（因为不连续点更少）
+kc64f70 | 存储选择特定的价值函数需要更多内存
+@page 80
+k6a7ad6 | 极值同伦
+k4010af | 令 $\sigma$ 为有 $D$ 个离散选择的 DC 问题中第一类极值偏好冲击的尺度。则有如下界
+k8bd8e0 | 这意味着，当 $\sigma\to0$ 时，受极值扰动的策略函数 $c_{\sigma,t}(s,\epsilon)$ 与 $\delta_{\sigma,t}(s,\epsilon)$ 逐点收敛到 $c_t(s)$ 与 $\delta_t(s)$，即不含任何偏好冲击的 DP 问题的最优连续与离散决策规则。
+@page 81
+kbb28ef | 只有偏好冲击时的最优消费
+k6f993a | 消费，c
+k1d631c | 资源，m
+@page 82
+k951c66 | 含随机回报时的最优消费
+@page 83
+k7014fe | 信贷约束
+kb5aed2 | 而是把点 $(0,0)$ 与 $(M_t^{cc},M_t^{cc})$“连起来”
+k608a91 | $M_t^{cc}$——与 $A_t=0$ 对应的财富水平
+k692f90 | 当必须计算价值函数时这无法避免
+k8d0990 | 若效用在消费与离散选择之间可加可分（AS），这个问题可以完全避免！
+@page 84
+kf01f6d | 对每个 $d_t$ 计算与零储蓄对应的 $M_{t,d_t}^{cc}$ ⏎ EGM 循环可以从 $A=0$ 开始
+ke7f018 | 当 $M<M_{t,d_t}^{cc}$ 时，价值函数有解析形式
+k34bb9f | $EV_{t+1}^0(d_t)$——以 $A_t=0$ 结束 $t$ 期的期望价值
+kb8dd79 | =
+kcb2451 | 当 $M<\min_{d_t}\left\{M_{t,d_t}^{cc}\right\}$ 时，各 $V_t^{d_t}(M)$ 不相交
+k293b13 | $\Rightarrow$ 不需要在接近零的财富处寻找交点 $\Rightarrow$ 选择概率不变
+@page 88
+k5133ac | 养老金福利 $.25y$
+@page 89
+ka577b9 | 求解含偏好冲击的 model\_retirement.m
+k80b67a | 模拟一些消费路径与退休年龄分布
+@page 90
+k197fa2 | 多维情形
+k27e199 | 与推广
+kc80fcf | Giulio Fella，2025
+k7b9b2c | ⟪内生网格法⟫（综述，可下载）
+@page 91
+kb6ae0f | EGM + VFI
+k2c9be8 | Barillas \& Fernandez-Villaverde，JEDC 2007
+k2ee52e | A Generalization of the Endogenous Grid Method
+kfba0f9 | 固定其他控制变量，对一个选择运行 EGM
+k75814a | 对其余决策变量做 VFI
+kc7a4e7 | Ludwig \& Schön，Computational Economics，2018
+k956113 | Endogenous Grids in Higher Dimensions: Delaunay Interpolation and Hybrid Methods
+kcd0e11 | 求解人力资本投资 + 消费/储蓄模型
+k01b7ad | 比较三种插值方法不同的做法
+kbd4380 | 需要在不规则的多维网格上插值
+@page 92
+k9b507f | 多维内生网格
+@page 93
+kfe358f | 不规则网格上的插值
+k2fd693 | Johannes Brumm, Michael Grill，JEDC 2014
+kb4aac3 | Computing equilibria in dynamic models with occasionally binding constraints
+kb586cf | 基于 Delaunay 三角剖分的插值
+@page 94
+k642d26 | Matthew White，JEDC 2015
+k24e7c4 | The Method of Endogenous Gridpoints in Theory and Practice
+ka8c97a | 用“可见性行走”方法找到包含插值点的非线性矩形
+k29680f | 将非线性矩形映射为规则矩形
+@page 95
+ke434cb | Alan Lujan，2024
+ke7f225 | $\mathrm{EGM}^n$：序贯内生网格法
+kbad8c3 | 改进了 White（2015）的插值方案
+k4ec709 | 利用内生网格矩阵的“索引坐标点”进行插值
+k9c70ad | 然后在非线性网格上进行多线性插值
+kd56f38 | =
+@page 96
+kd16a48 | Jeppe Druedahl, Thomas Jørgensen，JEDC 2017
+k83408d | A General Endogenous Grid Method for Multi-Dimensional Models with Non-Convexities and Constraints
+k9b541e | 关注偶尔起作用的约束与非凸性
+@page 97
+k65de9f | 消费 + 养老金缴费模型
+k01f8ef | 养老金缴费的策略函数
+@page 98
+k6ce920 | 下一期的养老金财富 $n$
+@page 99
+kd4e10f | 多维 EGM 的一般理论
+kd5aa5f | 非线性方程组的⟪可逆性条件⟫
+k416a7d | ⟪给出⟫充分条件，
+kfca520 | 即特定的映射必须是⟪单射⟫
+kacc86a | Iskhakov，Econ Letters 2015
+k1a456c | Multidimensional endogenous gridpoint method: solving triangular dynamic stochastic optimization problems without root-finding operations + Corrigendum
+k14167c | 着重于⟪解析可逆性⟫，以避免求根运算
+@page 100
+k031ffc | $R^3$ 中的三角形例子
+ked191d | $M_t\in R^3$：$t$ 期的资源向量
+kc6e083 | $c_t\in R^3$：资源的使用
+k5808d7 | $A_t\in R^3$：$t$ 期期末的资源⟪（决策后状态）⟫
+k1fdda1 | $A_t=g(M_t,c_t)$：期内演化
+k8fa771 | $M_{t+1}=f(A_t,\tilde{R})$：跨期演化（预算约束）
+kebeb7f | $\tilde{R}$：个体特有的随机冲击
+k2063ef | $u:R^3\to R$：当期资源使用的效用
+k335c04 | 计划：
+kb804a9 | 运用 EGM 的思想，找出问题的基本要素需要满足哪些假设才能使其可行
+k657fe8 | 暂不考虑预算约束和其他可行性限制
+@page 101
+k0b7497 | 决策后状态
+k0db7c2 | 注意，我们已经假设：
+k47838d | 从而可以把 Bellman 方程中期望的条件替换为
+k032041 | $\Leftrightarrow A_t$ ⟪是 $(M_t,c_t)$ 的⟫充分统计量
+kb5aae7 | **（TRI1）**假设⟪决策后状态⟫变量向量服从
+@page 102
+k73e3d4 | Bellman 最优化与一阶条件
+kc81fd8 | 一阶条件为：
+@page 103
+kfbe24a | 包络条件
+k63aa2e | 将其与上一页的一阶条件结合，得到
+@page 104
+k14a0f0 | 我们已经把价值函数的偏导数 $(V_t)'_i$ 表示为⟪边际效用 $\mathcal{L}_t[u'(c_t)]$ 的线性函数⟫，系数由 $g^i(\bullet)$ 函数的偏导数给出
+k43b5cf | 欧拉方程组
+k06059b | 由上一轮逆向归纳迭代插值得到 $c_{t+1}(M_{t+1})$
+kf5bed4 | 右边已知，需要求解 $c_t^1,c_t^2,c_t^3$
+@page 105
+kbd9f13 | EGM 适用的充分条件
+kbbf4eb | **（TRI2）**效用函数 $u(c)$ 的黑塞矩阵是上三角的（可以相差一个置换）
+k2404e2 | （以便用回代法求解）
+k4a39b0 | **（CON）**效用函数 $u(c)$ 严格凹
+kc733fb | （以便对每个欧拉方程求逆）
+ke224df | **（INV）**期内转移函数 $g^i(M,c)$ 关于第一个自变量有解析逆 $M=(g^i)^{-1}(A,c)$
+ke502ca | （以便构造内生网格）
+ke99687 | 那么，欧拉方程组可以通过求逆、用回代法求解，⟪无需求根运算⟫
+k28e27e | 证明是构造性的：对施加在决策后状态空间上的网格执行 EGM 一步
+kcacdd4 | 条件 **TRI1、TRI2、CON、INV** 足以保证动态问题（对内点解）可以用**多维 EGM** 算法求解
+@page 106
+k3bd269 | 选择何时可分？
+k61a530 | 从前面的分析中得到的一个富有成效的想法：
+k464acf | 把多维选择表示为一系列选择
+k5c8044 | 每个选择都在给定决策前状态 $M^i$ 的情况下作出
+ka12b15 | 决策后状态为 $A^i=g^i(M^i,c^i)$，其中 $g^i$ 是确定性函数
+k68609b | 决策前与决策后的状态相互衔接，使 $M^{i+1}=A^i$
+k1b38cf | 随机冲击在从 $t$ 到 $t+1$ 的转移中实现
+k18ced3 | 那么⟪TRI1 成立：⟫可以使用多维 EGM
+@page 107
+k573ee1 | 如果边际效用无法解析地求逆怎么办？
+k6263b8 | Hallengreen, Jørgensen, Olesen，2024
+kd8e8ff | The Endogenous Grid Method without Analytical Inverse Marginal Utility
+k95a8e0 | 一种可能的做法是：
+kb02511 | 在固定网格上⟪预先计算⟫边际效用
+k3fcaf4 | 用任何合适的方法对该函数进行⟪插值⟫
+kb2322a | 在 EGM 一步中使用⟪数值逆⟫，实际上就是“交换”
+k51bad6 | 算法的其余部分不变
+k5e6e24 | 可以用于一维和多维问题
+@page 108
+k02c28f | DC-EGM 的精度在哪些方面可以改进？
+kefaeed | Wending Liu, Iskhakov，2025
+k19fb2c | Policy Tree Descendant Algorithm for Solving Consumption-Savings Problems with Safety Net
+k6aa22f | 消费下限会在价值函数中引入一个拐点
+k0568c7 | 与 DCEGM 一样，拐点在确定性问题中传播
+kbd1c1a | EGM/DCEGM 中不准确的来源：
+k2dad44 | 价值函数的⟪插值⟫
+ke13ce4 | 拐点/不连续点的位置⟪是近似的⟫
+kf9b9d7 | 存储线性策略函数的各段及其定义域
+k218c75 | ⟪识别⟫策略段之间传承关系的树结构
+kb03aae | 前向传播以避免插值
+@page 109
+k5f17a2 | 用逆向归纳构建策略传承树
+k655070 | 最后一期 $t=T$
+@page 110
+k94a88a | $t=T-1$ 期
+@page 111
+kc4356a | $t=T-2$ 期
+@page 112
+k83cc1a | 策略传承树
+@page 113
+k263ef3 | 策略传承树算法的精度
+kc18ef1 | 5000 条模拟的生命周期
+k4acb87 | 简单比较所实现的终身效用
+k227c0a | $range(x,y,n)$ = 在 $x$ 与 $y$ 之间等距分布的 $n$ 个点
+kd6e1b9 | 运行时间取 100 次运行的平均值
+k883069 | 方法
+k6f9985 | =
+ka2da27 | =
+k4403fc | =
+k7ac8d7 | =
+k09f615 | 对收入流 $(y_1,y_2,\ldots,y_T)$ 的抽样进行蒙特卡洛积分，得到⟪随机形式⟫，依照
+k38adf7 | Cai, Judd，QE 2025
+k09ccb9 | A simple but powerful simulated certainty equivalent approximation method for dynamic stochastic problems
+@page 114
+k02ee1d | 用内生网格点方法
+k4b1d73 | 估计生命周期模型
+@page 115
+k86f42c | 用 EGM 方法能做什么
+k5844f1 | 我们可以求解⟪许多⟫这类问题 $\Rightarrow$
+k67a331 | 针对重要的离散/连续选择问题的快速求解器
+k384509 | 校准
+k01a27e | 用你喜欢的方法进行结构估计
+kc30dfc | NFXP：内层循环求解模型，外层循环优化目标函数
+k6f3a32 | 在某个“外层循环”中反复使用求解器 $\to$
+kf2892c | 个体异质性：为样本中的每个个体求解模型
+kc42c26 | 不可观测异质性：随机效应
+kee17b1 | 分布假设的灵活性
+kddb3ee | ⟪Giulio Fella，2025⟫（应用列表见此）
+k997205 | 内生网格法
+@page 116
+k11676d | EGM 与 MPEC 的比较
+k7ecb4f | Jørgensen，2012，Economics Letters
+k0d43b3 | Structural Estimation of Continuous Choice Models: Evaluating EGM and MPEC.
+kd770bc | 无限期 Deaton 消费/储蓄模型，用合成数据做 ML 的蒙特卡洛实验，1 个结构参数
+k71b9f9 | =
+k568787 | =
+ke726e5 | 0.1 秒
+k04acc7 | =
+kb78c94 | 1.9 秒
+k5ac9fd | 93.7 秒
+kf5c7d2 | 5.0 秒
+k5c520a | 30.9 秒
+@page 117
+k3d2b81 | 要点总结
+k51a3f3 | EGM 与 DC-EGM 是快速而准确的求解方法
+kab4ba5 | 常规情形下不需要求根运算
+kc3ce49 | 处理信贷约束很高效
+k0538c8 | 确定性的离散—连续问题很难：
+kd6d98a | 价值函数有拐点，策略函数不连续
+k85c89a | 拐点随时间累积的滚雪球效应
+k65590a | 有了 EV 偏好冲击，问题得到缓解
+k0be2a0 | EV 偏好冲击可以是结构性的，也可以为平滑而加入
+k60db94 | 便于用离散选择数据进行估计
+# block titles (white text under soft-masked shadows)
+k7c3a4e | 使用数值优化
+kc40bb4 | 不使用数值优化
+kbd69a4 | 思路
+kfe8916 | EGM 一步
+k11cd0d | 定理：储蓄的单调性
+k00a869 | DC-EGM 1.0 版
+kca6c19 | 定理：单调性
+k62aa19 | DC-EGM 2.0 版
+k6e6790 | DC-EGM 3.0 版
+kf5637e | 定理：用 logit 平滑近似
+k485c70 | 处理信贷约束
+kef4ed7 | 在计算上包络的同时，在规则网格上重新插值

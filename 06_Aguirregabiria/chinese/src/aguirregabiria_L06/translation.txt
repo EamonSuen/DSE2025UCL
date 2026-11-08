@@ -1,0 +1,252 @@
+# Aguirregabiria, Structural DDC Models with Fixed Effects (DSE 2025, Lecture 6) — 中文译文
+@page 1
+k2f18fb | 含固定效应的
+kf652c2 | 结构动态离散选择模型
+k70626b | 第 6 讲
+k92a337 | 计量经济学会暑期学校
+k0776fa | 动态结构计量经济学
+ke4db0a | Victor Aguirregabiria（多伦多大学）
+k648cfd | UCL，2025 年 7 月 1 日
+k68f749 | =
+kd60990 | DDC 博弈
+@page 2
+k0270ca | 引言
+k2d3bb5 | 将⟪真实动态⟫（过去决策的因果效应）与持续性不可观测异质性（UH）带来的⟪虚假动态⟫区分开来，是动态模型计量经济学中的一个基本挑战。
+kd5805a | 短面板带来的挑战（Heckman，1981）：
+k96a757 | ⟪附带参数问题（IPP）：⟫把 UH 当作固定参数，会导致感兴趣参数的估计不一致。
+k19a281 | ⟪初始条件问题（ICP）：⟫UH 与初始条件的分布不存在非参数识别。
+k4d674a | 应对 ICP 导致的非参数不可识别，有两种
+k5f5a40 | 不同的方法：
+k6c51cc | 随机效应（RE）。
+k3a1c16 | 固定效应（FE）。
+@page 3
+k1dd1e6 | 随机效应（RE）与固定效应（FE）
+kc061a9 | 随机效应（RE）：⟪对 UH 积分。⟫
+k668b4f | 对 UH 与初始条件的联合分布施加参数化及有限支撑的约束，以此处理 ICP。
+k31599f | **优点：**结构参数与 UH 的分布都可以完全识别。
+k0a9ed4 | **缺点：**对 UH 的参数化约束一旦设定错误，可能给“真实动态”的估计带来严重偏误。
+keb36e3 | ⟪固定效应（FE）：⟫差分掉 UH。
+k9ac10a | 关注刻画“真实动态”的结构参数的识别，而不关注 UH 分布的识别。
+ke500f5 | **优点：**UH 采用非参数设定，真实动态的识别是稳健的。
+ke4c271 | **缺点：**UH 的分布不能完全识别，这限制了我们能识别的反事实。⟪（容易处理）⟫
+kc438c9 | **缺点：**并非所有动态模型都有一致的 FE 估计量。
+@page 4
+k5cba40 | 结构 DDC 模型中的固定效应
+k047fcb | 直到最近，结构 DDC 模型的所有应用都使用 RE 模型来处理 UH。
+k464e5f | 之所以没有使用 FE 方法的应用，部分是因为两种普遍的看法。
+k7e25b1 | 认为在个体具有前瞻性的结构模型中，不存在一致的 FE 估计量：⟪问题出在延续价值上。⟫
+k924a85 | 认为即使结构参数可识别，也无法识别⟪平均边际效应（AME）⟫和其他反事实，因为它们取决于 UH 的分布。
+k1c62e0 | 最近的进展对这些看法提出了挑战。
+@page 5
+kd3ca61 | FE 方法的副产品：计算上的收益
+k899a52 | 我们将看到，其中一种 FE 方法（条件 MLE）需要⟪差分掉条件选择价值函数中的延续价值⟫部分。
+k9a2e3f | 这意味着这种估计方法（条件 MLE）不需要求解任何动态规划问题，不需要计算现值，甚至不需要计算向前一期的期望。
+k62018d | 实现条件 MLE 的计算成本不取决于状态空间的维数。
+@page 6
+k54b7bb | 本讲内容
+kbd8495 | 本讲介绍结构 DDC-FE 模型的最新结果。
+kd0329f | Aguirregabiria, Gu, \& Luo（Journal of Econometrics，2021）
+keed1d0 | 以滞后决策和持续时间为状态变量的结构 DDC-FE 模型的识别与估计。
+k7364bb | Aguirregabiria（Econometrics Journal，2023）
+k41953f | 应用于差异化产品的动态需求
+kdbcddc | Aguirregabiria \& Carro（Review of Economics \& Statistics，2025）
+k2e219b | 平均边际效应的识别。
+kd7304c | Aguirregabiria, Gu, \& Mira（工作论文，2025）
+k569055 | 推广到动态离散选择博弈。
+@page 7
+kcdd629 | 提纲
+k5964ba | 提纲
+k894eef | 结构参数的识别。
+kdc891c | 条件似然——充分统计量方法。
+kfb6e28 | 函数差分。
+k876e96 | 条件 MLE
+kd75f42 | GMM
+k2b134a | 实证应用——差异化产品的动态需求。
+@page 8
+kaac8c7 | 模型
+@page 9
+k16d4e6 | 模型：决策变量与状态变量
+kcfe568 | ⟪决策变量：⟫$y_{it}\in\mathcal{Y}=\{0,1,\ldots,J\}$。
+kd33354 | 个体最大化 $\mathbb{E}_t\left[\sum_{s=0}^{\infty}\delta_i^s\,U_{i,t+s}\right]$。$U_{it}$ 为效用函数。
+k0a0abc | $U_{it}$ 取决于当前选择 $y_{it}$，以及：
+kf15f41 | 对研究者而言的⟪两类不可观测变量⟫ $(\boldsymbol{\alpha}_i,\boldsymbol{\varepsilon}_{it})$；
+k0974fc | 两类可观测状态变量：
+kc455d6 | $\boldsymbol{z}_{it}$ = 严格外生的状态变量。
+k3e1b5a | $\boldsymbol{x}_{it}$ = 内生的状态变量。
+@page 10
+kaf1ac3 | 模型：效用函数
+kd21f05 | 选择备选项 $j$ 的当期收益：
+kf6a26b | 收益函数 $\beta(j,\boldsymbol{s}_{it})$ 不受限制。
+k9e60fc | 不可观测变量：
+kf8d4f1 | 两类不可观测变量都是可加可分的。
+kb022d1 | $\varepsilon_{it}(j)$ 独立同分布，服从第一类极值分布；
+k6b7eb1 | ⟪FE 模型：⟫$p(\alpha_i(0),\ldots,\alpha_i(J)\mid\boldsymbol{x}_{i1},\boldsymbol{z}_{i1},\ldots,\boldsymbol{z}_{iT})$ 不受限制。
+@page 11
+k764c59 | 最优决策与 CCP（以 $\boldsymbol{\alpha}_i$ 为条件）
+k593a04 | 最优决策为：
+kd6a0ae | ⟪其中 $cv(j,\boldsymbol{s}_{it},\boldsymbol{\alpha}_i)$ 是⟫延续价值函数：
+k828aa6 | 不可观测变量 $\varepsilon$ 服从第一类极值分布，这意味着如下⟪条件选择概率（CCP）⟫函数：
+@page 12
+ked9e4e | 结构参数的识别
+k145e0a | 结构参数的识别
+k68a313 | -
+@page 13
+ke10fbb | 模型的一个受限版本
+k086fb7 | 为简单起见，本讲着重讨论施加了两个额外约束的模型版本的识别结果。
+k55e77a | R1：没有外生状态变量 $\boldsymbol{z}_{it}$。
+k51700d | R2：内生状态变量遵循确定性的转移规则：
+kd6330b | 这些约束有两个重要含义。
+kb72110 | 初始条件加选择路径 $\widetilde{\boldsymbol{y}}_i=\{\boldsymbol{x}_{i1},y_{i1},y_{i2},\ldots,y_{iT}\}$ 包含了选择与状态路径的全部信息。
+k117f4c | 对于两对选择与状态 $(j,\boldsymbol{x})$ 与 $(j',\boldsymbol{x}')$，若 $f(j,\boldsymbol{x})=f(j',\boldsymbol{x}')$，则它们的延续价值也相同。
+@page 14
+k38e288 | FE——充分统计量方法
+k9b8fc5 | 令 $\widetilde{\boldsymbol{y}}=\{\boldsymbol{x}_1,y_1,y_2,\ldots,y_T\}$ 为个体的观测历史
+ka080fd | 选择历史的对数概率具有如下形式：
+k2c481e | 其中 $S(\widetilde{\boldsymbol{y}})$ 与 $C(\widetilde{\boldsymbol{y}})$ 是统计量向量。
+ke71989 | 例如：
+k623eb4 | $\sum_{t=1}^T 1\{y_t=j\}$ 属于 $S(\widetilde{\boldsymbol{y}})$。
+kbb8981 | $\sum_{t=2}^T 1\{y_{t-1}=k\text{ 且 }y_t=j\}$ 属于 $C(\widetilde{\boldsymbol{y}})$。
+@page 15
+k73a62d | FE——充分统计量方法（2）
+ke56546 | 这一结构有几个重要含义。
+k3df1bc | $S(\widetilde{\boldsymbol{y}})$ 是 $\boldsymbol{\alpha}$ 的充分统计量。
+kf0db1b | 若以 $S(\widetilde{\boldsymbol{y}})$ 为条件，由所有 $\widetilde{\boldsymbol{y}}$ 构成的矩阵 $C(\widetilde{\boldsymbol{y}})'$ 列满秩，则 $\boldsymbol{\beta}$ 可识别。
+@page 16
+k9b02dd | 对识别更直观的描述
+kbf49da | 假设有两个选择历史，比如 $A$ 和 $B$。对向量
+kd199c1 | $\boldsymbol{\beta}$ 中的每个参数，比如 $\beta_k$，都存在两个选择历史，比如
+kf83bbb | $\widetilde{\boldsymbol{y}}=A$ 与 $\widetilde{\boldsymbol{y}}=B$，使得：
+k8e1b16 | $C(A)-C(B)$ 是一个向量，除了与 $\beta_k$ 对应的元素 $C_k\neq0$ 之外，其余元素都为零。
+k1426a2 | 在这些条件下，我们有：
+kc3a163 | 参数 $\beta_k$ 由历史 $A$ 与 $B$ 的对数优势比识别。
+@page 17
+ke44eaa | 延续价值带来的挑战
+kae54cd | 问题在于，这样的历史 A 和 B 是否存在；或者相反，
+kac0403 | $S(A)=S(B)$ 意味着 $C(\widetilde{\boldsymbol{y}})$ 中已没有剩余的变异。
+k23e9a2 | 延续价值 $cv(f(y_t,\boldsymbol{x}_t),\boldsymbol{\alpha}_i)$ 以非线性（且未知）的形式依赖于 $\boldsymbol{\alpha}_i$。
+k765b97 | 为了差分掉/控制 $\boldsymbol{\alpha}_i$，我们需要差分掉整个延续价值。
+k3a1a04 | 但延续价值也取决于状态变量。因此，差分掉延续价值似乎意味着要控制状态变量的全部变异：⟪已没有剩余的变异可用来识别结构参数 $\boldsymbol{\beta}$。⟫
+kc3d5b8 | 真是这样吗？
+@page 18
+k6c0c44 | 差分掉延续价值
+k990e3c | 事实证明，有一大类重要的动态模型，可以在差分掉延续价值的同时，保留状态变量的变异来识别结构参数
+k5b24c6 | 回顾：
+k7663f4 | 假设转移规则 $f(\cdot)$ 使得存在两个选择—状态组合 $(y_t,\boldsymbol{x}_t)$，它们的 $\boldsymbol{x}_{t+1}$ 相同：
+kd25d47 | 那么显然有：
+kfaae2d | 在这个条件下，可以用 FE——充分统计量方法识别结构参数 $\boldsymbol{\beta}$。
+@page 19
+k1e3ce6 | 例 1：多臂老虎机模型
+ke569df | 在这类模型中 $\boldsymbol{x}_t=y_{t-1}$，因此：
+kcabd5e | 所以 $cv(f(j,y_{t-1}),\boldsymbol{\alpha})$ 不依赖于 $y_{t-1}$。
+k1a18ec | 延续价值 $cv(j,\boldsymbol{\alpha})$ 与当期效用中的 $\alpha(j)$ 项类似：它们不与状态变量 $y_{t-1}$ 交互。
+k119851 | 若 $T\geq4$，转换成本参数 $\beta(y_t,y_{t-1})$ 可识别。
+kee4279 | 例如，给定选择历史 $A=(j,k,j,k)$ 与
+kb1933c | $B=(j,j,k,k)$，我们有：
+@page 20
+kbda09b | 例 2：最优更换模型
+kca622b | 在这类模型中，$y_t\in\{0,1,2,\ldots\}$ 是投资决策，$x_t$ 是资本存量变量，存在外生折旧：
+k29ba63 | 对任意两个状态值，比如 $x$ 与 $x'$，我们有：
+k15a7c5 | 考虑到这一结构，可以构造识别 $\boldsymbol{\beta}$ 中参数的选择历史对 A 和 B
+@page 21
+kb50aa5 | 函数差分方法
+k3cace5 | Bonhomme（Econometrica，2012）表明，条件似然—充分统计量方法是一种更一般的差分掉 FE 方法的特例：⟪函数差分。⟫
+k8bc1d3 | 对某些面板数据模型，函数差分可以给出
+k3d72c6 | 用 CML 无法得到的识别矩约束。
+k70870c | 简约形式动态面板数据模型：Honoré \& Weidner（REStud，2024），Dobronyi \& Gu（2021），Pakel \& Weidner（2023）。
+k605af1 | Aguirregabiria \& Carro（REStat，2025）：动态面板数据离散选择中的平均边际效应。
+kf7cc7a | Aguirregabiria, Gu, \& Mira（2025）：动态离散博弈。
+@page 22
+k054e21 | 两个重要性质（用于我们的函数差分）
+k231c1e | 性质 1
+k160afc | $\mathbb{P}(\boldsymbol{y}_i\mid\boldsymbol{\alpha}_i,\boldsymbol{\beta})$ 是 $T$ 阶多项式之比，变量为
+k0ec2ff | $e^{\alpha_i(j)}$、$e^{cv_i(j,x)}$，$j=1,2,\ldots,J$。
+kfdc4b2 | 性质 2
+ke5dd51 | （积分）Bellman 方程可以表示为关于变量 $e^{\alpha_i(j)}$、$e^{cv_i(j,x)}$
+k4ecae9 | 的多项式之比，其中 $j=$
+@page 23
+kce950d | 命题 1
+kb00c51 | 该 FE 模型中结构参数 $\boldsymbol{\beta}$ 可识别的一个必要条件，
+k1e226d | 是存在一个⟪权重函数 $\lambda(\boldsymbol{y}_i,\boldsymbol{\beta})$⟫，使得：
+k00dc4e | 对任意取值 $\boldsymbol{\alpha}_i\in R^J$ 成立
+k35ff5b | 在这一条件下，$\boldsymbol{\beta}$ 满足方程：
+@page 24
+k81e919 | 函数差分
+kc15b61 | 命题 1 中的必要条件意味着一个方程组：它有⟪无穷多个约束⟫（即 $\boldsymbol{\alpha}_i$ 的所有可能取值），而⟪未知数只有有限的 $2^{JT}$ 个⟫（即权重 $\lambda$）。
+k70eb2a | 若没有特定的结构，这个方程组无解：
+k9ca633 | 权重不存在，也就无法识别。
+kfd893f | ⟪命题 2⟫ 表明，模型具有一种特定的结构，
+ke70bc6 | 使这个无穷方程组等价于一个可能有解的有限方程组。
+@page 25
+k13fa86 | 命题 2
+k537179 | 将性质 1 应用于命题 1 中的方程，得到关于变量 $e^{\alpha_i(j)}$、$e^{cv_i(j,x)}$ 的 $T$ 阶多项式，其中
+k906c84 | 由于这些变量为正，该方程对每个可能的 $\boldsymbol{\alpha}_i$ 都有解，
+k05d710 | 当且仅当所有单项式的系数都为零。
+k11103a | 向量 $\boldsymbol{\lambda}_i\equiv\{\lambda_i(\boldsymbol{y}_i):\forall\boldsymbol{y}_i\}$ 的解，是
+ka09cd6 | 下列由 JT 个线性方程、$2^{JT}$ 个
+k831711 | 未知数组成的方程组的解：
+k493138 | 其中矩阵 $\boldsymbol{C}(\boldsymbol{\beta})$ 已知，并有闭式表达。
+kc2529f | 若 Null$(\boldsymbol{C}(\boldsymbol{\beta}))$ 的维数 $>0$，则存在求解该方程组的 $\lambda$。
+@page 26
+k52e2a3 | 函数差分——充分条件
+k3ca342 | 命题 1 和 2 给出了获得权重 $\lambda$ 的简单方法，利用这些权重构成的矩条件可以识别结构参数：
+kc7f435 | 充分条件要求该方程组满足一个秩⟪条件。⟫
+k185730 | 注意，这个方程组可以解释为⟪矩条件⟫，
+k3acc69 | 可以用 GMM 来估计参数。
+@page 27
+k543ab0 | 结构参数的估计
+k2f7ee2 | 结构参数的估计
+@page 28
+k3d93c2 | 条件极大似然估计量
+ke395fb | 回顾：选择历史 $\widetilde{\boldsymbol{y}}_i$ 的概率具有
+kb6f2fa | 如下结构：
+k36335d | 且 $S(\widetilde{\boldsymbol{y}}_i)$ 是 $\boldsymbol{\alpha}_i$ 的充分统计量。
+kf56377 | 我们通过最大化条件似然函数来估计 $\boldsymbol{\beta}$：
+k6d32b6 | 其形式如下：
+@page 29
+k80a38f | 条件极大似然估计量（2）
+k809500 | 这个条件似然函数有几个重要性质：
+k66e44b | 它不依赖于附带参数 $\boldsymbol{\alpha}$。
+k23bccb | 它是 $\boldsymbol{\beta}$ 的全局凹函数。
+kc6aa69 | 延续价值只出现在 $g(\boldsymbol{\alpha}_i)$ 中。以 **S** 为条件，就意味着去除了延续价值。
+kabfcf9 | 因此，条件 MLE 的计算成本不取决于状态空间的维数。
+@page 30
+k367221 | 实证应用
+k4a501d | 差异化产品的动态需求
+k4a0ab7 | 洗衣液
+@page 31
+k580393 | 数据
+k4d9a7b | 来自芝加哥 Kilts 中心的 NIELSEN 扫描数据。
+kcb91e2 | 时间为 2006—2019 年。目前的估计只使用 2017—2018 年。
+k2dd2fc | 超过 4 万个分布在美国各地的参与家庭。
+k55217f | 丰富的人口学信息 $(\boldsymbol{w}_i)$：邮政编码、收入、年龄、教育、职业、种族、家庭规模、家庭构成、住所类型，
+ka246c9 | 每一次购物的数据。
+k310caa | 产品：洗衣液
+@page 32
+k7bc204 | 需求参数的估计
+k1ccdc7 | 固定效应给出了足够精确的估计（$N=19{,}776$）。
+k4026e1 | 结构参数估计值
+k624aba | =
+kfd0f46 | =
+k235223 | =
+kc63d81 | $\gamma$ 价格
+k661e22 | $\beta^{sc}$（习惯）品牌 1 ⏎ $\beta^{sc}$（习惯）品牌 2 ⏎ $\beta^{sc}$（习惯）品牌 3
+k1c46b4 | $\beta^{dep}$（线性）品牌 1 ⏎ $\beta^{dep}$（线性）品牌 2 ⏎ $\beta^{dep}$（线性）品牌 3
+k4358cc | Hausman 检验（p 值）
+@page 33
+kb151aa | Hausman 检验明确拒绝了随机效应模型。
+k92a803 | Hausman 检验（p 值）
+@page 34
+k9e1748 | 随机效应模型高估了习惯参数。
+@page 35
+k450805 | 随机效应模型给出的持续期依赖符号是错的。
+@page 36
+k58c61e | 随机效应模型低估了需求的价格敏感度。
+@page 37
+k69bae0 | 结论
+k4b148c | 扩展
+kdba457 | 本文提出了一个差异化产品需求的固定效应动态面板数据模型，其中消费者具有前瞻性。
+kabb8dd | 一些相关的扩展：
+k9bc73c | 依据 Aguirregabiria \& Carro（2023）关于平均边际效应识别的结果，识别总体价格弹性。
+k897559 | Aguirregabiria, Gu, and Mira 中 FE 动态博弈的识别
+k68c72e | 在内生状态变量中引入随机转移。
+kf24b3a | 反事实

@@ -1,0 +1,342 @@
+# Kang, Yoganarasimhan & Jain, An ERM Approach for Offline Inverse RL and DDC Models (Lecture 8) — 中文译文
+@page 1
+k347ef2 | ⟪一种⟫面向离线逆强化学习与动态离散选择模型
+k109c88 | 的经验风险最小化⟪方法⟫
+kc62656 | =
+ka8d471 | 1 华盛顿大学 Foster 商学院
+kaf3401 | 2 Google DeepMind
+@page 2
+ke7af43 | 我们将讨论……
+k1bf4b5 | 动机：大规模问题
+kf7408c | 回顾：动态离散选择（DDC）模型
+k43e1ef | 回顾：关于求解 DDC 模型我们已经知道什么
+k63f1dc | 一次性的基于梯度的优化方法
+k68c05e | 估计的偏误修正与经验风险最小化框架
+k460edd | GLADIUS 算法及其全局最优性
+kce2bbe | 模拟实验
+@page 9
+kad5687 | 单个决策者$^2$ 马尔可夫决策过程（MDP）
+kc93fae | 给定离线数据集 $\mathcal{D}=(s_0,a_0,s_1,a_1,\ldots)$，其中 $s_t$ = $t$ 期的状态，$a_t$ = $t$ 期的行动
+k513056 | $\mathcal{D}$ 是个体与⟪马尔可夫决策过程 $(\mathcal{S},\mathcal{A},P,\nu_0,r,G,\beta)$⟫交互时收集的：
+k1f5efa | $-$ $\mathcal{S}$ 表示状态空间，$\mathcal{A}$ 表示有限的行动空间
+kf002e6 | $-$ $P\in\Delta_{\mathcal{S}}^{\mathcal{S}\times\mathcal{A}}$ 是马尔可夫转移核，$\nu_0\in\Delta_{\mathcal{S}}$ 是 $\mathcal{S}$ 上的初始状态分布
+kdb8529 | $-$ $\beta\in(0,1)$ 为贴现因子
+kb1043f | $-$ $r(s,a)+\epsilon_a$ 是个体私下观测到的奖励$^1$
+kbfb6c9 | $r\in\mathbb{R}^{\mathcal{S}\times\mathcal{A}}$ 是奖励的确定性部分。
+k9184c6 | $\epsilon_a\stackrel{i.i.d.}{\sim}G(\delta,1)$ 是奖励的随机部分，其中 $G$ 为第一类极值（T1EV）
+k98e4cb | 分布（即 Gumbel 分布）
+k2eea6b | $^1$ 这种奖励形式通常被称为满足线性可加性与条件独立性 ⏎ $^2$ 我们最后将讨论如何扩展到不可观测异质性的情形
+@page 10
+k4861a0 | 记号
+k5fe6d4 | 给定初始状态 $s_0\sim\nu_0$，对策略 $\pi$，在样本空间
+k112f3c | $(\mathcal{S}\times\mathcal{A})^{\infty}=\{(s_0,a_0,s_1,a_1,\ldots):s_h\in\mathcal{S},a_h\in\mathcal{A},h\in\mathbb{N}\}$ 上定义状态—行动序列的分布 $\mathbb{P}_{\nu_0,\pi}$
+kf3950e | 并用 $\mathbb{E}_{\nu_0,\pi}$ 表示关于 $\mathbb{P}_{\nu_0,\pi}$ 的期望
+k562275 | 进一步定义：
+k682ae0 | $-$ 最优策略 $\pi^*:=\mathrm{argmax}_{\pi\in\Delta_{\mathcal{A}}^{\mathcal{S}}}\mathbb{E}_{\nu_0,\pi,G}\left[\sum_{h=0}^{\infty}\beta^h(r(s_h,a_h)+\epsilon_{a_h})\right]$
+ke79364 | $-$ 价值函数 $V^*(s):=\max_{\pi\in\Delta_{\mathcal{A}}^{\mathcal{S}}}\mathbb{E}_{\nu_0,\pi,G}\left[\sum_{h=0}^{\infty}\beta^h(r(s_h,a_h)+\epsilon_{a_h})\mid s_0=s\right]$
+k98f9a5 | $-$ Q 函数
+@page 11
+ke3ce88 | 动态离散选择（DDC）模型的估计问题
+k31d020 | 假设 1（理性）
+k0d131a | 数据 $\mathcal{D}$ 是个体按最优策略 $\pi^*$ 与 MDP $(\mathcal{S},\mathcal{A},P,\nu_0,r,G,\beta)$
+k3035a3 | 交互时收集的。
+ka6aab8 | 定义 1（动态离散选择（DDC）模型的估计问题）
+kd3322c | 给定离线数据 $\mathcal{D}$，在假设 1 下，我们希望找到一个函数 $\hat{r}\in\mathcal{R}\subseteq\mathbb{R}^{\mathcal{S}\times\mathcal{A}}$：
+k3f609f | 其中 $\bar{\mathcal{S}}:=\{s\in\mathcal{S}\mid\mathbb{P}_{\nu_0,\pi^*}(\{s_h=s\})>0$，对某个 $h\geq0\}$ 定义了最优策略的
+k8df961 | 覆盖范围，即在专家最优策略 $\pi^*$ 下能以非零概率到达的状态
+k6e2cc4 | 所构成的集合。$^3$
+k6d826e | $^3$ 即使数据无限，推断 $\bar{\mathcal{S}}$ 之外的奖励也是不适定的。类似地，用 $\pi^*$ 的状态—行动分布计算 MSE 是很自然的，
+keb4789 | 因为目标是恢复能够解释专家行为的奖励函数。
+@page 12
+k88381f | DDC 模型的基本结论
+k1ff7ba | 事实 1（最优性方程）
+k49022c | 在假设 1 下，有
+k558004 | 对 $a\in\mathcal{A}$
+kc2867a | 最优性方程 (1)：$\pi^*$ 与 $Q^*$ 的关系
+k11f70a | 最优性方程 (2)：关于 $Q^*$ 的 Bellman 方程
+@page 13
+k8febf0 | 注）T1EV（Gumbel）分布的设定
+k1fb48c | 回顾：奖励的随机部分为 $\epsilon_a\stackrel{i.i.d.}{\sim}G(\delta,1)$，其中 $G$ 为第一类极值（T1EV）
+k43a3e9 | $-$ $G(0,1)$ 不是均值为 0 的分布
+k74b523 | （均值 $\delta+\gamma=0+\gamma=\gamma$）
+k59f675 | $-$ $G(-\gamma,1)$ 是均值为 0 的分布
+k5ebf39 | （均值 $\delta+\gamma=-\gamma+\gamma=0$）
+ke1c53f | 为简单起见，下文始终使用 $\epsilon_a\stackrel{i.i.d.}{\sim}G(-\gamma,1)$
+@page 14
+k79e38b | 注）DDC 与 IRL 的等价性
+k192549 | DDC 与 IRL 的区别在于如何解释行动选择中的⟪随机性⟫：
+k2f3ceb | $-$ 动态离散选择模型（DDC）的解释：
+kf77098 | “存在一个不可观测的随机状态成分，造成了这种不确定性”
+kd924e7 | $-$ 逆强化学习（IRL）的解释：
+k428116 | “行动选择本身就是随机的，因为个体天生偏好随机的行动选择”
+ka3320e | 事实 2
+k4b39ff | **事实 1** 中完全相同的最优性方程对 DDC 和 IRL 都成立。$^4$
+k7fd61e | 事实上，IRL 学界一直在重新发现 DDC 已经发展出的成果。
+k247f37 | 详见 Kang et al.（2025）的附录 C
+kbc3995 | $^5$ “Identifiability in inverse reinforcement learning”，Cao et al.，NeurIPS 2021
+kd52a00 | $^6$ “A maximum likelihood framework for offline inverse reinforcement learning”，Zeng et al.，NeurIPS 2023
+@page 16
+k4e1cba | 回顾：最优性方程
+k51f429 | 我们希望用它们求出 $r$ 与 $Q^*$。
+k3f214d | 为此，我们改写这些方程。
+@page 17
+kf068dc | 改写最优性方程 (1)
+k9954e1 | 定义
+k0109c2 | ，记为
+k8b39a5 | 那么，$Q$ 要满足最优性方程 (1)，就必须满足 $\pi^*(a|s)=\hat{p}_Q(a|s)$。
+k1c4d54 | 引理 1
+k59528f | ⟪定义 $\mathcal{L}_{NLL}(Q)(s,a):=-\log(\hat{p}_Q(a|s))$，称之为⟫负对数似然（NLL）损失。
+k0b0b63 | 改写后的最优性方程 (1)：
+@page 18
+k07243e | 求解 DDC 模型的已知结论
+k4635df | 假设 2
+kdd6ac7 | 对所有 $s\in\mathcal{S}$，存在一个行动 $a_s\in\mathcal{A}$，令 $r(s,a_s)=0$。
+kab4794 | ⟪在假设 2 下，我们知道⟫两种求解 DDC 模型的方法：
+k6d3314 | $r,Q^*$ 的估计
+k45a739 | （Hotz and Miller 1993）
+k015373 | $Q^*$ 最小化 $\mathbb{E}_{(s,a)\sim\pi^*}[\mathcal{L}_{NLL}(Q)(s,a)]$
+kf8bd64 | $Q^*$ 满足 Bellman 方程，$\forall s\in\bar{\mathcal{S}},a\in\mathcal{A}$\hfill 2. $Q^*(s,a):=\mathbb{E}_{\pi^*,\nu_0}\left[\sum_{t=0}^{\infty}\beta^t r(s_t,a_t)+\epsilon_{a_t}\mid s,a\right]$
+@page 19
+kcb5607 | 我们注意到两种方法共有的两个挑战
+kd7c448 | 优化是嵌套的（无法一次性优化）
+k8103a6 | 维数灾难
+@page 20
+k522808 | 挑战 1：优化需要嵌套
+k397785 | $Q^*$ 满足 Bellman 方程，$\forall s\in\mathcal{S},a\in\mathcal{A}$
+kc3cf8b | 在两种情形下，我们都需要对 $r$ 进行参数化（以满足方程 (2) 的部分）。
+kf2f713 | ⟪但这样一来，我们⟫需要求解一个嵌套的优化问题：
+kc8028b | $-$ 方程 (1) 的部分是外层循环，⟪是在 $Q$ 空间内进行优化⟫
+k09acaf | $-$ 方程 (2) 的部分是内层循环，⟪是由 $r$ 推出 $Q$⟫
+@page 21
+kf09272 | 挑战 2：维数灾难
+kd5e8a8 | 挑战 2：对两种方法而言，为大规模问题求解方程 (2) 都很困难
+k4c537d | $-$ ⟪按 Rust（1994）的做法：⟫需要求解 Bellman 方程
+ke682de | =
+k682ef7 | 计算复杂度⟪随维数增加⟫呈指数增长
+k044c38 | $-$ 按 Hotz and Miller（1993）的做法：⟪需要估计转移函数⟫，
+k0b89d7 | 来计算 $Q(s_t,a_t):=\mathbb{E}_{\pi^*,\nu_0}\left[\sum_{t=0}^{\infty}\beta^t r(s_t,a_t)\right]$
+k59d4c7 | 统计复杂度⟪随维数增加⟫呈指数增长
+@page 23
+k8c06ea | 用非参数函数近似应对维数灾难
+k8e3b02 | 在⟪不了解转移函数的情况下，⟫求解 Bellman 方程有两种方法$^7$：
+ke90f7d | $-$ ⟪拟合不动点⟫迭代（例如拟合价值迭代、拟合 Q 迭代）
+k9439fc | John 之前已经介绍过
+k064b75 | Adusumilli and Eckardt（2022）$^8$ 作过研究
+kda0a9d | 与神经网络结合时⟪会不稳定⟫（见下页）
+kbbdc4c | $-$ ⟪基于梯度的⟫平方 Bellman 误差（BE）最小化
+kb0783d | 之前没有相关研究（稍后解释）
+k08113a | 本文
+kfac5be | $^7$ 见“Offline reinforcement learning in large state spaces: algorithms and guarantees”，Jiang and Xie，Statistical Science（即将发表）。
+k334a86 | 注意，重要性抽样方法不在此列，因为它们不能保证 Bellman 方程成立。
+kccc165 | $^8$ Adusumilli and Eckardt，“Temporal-Difference estimation of dynamic discrete choice models”，RES（即将发表）
+@page 24
+kef7d21 | 拟合不动点迭代方法的发散问题
+k607642 | 定理 2（Tsitsiklis and Roy 1996，Jiang and Xie 2025）
+k8d856f | 即使以下条件全部成立，拟合不动点方法也可能发散：
+k3e3016 | $|\mathcal{D}|=\infty$ 且拟合是精确的（即用无限计算实现完美优化）。
+k8a1330 | $\mathcal{F}$ 是能精确刻画 $Q^*$ 的一维线性函数类，即 $Q^*\in\mathcal{Q}$（又称
+k75489e | 可实现性）。
+k144a5b | 这不只是理论上的现象$^9$，不稳定性在实践中是个大问题。
+k620e7f | 与神经网络结合时，这个问题会更严重。
+ka4757e | 直观地说：“求解 Bellman 方程涉及对尚未实现的函数进行自举”$^{12}$
+k786bc7 | $^9$ Tsitsiklis and Roy，“Feature-based methods for large scale dynamic programming”，Machine Learning（1996）
+k6b6044 | $^{10}$ Van Hasselt et al.，“Deep reinforcement learning and the deadly triad”，arXiv:1812.02648（2018）。
+k588d45 | $^{11}$ Wang et al.，“Instabilities of offline rl with pre-trained neural representation”，ICML（2021）
+k09d030 | $^{12}$ Jiang and Xie，“Offline reinforcement learning in large state spaces: algorithms and guarantees”，Statistical Science（2025）
+@page 25
+k07efb1 | 本文回答的问题
+k08d892 | ⟪能否有一种⟫可扩展的基于梯度的方法，⟪在不对奖励结构/转移函数知识作任何假设的情况下，推断奖励（或 $Q^*$ 函数），同时⟫可证明地保证
+k73ba14 | ⟪全局最优性⟫？
+@page 27
+k74a33b | 术语：Bellman 算子
+k13005b | ⟪将⟫Bellman 算子 $\mathcal{T}$ ⟪定义为：⟫
+k0fcf16 | =
+k10b74a | ⟪将⟫经验 Bellman 算子 $\widehat{\mathcal{T}}$ ⟪定义为：⟫
+k24b271 | =
+k661b4f | 注意 $\mathbb{E}_{s'\sim P(s,a)}\left[\widehat{\mathcal{T}}Q(s,a,s')\right]=\mathcal{T}Q(s,a)$。
+@page 28
+k654587 | 术语：Bellman 误差（BE）损失与时间差分（TD）损失
+k1bae18 | Bellman 方程：
+k99c9f0 | ⟪定义 $\mathcal{L}_{BE}(Q)(s,a):=(Q(s,a)-\mathcal{T}Q(s,a))^2$，称之为⟫平方 Bellman 误差（BE）损失。
+k8fc493 | ⟪定义 $\mathcal{L}_{TD}(Q)(s,a):=(Q(s,a)-\widehat{\mathcal{T}}Q(s,a,s'))^2$，称之为⟫平方时间差分
+kcdb045 | （TD）损失。
+@page 29
+k049fc2 | 回顾：Rust（1994）的做法
+kbe72a1 | 在假设 2 下，有：
+kff331b | $Q$ 最小化 $\mathbb{E}_{(s,a)\sim\pi^*,\nu_0}[\mathcal{L}_{NLL}(Q)(s,a)]$
+k828f53 | $Q$ 满足 Bellman 方程，$\forall s\in\mathcal{S},a\in\mathcal{A}$
+@page 30
+k4be0e4 | Magnac and Thesmar（2009）
+k3310af | 对所有 $s\in\mathcal{S}$ 的 $(s,a_s)$，$Q$ 满足 Bellman 方程
+@page 31
+ke8da37 | 改写最优性方程 (2)
+kbc8767 | 注意我们有
+kd52d0f | $\{Q\in\mathcal{Q}\mid$ 对所有 $s\in\mathcal{S}$ 的 $(s,a_s)$，$Q$ 满足 Bellman 方程$\}$
+@page 32
+kb8725e | Magnac and Thesmar（2009）（修改版）
+kf0a984 | 不含与 $r$ 相关的项
+k9ecda7 | $Q$ 最小化 $\mathbb{E}_{(s,a)\sim\pi^*,\nu_0}[1_{a=a_s}\mathcal{L}_{BE}(Q)(s,a)]$
+k27e2e5 | 由于假设 2，不含未知的 $r$
+k17c4ea | 不再需要对 $r$ 参数化。通过对 $Q$ 参数化，可以避免嵌套优化！
+@page 33
+k6d5fec | 通过期望风险最小化实现一次性最小化
+kf32d44 | 定义 2（期望风险最小化问题）
+k783f12 | 期望风险最小化问题定义为寻找 $Q$，
+kf2b4d3 | 使期望风险 $\mathcal{R}_{exp}(Q)$ 最小，期望风险定义为
+kf1b123 | 定理 3（通过期望风险最小化实现识别）
+k71c420 | 期望风险最小化问题的解 $\widehat{Q}$ 在 $s\in\bar{\mathcal{S}}$、$a\in\mathcal{A}$ 的范围内
+k9e51dc | 唯一地识别 $Q^*$。此外，在 $s\in\bar{\mathcal{S}}$、$a\in\mathcal{A}$ 的范围内，可以通过下式唯一地识别 $r$
+@page 35
+kedd311 | 估计的挑战与 TD 方法
+k2f3633 | 估计并最小化
+kfa41b2 | 看起来很直接，但由于 $\mathcal{L}_{BE}(Q)(s,a)=(\mathcal{T}Q(s,a)-Q(s,a))^2$ 这一项，它⟪很有挑战性⟫
+kfefdfc | $-$ $\mathcal{T}Q(s,a):=r(s,a)+\beta\mathbb{E}_{s'\sim P(s,a)}\left[\ln\left(\sum_{a\in\mathcal{A}}\exp(Q(s',a))\right)\mid s,a\right]$ 在经验上无法得到，
+k2c2c86 | 除非我们知道转移函数
+k15ec90 | $-$ 而 $\widehat{\mathcal{T}}Q(s,a,s'):=r(s,a)+\beta\left[\ln\left(\sum_{a\in\mathcal{A}}\exp(Q(s',a))\right)\mid s,a\right]$ 是可以得到的。
+k9eebd4 | 因此，$\mathcal{L}_{BE}(Q)(s,a)=(\mathcal{T}Q(s,a)-Q(s,a))^2$ 这一项的自然替代是
+k533a00 | 这常被称为⟪时间差分（TD）方法。⟫它可行吗？
+@page 36
+k7024f6 | TD 方法并不最小化 Bellman 误差
+ke8afbf | ⟪问题：⟫TD 方法⟪由于偏误，⟫不能保证 Bellman 方程成立。$^{13}$
+k914918 | 引理 4（TD 是有偏的）
+kbc2c68 | 除非 $P$ 是确定性的，否则永远不为 0
+kd520c9 | 定义 $\delta_Q(s,a,s'):=\widehat{\mathcal{T}}Q(s,a,s')-Q(s,a)$。直观地说，上述偏误的产生是因为
+k9a5e85 | $^{13}$ 出于同样的原因，Adusumilli and Eckardt（2022）提出的半梯度 TD 方法也不能保证
+k8ac699 | Bellman 方程成立。
+@page 37
+k37c91e | 双共轭技巧
+k3772fa | 我们采用一种常被称为⟪“双共轭技巧”⟫的方法，用称为双共轭的线性函数
+k006147 | 代替有问题的平方函数：
+k589524 | =
+ka63efb | 进一步用 $\zeta=h-r(s,a)+Q(s,a)$ 对 $h$ 重新参数化，经过一些代数运算，得到
+kfe6014 | 引理 5（见下页）
+@page 38
+k59462f | 用双共轭技巧去偏
+k199dd4 | 引理 5
+k64cd43 | 平方 Bellman 误差可以表示为
+kd10c5c | 其中 $V_Q(s):=\ln\left(\sum_{a\in\mathcal{A}}\exp(Q(s,a))\right)$，
+kc561d9 | 由 $P$ 导致的 $V_Q(s')$ 的方差
+kc7d9bd | 将 $D(Q)(s,a)$（在所有状态与行动上）的最小值点定义为
+kcea0b7 | 则 $r(s,a)=Q^*(s,a)-\beta\zeta^*(s,a)$。
+@page 39
+kcc8295 | 修改后的一次性最小化框架
+k473145 | 定理 6
+k9b9ff1 | $Q^*$ 由下式唯一识别
+k700165 | 此外，$r(s,a)=Q^*(s,a)-\beta\zeta^*(s,a)$，其中 $\zeta^*$ 在引理 5 中定义。
+k7e513d | 也就是说，估计出 $Q^*$ 之后，$r$ 的⟪估计无需额外成本⟫。
+@page 40
+k87a695 | 经验风险最小化（ERM）框架
+k9206f7 | 定义 3（经验风险最小化）
+k92c05e | 给定 $N:=|\mathcal{D}|$，其中 $\mathcal{D}$ 是有限数据集。经验风险最小化问题定义为
+k1c4605 | 寻找使经验风险 $\mathcal{R}_{emp}(Q;\mathcal{D})$ 最小的 $Q$ 的问题，经验风险定义为
+@page 42
+k718d4e | 参数化与可实现性
+kfef203 | 给定 $\mathrm{dim}(\mathcal{S})<\infty$ 的紧状态空间 $\mathcal{S}$，以及 $|\mathcal{A}|<\infty$ 的有限行动空间
+kce8a67 | $\mathcal{A}$，考虑一组参数化函数
+k37f26a | 其中 $\mathcal{F}$ 表示一类函数，例如线性、多项式或深度神经网络函数类，
+k686f99 | 由 $\theta$ 参数化。我们作如下假设，常称为
+k282af7 | 可实现性假设。
+k47e536 | 假设 3（可实现性）
+k870568 | $\mathcal{Q}$ 包含最优函数 $Q^*$，即存在 $\theta^*\in\Theta$ 使 $Q_{\theta^*}=Q^*$。
+@page 43
+k127713 | 用梯度上升—下降求解极小极大优化
+kb156be | 我们希望求解极小极大优化问题
+ka0b440 | 求解极小极大优化的经典方法是梯度上升—下降$^{14}$
+kda4dbf | 以任意的 $\zeta_{\theta_1}$ 与 $Q_{\theta_2}$ 初始化
+kbd5d7e | 交替进行：对 $\zeta_{\theta_1}$ 最大化，对 $Q_{\theta_2}$ 最小化
+k2b8ed4 | $^{14}$ Yang et al.，“Global convergence and variance-reduced optimization for a class of nonconvex-nonconcave minimax problems”
+@page 45
+k9a5f24 | GLADIUS 何时全局最优？
+k429f92 | 定义 4（关于 $\ell_2$ 范数的 Polyak-Łojasiewicz（PL）条件）
+k62e06b | 给定 $\Theta\in\mathbb{R}^{d_\theta}$，若函数 $g:\Theta\to\mathbb{R}$ 满足下列条件，则称其满足关于 $\ell_2$ 范数的
+kdca379 | Polyak-Łojasiewicz（PL）条件：$g$ 的解集非空，对 $\theta^*\in\Theta\subseteq\mathbb{R}^d$ 有有限的最小值 $g(\theta^*)$，
+ka0af03 | 并且存在某个 $c>0$，使得 $\frac{1}{2}\|\nabla g(\theta)\|_2^2\geq c(g(\theta)-g(\theta^*))$，$\forall\theta\in\Theta$。
+@page 47
+k17902b | 引理 7（Yang et al.，2020）
+k7c8222 | 对函数 $f(\theta_1,\theta_2)$ 的极小极大优化（对 $\theta_1$ 最小化、对 $\theta_2$ 最大化），
+k2e7466 | ⟪若函数⟫关于 $\theta_1$ 与 $\theta_2$ 都满足⟪PL 条件⟫，⟪则⟫梯度上升—下降
+k3948da | 保证收敛到全局最小值。
+ka53583 | 推论 8
+k2231e9 | 若下式
+kacb5ca | 关于 $\theta_1$ 与 $\theta_2$ 都满足 PL 条件，则 GLADIUS 达到全局最优。
+@page 48
+kf783b3 | GLADIUS 是全局最优的吗？
+k545185 | 引理 9
+ka0dfe4 | ⟪对于⟫ $Q$ 的线性函数与神经网络参数化 $Q_\theta$，⟪$\mathcal{L}_{NLL}(Q_\theta)(s,a)$ 与⟫
+kf43274 | $\mathcal{L}_{BE}(Q_\theta)(s,a)$ 关于 $\theta$ 满足 PL 条件。
+k070de3 | 引理 10
+k627aa9 | ⟪对于⟫ $Q$ 与 $\zeta$ 的线性函数与神经网络参数化，⟪期望风险与⟫
+k346d34 | 经验风险都关于 $\theta_1$ 与 $\theta_2$ 满足 PL 条件。
+k59f525 | 定理 11（GLADIUS 的全局最优性）
+k2b919e | ⟪对于⟫ $Q$ 与 $\zeta$ 的线性函数与神经网络参数化，⟪上式⟫
+kef6c72 | 关于 $\theta_1$ 与 $\theta_2$ 都满足 PL 条件。也就是说，⟪GLADIUS 达到全局最优。⟫
+@page 49
+k5404db | 统计分析
+k93535f | 引理 12（Charles and Papailiopoulos（2018），Lei（2023））
+k3f556f | 将 $N$ 个样本的数据集记为 $\mathcal{D}_N$，并把经验风险 $\mathcal{R}_{emp}(\theta)$ 的最小值点记为
+k3e03c4 | $\theta_{\mathcal{D}_N}^*$。若 $\mathcal{R}_{emp}(\theta)$ 关于 $\theta$ 满足 PL 条件，则
+k992046 | 其中 $\sigma$ 在论文中给出。
+@page 50
+kcd5042 | GLADIUS 的理论结果——总结
+k02b9e1 | 定理 13（全局收敛）
+ke12646 | 在假设 3 下，对 $Q$ 与 $\zeta$ 的线性和神经网络参数化，
+k535b24 | 其中 $T$ 为梯度步数，$N$ 为样本量，常数 $\gamma$、
+kd8301e | $\nu$ 与 $\sigma$ 的取值在论文中给出。
+k827961 | 这是
+ke2ccff | 速率的收敛（与现有参数方法相当）
+@page 52
+k8e3494 | 模拟
+@page 55
+k9979bf | 性能测试
+@page 61
+k557b2d | 为什么会这样？
+@page 62
+k949e82 | 原因 1：GLADIUS 只在频繁出现的区域表现良好
+@page 63
+kbda8e2 | 原因 2：数据不平衡下的估计困难
+k7587a2 | 这是 RL 中众所周知的问题$^{15}$：“若行为策略诱导的分布不能充分覆盖状态空间，
+kea7b97 | 那么，相对于该分布向函数近似器空间作投影，
+k634e22 | 可能导致较差的表现。”
+keb13d3 | $-$ ⟪即⟫外推到数据稀少的区域 =
+k1b60f0 | $-$ 所有轨迹都从里程 1 开始，并且更换行动（行动 0）会把里程重置为 1。
+ka276f1 | 因此，专家数据中观测到的大多数状态都在里程 1—5 之间。
+kd43363 | $^{15}$ Tsitsiklis and Van Roy，“Analysis of temporal-difference learning with function approximation”，NeurIPS 1996
+@page 64
+k94b03c | 可扩展性
+@page 65
+k5f96ff | 可扩展性测试结果
+@page 66
+k12b71c | 总结
+kf6cc1d | 我们需要一种⟪可扩展的⟫ DDC 方法。能否与非参数（例如机器学习）方法结合？
+kf7664e | 拟合不动点迭代方法被证明是不稳定的。
+k3b7434 | 尚不存在全局最优收敛的基于梯度的方法。
+k1de70b | 在本研究中，我们提出了一种！
+keb9c6e | ⟪全局最优收敛，⟫例如即使采用神经网络参数化
+k6f0171 | 在标准基准上有不错的⟪实证表现⟫
+kc3f31b | ⟪可很好地扩展到⟫ $10^{100}$ 个状态（$\gg$ 宇宙中的原子数），精度只损失 10\%
+@page 67
+k5f1cc9 | 进一步讨论
+k6c69d9 | 问：如果⟪数据量远小于 $10^{100}$ 个状态，⟫怎么可能识别奖励？
+k81ead6 | 答：可以把它想象成用一张光滑的薄片去拟合地形上少数几个测量点：一旦
+k30c275 | 知道薄片如何弯曲，不必测量每个位置，也能读出任何地方的高度。
+k3fd335 | 这张薄片只由几千个可调节的“旋钮”控制
+k91281f | ⟪（神经网络的权重）。⟫所需的样本量取决于旋钮结构的复杂程度。
+kdf498a | 问：给定 $\hat{r}$，⟪进行反事实分析时⟫难道不仍然需要显式估计 $P$ 吗？
+ke3f513 | $-$ 答：不需要。给定数据集 $\{s_0,a_0,s_1,a_1,\ldots\}$，我们现在有 $\{s_0,a_0,\hat{r}(s_0,a_0),s_1,a_1,\hat{r}(s_1,a_1),\ldots\}$。
+k72b095 | 给定一个反事实情景（例如对奖励的干预），⟪就可以直接应用离线 RL⟫
+k4e787e | ⟪算法⟫来恢复相应的反事实最优策略。
+@page 68
+k7a5124 | 未来的扩展
+kf80086 | 所提出的方法可以扩展到处理⟪不可观测异质性。⟫
+k893799 | 适应不可观测异质性在机器学习中常被称为“上下文学习（ICL）”
+k6cda63 | 有了基于梯度的估计方法，就可以实现 ICL$^{16,17}$
+k981aee | 本文提出了这样一种方法，因此可以实现 ICL！（工作论文即将发布！）
+k9aa80a | ⟪PL 条件的证明可以推广到⟫离线强化学习（offline RL）
+kcabf93 | 尚未有基于梯度的离线 RL 方法被证明全局收敛
+k5e5ed4 | 本文的结果可以很容易地推广（工作论文即将发布！）
+kb2371c | $^{16}$ Ahn et al.，“Transformers learn to implement preconditioned gradient descent for in-context learning.”，NeurIPS23 ⏎ $^{17}$ Wang et al.，“Transformers learn temporal difference methods for in-context reinforcement learning.”，arXiv:2405.13861。
+@page 69
+k17d1fe | 感谢聆听！
+kc94767 | 特别感谢 John Rust 邀请我作这次报告，并对论文提出了详细而
+k36fe81 | 富有洞见的意见。也非常感谢 DSE 组织者
+kbb1069 | 出色的协调工作。

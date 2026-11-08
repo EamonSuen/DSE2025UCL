@@ -1,0 +1,7 @@
+# Bresser L14 handout: everything else comes from bresser_L14/translation.txt via the shared memory
+ka3ed90 | =
+kf502e8 | =
+# same choices as in the slides version (memory from other decks would differ)
+k958f57 | =
+kb1564f | 取值
+k78be7f | 预期的差异

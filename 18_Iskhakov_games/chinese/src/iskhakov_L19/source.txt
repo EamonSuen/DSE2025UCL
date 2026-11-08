@@ -1,0 +1,354 @@
+# 18_Iskhakov_games/part2_nrls.pdf  (53 pages)
+# id | English (inline math is a rough reconstruction; check it)
+
+@page 1
+k370875 | Lecture 19:
+k9abb79 | Estimating directional dynamic games
+k6ae669 | with multiple equilibria: full solution MLE
+#= k0b4d84 | Econometric Society Summer Schools in Dynamic Structural  ⇒ 计量经济学会动态结构计量经济学
+#= k150909 | Econometrics  ⇒ 暑期学校
+k2a408b [2L] | Fedor Iskhakov, Australian National University Dennis Kristensen, University College London
+#= k7ff3c6 | John Rust, Georgetown University  ⇒ John Rust，乔治城大学
+#= kdd7074 | Bertel Schjerning, University of Copenhagen  ⇒ Bertel Schjerning，哥本哈根大学
+#= k926a42 | UCL, London July 6, 2025  ⇒ UCL，伦敦 ⏎ 2025 年 7 月 6 日
+@page 2
+#= ke9293c | ROAD MAP  ⇒ 路线图
+#= k89c21d | Collusion of Australian corrugated fibre packaging (CFP) producers  ⇒ 澳大利亚瓦楞纤维包装（CFP）生产商的合谋
+#= ka8a0e9 | Experiment with the model  ⇒ 用模型做实验
+#= k1a7295 | State recursion algorithm  ⇒ 状态递归算法
+#= k743eb1 | Theory of directional dynamic games (DDGs)  ⇒ 方向性动态博弈（DDG）理论
+#= k979d72 | Recursive lexicographical search (RLS) algorithm  ⇒ 递归词典序搜索（RLS）算法
+#= kfd2261 | Full solution for the leapfrogging game  ⇒ 蛙跳博弈的完全求解
+#= k4ac0ea | Structural estimation of directional dynamic games with Nested RLS method  ⇒ 用嵌套 RLS 方法对方向性动态博弈进行结构估计
+k9cc790 | Construction of the NRLS estimator
+k309c10 | Monte Carlo simulations
+@page 3
+kd801ac | Nested Recursive Lexicographical Search (NRLS)
+k234f39 | Data from $M$ independent markets from $T$ periods
+k74f52d | Let the set of all MPE equilibria be $\mathcal{E}=\{1,\ldots,K(\theta)\}$
+ka39d9f | Outer loop
+kf8a493 [2L] | Maximization of the likelihood function w.r.t. to structural parameters $\theta$
+k42f1f6 | Inner loop
+k8747a3 | Maximization of the likelihood function w.r.t. equilibrium selection
+ka30165 | Max of a function on a discrete set organized into RLS tree
+@page 4
+k319706 | Likelihood over the state space
+k1172b9 | Given equilibrium $k$ choice probabilities $P_i^k(a|x)$, likelihood is
+kc5b982 | Let $\iota$ index points in the state space
+kd32404 | $\iota$ = 1 initial point, $\iota=S$ the terminal state
+k619405 [2L] | Denote $n_{\iota}$ the number of observations in state $x_{\iota}$ and $n_{\iota}^{ai}$ the number of observations of player $i$ taking action $a_i$ at $x_{\iota}$
+kc5ed55 | Then equilibrium-specific likelihood can be computed as
+@page 5
+kea9ea4 | Data distribution over the state space
+kd4b919 | 1000 markets, 5 time periods, init at apex of the pyramid
+ke122ec | Distribution of data over the state space
+k9b3173 | Firm 1 investment counts $(\log )$
+k5bc50a | Firm 2 investment counts $(\log )$
+k0054e0 | CCP firm 1 on [0,1]
+k2ab491 | CCP firm 2 on [0,1]
+kf7fd9c | NaN
+k17670d | Total and investing counts (in logs)  «rotated»
+k24b665 | State space, (ic, ic1, ic2)
+@page 6
+k29c0d6 | Branch and bound (BnB) method
+kb06a79 | Land and Doig, 1960 Econometrica
+k035c58 | Old method for solving ⟪discrete programming⟫ problems
+k3e6b63 | Maximizing/minimizing a function over a discrete set
+k306bee | Form a ⟪tree⟫ of subdivisions of the set of admissible plans
+k76b496 [2L] | Specify a ⟪bounding function⟫ representing the best attainable objective on a given subset
+kea8291 [2L] | Monotonicity: the bounding function has to be weakly decreasing in the cardinality of the set argument (for $\max $ problem)
+k676c3d | Has to equal the criterion function when computed at singletons
+k0f54f1 [2L] | Dismiss the subsets of the plans where the bound is below the current best attained value of the objective
+k59753c | There are several flavors of BnB method,
+k31cf13 | differences in implementation
+k9b6b05 | There are several extensions to the BnB method
+@page 7
+k054062 | Theory of BnB: branching
+k91d8b6 | maxf $(x)$ s.t. $x\in\mathrm{Ω}$
+k5c25cc | $f(x):R^n\to R$ objective function
+keb8f5d | ⟪Ω⟫ set of feasible $x$
+k803d81 | $\mathcal{P}_j(\mathrm{Ω})$ partition of Ω into $k_j$ + 1 subsets, $k_0=0,\mathcal{P}_0(\mathrm{Ω})=\mathrm{Ω}$
+k64bbbb | $\{\mathcal{P}_j(\mathrm{Ω})\}_{j=1,\ldots,J}$ ⟪a sequence of $J$⟫ gradually refnied partitions
+kf4aa15 | $\forall j=1,\ldots,J,\forall i=1,\ldots,k_j,\forall j'<j:\exists i'\in\{1,\ldots,k'_j\}$ such that $\mathrm{Ω}_{ji}\subset\mathrm{Ω}''_{ji}$
+@page 9
+k33a580 | Theory of BnB: bounding
+k958eca | $g(\mathrm{Ω}_{ij}):2^Ω\to R$ bounding function: from subsets of Ω to real line
+kd7f1d8 | $g(\{x\})=f(x)$ for singletons, i.e. when $\mathrm{Ω}_{ij}=\{x\}$
+ka041d9 | Monotonicity of bounding function
+k43d97c | Inequalities should be reversed for the minimization problem
+@page 10
+k66a08a | BnB with NRLS
+kf8a806 | **Branching:** RLS tree
+k72cebc [2L] | **Bounding:** The bound function is ⟪partial likelihood⟫ calculated on the subset of states that
+k9292e1 | s.t.  «s.t. $(x^{jt},a_i^{jt})\in\mathcal{S}$»
+k73e4a6 | Monotonically declines as more data is added
+kabab59 | Equals to the full log-likelihood at the leafs of RLS tree
+@page 11
+k90fc3f | BnB on RLS tree, step 1
+k298ad0 | 14 13 12 11 10 Partial loglikelihood = -3.2
+@page 12
+k36b084 | BnB on RLS tree, step 2
+k919a0f | 9 pll=-4.8
+k370221 | 9 pll=-9.7
+kebd906 | 9 pll=-5.1
+@page 13
+k4a7119 | BnB on RLS tree, step 3
+kbe9efc | 8 pll=-5.2
+k0171f5 | 8 pll=-14.9
+k9c6765 | 8 pll=-8.9
+@page 14
+k76e3f0 | BnB on RLS tree, step 4
+k7c84bf | 7 pll=-9.4
+k2f2cb1 | 7 pll=-11.2
+k0c5ea4 | 7 pll=-5.2
+@page 15
+k106a2e | BnB on RLS tree, step 5
+k8c96fe | 6 pll=-9.5
+kc93fc4 | 6 pll=-12.4
+kec51d1 | 6 pll=-10.9
+@page 16
+k1128fa | BnB on RLS tree, step 6
+k3a1530 | 5 pll=-9.7
+@page 17
+kd5ef80 | BnB on RLS tree, step 7
+k39a7a3 | 4 pll=-10.0
+@page 18
+k13839e | BnB on RLS tree, step 8
+k5b3c1f | 3 pll=-10.1
+@page 19
+k8f55a3 | BnB on RLS tree, step 9
+ke3785e | 2 pll=-10.7
+k23d69d | 2 pll=-10.1
+kfc9ae6 | 2 pll=-13.7
+@page 20
+kf48199 | BnB on RLS tree, step 10
+k1d5031 | 1 RECORD=-11.2
+@page 21
+k7e8e60 | BnB on RLS tree, step 11
+kfad0fe | 1 RECORD=-10.2
+@page 22
+k97b05c | BnB on RLS tree, step 12
+@page 23
+ke26d08 | BnB on RLS tree, step 28
+kc90453 | 2 pll=-9.8
+k61757a | 2 pll=-9.5
+k3d43d4 | 2 pll=-9.9
+k69dd07 | 9 pll=-9.7 6 pll=-10.1
+@page 24
+kd8f3d1 | BnB on RLS tree, step 29
+k7377cc | 1 pll=-10.4
+@page 25
+ka68896 | BnB on RLS tree, step 30
+k580de7 | 1 RECORD=-9.6
+@page 26
+kf1f3c5 | BnB on RLS tree, step 31
+@page 27
+k69cc51 | BnB on RLS tree, step 33
+@page 28
+k4ab544 | BnB on RLS tree, step 34
+@page 29
+k428455 | Non-parametric likelihood bounding
+ka5d59b | Replace choice probabilities $P_i^k(a|x_{\iota};\theta)$ with frequencies $n_{\iota}^a/n_{\iota}$
+ka239d9 | non-par  «non-par»
+kd941ea | depends only on the counts from the data!  «$(Z^{\mathcal{S}})$ depends only on the counts from the data!»
+k026695 | Not hard to show ⟪algebraically⟫ that for any $Z^{\mathcal{S}}(\approx\mathrm{Gibbs}$ inequality)
+k7bc0b5 [2L] | Therefore partial likelihood can be ⟪optimistically extrapolated⟫ by empirical likelihood at any step $\iota$ of the RLS tree traversal
+kde2d63 | Augmented partial likelihood is much more powerful bound for BnB
+@page 30
+kefc8b9 | Non-parameteric likelihood bounding
+k85386b | $\iota=S$ = 14 (terminal state) on the left, $\iota$ = 1 (initial state) on the right
+k06c080 | BnB plot: expanded branches of the equilibrium tree
+k785c20 | Partial likelihood of the maximal equilibirum
+kc346b3 | Partial nonparametric likelihood
+k4d4607 | bound
+k9ff29e | Partial log-likelihood by equilibrium  «rotated»
+@page 31
+kce3bb2 | BnB with non-parameteric likelihood bound
+k5c2316 | Greedy traversal + non-parameteric likelihood bound
+@page 32
+kec5223 | BnB with non-parameteric likelihood bound, larger sample
+ka867d5 | Non-parametric $\to$ parametric likelihood as $N\to\infty$ at true $\theta\Rightarrow$ even less computation
+@page 33
+k89944a | Full enumeration RLS in larger sample
+k9c0e36 | Comparing with the previous slide most of the computation is avoided!
+@page 34
+kc760da | BnB refinement with non-parametric likelihood
+kf543a8 [2L] | For any amount of data the non-parametric likelihood is greater or equal to the parametric likelihood algebraically
+ke9bca2 [2L] | BnB augmented with non-parameteric likelihood bound gives sharper Bounding Rules $\to$ less computation
+k7b830c | Wih more data as $M\to\infty$
+kf2c616 | Non-parametric log-likelihood converge to the likelihood line
+kdf2002 | The width of the band between the blue lines in the plots decreases
+k35b911 | $\to$ Even sharper Bounding Rules
+kf99828 | $\to$ Even less computation
+kcb47a5 | MLE for any sample size, but easier to compute with more data!
+@page 36
+kd07f9a | Markov Perfect Equilibria
+k5d1a4c | ⟪MPE is a pair of⟫ strategy profile ⟪and⟫ value functions
+keed4e0 | In compact notation
+ke83bdb | Set of all Markov Perfect Equilibria
+ka64b96 | $\Psi^V:\mathrm{V},\mathrm{P}-\to$ ⟪V⟫ Bellman operator
+k768a9a | $\Psi^P:\mathrm{V},\mathrm{P}-\to$ ⟪P⟫ Choice probability formulas (logit)
+k043c8c | Hotz-Miller inversion
+@page 37
+k8ab53b | Estimation methods for dynamic stochastic games
+kf3f1ee | Two step (CCP) estimators
+k6eb29a | Fast, potentially large finite sample biases
+k5e971c [2L] | Hotz, Miller (1993); Altug, Miller (1998); Pakes, Ostrovsky, and Berry (2007); Pesendorfer, Schmidt-Dengler (2008)
+k10556c | Estimate CCP $\to$ Pˆ
+k8360db | Method of moments $•$ Minimal distance $•$ Pseudo likelihood
+k15a11c | Nested pseudo-likelihood (NPL)
+k1636c2 | Recursive two step pseudo-likelihood
+ka9ab6e | Bridges the gap between efficiency and tractability
+k93c4a4 | Unstable under multiplicity
+k2e96d4 [3L] | Aguirregabiria, Mira (2007); Pesendorfer, Schmidt-Dengler (2010); Kasahara and Shimotsu (2012); Aguirregabiria, Marcoux (2021)
+@page 38
+kc67cdb | Equilibrium inequalities (BBL)
+k8c0712 | Minimize the one-sided discrepancies
+k6449f4 | Computationally feasible in large models
+k3da856 | Bajari, Benkard, Levin (2007)
+kc2e895 | Math programming with equilibrium constraints (MPEC)
+ka3f6ff | MLE as constrained optimization
+kc717fd | Does not rely on the structure of the problem
+k28a668 | Much bigger computational problem
+k5c93f2 | Su (2013); Egesdal, Lai and Su (2015)
+k17436d | $\max \mathcal{L}(\mathrm{Z},\mathrm{P})$ subject to V = $\Psi^V(\mathrm{V},\mathrm{P},\theta),\mathrm{P}=\Psi^P(\mathrm{V},\mathrm{P},\theta)$
+k430e42 | All solution homotopy MLE
+kab1061 | Borkovsky, Doraszelsky and Kryukov (2010)
+@page 39
+kb5aa39 | Overview of NRLS
+k6d9151 | Robust and computationally $feasible^{(?)}$ MLE estimator
+k2fd30a | ⟪for⟫ directional dynamic games (DDG)
+ka87fda [2L] | Rely of full solution algorithm that provably computes all MPE under certain regularity conditions
+k633161 [2L] | Employ smart discrete programming method to maximize likelihood function over the finite set of equilibria
+k461623 | Fully robust to multiplicity of MPE
+kd38f16 | Relax single-equilibrium-in-data assumption
+k671913 | Path to estimation of equilibrium selection rules
+@page 40
+ke5764b [2L] | Single equilibrium in the model One equilibrium in the data
+kb34b35 [2L] | Multiple equilibria in the model Same equilibrium played the data
+ke49f1b [2L] | Multiple equilibria in the model Multiple equilibria in the data:
+k1f5a12 [2L] | Long panels, each market plays their own equilibrium
+kc8a031 [2L] | Groups of markets play the same equilibrium
+k231d63 | (not today)
+@page 41
+ka1e003 | Implementation details
+k0ae4e7 | Two-step estimator, NPL and EPL
+k346a48 | Matlab unconstrained optimizer (with numerical derivatives)
+k69c45e | CCPs from frequency estimators
+k7408e6 | Max 120 iterations (for NPL and EPL)
+#= ke9d903 | MPEC  ⇒ MPEC
+kcb2025 | Matlab constraint optimizer (interior-point) with analytic derivatives
+k65e4aa [2L] | MPEC-VP: Constraints on both values and choice probabilities (as in Egesdal, Lai and Su, 2015)
+k658bf4 [2L] | MPEC-P: Constraints in terms of choice probabilities + Hotz-Miller inversion (twice less variables)
+k200892 | Starting values from two-step estimator
+k053692 | Estimated parameter $k_1$
+ke94f14 | ⟪Sample size:⟫ 1000 markets in 5 time periods
+kaef148 [2L] | Parameters are chosen to ensure good coverage of the state space and non-degenerate CCPs in all states
+@page 42
+k6afcae | Monte Carlo A, run 1: no multiplicity
+k8c1517 [2L] | Number of equilibria at true parameter: 1 Number of equilibria in the data: 1
+kc56498 | 2step
+k4e0a5c | NPL
+k512bad | EPL
+kf9e5d2 | MPEC-VP
+kb7015e | MPEC-P
+k6b2042 | NRLS
+kd69d2d [2L] | True $k_1=3.5$ Bias
+k2b4489 | MCSD
+k2c1092 [4L] | ave log-like log-likelihood log-like short KL divergence
+kb5d1f1 | Convrged of 100
+k45b370 | Equilibrium conditions satisfied (except 2step)
+k0207a3 | Nearly all MLE estimators identical to the last digit
+kf62b02 | NPL and EPL estimators approach MLE
+@page 43
+k55d6ee | Monte Carlo B, run 1: little multiplicity
+ka872c7 [2L] | Number of equilibria at true parameter: 3 Number of equilibria in the data: 1
+k49554c | Data generating equilibrium: ⟪stable⟫
+k5d911b [2L] | True $\mathrm{k}1=7.5$ Bias
+k63b5d5 | N runs of 100
+kd87ac3 | MPEC convergence deteriorates
+k67226e [2L] | Equilibrium conditions are satisfied, but estimators start to converge to wrong equilibria
+kcc029b | (as seen from KL divergence from the data generating equilibrium)
+@page 44
+ke3938e | Likelihood correspondence
+k4b2528 | Lines are costructed using symmetric KL-divergence
+k02d098 | Sample likelihood for different equilibria
+k7a6c61 [3L] | 1-NPL 1-EPL NPL
+ka5a6ce [4L] | EPL MPEC-VP MPEC-P NRLS
+ka8ceb7 | Log-likelihood of the sample data  «rotated»
+k0c11e2 [2L] | log-likehood True $\mathrm{k}1=7.50$
+kbca14a | Parameter, $\mathrm{k}1$
+@page 45
+kf47f75 | Monte Carlo B, run 2: little multiplicity, unstable
+k6bbebd | Data generating equilibrium: ⟪unstable⟫
+ke1a2c4 | NPL estimator fails to converge
+k9fff8b | Similar convergence issues for MPEC
+ke64aea | EPL estimator performs well
+k6c0b53 | Aguirregabiria, Marcoux (2021)
+@page 46
+ke1d36f | ¢µq ¡  «¢µq ¡»
+@page 47
+k88e273 | Monte Carlo B, run 3: discontinuous likelihood
+k4e0ae9 [2L] | Number of equilibria at true parameter: 9 Number of equilibria in the data: 1
+kdedb52 | Data generating equilibrium: unstable, near “cliffs”
+kaba57d | Similar convergence issues
+kf14bbf | Poor estimates by EPL, NPL and MPEC
+k39b38a | (constraints are satisfied, yet low likelihood and high KL divergence)
+@page 48
+kf93374 [5L] | 1-NPL 1-EPL NPL EPL NRLS
+k86139c [2L] | log-likehood True $\mathrm{k}1=3.50$
+@page 49
+k26e47a | Monte Carlo B, run 4: massive multiplicity
+k3284fe [2L] | Number of equilibria at true parameter: ⟪2455⟫ Number of equilibria in the data: 1
+k221c2d | Time to enumerate all equilibria (RLS): $10\mathrm{m}39\mathrm{s}$
+ke7c433 | 1-NPL
+k43e360 [2L] | True $\mathrm{k}1=3.75$ Bias
+k8e8eec [4L] | ave log-likelihood log-likelihood log-like shortfall KL divergence
+ka1d71c | Inf
+kaafa93 [2L] | N runs of 100 CPU time
+k294940 | Severe convergence problems for NPL and EPL
+k4bc31c | Poor eqb identification (low likelihood and high KL divergence)
+ked0b5f | NRLS has comparable CPU time (much faster than full enumeration)
+@page 50
+k0fdf47 | Monte Carlo C, multiple equilibria in the data
+kaeeddb | The path forward:
+k99943d | Assume that ⟪the same⟫ equilibrium is played in each market ⟪over time⟫
+k434242 | Grouped fixed-effects, groups defined by the equilibria played
+k589311 | Joint grouped fixed-effects estimation
+k7fbdcd [2L] | Estimate the partition of the markets into groups playing different equilibria together with $\theta$
+k4c5448 [2L] | For each market compute maximum likelihood over all equilibria and “assign” it to the relevant group (estimation+classification)
+kf967a5 [2L] | Computationally very demanding: BnB market-by-market, non-parametric refinement has no bite
+k86c0c3 | Two-step grouped fixed-effects estimation
+k0efc8c [2L] | Step 1: partition the markets based on some observable characteristics (K-means clustering)
+k986546 | Step 2: estimate $\theta$ allowing different equilibria in different groups
+kc1e7aa | Small additional computational cost!
+ke04b0a | Bonhomme, Manresa (2015); Bonhomme, Lamadon, Manresa (2022)
+@page 51
+kc977dd | Conclusions: Bertrand investments model
+kaf0724 | Many types of endogenous coordination is possible in equilibrium
+#= kad70f5 | ⟪Leapfrogging⟫ (alternating investments)  ⇒ ⟪蛙跳⟫（交替投资）
+#= k92782d | ⟪Preemption⟫ (investment by cost leader)  ⇒ ⟪先发制人⟫（成本领先者投资）
+#= k744883 | ⟪Duplicative⟫ (simultaneous investments)  ⇒ ⟪重复投资⟫（同时投资）
+k37e8d4 | Full rent dissipation and monopoly outcomes are supported as MPE.
+kfecafe | Numerous MPE equilibria and “Folk theorem”-like result
+#= kde02fd | The equilibria are generally ⟪inefficient⟫ due to ⟪over-investment⟫  ⇒ 由于⟪过度投资⟫，均衡一般是⟪无效率的⟫
+#= k993687 | Duplicative ⟪or⟫ excessively frequent ⟪investments⟫  ⇒ 重复⟪或⟫过于频繁的⟪投资⟫
+@page 52
+kbb69c2 | Conclusions: Solution of dynamic games
+k73fceb [2L] | When equilibrium is not unique the computation algorithm inadvertently acts as an ⟪equilibrium selection mechanism⟫
+k2fd93f [2L] | When directionality in the state space is present, state recursion algorithm is preferred to time iterations
+ka06ccf | Plethora of Markov perfect equilibria poses new challenges:
+k3a5afe | How firms manage to coordinate on a particular equilibrium?
+kf41525 | Increased difficulties for empirical applications.
+k4bb78c [2L] | Daunting perspectives for identification of equilibrium selection rule from the data.
+k11447f | Estimation of dynamic games with multiple equilibria
+@page 53
+kf454a3 | Conclusions: NRLS estimator
+k7aca48 [2L] | Full solution MLE estimator for dynamic games of a particular type, namely directional dynamic games (DDGs)
+k43f775 | Nested loop: outer likelihood $\max $ + inner model solver
+k80790a | Need to maximize over the set of all equilibria $\leftrightarrow$
+kacaff4 | daunting computational task
+kbb30f1 | Smart BnB algorithm not to waste time on unlikely MPE
+kb2291e [2L] | NRLS is MLE estimator for dynamic games of a particular type, directional dynamic games (DDGs)
+k8d3d38 | Fully robust to multiplicity of equilibria
+ka19391 | Able to identify multiple equilibria in the data

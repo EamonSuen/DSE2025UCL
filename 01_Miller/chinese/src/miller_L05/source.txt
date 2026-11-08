@@ -1,0 +1,331 @@
+# 01_Miller/3 Finite Dependence and Unobesrved Heterogeneity.pdf  (42 pages)
+# id | English (inline math is a rough reconstruction; check it)
+
+@page 1
+k133007 | Finite Dependence and Unobserved Heterogeneity
+k2e9fff | Robert A. Miller
+k7c394f | DSE at UCL
+kd82232 | July 2025
+kb5ef73 | Miller **(DSE at UCL)**
+ke7479d | Finite Dep, \& Unobserved Het.
+@page 2
+k2473e9 | Introduction
+kd6a061 | Motivation
+k953362 [2L] | Estimation of dynamic discrete choice models is complicated by the calculation of expected future payoffs.
+kd242b1 | These complications are mitigated when finite dependence holds.
+k8c885b [3L] | Intuitively, $\rho$ period dependence holds when two sequences of weighted (nonoptimal) choices leading off from different initial choices generate the same distribution of state variables $\rho$ + 1 periods later.
+k96c973 [2L] | Exploiting the finite dependence property reduces the number of CCPs to estimate.
+kcd47e6 | Most empirical applications have the finite dependence property.
+k18e8d1 [2L] | Under the conditional independence assumption, finite dependence has empirical content (can be tested) without specifying utilities.
+k005e1f [2L] | The finite dependence property depends on the state transition functions but not on optimizing behavior.
+@page 3
+kfb001b | Framework
+ka82933 | $t\in\{1,\ldots,T\}$ stands for time, where $T\leq\infty$.
+k90921b | $x_t\in\{1,\ldots,X\}\equiv X$ is the state at $t$, where $X$ is a finite set.
+k3f05ae | $j\in\{1,\ldots,J\}$ is a (mutually exclusive) choice.
+kc6d3c8 | $d_{jt}$ = 1 if $j$ is picked at $t$ and otherwise $d_{jt}=0$.
+k23e28d [2L] | $f_{jt}(x_{t+1}|x_t)$ is the probability of $x_{t+1}$ occurring in period $t+1$ conditional on $x_t$ and $d_{jt}=1$.
+kf09c1e [2L] | $\epsilon_t\equiv(\epsilon_{1t},\ldots,\epsilon_{Jt})$ has continuous support and is IID over $t$ with PDF $g(\epsilon_t)$ satisfying $E[\max \{\epsilon_{1t},\ldots,\epsilon_{Jt}\}]\leq\epsilon<\infty$.
+k8ce6c1 [2L] | For some $\beta\in(0,1)$, the individual sequentially chooses the vector $d_t\equiv(d_{1t},\ldots,d_{Jt})$ to maximize:
+@page 4
+k997692 | Optimality
+k345d9c | $d_t^o(x_t,\epsilon_t)$ is the optimal decision rule with $j^{th}$ element $d_{jt}^o(x_t,\epsilon_t)$.
+kc66ca0 | $p_t(x_t)\equiv(p_{1t}(x_t),\ldots,p_{Jt}(x_t))$ are the CCPs, where:
+k666ac8 | $V_t(x_t)$ is the ex-ante value function defined as :
+k0f3e68 | The conditional value function for action $j$ defined as:
+k05b483 | The conditional value function correction for action $j$ is defined:
+@page 5
+k149b73 | Weighting schemes and the transitions they induce
+ke95a97 | We defined a weight sequence $\{\omega_{k\tau}(x_{\tau},j,t)\}_{(k,\tau)=(1,t+1)}^{(J,t+\rho)}$ satisfying:
+kac2743 | $|\omega_{k\tau}(x_{\tau},j,t)|<\infty$ and
+k595c7b [2L] | To emphasize the potential dependence of the weight sequence on $(j,x_t,t)$ we could have written:
+k6a0555 | $\omega_{k\tau}(x_{\tau},j,x_t,t)$ rather than $\omega_{k\tau}(x_{\tau},j,t)$
+keb0149 | Similarly recall that $\kappa_{t+1}(x_{t+1}|j,x_t,t)\equiv f_{jt}(x_{t+1}|x_t)$ and:
+k418404 | To be more explicit we could have written:
+kba65f8 | $\kappa_{\tau+1}^{(\omega)}(x_{\tau+1}|j,x_t,t)$ rather than $\kappa_{\tau+1}(x_{\tau+1}|j,x_t,t)$
+@page 6
+k4da833 | Conditional value function representation telescoping a finite number of periods
+k11700d | The representation given in the second lecture implies:
+kca86c6 | In this formulation:
+kd3d357 | $V_{t+\rho+1}(x)$ captures the value from $t+\rho$ + 1 having reached $x$.
+k094ec1 | $\kappa_{t+\rho+1}(x|j,x_t,t)\equiv\kappa_{t+\rho+1}^{(\omega)}(x|j,x_t,t)$ is the probability of reaching $x$
+kd0156b | by following $\{\omega_{k\tau}(x_{\tau},j,t)\}_{(k,\tau)=(1,t+1)}^{(J,t+\rho)}$ from $(t,x_t)$.
+kfbdb1a | $\psi_k[p_{\tau}(x_{\tau})]$ are correction terms for nonoptimal behavior.
+@page 7
+kd05b0c | Finite Dependence
+ke0d6b1 | Definition
+kade2b6 [2L] | The pair of choices $\{i,j\}$ exhibits $\rho-period$ dependence at $(t,x_t)$ if there exist a pair of sequences of decision weights:
+ka938d2 | $\{\omega_{k\tau}(x_{\tau},i,t)\}_{(k,\tau)=(1,t+1)}^{(J,t+\rho)}$ and $\{\omega_{k\tau}(x_{\tau},j,t))\}_{(k,\tau)=(1,t+1)}^{(J,t+\rho)}$
+kfb0e3a | such that for all $x_{t+\rho+1}\in\{1,\ldots,X\}$:
+kebf090 | Finite dependence:
+ka24b05 [2L] | trivially holds for $\rho=T-t$ when $T<\infty$, but only merits attention when $\rho<T-t$.
+k8295d7 | extends to games by conditioning on the player as well.
+kaa5594 [2L] | might hold for some choice pairs but not others, and for certain states but not others.
+k25473f [2L] | could be defined for mixed choices to start the sequence, not just deterministic moves; this analysis extends to the more general case.
+@page 8
+k95eb6a | Representing utility
+k3ce680 | If there is finite dependence for $(i,j,x_t,t)$, then:
+kdd0b8e | To derive this equation:
+k74a5ae | replace $v_{jt}(x)$ with $V_t(x)-\psi_j[p_t(x_t)]$ in (6)
+kc8a8ce | form an analogous equation for $i$
+k81b7cd | difference the two resulting equations
+kc60f35 | note the $V_t(x)$ and $V_{t+\rho+1}(x)\kappa_{t+\rho+1}(x|x_t,j,t)$ terms cancel.
+@page 9
+kee87ff | Simple Examples of Finite Dependence
+kdf5860 | Terminal choices
+kf773b3 [2L] | A terminal choice ends the optimization problem or the game for that particular player.
+k335fe2 | They are quite common in empirical applications.
+kb6f50f [2L] | Supposing the first choice a terminal choice, then $u_{1t}(x_t)$ can be interpreted as the final payoff at $(t,x_t)$ if that choice is made then.
+k05aa03 [2L] | Setting $\omega_{k,t+1}(t,x_{t+1},i)$ = 0 for all $(x,i)$ and $k\not=1$, Equation (7) reduces to:
+@page 10
+kdc94e8 | Renewal choices are also quite common in empirical applications
+k7118c5 [2L] | Similarly a renewal choice yields a probability distribution of the state variable next period that does not depend on the current state.
+k9352e3 | If the first choice is a renewal choice, then for all $j\in\{1,\ldots,J\}$:
+kd5bbb4 | In this case Equation (7) implies:
+@page 11
+k98038e | An example of 2-period finite dependence
+ka6bf10 | How does finite dependence work when $\rho>1?$
+k8973bc | Consider the following model of labor supply and human capital.
+k77df3f | In each of $T$ periods an individual chooses:
+k19c2ef | $d_{2t}$ = 1 to work
+k580fe5 | $d_{1t}$ = 1 to stay home.
+k807287 | She accumulates human capital, $x_t$, from working:
+k021717 | If $d_{1t}$ = 1 then $x_{t+1}=x_t$.
+kff1c1c | If $d_{2t}$ = 1 and $t>1$ then $x_{t+1}=x_t+1$.
+k733da2 | If $d_{j=2,t=1}$ = 1 then
+kecc431 | 2 with probability 0.5
+kcac8ed | 1 with probability 0.5
+k39b8d1 [2L] | Summarizing, human capital only increases with work, by a unit, except in the first period, when it might jump to two.
+@page 12
+k8bb7d6 | Establishing finite dependence in the labor supply example
+k3fbcc2 | When $t>1$, one-period dependence can be attained with
+k198e97 | $x_{t+2}=x_t$ + 1 by working one period out of the next two:
+k51f577 | If $d_{2t}$ = 1 set $\omega_{1,t+1}(x_{t+1}=x_t+1,j=2,t)=1$.
+k3f6d49 | If $d_{1t}$ = 1 set $\omega_{2,t+1}(x_{t+1}=x_t,j=1,t)=1$.
+ka92a7a | When $t$ = 1 two-period dependence can be attained with $x_3=2$:
+k893cd4 | Stay home at $t$ = 1 (setting $d_{11}$ = 1), and then work for two periods:
+k681243 [2L] | Work at $t$ = 1 (setting $d_{21}$ = 1), and work in $t$ = 2 only if human capital increases by one unit at $t=1$:
+@page 13
+k587cc4 | Nonstationary search model
+kad3171 [2L] | Consider a simple search model in which all jobs are temporary, lasting only one period.
+k5743c1 | Each period $t\in\{1,\ldots,T\}$ an individual may:
+k79f2e5 | stay home by setting $d_{1t}=1$
+kf7bfaf | or apply for temporary employment setting $d_{2t}=1$.
+k3cba54 [2L] | Job applicants are successful with probability $\lambda_t$, time varying job offer arrival rates.
+k32ae04 [2L] | Experience $x\in\{1,\ldots,X\}$ increases by one unit with each period of work, up to $X$, and does not depreciate.
+@page 14
+k11a17a | Finite dependence in this search model
+kb1c34e | For all $(x_t,t)$ with $x_t<X$ set:
+k1d15b6 | $d_{1t}$ = 1 (stay home) and then "apply for employment" with weight:
+kf714a0 | $d_{2t}$ = 1 (seek work) and then stay home:
+k8cfcce | This pair of sequencing attains one-period dependence since:
+k5c263c [2L] | $1-\lambda_t$ for $x_{t+3}=x_t$ $\lambda_t$ for $x_{t+3}=x_t+1$
+k74ed0e | Note that if $\lambda_t>\lambda_{t+1}$ then $\omega_{k=2,t+1}(x_t,j=1,t)>1$ and:
+@page 15
+k5ec976 | Estimation
+k2d9a66 | Estimation Framework
+k97bd37 [3L] | Suppose the data comprise $N$ observations of the state variables and decisions denoted by $\{d_{ntn},x_{ntn},x_{n,tn+1}\}_{n=1}^N$ sampled within a time frame of $t\in\{1,\ldots,S\}$.
+k08f5ff [2L] | For expositional simplicity suppose the probability of sampling each $x\in\{1,\ldots,X\}$ in $t\in\{1,\ldots,S\}$ is strictly positive.
+k77d0d8 | $M$ separate instances of finite dependence within that time frame.
+k068ac2 | Say each pair of choices includes the first choice.
+kda5f25 | Label the $M$ paths by $(j_m,x_m,t_m,\rho_m)$ for $m\in\{1,\ldots,M\}$.
+keba64c | Assume:
+kb8ddf1 | $g(\epsilon_t)$ is known.
+k8e3e62 | $\theta\equiv(\theta_1,\ldots,\theta_K)\in\Theta$, a closed convex set in $R^K$.
+kab3a89 | $u_{jt}(x)\equiv\mu_{jt}(x,\theta)$, where $\mu_{jt}(x,\theta)$ is known function.
+kc4359f | $M$ instances of finite dependence suffi ce for identification.
+@page 16
+k8366e4 | The reduced form for a minimum distance (MD) estimator
+k9cc1fb | For all $(t,x,j)\in\{1,\ldots,S\}\times\{1,\ldots,X\}t\in\{1,\ldots,J\}$:
+kf45735 | define
+kb2ca7e [2L] | estimate the $XJ\mathcal{T}$ CCP vector $p\equiv(p_{11}(1),\ldots,p_{JS}(X))'$ with $p⟦?⟧$ formed from $p⟦?⟧_{jt}(x)$.
+k2d89a1 [2L] | Also estimate $f_{jt}(x)$ with $⟦?⟧f_{jt}(x)$ in this first stage, for example with a cell estimator (similar to the CCP estimator).
+@page 17
+k5ba358 | The MD estimator
+k230883 | Define $y(p,f)\equiv(y_1(p,f),\ldots,y_M(p,f))'$ where:
+k156122 | and $Z(p,f,\theta)\equiv(Z_1(p,f,\theta),\ldots,Z_M(p,f,\theta))'$ where:
+k3a56cc | For any $M$ dimensional positive definite matrix $W$ define:
+@page 18
+k93f075 | One-Period Dependence in Optimization Problems
+k0d3907 | Approach
+kd5df9d | Guess and verify is typically used to establish finite dependence.
+kd751d9 [2L] | There is however a systematic way for determining finite period dependence.
+k845440 | The algorithm iterates between two procedures that:
+k2bfcab [2L] | checks counterfactual outcomes arising from deterministic choices that might either induce or rule out finite dependence.
+k842f59 | lists the elements of a matrix to determine its $\mathrm{rank}$.
+k497dea | See:
+keb9e1b [3L] | Peter Arcidiacono and Robert Miller (2019 Quantitative Economics) See Jaepil Lee: “A Structural Analysis of Opioid Misuse: Health, Labor, Policy, and Misperception on Opioid Misuse Risk”(working paper)
+@page 19
+k2885f3 | Job Matching and Occupational Choice (Miller, 1984)
+k25d8a5 | Individual payoffs and choices
+kd27591 [2L] | Relaxing the conditional independence assumption is tantamount to reopening the multiple integration challenge.
+kcbd5bc | Consider what happens when unobserved beliefs evolve endogenously.
+kc3198e | The payoff from working job $m\in\{1,2,\ldots \}$ at time $t\in\{0,1,\ldots \}$ is:
+k365862 | where:
+kbb1b6c | $\psi_t$ is a lifecycle trend shaping term that plays no role in the analysis;
+k5c53d6 | $\xi_m$ is a job match parameter drawn from $N⟦?⟧\gamma_m,\delta_m^2⟦?⟧$;
+kc132f6 | $\varepsilon_{mt}$ is an idiosyncratic iid disturbance drawn from $N(0,1)$
+k0638fd | Every period $t$ the individual chooses a job $m\in\{1,2,\ldots \}$ where:
+kfaf3a6 | $d_t=(d_{1t},d_{2t},\ldots)$ denotes her choice, $d_{mt}\in\{0,1\}$ and
+k1b827e | her realized lifetime utility is  «her realized lifetime utility is $\sum^{\infty}$»
+@page 20
+k6b93f4 | Job Matching and Occupational Choice
+kaa7862 | Processing information
+kd7d545 | At $t$ = 0 the individual sees $⟦?⟧\gamma_m,\delta_m^2⟦?⟧$ for each $m$.
+ke57556 | After making her choice, she also sees $\psi_t$, and $d_{mt}x_{mt}$ for all $m$.
+k87eab1 [2L] | Her posterior beliefs for job $m$ at time $t\in\{0,1,\ldots \}$ are $N⟦?⟧\gamma_{mt},\delta_{mt}^2⟦?⟧$ where:
+kcffa50 | and
+k26f723 [2L] | She maximizes the sum of expected payoffs, sequentially choosing $d_t$ given her beliefs $N⟦?⟧\gamma_{mt},\delta_{mt}^2⟦?⟧$ for each $m\in M$.
+@page 21
+kfdf5e0 | Optimization
+k77fdb4 | Maximizing using Dynamic Allocation Indices (DAIs)
+k70494c | Corollary (from Theorem 2 in Gittens and Jones,1974)
+ke3b2fe | At each $t\in\{1,2,\ldots \}$ it is optimal to select the $m\in M$ maximizing:
+k2c588b | If $\tau$ is fixed and there is perfect foresight, the fundamental ratio is:
+k65608d | the discounted sum of benefits $\sum_{r=t}^{\tau}\beta^{r-t}(x_{mr}-\psi_r)$
+ke23a9d | divided by the discounted sum of time $\sum_{r=t}^{\tau}\beta^{r-t}$.
+k61088b [2L] | For example if project A yields 5 and takes 2 periods to complete, and B yields 3 but only takes 1 period, do A first if and only if:
+@page 22
+k809328 | Bayesian learning with a normal distribution
+kb26dd7 | Define $D(\sigma)$ is the (standard) DAI for a (hypothetical) job whose
+k89f3d4 | fixed match parameter $\xi$ is drawn from $N(0,1)$
+k029c8c | whose random component in the payoff is $\sigma\varepsilon_t$.
+kac392d | Corollary (Proposition 4 of Miller, 1984)
+k19f96e | In this model:
+k8164a3 | We can prove $D(\cdot)$ is a decreasing function, implying that
+k736885 | as:  «$DAI_m(\gamma_{mt},\delta_{mt})\uparrow$ as:»
+k5ba599 | $\gamma_{mt}$ and $\delta_{mt}$ and $\beta\uparrow$
+k41942c | $\sigma_m$ and $\sum_{s=0}^{t-1}d_{ms}\downarrow$.
+@page 23
+k42fea9 | Probability Distribution of Spell Lengths
+k57755a | Hazard rate for spell length
+kc6ffc2 [3L] | Assuming $(\gamma_m,\delta_m,\sigma_m)=(\gamma,\delta,\sigma)$ for all $m$, a world in which all differences between jobs are match specific, it suffi ces to only keep track of the current job match. (Why?)
+k8ba52d [2L] | Define $h_t$ as the discrete hazard at $t$ periods as the probability a spell ends after $t$ periods conditional on surviving that long. Then:
+k561e80 | where $\rho_t\equiv(\gamma_t-\gamma)/\sigma\mathrm{and}\alpha\equiv(\sigma/\delta)^2$ which implies:
+@page 24
+kefb468 | Relating the hazard rate to the distribution of normalized match qualities
+k574ff8 [2L] | Define the probability distribution of transformed means of spells surviving at least $t$ periods as:
+k6df1a4 | To help fix ideas note that $\Psi_0(\rho)$ = 0 for all $\rho<0$ and $\Psi_0(0)=1$.
+k694809 | From the definition of $h_t$ and $\Psi_t(\rho)$:
+k97f4b1 | To derive the discrete hazard, we recursively compute $\Psi_t(\rho)$.
+@page 25
+k7ff1c6 | Inequalities relating to normalized match qualities after one period
+k2ad132 | Every match survives at least one period::
+k4c3dd0 | and the spell ends if:
+k982d78 | Therefore the proportion of spells ending after one period is:
+ke438b0 | $>1/2$ (because $D(\cdot)$ is decreasing in $\alpha)$
+k5fb460 [2L] | A :new job has greater information value and half the time a higher mean.
+@page 26
+k47faa3 | Recursively computing the distribution of normalized match qualities
+k5353ba | Continuing in this line of reasoning:
+kf703d5 | and more generally (from page 1112 of Miller, 1984):
+@page 27
+kd5158b | Maximum Likelihood Estimation
+ke12d5e | Complete and incomplete spells
+k414d1e [3L] | Suppose the sample comprises a cross section of spells $n\in\{1,\ldots,N\}$, some of which are completed after $\tau_n$ periods, and some of which are incomplete lasting at least $\tau_n$ periods. Let:
+k0c47e0 | $\tau_n$ if spell is complete
+k0e8dfc | $\{\tau_n,\tau_{n+1},\ldots \}$ if spell is incomplete
+ka922cf [4L] | Let $p_{\tau}(\alpha_n,\beta_n)$ denote the unconditional probability of individual $n$ with discount factor $\beta_n$ working $\tau$ periods in a new job with information factor $\alpha_n$ before switching to another new job in the same occupation:
+k88d8f9 [2L] | Then the joint probability of spell duration times observed in the sample is:
+@page 28
+kcc64d7 | Motivating Example
+kb28671 | Rust’s (1987) bus engine revisited
+k054e1e | The integration in the job matching example is:
+k8d7ab0 | quite cumbersome
+k428838 [2L] | suggestive of how quickly integration becomes unmanageable if jobs differ exante as well as expost.
+kc3a7e9 | CCP estimators can be exploited to ameliorate this problem.
+k2634f0 | Recalling Mr. Zurcher’s problem:
+k25fcc6 [2L] | Replace the existing engine $(d_{1t}$ = 1), or keep it for at least one more period $(d_{2t}=1)$.
+k54f45f | Bus mileage $x_t$ follows the update rule $x_{t+1}=d_{1t}+d_{2t}(x_t+1)$.
+k6b2e77 | Transitory iid choice-specific shocks, $\epsilon_{jt}$, are T1EV.
+k4500ea | Zurcher sequentially maximizes expected discounted sum of payoffs:
+kc858ed | Now suppose $s$, the bus make, is unobserved.
+@page 29
+k0588b5 | ML Estimation when CCP’s are known (infeasible)
+kb0f79a [2L] | To show how the EM algorithm helps, consider the infeasible case where $s\in\{1,\ldots,S\}$ is unobserved but $p(x,s)$ is known.
+k69589b | Let $\pi_s$ denote population probability of being in unobserved state $s$.
+kfd3b91 | Supposing $\beta$ is known the ML estimator for this "easier" problem is:
+kc03a92 [3L] | where $p\equiv p(x,s)$ is a string of probabilities assigned/estimated for each $(x,s)$ and $l(d_{nt}|x_{nt},s_n,p,\theta)$ is derived from our representation of the conditional valuation functions and takes the form:
+k9bbed8 [2L] | Maximizing over the sum of a $\log $ of summed products is computationally burdensome.
+@page 30
+k521510 | Why EM is attractive (when CCP’s are known)
+ke98aa4 [2L] | The EM algorithm is a computationally attractive alternative to directly maximizing the likelihood.
+k4f4105 [2L] | Denote by $d_n\equiv(d_{n1},\ldots,d_{nT}$ ) and $x_n\equiv(x_{n1},\ldots,x_{nT}$ ) the full sequence of choices and mileages observed in the data for bus $n$.
+ke4eaf2 | At the $m^{th}$ iteration:
+@page 31
+k37dba6 | Steps in our algorithm when s is unobserved and CCP’s are unknown
+ka6b485 | Our algorithm begins by setting initial values for $\theta^{(1)},\pi^{(1)}$, and $p^{(1)}(\cdot)$:
+k401035 | ⟪Step 1⟫ Compute $q_{ns}^{(m+1)}$ as:
+k851ee9 | ⟪Step 2⟫ Compute $\pi_s^{(m+1)}$ according to:
+ke678cf | ⟪Step 3⟫ Update $p^{(m+1)}(x,s)$ using one of two rules below.
+ke4c859 | ⟪Step 4⟫ Obtain $\theta^{(m+1)}$ from:
+@page 32
+kd9788e | Updating the CCP’s
+k33dc13 [3L] | Take a weighted average of decisions to replace engine, conditional on $x$, where weights are the conditional probabilities of being in unobserved state $s$.
+k550c6c | ⟪Step $3\mathrm{A}$⟫ Update CCP’s with:
+kfac7fe [2L] | Or in a stationary infinite horizon model use identity from model that likelihood returns CCP of replacing the engine:
+kef2d1e | ⟪Step $3\mathrm{B}$⟫ Update CCP’s with:
+@page 33
+kaa109f | Monte Carlo
+k530d37 | Finite horizon renewal problem
+k109f5d | Suppose $s\in\{0,1\}$ equally weighted.
+kbc8df6 | There are two observed state variables
+k33eeee | total accumulated mileage:
+k958f57 | if  «$\Delta_t$ if $d_{1t}=1$»
+k724a92 [2L] | permanent route characteristic for the bus, $x_2$, that systematically affects miles added each period.
+k02ae8e | We assume $\Delta_t\in\{0,0.125,\ldots,24.875,25\}$ is drawn from:
+kb8b6fc [2L] | and $x_2$ is a multiple 0.01 drawn from a discrete equi-probability distribution between 0.25 and 1.25.
+@page 34
+k714c1f | Let $\theta_{0t}$ be an aggregate shock (denoting cost fluctuations say).
+k3b6dd6 [2L] | The difference in current payoff from retaining versus replacing the engine is:
+k6ec777 [2L] | Denoting the observed state variables by $x_t\equiv(x_{1t},x_2)$ , this translates to:
+@page 35
+k58baa0 | Table 1 of Arcidiacono and Miller (2011, page 1854)
+@page 36
+k42ebd6 | Entry Exit Game
+k05bd85 | Choice variables
+kf9bf87 [2L] | Suppose there is a finite maximum number of firms in a market at any one time denoted by $I$.
+k1fc5cc [2L] | If a firm exits, the next period an opening occurs to a potential entrant, who may decide to exercise this one time option, or stay out.
+k417eeb [2L] | At the beginning of each period every incumbent firm has the option of quitting the market or staying one more period.
+k911f68 | Let $d_t^{(i)}\equiv⟦?⟧d_{t1}^{(i)},d_{t2}^{(i)}⟦?⟧$ , where $d_{t1}^{(i)}$ = 1 means $i$ exits or stays out of
+k646022 | the market in period $t$, and $d_{t2}^{(i)}$ = 1 means $i$ enters or does not exit.
+kf3d2d1 | If $d_{t2}^{(i)}$ = 1 and $d_{t-1,1}^{(i)}$ = 1 then the firm in spot $i$ at time $t$ is an
+k4fe0dd | entrant, and if $d_{t-1,2}^{(i)}$ = 1 the spot $i$ at time $t$ is an incumbent.
+@page 37
+k5e8520 | State variables
+kdc53f8 [2L] | In this application there are three components to the state variables and $x_t=(x_1,x_{2t},s_t)$.
+kffa750 [3L] | The first is a permanent market characteristic, denoted by $x_1$, and is common across firms in the market. Each market faces an equal probability of drawing any of the possible values of $x_1$ where
+kdee7fc [3L] | The second, $x_{2t}$, is whether or not each firm is an incumbent, $x_{2t}\equiv\{d_{t-1,2}^{(1)},\ldots,d_{t-1,2}^{(I)}\}$. Entrants pay a start up cost, making it more likely that stayers choose to fill a slot than an entrant.
+k0ffda3 | A demand shock $s_t\in\{1,\ldots,5\}$ follows a first order Markov chain.
+k800fed [2L] | In particular, the probability that $s_{t+1}=s_t$ is fixed at $\pi\in(0,1)$, and probability of any other state occurring is equally likely:
+k5990f0 | /4 if  «$(1-\pi)$ /4 if $s_{t+1}\not=s_t$»
+@page 38
+kcd0502 | Price and revenue
+k17b2b0 [2L] | Each active firm produces one unit so revenue, denoted by $y_t$, is just price.
+kde6535 | Price is determined by:
+k7f7a04 | the supply of active firms in the market, $\sum_{i=1}^Id_{t2}^{(i)}$
+k91e952 | a permanent market characteristic, $x_1$
+k269dd2 | the Markov demand shock $s_t$
+ke335df [3L] | another temporary shock, denoted by $\eta_t$, distributed iId standard normal distribution, revealed to each market after the entry and exit decisions are made.
+k8663d3 | The price equation is:
+@page 39
+kcb0dba | Expected profits conditional on competition
+k0f4247 | We assume costs comprise a choice specific disturbance $\epsilon_{tj}^{(i)}$ that is
+k4bcaaa | privately observed, plus a linear function of $⟦?⟧x_t^{(i)},s_t^{(i)},d_t^{(-i)}⟦?⟧$.
+ka4f0a2 | Net current profits for exiting incumbent firms, and potential entrants
+kea3631 | who do not enter, are $\epsilon_{1t}^{(i)}$. Thus $U_1^{(i)}⟦?⟧x_t^{(i)},s_t^{(i)},d_t^{(-i)}⟦?⟧\equiv0$.
+kb7076e | Current profits from being active are the sum of $⟦?⟧\epsilon_{2t}^{(i)}+\eta_t⟦?⟧$ and:
+k972998 | where $\theta_4$ is the startup cost that only entrants pay.
+k934d45 | In equilibrium $E(\eta_t)$ = 0 so:
+@page 40
+kc26dc0 | Terminal choice property
+k948e91 | We assume the firm’s private information, $\epsilon_{jt}^{(i)}$, is distributed T1EV.
+ka59fe1 [3L] | In Lecture 5 we showed that since exiting is a terminal choice, with a payoff normalized to zero, given T1EV, the conditional value function for being active is:
+kbda29e [3L] | The future value term is then expressed as a function solely of the one-period-ahead probabilities of exiting and the transition probabilities of the state variables.
+@page 41
+kb24169 [2L] | The number of firms in each market is set to six and we simulated data for 3,000 markets.
+k254c36 | The discount factor is set to $\beta=0.9$.
+k9eaf55 [3L] | Starting at an initial date with six potential entrants in the market, we solved the model, ran the simulations forward for twenty periods, and used the last ten periods to estimate the model.
+k7d4096 [4L] | The key difference between this Monte Carlo and the renewal Monte Carlo is that the conditional choice probabilities have an additional effect on both current utility and the transitions on the state variables due to the effect of the choices of the firm’s competitors on profits.
+@page 42
+kbaa7d1 | Results from Monte Carlo simulations (Arcidiacono and Miller, 2011)

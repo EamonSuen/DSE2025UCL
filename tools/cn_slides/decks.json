@@ -1,0 +1,152 @@
+{
+  "miller_L01": {
+    "src": "01_Miller/1 Introduction to dynamic structural econometrics.pdf",
+    "out": "01_Miller/chinese",
+    "name": "L01_Introduction_CN",
+    "title": "动态结构计量经济学导论（中文逐页翻译）",
+    "legacy_wrap": true
+  },
+  "miller_L05": {
+    "src": "01_Miller/3 Finite Dependence and Unobesrved Heterogeneity.pdf",
+    "out": "01_Miller/chinese",
+    "name": "L05_Finite_Dependence_Unobserved_Heterogeneity_CN",
+    "title": "有限依赖与不可观测异质性（中文逐页翻译）",
+    "legacy_wrap": true
+  },
+  "miller_L05_2022": {
+    "src": "01_Miller/DSE2022AUS_Lecture7/Abridged Unobserved Heterogeneity and Finite Dependence.pdf",
+    "out": "01_Miller/chinese",
+    "name": "L05_DSE2022AUS_Unobserved_Heterogeneity_Finite_Dependence_CN",
+    "title": "不可观测异质性与有限依赖（DSE 2022 AUS，中文逐页翻译）",
+    "legacy_wrap": true
+  },
+  "miller_L10": {
+    "src": "01_Miller/Principal Agent Models with Asymmetric Information/Principal Agent Models with Asymmetric Information.pdf",
+    "out": "01_Miller/chinese",
+    "name": "L10_Principal_Agent_Asymmetric_Information_CN",
+    "title": "信息不对称下的委托代理模型（中文逐页翻译）",
+    "legacy_wrap": true
+  },
+  "schjerning_L03": {
+    "src": "03_Schjerning_nfxp/equilibrium_trade_autos.pdf",
+    "out": "03_Schjerning_nfxp/chinese",
+    "name": "L03_NFXP_Equilibrium_Trade_Autos_CN",
+    "title": "用于估计均衡模型的嵌套不动点（NFXP）算法与汽车均衡交易（中文逐页翻译）"
+  },
+  "iskhakov_L04": {
+    "src": "04_Iskhakov_egm/dcegm_DSE2025ucl.pdf",
+    "out": "04_Iskhakov_egm/chinese",
+    "name": "L04_DCEGM_CN",
+    "title": "内生网格法与 DC-EGM（中文逐页翻译）"
+  },
+  "aguirregabiria_L06": {
+    "src": "06_Aguirregabiria/Lecture_6_Structural_DDC_with_Fixed_Effects/slides/slides_fe_structural_ddc_ucl_2025.pdf",
+    "out": "06_Aguirregabiria/chinese",
+    "name": "L06_Structural_DDC_Fixed_Effects_CN",
+    "title": "含固定效应的结构动态离散选择模型（中文逐页翻译）",
+    "legacy_wrap": true
+  },
+  "aguirregabiria_L06_2024": {
+    "src": "06_Aguirregabiria/Lecture_6_Structural_DDC_with_Fixed_Effects/DSE2024_slides/slides_fe_ddc_madison_august2024.pdf",
+    "out": "06_Aguirregabiria/chinese",
+    "name": "L06_DSE2024_Structural_DDC_Fixed_Effects_CN",
+    "title": "含固定效应的结构动态离散选择模型（DSE 2024，中文逐页翻译）",
+    "legacy_wrap": true
+  },
+  "aguirregabiria_L07": {
+    "src": "06_Aguirregabiria/Lecture_7_Sequential_Estimation_DDC_Games/slides/slides_dynamic_games_sequential_estimation.pdf",
+    "out": "06_Aguirregabiria/chinese",
+    "name": "L07_Dynamic_Games_Sequential_Estimation_CN",
+    "title": "动态博弈的序贯估计（中文逐页翻译）",
+    "legacy_wrap": true
+  },
+  "aguirregabiria_L16": {
+    "src": "06_Aguirregabiria/Lecture_16_Identification_Non_Equilibrium_Beliefs_Games/slides/slides_nonequilibrium_beliefs_ucl_2025.pdf",
+    "out": "06_Aguirregabiria/chinese",
+    "name": "L16_Nonequilibrium_Beliefs_Games_CN",
+    "title": "博弈中非均衡信念的识别（中文逐页翻译）",
+    "family": "rm",
+    "legacy_wrap": true
+  },
+  "kang_L08": {
+    "src": "08_Rust_ml/DSE25_Kang(John)_Final.pdf",
+    "out": "08_Rust_ml/chinese",
+    "name": "L08_ERM_Offline_IRL_DDC_Kang_CN",
+    "title": "离线逆强化学习与动态离散选择模型的经验风险最小化方法（中文逐页翻译）"
+  },
+  "attanasio_L09": {
+    "src": "09_Attanasio/DSE-New-measurements.pdf",
+    "out": "09_Attanasio/chinese",
+    "name": "L09_New_Measurements_CN",
+    "title": "新测量指标的设计与使用（中文逐页翻译）"
+  },
+  "maurel_L11": {
+    "src": "11_Maurel/College_Learning_DSE_AM.pdf",
+    "out": "11_Maurel/chinese",
+    "name": "L11_College_Learning_CN",
+    "title": "学习与动态教育决策（中文逐页翻译）"
+  },
+  "maurel_L11_handout": {
+    "src": "11_Maurel/College_Learning_handout_DSE25.pdf",
+    "out": "11_Maurel/chinese",
+    "name": "L11_College_Learning_handout_CN",
+    "title": "学习与动态教育决策·讲义版（中文逐页翻译）",
+    "share": "maurel_L11"
+  },
+  "tincani_L12": {
+    "src": "12_Tincani/Tincani_ES_summer_school_2025.pdf",
+    "out": "12_Tincani/chinese",
+    "name": "L12_Expectations_Tincani_CN",
+    "title": "利用主观预期数据估计教育选择模型（中文逐页翻译）"
+  },
+  "bonhomme_L13": {
+    "src": "13_Bonhomme/Slides_DSE_2025_lecture.pdf",
+    "out": "13_Bonhomme/chinese",
+    "name": "L13_Unobserved_Heterogeneity_Structural_Models_CN",
+    "title": "在结构模型中引入不可观测异质性（中文逐页翻译）"
+  },
+  "bresser_L14": {
+    "src": "14_Bresser/SubjectiveExpectationsLifeCycleModels_slides.pdf",
+    "out": "14_Bresser/chinese",
+    "name": "L14_Subjective_Expectations_Life_Cycle_CN",
+    "title": "生命周期模型中的主观预期（中文逐页翻译）"
+  },
+  "bresser_L14_handout": {
+    "src": "14_Bresser/SubjectiveExpectationsLifeCycleModels_handout.pdf",
+    "out": "14_Bresser/chinese",
+    "name": "L14_Subjective_Expectations_Life_Cycle_handout_CN",
+    "title": "生命周期模型中的主观预期·讲义版（中文逐页翻译）",
+    "share": "bresser_L14"
+  },
+  "pakes_L15": {
+    "src": "15_Pakes/DSE-2025-London.pdf",
+    "out": "15_Pakes/chinese",
+    "name": "L15_Pakes_CN",
+    "title": "动态博弈：问题与前景（中文逐页翻译）"
+  },
+  "schjerning_L17": {
+    "src": "17_Schjerning_games/slides/1_StaticGames.pdf",
+    "out": "17_Schjerning_games/chinese",
+    "name": "L17_Static_Games_CN",
+    "title": "估计静态不完全信息离散选择博弈与多重均衡（中文逐页翻译）",
+    "legacy_wrap": true
+  },
+  "iskhakov_L18": {
+    "src": "18_Iskhakov_games/part1_rls.pdf",
+    "out": "18_Iskhakov_games/chinese",
+    "name": "L18_RLS_CN",
+    "title": "求解方向性动态博弈的全部马尔可夫完美均衡：递归词典序搜索（中文逐页翻译）"
+  },
+  "iskhakov_L19": {
+    "src": "18_Iskhakov_games/part2_nrls.pdf",
+    "out": "18_Iskhakov_games/chinese",
+    "name": "L19_NRLS_CN",
+    "title": "估计具有多重均衡的方向性动态博弈：嵌套 RLS（中文逐页翻译）"
+  },
+  "rust_L20": {
+    "src": "20_Rust_rational/apr_dse2025_slides_combined.pdf",
+    "out": "20_Rust_rational/chinese",
+    "name": "L20_Rust_Rational_CN",
+    "title": "人是理性的吗？（中文逐页翻译）"
+  }
+}

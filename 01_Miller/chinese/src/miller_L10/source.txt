@@ -1,0 +1,338 @@
+# 01_Miller/Principal Agent Models with Asymmetric Information/Principal Agent Models with Asymmetric Information.pdf  (38 pages)
+# id | English (inline math is a rough reconstruction; check it)
+
+@page 1
+k2dfa92 | Principal Agent Models with Asymmetric Information
+#= k2e9fff | Robert A. Miller  ⇒ =
+#= k7c394f | DSE at UCL  ⇒ =
+#= kd82232 | July 2025  ⇒ 2025 年 7 月
+#= kb5ef73 | Miller **(DSE at UCL)**  ⇒ =
+k404a9e | Optimal contracting
+@page 2
+ke5d7d6 | A Pure Moral Hazard Model
+#= kd6a061 | Motivation  ⇒ 动机
+kbee8d1 [3L] | In an Arrow Debreu world with a Walrasian equilibrium, whether an employee is paid the value of his marginal product less the amenity value with a certain wage or a piece rate is irrelevant.
+k5e669a | When does the contract form matter?
+k56cc96 | It arises naturally in environments with asymmetric information.
+k6844aa | A risk neutral principal proposes a compensation plan to a risk averse agent.
+k0b8c7f | The agent accepts or rejects the principal’s (implicit) offer.
+k433ce3 | If he rejects the offer he receives a fixed utility from an outside option.
+k10300f | If he accepts the offer, the agent chooses between working and shirking.
+k7b1df1 [2L] | The principal observes whether the offer is accepted, but not the agent’s activity.
+kd672ba [2L] | After revenue is realized, the agent receives compensation according to the contract.
+k315444 | The principal pockets the remainder as profit.
+@page 3
+kdb03ca | The agent’s choices and compensation, and the principal’s revenue and profits
+k4fc05d [2L] | Denote the workplace employment decision of the agent by an indicator $l_0\in\{0,1\}$, where $l_0$ = 1 means the agent rejects the principal’s offer.
+k58e668 [2L] | Denote the effort level choices by $l\in\{0,1\}$ , where work is defined by setting $l$ = 1, and shirking is defined by setting $l=0$.
+ka28eaa [2L] | Gross revenue to the principal is denoted by $x$, a random variable with a probability distribution determined by the agent’s effort.
+k4b2b19 [2L] | After $x$ is revealed the both the principal and the agent at the end of the period, the agent receives compensation according to the contract.
+kb235e1 | To reflect its potential dependence on $x$, we denote compensation by $w(x)$.
+kbfa9b6 | The principal’s profit is revenue less compensation, $x-w(x)$.
+@page 4
+k0777a1 | Marginal product of the agent
+kae4c78 [3L] | Denote by $f(x)$ the probability density function for revenue conditional on the agent working, and let $f(x)g(x)$ denote the probability density function for revenue when the agent shirks.
+kd5fbee | We assume:
+k0bb660 | The inequality reflects the preference of principal for working over shirking.
+k88a2da [2L] | Since $f(x)$ and $f(x)g(x)$ are densities, $g(x)$ , the ratio of the two densities, is a likelihood ratio.
+k9e02be | That is $g(x)$ is nonnegative for all $x$, bounded, and:
+@page 5
+kbf5ebb | Preferences of the agent
+k80049d [2L] | We assume the agent is an expected utility maximizer and utility is exponential in compensation, taking the form:
+k0b6faf | where the utility of the outside option is normalized to negative one, and:
+k634886 | $\gamma$ is the coeffi cient of absolute risk aversion.
+k99b697 [2L] | $\alpha$ is a utility parameter with consumption equivalent $-\gamma^{-1}\log (\alpha)$ that measures the distaste from working.
+ka3069b | $\beta$ is defined analogously.
+kc7fe6f [2L] | We assume $\alpha>\beta$ meaning that shirking gives more utility to the agent, than working.
+ka651f5 [2L] | A conflict of interest arises between the principal and the agent because he prefers shirking, meaning $\beta<\alpha$ yet the principal prefers working since
+@page 6
+k8a1889 | Solving the Pure Moral Hazard Model
+kd9b518 | Participation and incentive compatibility constraints
+kf06425 [3L] | To induce the agent to accept the principal’s offer and engage in his preferred activity, shirking, it suffi ces to propose a contract that gives the agent an expected utility of at least minus one:
+k5121f6 [3L] | To elicit work from the agent, the principal must offer a contract that gives the agent a higher expected utility than the outside option, and a higher expected utility than shirking:
+#= ka5230b | and:  ⇒ 以及：
+@page 7
+ka64931 | Lemma (Margiotta and Miller, 2000)
+ka1b077 | To cost minimizing contract inducing work is:
+ke31afa | where $\eta$ is the unique positive solution to the equation:
+k9fcd0a | The optimal contract pays the agent a:
+k907d55 | fixed wage of $\gamma^{-1}\ln \beta$ to shirk.
+k6fd24e | certainty equivalent of $\gamma^{-1}\ln \alpha$ to work (with compensating differential
+k9b8e98 | positive risk premium of $E[w^o(x)]-\gamma^{-1}\ln \alpha$ to induce work.
+@page 8
+k4448e2 | Measuring the Importance of Moral Hazard
+k92d324 | Three measures
+kd681a4 [2L] | Recall the optimal compensation with moral hazard is $w^o(x)$ and to meet the participation constraint, shareholders must pay $\gamma^{-1}\ln \alpha$.
+k2f703f [2L] | Therefore the maximal amount shareholders would pay to rid the firm of the moral hazard problem is:
+k1ac3c4 [2L] | A second measure of moral hazard is the nonpecuniary benefits the manager obtains from shirking.
+k3b1254 | This is the monetized utility loss from working versus shirking:
+k7bdddd [2L] | Third is the gross loss a firm incurs from the manager shirking instead of working:
+@page 9
+keb3f6e | Identification
+k058552 | Model primitives and the data generating process
+ke32c7a | The model is defined by:
+kce6f67 | $f(x)$ the probability density function of $x$ from working
+ka4baa3 | $g(x)$ the likelihood ratio for shirking versus working
+kb483a4 | $\alpha$ distaste for working relative to outside option
+kffe43c | $\beta$ distaste for shirking relative to outside option
+k6cca13 | $\gamma$ risk-aversion parameter.
+kf169f8 | The panel data set is $\{x_n,w_n\}_{n=1}^N$ where $w(x)=E[w_n|x_n]$.
+k74c733 | Thus $f(x)$ and $w(x)$ are identified.
+kb6267c | This leaves only $g(x)$ plus $(\alpha,\beta,\gamma)$ to identify.
+@page 10
+k3fe99d | What if the risk parameter is known?
+kbfe3de | The FOC for the Lagrangian can be expressed as:
+k8e9034 | where $v(x)=e^{-\gamma w(x)}$:
+k5d5b98 | These equalities imply:
+kff1a1c | Also since both participation and incentive compatibility constraints bind:
+@page 11
+kd6dc0a | The identified set (Gayle and Miller, 2015)
+k44501b | Noting $v\equiv e^{-\gamma w}$ equations (1), (2) and (3) imply:
+k69144e | Finally since paying $w^o(x)$ is more profitable than paying $\gamma^{-1}\ln (\beta)$:
+kef50a2 | cov $⟦?⟧x,e^{\gamma wo(x)}⟦?⟧$
+k17c819 [2L] | The set of $\gamma$ satisfying this inequality is sharp and tight, and the model is rejected if this set is empty.
+@page 12
+kfe2fad | A Dynamic Extension to the Static Model
+k872547 [2L] | Adding simple dynamics to this model further restricts the set of observationally equivalent parameterizations.
+k53ed21 | In a multiperiod model where the agent can borrow and save:
+k06d7aa | interest rate adjustments affect the value of (smoothing) an extra dollar
+k220835 [2L] | shifting the incentive compatibility and participation constraints (Gayle and Miller, 2009)
+k6dad07 | Accordingly suppose that each period $t$:
+kaeded5 | the agent chooses his consumption $c_t$.
+k5130b5 | the principal announces a compensation function $w_t(x_{t+1})$.
+kc97796 | the agent chooses $l_{0t}\in\{0,1\}$ (participation) and $l_t\in\{0,1\}$ (effort).
+k7c95ac | Output $x_{t+1}$ occurs and he is paid
+kb9961f | For some discount factor $\delta\in(0,1)$ his lifetime utility is:
+kfaabb8 [2L] | where the preference parameters $(\alpha,\beta,\gamma)$ and the production parameters $(f(x),g(x))$ have the same interpretation as above.
+@page 13
+k8f5002 | Modifying the participation and incentive compatibility constraints
+k48aa53 | Similar to the static model define:
+k0865fa | where $b_t$ denote the bond price, and assume $b_{t+1}$ is known at period $t$
+ke7404c [2L] | One can show the participation and incentive-compatibility constraints also follow their static model analogues:
+k8a5461 | The principal chooses $v_t$ for each $x$ to maximize:
+kf1641c | $⟦?⟧\ln [v_t(x)]f$ (x)dx
+ke57d8b | subject to (4) and (5).
+k6a7de6 | Changes in $b_t$ tilt the constraints through the effect on $v_t(x)$.
+k132a30 | Since $b_t$ is exogenous, it is a instrument facilitating identification.
+@page 14
+k87e566 | Short term contracts are optimal (Proposition 5, Margiotta and Miller, 2000)
+k241143 | Lemma
+kf23c33 [3L] | The optimal long-term contract is implemented by replicating optimal short-term contracts, where the agent retires for sure in period $tort$ + 1, choosing $(l_{t0},l_{t1},l_{t2})$ to maximize:
+k5e315c [2L] | Comparing the principal’s problem in this dynamic setting to its static analogue, the only differences are that:
+k4ba74f [2L] | $\gamma⟦?⟧b_{t+1}$ replaces $\gamma$, the risk aversion parameter. Idiosyncratic wealth shocks are optimally smoothed over the agent’s lifetime.
+kda2be6 [2L] | $\alpha^{1/(bt-1)}$ replaces $\alpha$ and $\alpha^{1/(bt-1)}$ replaces $\alpha$. The consumption equivalent of $\alpha^{1/(bt-1)}is[(b_t-1)\gamma]^{-1}\ln \alpha$, augmenting (reducing) wealth when $\alpha≶1$.
+kb55041 [2L] | This result builds on Malcomson and Spinnewyn (1988), and Fudenberg, Holmstrom and Milgrom (1990).
+k21c48e [2L] | Intuitively, no information about shirking in $t$ arrives after $t$ + 1, so postponing rewards or penalties beyond one period is pointless.
+@page 15
+k664287 | A Fully Parametric Specification
+k2f2f5e | Truncated Normal distribution and Absolute Risk Aversion (CARA)
+kd9c702 [3L] | Assume $x$ is distributed truncated normal with lower truncation point $\psi$ (representing bankruptcy or limited liability) with mean $\mu_w(\mu_s)$ and variance $\sigma^2$ for parent normal if agent works (shirks):
+k661c95 | lng $(x)=\ln \Phi[(\mu_s-\psi)/\sigma]-\ln \Phi[(\mu_w-\psi)/\sigma]$
+k0e38b0 | Thus the model is parameterized by $(\psi,\mu_w,\sigma,\mu_s,\gamma,\alpha,\beta)$.
+k544514 | Suppose there are $N$ observations on $(w⟦?⟧_n,x_n)$ where:
+kfc07c4 | $w⟦?⟧_n\equiv w_n+\epsilon_n$ and $E[\epsilon_n|x_n]=0$.
+@page 16
+#= k5ec976 | Estimation  ⇒ 估计
+k9c8626 | Margiotta and Miller (2000) estimate:
+k8fcd25 | with  «$\psi$ with $\psi⟦?⟧\equiv\min \{x_1,\ldots,x_N\}$. (Note $\psi⟦?⟧$ converges to $\psi$ at rate faster than $N$»
+k804dd6 | (Note  «$\psi$ with $\psi⟦?⟧\equiv\min \{x_1,\ldots,x_N\}$. (Note $\psi⟦?⟧$ converges to $\psi$ at rate faster than $N$»
+k763789 | converges to  «$\psi$ with $\psi⟦?⟧\equiv\min \{x_1,\ldots,x_N\}$. (Note $\psi⟦?⟧$ converges to $\psi$ at rate faster than $N$»
+kaede79 | at rate faster than  «$\psi$ with $\psi⟦?⟧\equiv\min \{x_1,\ldots,x_N\}$. (Note $\psi⟦?⟧$ converges to $\psi$ at rate faster than $N$»
+kcf663d | but is sensitive to measurement error.)
+k1064fd [2L] | $(\mu_w,\sigma)$ with LIML by forming likelihood for $f(x)$ with $\{x_1,\ldots,x_N\}$ under the assumption that $\psi⟦?⟧=\psi$. (No first stage correction is necessary.)
+k420d44 | $(\mu_s,\gamma,\alpha,\beta)$ with NLS based on
+k087a62 [2L] | using an inner loop at each iteration to solve for $\eta$ as a mapping of $(\alpha,\beta,\mu_s)$ given $⟦?⟧\psi⟦?⟧,\mu⟦?⟧_w,\sigma⟦?⟧⟦?⟧$.
+k23bab2 [2L] | Correct the standard errors for $(\mu_s,\gamma,\alpha,\beta)$ in the third step induced by $(\mu⟦?⟧_w,\sigma⟦?⟧)$ obtained from the second step.
+@page 17
+kdc710a | Estimating the importance of moral hazard (Table 8, Margiotta and Miller 2000)
+kdfe9fc [2L] | We used the Masson-Antle-Smith (MAS) data set (37 firms in aerospace, electronics, chemicals from 1944 - 1977).
+kd1732f [2L] | The annual cost of moral hazard pales in comparison to losses shareholders would make if managers were paid a fixed wage.
+@page 18
+k0c7aa2 | 50 Years of Managerial Compensation
+k384997 | Changes in managerial compensation (Table 3, Gayle and Miller, 2009)
+k86a31e | We compare MAS data with data from:
+k51d643 | S\&P 500 COMPUSTAT CRSP (2,610 firms 1995 -2004, 2000 \$US)
+k15008d | A subset formed from those firms in the three MAS sectors.
+@page 19
+k7cfb2a | Changes in components of managerial compensation (Table 4, Gayle and Miller, 2009)
+@page 20
+k74c284 | Changes in sample composition of firms (Table 2, Gayle and Miller, 2009)
+@page 21
+kd5f172 | What were the driving forces behind these changes?
+k995862 [3L] | If managers in the COMPUSTAT population ran firms the same size as managers in MAS, their compensation would have increased by a factor of 2.3, the increase in national income per capita.
+kdb38ac [2L] | After adjusting for the general increase in living standards over these years, the model attributes:
+k978714 [2L] | Hardly any of the increased managerial compensation to changes in $\gamma^{-1}\ln \alpha$, or the certainty equivalent wage
+k26b71b | practically all the increase to changes the risk premium $\Delta_1$
+k2ca0cc | The factors driving the change in $\Delta_1$ were:
+k9b4f40 [3L] | not risk preferences: managers in the MAS (COMPUSTAT) population were willing to \$240,670 (\$248,620) to avoid a gamble of winning or losing \$1 million.
+kb333a6 [2L] | not changes in $f(x)$: the biggest change in $\Delta_1$ in aerospace where the abnormal returns became less dispersed (reducing the premium).
+k786ce4 [2L] | the sharp increase in $\alpha⟦?⟧\beta$ mainly due to increased firm assets (increasing the utility from shirking).
+@page 22
+k275941 | Human capital dynamics
+k029b2c [2L] | The last part of this lecture extends the analysis by developing a generalized Roy model:
+k8582a7 | in a dynamic setting.
+kdaf0ea | where there is one principal and multiple agents in each firm.
+k9d2221 | Each agent has several employment choices,
+k4ac427 | and accumulates human capital.
+k975509 [2L] | We apply this model to managerial compensation to explain **why executives** **in large firms are paid more than those in small firms.**
+@page 23
+#= ke5e429 | Data  ⇒ 数据
+ke56add | Sources and summary statistics (Gayle, Golan and Miller, 2012)
+k8d0486 [2L] | Data taken from ExecuComp for the S\&P 1500 and COMPUSTAT were matched with data from Who’s Who for the years 1992-2006:
+ka0b682 | 16,300 executives (from 30,614) in 2100 firms (from 2818) yielding 59,066.
+ka32dea | Information on executives includes:
+k60c73e [2L] | compensation, title, including interlock status, age, gender, education, annual transitions by title and firm.
+k2670e8 | Information on firms include:
+ke8cd10 [2L] | annual financial return, size by total assets (large, medium, small) and sector (primary, service, consumer).
+k213a09 | Summarizing some aggregates:
+k2e40ad | The executive exit rate is between 12\% and 18\% per year.
+k712df9 | Turnover is about 2\% to 3\% per year.
+ka431ee | Executives average between 51 and 54 years old.
+ka0b77e | On average executives have about 13 to 14 years firm tenure.
+kb27a0f | They average about 17 years executive experience.
+k3f20b8 | About 80\% graduated from college and about 20\% have an MBA.
+kabe1c0 | Total compensation averages between \$1.5 and \$4.5 million.
+k557ac8 | Compensation increases with firm size.
+@page 24
+kc1fc2f | Compensation, education and tenure by firm size (Figures 1 and 2, GGM 2015, pages 2302-2303)
+@page 25
+kd4e02c | What explains firm-size pay premium in the market for top executives?
+kbd1c9d | There are two fundamental factors that might be playing a role:
+k73a341 | Human Capital:
+k7eadc6 [3L] | Executives in large firms are older, more educated, but have less executive experience and less tenure than those in smaller firms; presumably human capital of the kind described by Mincer (1974) is playing a role.
+ka3287d [3L] | Working as executives in more firms increases an executive compensation at higher ranks in the hierarchy. This is a form of productivity enhancing on-the-job experience.
+kea642a | Moral Hazard:
+kfc6ca4 [2L] | Top executives are paid a significant portion of their total compensation in stock and options.
+k9b4bad [2L] | The composition of firm denominated securities varies substantially across ranks and executives at different points in their lifecycle.
+@page 26
+k68c2cc | Model
+#= k7208e6 | Choices  ⇒ 选择
+kb7a7c1 | Each period while employed the executive chooses:
+k547aa5 | consumption $c_t\in\mathcal{R}$,
+k5980f7 | a job $d_{jkt}\in\{0,1\}$,
+k735a8e | and (if she does not retire) effort $l_t\in\{0,1\}$,
+#= k365862 | where:  ⇒ 其中：
+k8ad3ac | $j\in\{1,2\ldots,J\}$ denotes firm size, industrial sector, new firm or not,
+k340fdf | $k\in\{1,\ldots,K\}$ denotes job $\mathrm{rank}$,
+k70a1fb | $l_t$ = 1 designates working and $l_t$ = 0 means shirking,
+kc2cbad | she retires by setting $d_{0t}=1$,
+k5c5d11 | and subject to the restrictions that for all $d_t\equiv(d_{0t},d_{11t},\ldots,d_{JKt})$:
+@page 27
+k2ceaa5 | Human capital
+k02a911 | The executive adds to:
+k415c41 | $h_{1t}$, her internal human capital, by working at the same firm,
+k28cdeb | $h_{2t}$, her general human capital, by not quitting and working,
+kac9701 | $h_{3t}$, her external capital, by switching firms and working.
+ka755ed | Denote by:
+k984543 | $h_0$ is a fixed set of individual characteristics including gender and education
+k7966f8 | $H(h_t)$ as human capital in $t$ + 1 from shirking in $t$
+ke88015 | $H(h_t)$ as human capital from working.
+k6ae191 [2L] | Let $d_t^*=0(d_t^*$ = 1) denote employment at the same (a new) firm and assume:
+@page 28
+k6b4f69 | Preferences and budget constraint
+k49a79c | Lifetime utility of an executive is parameterized as:
+kda227c | we abbreviate by setting $d_{0kt}\equiv d_{0t}$ for all $k$.
+kad47d2 | $c_t$ is consumption at time $t$.
+ke6f186 | $\delta$ is the subjective discount factor.
+k443dc4 | $\gamma$ denotes the coeffi cient of absolute risk aversion.
+k9d741e | $\alpha_{jk}(h_t)$ is a preference parameter for working.
+k1d0cd8 | $\beta_{jk}(h_t)$ is a preference parameter for shirking.
+kac286b | Utility depends on $h_t$ and:
+kb0d2cc | An iid firm-job privately observed taste shock $\varepsilon_{jkt}$ also affects utility.
+kbc6ef2 [2L] | There are complete markets for all publicly disclosed events, but no borrowing against future executive compensation.
+@page 29
+kd018b0 | Technology
+ke6cba7 | Firm production is defined as:
+k553e99 | where for expositional ease, each executive holds a distinct position and:
+k3b7e00 | $t(\tau)$ is the age of executive at calendar time $\tau$
+k3539f8 | $h_{t(\tau)}=h_{t(\tau)}$ denotes human capital of the executive aged at time $\tau$
+kfbaf34 | $F_{jk,t(\tau)}⟦?⟧h_{t(\tau)}⟦?⟧$ denote the individual contribution of $k$ to the firm
+k95a091 | $e_{j\tau}$ denotes the value of firm $j$ at the beginning of calendar time $\tau$
+kb4b989 | $\pi_{\tau+1}$ denotes the gross returns to the market portfolio
+kbec97c | $\pi_{j,\tau+1}$, denotes abnormal return to the firm before executive compensation.
+keb42b1 | We assume the probability density for $\pi_{j,\tau+1}$ is:
+k6ad784 | $f_j(\pi_{j,\tau+1})$ when all $K$ executives work
+k2914c0 | $f_j(\pi_{j,\tau+1})g_{jk}(\pi_{j,\tau+1}|h_t$ ) when all executives but $k$ work.
+k4f445e | The gross expected return to a firm is higher if everybody works:
+@page 30
+k4ea2ef | Timing, information, and overview of perfect equilibrium
+k1d06c7 | Each executive knows her $h_t$ and privately chooses consumption $c_t$.
+k0e6973 | Shareholders have beliefs about $h_t$, namely $h'_t$.
+k875557 | The executive privately observes $\varepsilon_{jkt}$ and selects a firm and position.
+k6b6037 [2L] | Executives in each firm simultaneously submit compensation proposals, denoted by $w_{jkt+1}(h',\pi)$ , to the shareholder board.
+ke20dac [2L] | If any proposal is off the equilibrium path, shareholders believe the worst and reject all the submissions.
+kbc55ee | This rejection is observed by all firms.
+ka5daf3 | If their demands are not approved, the executives in the firm retire.
+k6231c5 | If approved, the executives privately choose $l_t$.
+kcbbd2e | $h_t$ is updated with $H(h_t)$ or $H(h_t)$.
+kfcb0c1 | The equilibrium optimal contract induces executives to work.
+@page 31
+kfe8959 | Firm and Job Choices
+k4cd14f | Indexing the value of human capital
+k161fe4 | Recursively define $B_t(h,h')$ an index of human capital by:
+k2ae678 | where $V_{jkt}(h,h',b_t)\equiv$
+ke09e82 | $b_t$ is the bond price at $t$.
+k67ba1a | $\upsilon'_{jk,t+1}=e'^{-\gamma wjk,t+1(h,\pi)/bt+1}$ is the annuitized util value of compensation.
+kdc3ab8 | $\varepsilon_{jkt}^*$ is the value of the private disturbance $\varepsilon_{jkt}$ conditional on $d_{jkt}=1$.
+k663ece | $p_{jkt}(h,h')$ is the CCP for choosing $\mathrm{rank}k$ in firm $j$, period $t$.
+kba1505 | Lower values of $B_t(h,h')$ are associated with higher values of human capital.
+@page 32
+ka0cb98 | Optimization (Theorems 4.2 and 5.1 of GGM 2015)
+k39e45c | The value function is derived in two steps, solving for:
+k08e793 | optimal consumption given any career path
+kd0036b | the optimal career path.
+k01fef0 | Along the equilibrium path $h=h'$ and we define:
+k5db295 | In the second step (along the equilibrium path) jobs are chosen to maximize:
+k24d41d | Executives trade off $(j,k,l)$ , jobs and effort, based on three dimensions:
+k159251 [2L] | nonpecuniary benefit, both idiosyncratic, $\varepsilon_{jkt}$, and systematic, $\alpha_{jkt}(h)$; human-capital accumulation, $A_{t+1}(h)$;
+kebf9b6 | expected utility from compensation, $E_t[\upsilon_{jk,t+1}]$.
+@page 33
+kc84f43 | Cost Minimization
+k81ca13 | Participation constraint
+k95aeb5 [2L] | By the inversion theorem (Hotz and Miller 1993) there exists $q(p)$ to $R^{JK}$ such that:
+k40825a | where $q_{jk}[p_t(h)]\equiv\varepsilon'_{jkt}-\varepsilon'_{0t}$, for all shock pairs $⟦?⟧\varepsilon'_{0t},\varepsilon'_{jkt}⟦?⟧$ making the
+k4b2b24 | executive indifferent between retiring and $(j,k)$.
+k6f3b79 | Define $w_{jk,t+1}^*(h)$ as the certainty equivalent wage to a executive indifferent
+k387c32 | between $(j.k)$ and retirement given CCPs $p_t(h)$:
+ke3bb50 | Solving for $w_{jk,t+1}^*(h)$ gives the participation constraint:
+@page 34
+k8c66bd | Incentive compatibility constraint
+kf3cc7f [2L] | In this model the firm can deter shirking in a one-period contract by offering a compensation schedule that satisfies the incentive-compatibility constraint:
+k572dcc | A fixed wage is optimal if career concerns predominate:
+k968dc3 | However if (as a counterfactual) $H(h)=H(h)$ then a fixed wage contract:
+k04b003 | simplifies the right side of the (8) to one
+k945096 | violating (8) because $\alpha_{jkt}(h)>\beta_{jkt}(h)$
+k0595a4 | proving a constant wage guarantees shirking if $H(h)=H(h)$.
+@page 35
+k9602b1 | Optimal Contract (Theorem 4.3 of GGM 2015)
+kfbdbc5 | The cost minimizing contract is:
+k118f56 | $\Delta_{jkt}^{\alpha}(h)\equiv\gamma^{-1}(b_t-1)^{-1}b_{t+1}\ln \alpha_{jkt}(h)$ is the systematic component of
+ka9e3dc | non-pecuniary utility of $(j,k)$
+kb0f7b0 | $\Delta_{jkt}^A(h)\equiv\gamma^{-1}b_{t+1}\ln \{A_{t+1}(h)\}$ is the investment value of $(j,k)$.
+kca9b35 | $\Delta_{jkt}^q(h)\equiv\gamma^{-1}(b_t-1)^{-1}b_{t+1}q_{jk}[p_t(h)]$ are the idiosyncratic values making
+kb53847 | executive in fractal $p_{jkt}(h)$ indifferent between $(j,k)$ and retirement.
+k050690 | $\Delta_{jkt}^r(h)$ is the risk premium defined as:
+k8cbe8a | with $\eta$ the unique positive root to:
+@page 36
+kf1f14b | Identification and Estimation
+k3394a1 | Compensating differentials and risk aversion
+kd2fd05 | Note that (6) is a dynamic discrete choice problem.
+k1930a6 | Assuming T1EV and denoting by $\Gamma[\cdot]$ the complete gamma function:
+kcfa809 | Equation (7) then implies the participation constraint can be expressed as:
+k8c2f4a [2L] | Appealing to Arcidiacono and Miller (2020), $\alpha_{jkt}(h)$ and $\rho$ are identified up the distribution of $\varepsilon_t$.
+k3c45aa [3L] | Intuitively both are identified off from the different characteristics their job choices, inducing executives to reveal their attitude towards risk, the value they place on nonpecuniary features of the job, and their investment value.
+k894f37 [2L] | Sample analogs were constructed for the CCPs, compensation schedule, and conditional and unconditional densities of the abnormal return.
+k5d6589 | A GMM estimator can be constructed from moment conditions using (10).
+@page 37
+kfbfd28 | Estimates from the Structural Model
+k8b51d7 | Figure 3 from GGM 2015, page 2345
+@page 38
+kce573f | Factors explaining the firm-size executive pay premium
+k4d7288 | Large firms employ more talented executives.
+k8ffa4e [2L] | There is no support for the hypothesis that executives prefer working in small firms. (They are willing to work in $a$ large firm for less pay.)
+k07a287 [3L] | There is no firm-size premium for human capital. (Education and experience gained from different firms are individually significant, but collectively the firm-size pay differentials net out.)
+kd14718 | 80\% of the firm-size total-compensation gap comes from the risk premium:
+k3fc4b2 [2L] | Signal quality about effort is unambiguously poorer in larger firms, and this fully explains the larger risk premium.
+k958d74 | Larger firms having more supervisory positions and accountability is more
+kf4f0fc | diffi cult.
+k79d3bf [3L] | The remaining 20\% comes from demand. Large firms pay a premium to meet demand because their bigger resource base amplifies the marginal productivity of their executives.

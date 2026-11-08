@@ -1,0 +1,204 @@
+# 06_Aguirregabiria/Lecture_6_Structural_DDC_with_Fixed_Effects/DSE2024_slides/slides_fe_ddc_madison_august2024.pdf  (31 pages)
+# id | English (inline math is a rough reconstruction; check it)
+
+@page 1
+kb0f035 | STRUCTURAL DYNAMIC DISCRETE
+k18cd8b | CHOICE MODELS WITH FIXED EFFECTS
+#= k92a337 | Econometric Society Summer School  ⇒ 计量经济学会暑期学校
+#= k0776fa | in Dynamic Structural Econometrics  ⇒ 动态结构计量经济学
+#= ke4db0a | Victor Aguirregabiria (University of Toronto)  ⇒ Victor Aguirregabiria（多伦多大学）
+k2dad3e | August 5, 2024
+#= k68f749 | Victor Aguirregabiria  ⇒ =
+k091c2a | Structural DDC with Fixed Effects
+@page 2
+#= k2473e9 | Introduction  ⇒ 导论
+#= k0270ca | INTRODUCTION  ⇒ 引言
+kbaf6c8 [3L] | Disentangling ⟪true dynamics⟫ (causal effect of past decisions) versus ⟪spurious dynamics⟫ (persistent unobserved heterogeneity [UH] is a fundamental problem in the econometrics of dynamic models.
+#= kd5805a | Challenges with short panels (Heckman, 1981):  ⇒ 短面板带来的挑战（Heckman，1981）：
+#= k96a757 | ⟪Incidental Parameters Problem (IPP):⟫ Treating UH as fixed parameters implies inconsistent estimation of parameters of interest.  ⇒ ⟪附带参数问题（IPP）：⟫把 UH 当作固定参数，会导致感兴趣参数的估计不一致。
+#= k19a281 | ⟪Initial Conditions Problem (ICP):⟫ There is no Nonparametric Identification of the distribution of UH and initial conditions.  ⇒ ⟪初始条件问题（ICP）：⟫UH 与初始条件的分布不存在非参数识别。
+#= k4d674a | Two alternative approaches to deal with the Nonparametric  ⇒ 应对 ICP 导致的非参数不可识别，有两种
+#= k5f5a40 | No-Identification from the ICP:  ⇒ 不同的方法：
+#= k6c51cc | Random Effects (RE).  ⇒ 随机效应（RE）。
+#= k3a1c16 | Fixed Effects (FE).  ⇒ 固定效应（FE）。
+@page 3
+#= k1dd1e6 | RANDOM EFFECTS (RE) vs. FIXED EFFECTS  ⇒ 随机效应（RE）与固定效应（FE）
+#= kc061a9 | **Random Effects (RE):** ⟪Integrating out UH.⟫  ⇒ 随机效应（RE）：⟪对 UH 积分。⟫
+#= k668b4f | We deal with the ICP by imposing parametric \& finite support restrictions on the joint distribution of UH and initial conditions.  ⇒ 对 UH 与初始条件的联合分布施加参数化及有限支撑的约束，以此处理 ICP。
+#= k31599f | **Pros:** Full identification of structural parameters \& distribution of UH.  ⇒ **优点：**结构参数与 UH 的分布都可以完全识别。
+kc80a2a [2L] | **Cons:** Misspecification of parametric restrictions on UH can introduce substantial biases in the estimates of ”true dynamics”.
+#= keb36e3 | ⟪Fixed Effects (FE):⟫ Differencing out UH.  ⇒ ⟪固定效应（FE）：⟫差分掉 UH。
+k225858 [2L] | Focus on identification of structural parameters capturing ”true dynamics” and not on the identification of the distrribution of UH.
+#= ke500f5 | **Pros:** NP specification of UH. Robust identification of true dynamics.  ⇒ **优点：**UH 采用非参数设定，真实动态的识别是稳健的。
+k2ac6e4 [2L] | **Cons:** Distribution of UH is not fully identified. It limits the counterfactuals we can identify.
+#= kc438c9 | **Cons:** Not all dynamic models have consistent FE estimators.  ⇒ **缺点：**并非所有动态模型都有一致的 FE 估计量。
+@page 4
+#= k5cba40 | FIXED EFFECTS IN STRUCTURAL DDC MODELS  ⇒ 结构 DDC 模型中的固定效应
+#= k047fcb | Until recently, all applications of Structual DDC models use RE models to deal with UH.  ⇒ 直到最近，结构 DDC 模型的所有应用都使用 RE 模型来处理 UH。
+#= k464e5f | The absence of applications using a FE approach was partly because of two common beliefs.  ⇒ 之所以没有使用 FE 方法的应用，部分是因为两种普遍的看法。
+#= k7e25b1 | Belief that there are not consistent FE estimators in structural models where agents are forward-looking: ⟪problem with continuation⟫ ⟪values.⟫  ⇒ 认为在个体具有前瞻性的结构模型中，不存在一致的 FE 估计量：⟪问题出在延续价值上。⟫
+#= k924a85 | Belief that, even if structural parameters are identified, we cannot identify ⟪Average Marginal Effects (AME)⟫ and other Counterfactuals as these depend on the distribution of the UH.  ⇒ 认为即使结构参数可识别，也无法识别⟪平均边际效应（AME）⟫和其他反事实，因为它们取决于 UH 的分布。
+#= k1c62e0 | Recent developments have challenged these beliefs.  ⇒ 最近的进展对这些看法提出了挑战。
+@page 5
+#= kd3ca61 | BYPRODUCT OF FE APPROACH: COMPUTATIONAL GAINS  ⇒ FE 方法的副产品：计算上的收益
+kd6aaa2 [3L] | As we will see, the application of the FE approach to dynamic structural models requires ⟪differencing out the continuation value⟫ component of the conditional choice value function.
+#= k9a2e3f | This implies that this estimation approach (Conditional MLE) does not require solving any dynamic programming problem, or computing present values, or even one-period forward expectation.  ⇒ 这意味着这种估计方法（条件 MLE）不需要求解任何动态规划问题，不需要计算现值，甚至不需要计算向前一期的期望。
+#= k62018d | The computational cost of implementing the Conditional MLE does not depend on the dimension of the state space.  ⇒ 实现条件 MLE 的计算成本不取决于状态空间的维数。
+@page 6
+#= k54b7bb | THIS LECTURE  ⇒ 本讲内容
+#= kbd8495 | This lecture presents recent results on Structural DDC - FE Models.  ⇒ 本讲介绍结构 DDC-FE 模型的最新结果。
+#= kd0329f | Aguirregabiria, Gu, \& Luo (Journal of Econometrics, 2021)  ⇒ Aguirregabiria, Gu, \& Luo（Journal of Econometrics，2021）
+#= keed1d0 | Identification \& estimation of structural DDC-FE with lagged decision and duration as state variables.  ⇒ 以滞后决策和持续时间为状态变量的结构 DDC-FE 模型的识别与估计。
+#= k7364bb | Aguirregabiria (Econometrics Journal, 2023)  ⇒ Aguirregabiria（Econometrics Journal，2023）
+#= k41953f | Application to dynamic demand for differentiated products  ⇒ 应用于差异化产品的动态需求
+k8f93fb [4L] | This approach benefits from recent developments on the identification of nonlinear FE models: Bonhomme (ECMA, 2012), Chernozhukov et al. (ECMA, 2013), Honore \& Weidner (2020) Aguirregabiria \& Carro (2023), Patel \& Weidner (2024).
+@page 7
+#= kcdd629 | Outline  ⇒ 提纲
+#= k5964ba | OUTLINE  ⇒ 提纲
+#= k68c2cc | Model  ⇒ 模型
+#= k894eef | Identification of Structural Parameters.  ⇒ 结构参数的识别。
+kbd59c8 | Conditional MLE of Structural Parameters.
+#= k2b134a | Empirical application – Dynamic Demand for Differentiated Product.  ⇒ 实证应用——差异化产品的动态需求。
+@page 8
+#= kaac8c7 | MODEL  ⇒ 模型
+@page 9
+#= k16d4e6 | MODEL: DECISION \& STATE VARIABLES  ⇒ 模型：决策变量与状态变量
+#= kcfe568 | ⟪Decision variable: $y_{it}\in\mathcal{Y}=\{0,1,\ldots,J\}$.⟫  ⇒ ⟪决策变量：⟫$y_{it}\in\mathcal{Y}=\{0,1,\ldots,J\}$。
+#= kd33354 | Agent maximizes $E_t[\sum_{s=0}^{\infty}\delta_i^sU_{i,t+s}].U_{it}$ is the utility function.  ⇒ 个体最大化 $\mathbb{E}_t\left[\sum_{s=0}^{\infty}\delta_i^s\,U_{i,t+s}\right]$。$U_{it}$ 为效用函数。
+#= k0a0abc | $U_{it}$ depends on current choice, $y_{it}$, and on:  ⇒ $U_{it}$ 取决于当前选择 $y_{it}$，以及：
+#= kf15f41 | ⟪Two types of unobservables⟫ for the researcher, $(\alpha_i,\varepsilon_{it})$;  ⇒ 对研究者而言的⟪两类不可观测变量⟫ $(\boldsymbol{\alpha}_i,\boldsymbol{\varepsilon}_{it})$；
+#= k0974fc | Two types of observable state variables:  ⇒ 两类可观测状态变量：
+#= kc455d6 | $z_{it}$ = strictly exogenous state variables.  ⇒ $\boldsymbol{z}_{it}$ = 严格外生的状态变量。
+#= k3e1b5a | $x_{it}$ = endogenous state variables.  ⇒ $\boldsymbol{x}_{it}$ = 内生的状态变量。
+@page 10
+#= kaf1ac3 | MODEL: UTILITY FUNCTION  ⇒ 模型：效用函数
+#= kd21f05 | The current payoffof choosing alternative $j$:  ⇒ 选择备选项 $j$ 的当期收益：
+#= kf6a26b | Payofffunction $\beta(j,s_{it})$ is unrestricted.  ⇒ 收益函数 $\beta(j,\boldsymbol{s}_{it})$ 不受限制。
+#= k9e60fc | Unobservables:  ⇒ 不可观测变量：
+#= kf8d4f1 | Both types of onobservables are additively separable.  ⇒ 两类不可观测变量都是可加可分的。
+#= kb022d1 | $\varepsilon_{it}(j)$ i.i.d. type I extreme value distributed;  ⇒ $\varepsilon_{it}(j)$ 独立同分布，服从第一类极值分布；
+#= k6b7eb1 | ⟪FE model: $p(\alpha_i(0),\ldots,\alpha_i(J)|x_{i1},z_{i1},\ldots,z_{iT}\}$⟫ is unrestricted.  ⇒ ⟪FE 模型：⟫$p(\alpha_i(0),\ldots,\alpha_i(J)\mid\boldsymbol{x}_{i1},\boldsymbol{z}_{i1},\ldots,\boldsymbol{z}_{iT})$ 不受限制。
+@page 11
+#= k764c59 | OPTIMAL DECISION \& CCPs (conditional on $\alpha_i)$  ⇒ 最优决策与 CCP（以 $\boldsymbol{\alpha}_i$ 为条件）
+#= k593a04 | The optimal decision is:  ⇒ 最优决策为：
+#= kd6a0ae | ⟪where $cv(j,s_{it},\alpha_i)$ is the⟫ continuation value function:  ⇒ ⟪其中 $cv(j,\boldsymbol{s}_{it},\boldsymbol{\alpha}_i)$ 是⟫延续价值函数：
+#= k828aa6 | The extreme value type 1 distribution of the unobservables $\varepsilon$, implies the ⟪conditional choice probability (CCP)⟫ function:  ⇒ 不可观测变量 $\varepsilon$ 服从第一类极值分布，这意味着如下⟪条件选择概率（CCP）⟫函数：
+@page 12
+#= ked9e4e | IDENTIFICATION OF STRUCTURAL PARAMETERS  ⇒ 结构参数的识别
+#= k145e0a | IDENTIFICATION OF  ⇒ 结构参数的识别
+#= k68a313 | STRUCTURAL PARAMETERS  ⇒ -
+@page 13
+#= ke10fbb | A RESTRICTED VERSION OF THE MODEL  ⇒ 模型的一个受限版本
+#= k086fb7 | For simplicity, in this lecture I focus on identification results for a version of the model that imposes two additional restrictions.  ⇒ 为简单起见，本讲着重讨论施加了两个额外约束的模型版本的识别结果。
+#= k55e77a | $\mathrm{R}1$: No exogenous state variables $z_{it}$.  ⇒ R1：没有外生状态变量 $\boldsymbol{z}_{it}$。
+#= k51700d | $\mathrm{R}2$: Endogenous state variables follow a deterministic transition rule:  ⇒ R2：内生状态变量遵循确定性的转移规则：
+#= kd6330b | These restrictions have two important implications.  ⇒ 这些约束有两个重要含义。
+#= kb72110 | The initial condition + choice path $y⟦?⟧_i=\{x_{i1},y_{i1},y_{i2},\ldots,y_{iT}\}$ contains all the information on the path of choices and states.  ⇒ 初始条件加选择路径 $\widetilde{\boldsymbol{y}}_i=\{\boldsymbol{x}_{i1},y_{i1},y_{i2},\ldots,y_{iT}\}$ 包含了选择与状态路径的全部信息。
+#= k117f4c | For two pairs of choices and states, $(j,x)$ and $(j',x')$, with $f(j,x)=f(j',x')$, their continuation values are also the same.  ⇒ 对于两对选择与状态 $(j,\boldsymbol{x})$ 与 $(j',\boldsymbol{x}')$，若 $f(j,\boldsymbol{x})=f(j',\boldsymbol{x}')$，则它们的延续价值也相同。
+@page 14
+#= k38e288 | FE – SUFFICIENT STATISTICS APPROACH  ⇒ FE——充分统计量方法
+#= k9b8fc5 | Let $y⟦?⟧=\{x_1,y_1,y_2,\ldots,y_T\}$ be an individual’s observed history  ⇒ 令 $\widetilde{\boldsymbol{y}}=\{\boldsymbol{x}_1,y_1,y_2,\ldots,y_T\}$ 为个体的观测历史
+#= ka080fd | The log-probability of a choice history has the following form:  ⇒ 选择历史的对数概率具有如下形式：
+#= k2c481e | where $S(y⟦?⟧)$ and $C(y⟦?⟧)$ are vectors of statistics.  ⇒ 其中 $S(\widetilde{\boldsymbol{y}})$ 与 $C(\widetilde{\boldsymbol{y}})$ 是统计量向量。
+#= ke71989 | For instance:  ⇒ 例如：
+#= k623eb4 | $\sum_{t=1}^T1\{y_t=j\}$ is in $S(y)$.  ⇒ $\sum_{t=1}^T 1\{y_t=j\}$ 属于 $S(\widetilde{\boldsymbol{y}})$。
+#= kbb8981 | $\sum_{t=2}^T1\{y_{t-1}=k$ and $y_t⟦?⟧=j\}$ is in $C(y⟦?⟧)$.  ⇒ $\sum_{t=2}^T 1\{y_{t-1}=k\text{ 且 }y_t=j\}$ 属于 $C(\widetilde{\boldsymbol{y}})$。
+@page 15
+#= k73a62d | FE – SUFFICIENT STATISTICS APPROACH (2)  ⇒ FE——充分统计量方法（2）
+#= ke56546 | This structure has several important implications.  ⇒ 这一结构有几个重要含义。
+#= k3df1bc | $S(y⟦?⟧)$ is a sufficient statistic for $\alpha$.  ⇒ $S(\widetilde{\boldsymbol{y}})$ 是 $\boldsymbol{\alpha}$ 的充分统计量。
+#= kf0db1b | $\beta$ is identified if conditional on $S(y⟦?⟧)$ the matrix $C(y⟦?⟧)'$ for every $y$ is full-column $\mathrm{rank}$.  ⇒ 若以 $S(\widetilde{\boldsymbol{y}})$ 为条件，由所有 $\widetilde{\boldsymbol{y}}$ 构成的矩阵 $C(\widetilde{\boldsymbol{y}})'$ 列满秩，则 $\boldsymbol{\beta}$ 可识别。
+@page 16
+#= k9b02dd | A MORE INTUITIVE DESCRIPTION OF IDENTIFICATION  ⇒ 对识别更直观的描述
+#= kbf49da | Suppose that there are two choice histories, say $A$ and $B$ For every  ⇒ 假设有两个选择历史，比如 $A$ 和 $B$。对向量
+#= kd199c1 | parameter in the vector $\beta$, say $\beta_k$, there exist two choice histories, say  ⇒ $\boldsymbol{\beta}$ 中的每个参数，比如 $\beta_k$，都存在两个选择历史，比如
+#= kf83bbb | $y⟦?⟧=A$ and $y⟦?⟧=B$ such that:  ⇒ $\widetilde{\boldsymbol{y}}=A$ 与 $\widetilde{\boldsymbol{y}}=B$，使得：
+#= k8e1b16 | $C(A)-C(B)$ is a vector where all the elements are zero except for the element associated with $\beta_k$, which is $C_k\not=0$.  ⇒ $C(A)-C(B)$ 是一个向量，除了与 $\beta_k$ 对应的元素 $C_k\neq0$ 之外，其余元素都为零。
+#= k1426a2 | Under these conditions, we have that:  ⇒ 在这些条件下，我们有：
+#= kc3a163 | Parameter $\beta_k$ is identified from the log-odds-ratio of histories $A\&B$.  ⇒ 参数 $\beta_k$ 由历史 $A$ 与 $B$ 的对数优势比识别。
+@page 17
+#= ke44eaa | THE CHALLENGE OF THE CONTINUATION VALUES  ⇒ 延续价值带来的挑战
+#= kae54cd | The question is whether such histories A \& B exist, or on the  ⇒ 问题在于，这样的历史 A 和 B 是否存在；或者相反，
+#= kac0403 | contrary, $S(A)=S(B)$ implies that there is no variation left in $C(y⟦?⟧)$.  ⇒ $S(A)=S(B)$ 意味着 $C(\widetilde{\boldsymbol{y}})$ 中已没有剩余的变异。
+#= k23e9a2 | The continuation value $cv(f(y_t,x_t),\alpha_i)$ depends on $\alpha_i$ in a nonlinear (and unknown) form.  ⇒ 延续价值 $cv(f(y_t,\boldsymbol{x}_t),\boldsymbol{\alpha}_i)$ 以非线性（且未知）的形式依赖于 $\boldsymbol{\alpha}_i$。
+#= k765b97 | To difference out/control for $\alpha_i$, we need to difference out the whole continuation value.  ⇒ 为了差分掉/控制 $\boldsymbol{\alpha}_i$，我们需要差分掉整个延续价值。
+#= k3a1a04 | But the continuation value also depends on the state variables. So, it seems that differencing out continuation values implies controlling for all the variation in the state variables: ⟪there is no variation left to⟫ ⟪identify the structural parameters $\beta$.⟫  ⇒ 但延续价值也取决于状态变量。因此，差分掉延续价值似乎意味着要控制状态变量的全部变异：⟪已没有剩余的变异可用来识别结构参数 $\boldsymbol{\beta}$。⟫
+#= kc3d5b8 | Or there is?  ⇒ 真是这样吗？
+@page 18
+#= k6c0c44 | DIFFERENCING OUT CONTINUATION VALUES  ⇒ 差分掉延续价值
+#= k990e3c | It turns out that there is a broad and important class of dynamic models where we can difference out continuation values leaving variation in the state variables to identify structural parameters  ⇒ 事实证明，有一大类重要的动态模型，可以在差分掉延续价值的同时，保留状态变量的变异来识别结构参数
+#= k5b24c6 | Remember that:  ⇒ 回顾：
+#= k7663f4 | Suppose that the transition rule $f$ (.) is such that there exist two combinations of choice-state $(y_t,x_t)$ such that $x_{t+1}$ is the same:  ⇒ 假设转移规则 $f(\cdot)$ 使得存在两个选择—状态组合 $(y_t,\boldsymbol{x}_t)$，它们的 $\boldsymbol{x}_{t+1}$ 相同：
+#= kd25d47 | Then, it is clear that:  ⇒ 那么显然有：
+#= kfaae2d | Under this condition, we can identify structural parameters $\beta$ using a FE – Sufficient Statistics method.  ⇒ 在这个条件下，可以用 FE——充分统计量方法识别结构参数 $\boldsymbol{\beta}$。
+@page 19
+#= k1e3ce6 | EXAMPLE 1: MULTI-ARMED BANDIT MODELS  ⇒ 例 1：多臂老虎机模型
+#= ke569df | In these models $x_t=y_{t-1}$ such that:  ⇒ 在这类模型中 $\boldsymbol{x}_t=y_{t-1}$，因此：
+#= kcabd5e | Therefore, $cv(f(j,y_{t-1}),\alpha)$ does not depend on $y_{t-1}$.  ⇒ 所以 $cv(f(j,y_{t-1}),\boldsymbol{\alpha})$ 不依赖于 $y_{t-1}$。
+#= k1a18ec | The continuation values $cv(j,\alpha)$ are similar as the terms $\alpha(j)$ in the current utility: they do not interact with the state variable $y_{t-1}$.  ⇒ 延续价值 $cv(j,\boldsymbol{\alpha})$ 与当期效用中的 $\alpha(j)$ 项类似：它们不与状态变量 $y_{t-1}$ 交互。
+#= k119851 | Switching cost parameters, $\beta(y_t,y_{t-1})$ are identified if $T\geq4$.  ⇒ 若 $T\geq4$，转换成本参数 $\beta(y_t,y_{t-1})$ 可识别。
+#= kee4279 | For instance, given choice histories $A=(j,k,j,k)$ and  ⇒ 例如，给定选择历史 $A=(j,k,j,k)$ 与
+#= kb1933c | $B=(j,j,k,k)$, we have that:  ⇒ $B=(j,j,k,k)$，我们有：
+@page 20
+kf4f6ae | EXAMPLE 2: INVESTMENT MODELS
+kfee5a3 [2L] | In these models $y_t\in\{0,1,2,\ldots \}$ is the investment decision and $x_t$ is the capital stock variable:
+#= k29ba63 | For any two values of the state, say $x$ and $x'$, we have that:  ⇒ 对任意两个状态值，比如 $x$ 与 $x'$，我们有：
+#= k15a7c5 | Taking into account this structure, it is possible to construct pairs of choice histories, A and B, that identify parameters in $\beta$  ⇒ 考虑到这一结构，可以构造识别 $\boldsymbol{\beta}$ 中参数的选择历史对 A 和 B
+@page 21
+#= k543ab0 | ESTIMATION OF STRUCTURAL PARAMETERS  ⇒ 结构参数的估计
+#= k2f7ee2 | ESTIMATION OF  ⇒ 结构参数的估计
+@page 22
+#= k3d93c2 | CONDITIONAL MAXIMUM LIKELIHOOD ESTIMATOR  ⇒ 条件极大似然估计量
+#= ke395fb | Remember that the probability of a choice history $y⟦?⟧_i$ has the  ⇒ 回顾：选择历史 $\widetilde{\boldsymbol{y}}_i$ 的概率具有
+#= kb6f2fa | following structure:  ⇒ 如下结构：
+#= k36335d | and that $S(y⟦?⟧_i)$ is a sufficient statistic for $\alpha_i$.  ⇒ 且 $S(\widetilde{\boldsymbol{y}}_i)$ 是 $\boldsymbol{\alpha}_i$ 的充分统计量。
+#= kf56377 | We estimate $\beta$ by maximizing the Conditional Likelihood function:  ⇒ 我们通过最大化条件似然函数来估计 $\boldsymbol{\beta}$：
+#= k6d32b6 | which has the following form:  ⇒ 其形式如下：
+@page 23
+#= k80a38f | CONDITIONAL MAXIMUM LIKELIHOOD ESTIMATOR (2)  ⇒ 条件极大似然估计量（2）
+#= k809500 | This Conditional Likelihood Function has several important properties:  ⇒ 这个条件似然函数有几个重要性质：
+#= k66e44b | It does not depend on the incidental parameters $\alpha$.  ⇒ 它不依赖于附带参数 $\boldsymbol{\alpha}$。
+#= k23bccb | It is globally concave in $\beta$.  ⇒ 它是 $\boldsymbol{\beta}$ 的全局凹函数。
+#= kc6aa69 | The continuation values enter only in $g(\alpha_i)$. Controlling for **S** implies removing the continuation values.  ⇒ 延续价值只出现在 $g(\boldsymbol{\alpha}_i)$ 中。以 **S** 为条件，就意味着去除了延续价值。
+#= kabfcf9 | Therefore, the computational cost of the Conditional MLE does not depend on the dimension of the state space.  ⇒ 因此，条件 MLE 的计算成本不取决于状态空间的维数。
+@page 24
+#= k367221 | EMPIRICAL APPLICATION  ⇒ 实证应用
+#= k4a501d | Dynamic Demand for Differentiated Product  ⇒ 差异化产品的动态需求
+#= k4a0ab7 | Laundry Detergent  ⇒ 洗衣液
+@page 25
+#= k580393 | DATA  ⇒ 数据
+#= k4d9a7b | NIELSEN scanner data from Chicago-Kilts center.  ⇒ 来自芝加哥 Kilts 中心的 NIELSEN 扫描数据。
+#= kcb91e2 | Period 2006-2019. Current estimates using only years 2017-2018.  ⇒ 时间为 2006—2019 年。目前的估计只使用 2017—2018 年。
+#= k2dd2fc | More than $40\mathrm{k}$ participating households all over US.  ⇒ 超过 4 万个分布在美国各地的参与家庭。
+#= k55217f | Rich demographics $(w_i)$: ZIP code, income, age, education, occupation, race, family size, family composition, type of residence,  ⇒ 丰富的人口学信息 $(\boldsymbol{w}_i)$：邮政编码、收入、年龄、教育、职业、种族、家庭规模、家庭构成、住所类型，
+#= ka246c9 | Data on every shopping trip.  ⇒ 每一次购物的数据。
+#= k310caa | Product: Laundry detergent  ⇒ 产品：洗衣液
+@page 26
+#= k7bc204 | ESTIMATION OF DEMAND PARAMETERS  ⇒ 需求参数的估计
+#= k1ccdc7 | Fixed Effects provide precise enough estimates $(N=19,776)$.  ⇒ 固定效应给出了足够精确的估计（$N=19{,}776$）。
+#= k4026e1 | Estimates of Structural Parameters  ⇒ 结构参数估计值
+#= k624aba | FE Kernel W. CML RE (2 types) + $\mathrm{w}'_i\alpha(j)$  ⇒ =
+#= kfd0f46 | Parameter Estimate  ⇒ =
+#= k235223 | Estimate  ⇒ =
+#= kc63d81 | $\gamma$ Price  ⇒ $\gamma$ 价格
+#= k661e22 | $\beta^{sc}(habits)$ Brand 1 $\beta^{sc}(habits)$ Brand 2 $\beta^{sc}(habits)$ Brand 3  ⇒ $\beta^{sc}$（习惯）品牌 1 ⏎ $\beta^{sc}$（习惯）品牌 2 ⏎ $\beta^{sc}$（习惯）品牌 3
+#= k1c46b4 | $\beta^{dep}(linear)$ Brand 1 $\beta^{dep}(linear)$ Brand 2 $\beta^{dep}(linear)$ Brand 3  ⇒ $\beta^{dep}$（线性）品牌 1 ⏎ $\beta^{dep}$（线性）品牌 2 ⏎ $\beta^{dep}$（线性）品牌 3
+#= k4358cc | Hausman test (p-value)  ⇒ Hausman 检验（p 值）
+@page 27
+#= kb151aa | Hausman test clearly rejects the Random Effects model.  ⇒ Hausman 检验明确拒绝了随机效应模型。
+#= k92a803 | Hausman test (p-val)  ⇒ Hausman 检验（p 值）
+@page 28
+#= k9e1748 | Random Effects model over-estimates habits parameters.  ⇒ 随机效应模型高估了习惯参数。
+@page 29
+#= k450805 | Random Effects model provides wrong sign for duration dependence.  ⇒ 随机效应模型给出的持续期依赖符号是错的。
+@page 30
+#= k58c61e | Random Effects model under-estimates price-sensitivity of demand.  ⇒ 随机效应模型低估了需求的价格敏感度。
+@page 31
+#= k69bae0 | CONCLUSIONS  ⇒ 结论
+#= k4b148c | EXTENSIONS  ⇒ 扩展
+#= kdba457 | This paper presents a Fixed Effects dynamic panel data model of demand for different products where consumers are forward looking.  ⇒ 本文提出了一个差异化产品需求的固定效应动态面板数据模型，其中消费者具有前瞻性。
+#= kabb8dd | Some relevant extensions:  ⇒ 一些相关的扩展：
+#= k9bc73c | Identification of aggregate price elasticities following Aguirregabiria \& Carro (2023) results on the identification of Average Marginal Effects.  ⇒ 依据 Aguirregabiria \& Carro（2023）关于平均边际效应识别的结果，识别总体价格弹性。
+#= k897559 | Identification of FE Dynamic games in Aguirregabiria, Gu, and Mira  ⇒ Aguirregabiria, Gu, and Mira 中 FE 动态博弈的识别
+#= k68c72e | Introducing stochastic transitions in endogenous state variables.  ⇒ 在内生状态变量中引入随机转移。
+k995a27 | Counterfactuals ?????

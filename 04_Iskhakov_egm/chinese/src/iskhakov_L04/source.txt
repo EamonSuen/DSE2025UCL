@@ -1,0 +1,598 @@
+# 04_Iskhakov_egm/dcegm_DSE2025ucl.pdf  (117 pages)
+# id | English (inline math is a rough reconstruction; check it)
+
+@page 1
+kb4e6a3 | Intro
+k40b74f | EGM
+k0de882 | DC-EGM
+kaa1db5 | Multiple dimensions
+#= k5ec976 | Estimation  ⇒ 估计
+k9c622c [2L] | Endogenous grid point methods (EGM, DCEGM and extensions)
+ke38d9c | DSE2025: Econometric Society Summer School in
+k2a8bd0 | Dynamic Structural Econometrics
+k86feae | Fedor Iskhakov
+k5276b5 | Australian Natioanl University
+k10de36 | DSE2025 University College London
+k53cfd2 | June 30, 2025
+@page 2
+k08d81a | Discrete and continuous choice?
+k090fba | In economics discrete and continuous choice co-exist
+kb459b9 | How much to work ⟪+⟫ when to retire/become an entrepreneur
+ke3e080 | How much to save ⟪+⟫ when to buy a house/car/durables
+kbc6000 | Which car to buy ⟪+⟫ how much to drive
+k879a39 | Often modeled separately using traditional solution methods:
+k209592 | Discrete choice $\to$ optimization over finite set
+kcfe9da | Continuous choice $\to$ first order conditions + concavity(?)
+kaf1c17 | Dynamic $\to$ dynamic programming (VFI,policy,time iterations)
+@page 3
+k8b605e | In discrete-continuous choice models:
+k661227 | Intrinsic non-concavity
+k6f6718 | First order conditions not sufficient
+ka25141 | Kinks in value functions + discontinuities in policy functions
+k24769b | Traditional methods are not ideal
+k2e2754 | Need global optimizer in each point of the state space
+k4a16a8 | Need to locate and keep track of kinks and discontinuities
+k0e5f9d | Need special numerical procedures for non-smooth objects
+k13de1b | $\Rightarrow$ Endogenous grid point methods
+@page 4
+k8c7c1f | Plan for the lecture
+k77f8ab | Original EGM for continuous choice ⟪only⟫
+k11e3ed [3L] | Only for particular (yet interesting and important) models (stochastic growth models, consumption-savings (buffer stock) models)
+kaa25fd [3L] | DC-EGM for discrete-continuous choice ⟪without taste shocks⟫ For models with one continuous and additional discrete choices ⟪Nasty and scary⟫
+ka5d31d | DC-EGM for discrete-continuous choice ⟪with taste shocks⟫
+kfa1251 [2L] | For models with one continuous and additional discrete choices Structural taste shocks or logit smoothing
+kd748e4 | Much better, possible to work with
+kb5240c [2L] | Some words on multi-dimensional extensions and occasionally binding constraints
+@page 5
+kcc2910 | What is EGM?
+kd94dd9 [2L] | The Method of Endogenous Gridpoints — fast method for solving dynamic stochastic consumption/savings problems
+kd04a06 | finite and infinite horizon
+kffa2ec | Strictly concave monotone and differentiable utility function
+k6d67cb | one continuous state variable (wealth) and
+k88b372 | one continuous choice (consumption)
+k3aa71b [2L] | particular structure of the law of motion for state variables (intertemporal budget constraint)
+k5a8959 | very well accommodate potentially binding borrowing constraints
+@page 6
+k6fb395 | DC-EGM for Discrete-Continuous problems
+k83be4d | Expand the class of problems to be solved:
+k5e46bd | $\mathrm{A}1$. Strictly concave monotone and differentiable utility function
+k44f4d5 | Continuous state $M_t$ with a particular motion rule
+k9ea90b | Additional (discrete) state variables $st_t$
+k862476 | $\mathrm{A}2$. Transition probabilities of $st_t$ are independent of $M_t$
+kff0489 | One continuous $(c_t)$ and $\mathrm{one}^{\star}$ discrete choice variable $d_t$
+ka7e5ae | Two flavors:
+kd77610 [3L] | ⟪Without taste shocks:⟫ DC-EGM iterates on value function and policy function, produces exact solutions for the optimal thresholds for discrete decisions (discrete policy)
+ka5cdf5 [3L] | ⟪With taste shocks:⟫ DC-EGM iterates on ⟪discrete choice specific⟫ value and policy functions, produces choice probabilities for discrete alternatives
+@page 7
+k86e8d4 | Learning outcomes = points to remember
+k53d46c [2L] | ⟪If your model has⟫ one continuous ⟪(consumption) choice and⟫ additional discrete choices $\to$ ⟪Use DC-EGM⟫
+k6b7679 | In regular cases DC-EGM ⟪avoids all root-finding⟫ operations
+kc717fc [2L] | If utility is separable in continuous and discrete choices, DC-EGM deals very easily with credit constraints
+k8c3415 | Extreme value taste shocks $\to$ solution is ⟪much better behaved⟫
+k0cce45 | Faster and more accurate than traditional approaches
+@page 9
+kd22092 | Simple consumption/savings model (Phelps)
+k3cdcf3 [2L] | cash-in-hand, all resources available at period $t$ assets at the end of period $t$ (savings)
+k1fe349 | $\tilde{R}$ deterministic or stochastic return on savings
+k516deb | $u(c)$ utility of current consumption
+@page 10
+k0ae599 | Analytic solution (Hakansson, 1970, Phelps, 1962)
+kc85044 | log(M)  «$V_{T-t}(M)\to$ log(M) $⟦?⟧\beta^i+K_t$»
+#= kcffa50 | and  ⇒ 以及
+kad5243 | are functions of primitives,  «$K$ and $K_t$ are functions of primitives, $K\to\beta$»
+@page 11
+kfb6c6c | Analytic solution : value functions
+ke100df | Analytic solution to simple retirement problem (VF)
+@page 12
+kb84e13 | Analytic solution : consumption rule
+k3db157 | Analytic solution to simple retirement problem $(\mathrm{c}*)$
+@page 13
+k9b9a31 | Simple consumption/savings model (Deaton)
+k025500 [3L] | cash-in-hand, all resources available at period $t$ assets at the end of period $t$ (savings) deterministic return on savings
+k4b2ebd | $\tilde{y}$ stochastic income
+kd73bf1 | No analytical solution!
+@page 14
+k15edc9 | Traditional approach : value function iterations
+k7d4903 | Fix grid over $M_t$. For every point on this grid:
+ke626f8 [2L] | In the terminal period calculate $V_T(M_T)=max_{0\leq cT\leq MT}\{u(c_T)\}$ and
+kb08a3e [2L] | With $t$ + 1 value function at hand, proceed backward to period $t$ and calculate
+k7a8d2b | using Bellman equation
+@page 15
+k006511 [2L] | See the code/python directory in the repository
+ke09542 | Phelps and Deaton models
+kce709d | Run VFI solver
+@page 16
+k184904 | Euler equation
+k9391d2 | Bellman equation: $V_t(M_t)=\max _{0\leq ct\leq Mt}⟦?⟧u(c_t)+\beta EV_{t+1}⟦?⟧\tilde{R}(M_t-c_t)⟦?⟧⟦?⟧$
+k7131b5 | F.O.C. for Bellman equation: $u'(c_t)=\beta E⟦?⟧_{\partial Mt+1}^{\partial Vt+1(Mt+1)}\tilde{R}⟦?⟧$
+k4f042a | Envelope theorem:
+k49d9ec | Euler equation to characterize the ⟪interior solutions: $u'(c_t)=\beta E⟦?⟧u'(c_{t+1})\tilde{R}⟦?⟧$⟫
+@page 17
+kcd20b0 | Traditional approach : solving Euler equation
+kae3c5a | In the terminal period calculate
+kc80727 [2L] | With $t$ + 1 optimal consumption rule $c_{t+1}^*(M_{t+1})$ at hand, proceed backward to period $t$ and calculate
+kbc66b9 | $c_t$ ⟪from⟫ equation
+kcc6268 | to recover $c_t^*(M_t)$
+kce3ab7 [2L] | When $M_t$ is small enough so credit constraint binds, the Euler equation does not hold, and special provisions are necessary
+@page 18
+kb4c399 | What if no root-finding is necessary?
+k7c3a4e | With numerical optimization
+k206a61 [2L] | Relatively slow: iterative numerical optimization in each point of state space!
+k3e916f | Hard to find global optimum in non-convex problems
+k8d16da [2L] | Loss of accuracy due to the absence of the point where credit constraint starts to bind on the fxied grid
+k9f97f2 | Even when using state-of-the-art solvers!
+kc40bb4 | Without numerical optimiation
+kf5f2b1 | Much faster: no iterative methods in each point of the state space
+kac02ee | More accurate: using analytical structure of the problem
+@page 19
+k9bb371 | Endogenous gridpoint method (EGM)
+k889dcf | Carroll 2006 Economics Letters
+kc89e65 [2L] | The method of endogenous gridpoints for solving dynamic stochastic optimization problems.
+kbd69a4 | Idea
+kcb1f4a [2L] | Instead of searching for optimal decision in each point of the state space (traditional approaches)
+k2f8078 [2L] | Look for the state variable (level of assets) where arbitrary chosen decision (consumption $\to$ savings) would be optimal (EGM)
+@page 20
+k89657b | EGM algorithm
+kecbc68 | Start with $c_T^{\star}=M_T$. In each period $t=T,T-1,..,1$:
+kfe8916 | EGM step
+k6b3d6d [2L] | Take the next value $A$ = current period savings (= $M_t-c_t)$ from fixed (or adaptive) grid
+k0932c9 | Intertemporal budget constraint: $A\to M_{t+1}$
+k97cd71 | Policy function at period $t+1:M_{t+1}\to c_{t+1}$
+k3b0f5b | Inverted Euler equation: $c_{t+1}\to c_t$
+k24fc69 | Intratemporal budget constraint: $c_t+A=M_t\to c_t(M_t)$
+@page 26
+k30d3e8 | EGM step as parametric curve
+kb5ca75 [2L] | Given any policy function $c_0(M)$, an updated policy function $c(M)$ is given as a ⟪parameterized curve⟫
+k449a86 | $A$ is a parameter that takes non-negative values
+@page 27
+k3e4490 | Matlab implementation (minimal.m)
+k77b9c6 [5L] | [quadp quadw]= **quadpoints** ⟪(EXPN⟫ ,0,1); quadstnorm=norminv(quadp ,0,1); sgrid= **linspace** ⟪(0,MMAX⟫ ,NM); policy\{TBAR\}.w=[0 ⟪MMAX];⟫ policy\{TBAR\}.c=[0 ⟪MMAX];⟫
+k1de19d | **for** ⟪it=TBAR⟫ -1:-1:1
+k044f18 | w1=Y+exp(quadstnorm*SIGMA )*(1+R)*sgrid;
+kd36fcd [2L] | $\mathrm{c}1=$ **interp1** (policy\{it+1\}.w,policy\{it+1\}.c,w1,’linear’ rhs=quadw $’*(1./\mathrm{c}1)$;
+k324f8c | policy\{it\}.c=[0 1./(DF*(1+R)*rhs)];
+k454e64 | policy\{it\}.w=[0 sgrid+policy\{it\}.c(2:end)];
+#= k7a92f3 | end  ⇒ =
+@page 28
+k3ad8c6 | Accuracy and speed of EGM
+k13abca | Traditional Euler
+k871dcc | Running time
+k65b61d | 37 sec. 0.11 sec.
+k003479 [4L] | Max abs error, $c_t^{\star}$ Mean abs error, $c_t^{\star}$ Max abs error, $V_t(M)$ Mean abs error, $V_t(M)$
+@page 29
+kcceada [2L] | Compare speed of VFI and EGM solvers
+k53e9df [2L] | Simulate flat consumption path using VFI and EGM solutions
+@page 30
+k4e395e | EGM and credit constraint
+k11cd0d | Theorem: Monotonicity of savings
+k48567d | Monotone and concave utility function $\Rightarrow$
+k8f8ffe | end-of-period assets $A_t=M_t-c_t$ are non-decreasing in $M_t$
+k3c24a1 [2L] | With $A$ ⟪= 0⟫ the EGM loop recovers the value of cash-in-hand $M_t^{cc}$ that bounds the credit constrained region
+ka1081e | For all $M_t<M_t^{cc}$ credit constrained binds $\Rightarrow c_t=M_t$
+kfc4501 [2L] | Consumption rule in the credit constrained region is $45^{\circ}$ line between $(0,0)$ and $(M_t^{cc},M_t^{cc})$
+ke1bbd0 | As simple as “connect the dots” $(0,0)$ and $(M_t^{cc},M_t^{cc})$
+@page 32
+k74d585 | Credit constraints and value function
+k06110d [2L] | Credit constraints are handled so well by EGM because it is never necessary to compute utility of nearly zero consumption
+k0546c4 | Inevitable when value functions have to be computed, but..
+k0d6a83 | $EV_{t+1}(0)$ — expected value of ending period $t$ with $A_t=0$
+ka65370 | Value function has analytic form for $M_t<M_t^{cc}!$
+@page 34
+k632285 | Generalization of EGM
+k196210 | Iskhakov, Jørgensen, Rust, Schjerning, QE 2017
+kc61aed [2L] | The Endogenous Grid Method for Discrete-Continuous Dynamic Choice Models with (or without) Taste Shocks
+k3cafcc | The DC-EGM paper
+kfffcb9 | Two flavors: with and without EV taste shocks
+k88e82b | Solution method made for empirical applications
+kee1e69 | Giulio Fella, RED 2014
+k8460b1 [2L] | A Generalized Endogenous Grid Method for Non-Smooth and Non-Concave Problems
+k1b7dd6 [2L] | Identify the regions of the problem where Euler equation is not sufficient for optimality
+k3b5f51 | Use global optimization methods inside (VFI) and EGM outside
+ka01595 | Similar to DC-EGM without taste shocks
+@page 35
+k25e5b9 | Simple retirement model
+k070602 | max  «max $u(c,R)+\beta EV_{t+1}⟦?⟧\tilde{R}(M_t-c),R⟦?⟧$»
+kc013c0 | $R,W$ retirement and working ⟪states $st_t$⟫ that evolve accord-
+k80a7cd [2L] | ing to ⟪discrete choices $d\in\{R,W\}$⟫ deterministic wage income
+@page 36
+kb134b3 | Analytic solution
+#= k958f57 | if  ⇒ 若
+@page 37
+kb1564f | Values  «rotated»
+kd0dc4a | Cash−in−hand
+@page 38
+k35ca2f | How to approach discrete/continuos choice
+k7acc74 | The goal:
+kac1c47 | Avoid root fniding
+kc12a5f | Keep efficient treatment of credit constraints
+k00a869 | DC-EGM ver. 1.0
+kc44b7b | EGM step for each discrete choice $d$ and every state $st$
+k132145 | Compute d-specific value functions and consumption rules
+kf9c479 [2L] | Compare the d-specifci value functions to find optimal switching points (compute upper envelope)
+k99103d [2L] | Reconstruct overall consumption rule and value function from optimal switching points
+@page 39
+k1e86fa [2L] | Compare the d-specific value functions to find optimal switching points (compute upper envelope)
+@page 42
+k529742 | No root finding!
+kc6c175 | Efficient treatment of credit constraints (to be shown)
+kb6ed7c | Need to compute value functions
+kcd71e9 | Need to compute upper envelope
+@page 43
+k5abcd1 | Is Euler equation still a necessary condition?
+k8f30b0 | Clausen \& Strub, 2010-2016
+k6a78a6 | A General and Intuitive Envelope Theorem.
+k9ac72d [2L] | Show that Euler equation remains a necessary condition for the optimal continuous consumption.
+@page 44
+kee04e5 | Period $T$ : choice specific value functions
+k88da19 | Choice−specific value functions
+k8a5fd9 | Value functions  «rotated»
+k80357a [2L] | Retirement Work
+kaecf96 | M (money at hand)
+@page 45
+k418d6b | Period $T-1$: Choice specific VF
+@page 46
+k75a794 | models for EGM paper
+kbcca4f | Upper envelope
+@page 47
+k89943c | Period $T-1$: Optimal consumption
+k12067c | Optimal consumption  «rotated»
+kb9c014 | Cash in hand
+@page 48
+k090aa7 | So, what is going on
+k100a17 | d-specific value functions intersect
+k90287e | (due to trade-offbetween income and disutility of work)
+k51a0f0 [2L] | The ⟪upper envelope⟫ of the value functions has a kink and combined consumption function has a discontinuity
+@page 49
+kcb2565 | Period $T-2$: Choice specific VF
+@page 50
+k97d721 | Period $T-2$: Secondary upper envelope
+@page 51
+k2840dc | The ⟪upper envelope⟫ of the value functions has a kink
+kc98767 | and combined consumption function has a discontinuity
+k54f8f6 | Derivative of the value function has a discontinuity
+k1b4a8d | at the kink
+k92c767 [2L] | For some values of wealth (on endogenous grid) Euler equation has two solutions!
+k35af16 | If endogenous grid points are sorted $\to$ ⟪zigzag region⟫
+@page 52
+kc114da | Multiple zeros of Euler residuals
+k8dc8d4 | Euler residuals for different values of cash−in−hand
+k28fa10 [6L] | cash=6.00 cash=7.00 cash=8.00 cash=9.00 cash=10.00 zero
+k84ce6d | Euler residual  «rotated»
+@page 53
+k626d62 | Period $T-2$: Secondary upper envelope: detect
+k0b5d20 | Secondary envelope
+@page 54
+k7de650 | Period $T-2$: Secondary upper envelope: result
+@page 55
+ke52e27 | How to algorithmically detect “zigzag” regions?
+kca6c19 | Theorem: monotonicity
+kb74178 [3L] | Under weak regularity conditions on the utility function and intertemporal budget constraint, savings function is weakly increasing. $A_t(M'_t)\geq A_t(M''_t)$ ⟪for every $M'_t\geq M''_t$ for all $t$.⟫
+k9f180f | Note: savings function may still have “upward” jumps
+k19dcc3 | Sort the exogenous grid over $A$ in ⟪ascending order⟫
+ka70a5e [2L] | Then the sequence of endogenous grid points over $M$ has to be in ⟪ascending order as well⟫ as long as Euler equation is sufficient
+k26c848 [2L] | Every time the endogenous grid ⟪“bends back”⟫ the endogenous grid is separated into subsets of points
+kea3419 | Calculate the ⟪Upper envelope⟫ on the segments over the subsets
+k27c4b7 | Delete suboptimal endogenous points
+k5fcb4a | Find and add a kink point to the endogenous grid
+@page 56
+kf2ae28 | What happens to optimal consumption?
+k6d3236 | pp  «pp»
+k8dce17 | Value  «rotated»
+@page 57
+k47a106 | Consumption  «rotated»
+@page 58
+k30d5db | Alternative: fast upper envelope scan (FUES)
+k239a46 | Loretti Dobrescu, Akshay Shanker (2022)
+kb689ef [2L] | Fast Upper-Envelope Scan for Discrete-Continuous Dynamic Programming
+kea1fd7 [2L] | Given the endogenous points of the value function and the corresponding optimal consumption:
+k3949cc | Sort the endogenous points in ascending order
+kb2faff | Choose a jump threshold level for change in consumption
+k1496e0 [3L] | Given two consecutive points on the endogenous grid, if the value “function” decreses and in the same time consumption makes a jump, delete the point as inferior
+kd35a15 | Continue to the next point on the sorted endogenous grid
+ke56a84 | Does not rely on the monotonicity of the savings function
+k86546e | Can be generalized to higher dimensions
+k80921c [2L] | But depends on a pre-set threshold which potentially leads to inaccuracies of the computed model solution
+@page 59
+kec67df | Period $T-2$: VF, primary and secondary kinks
+k90a8fa | Retirement
+k00040b | Work
+k33ac7a [2L] | Secondary kink Retirement threshold
+@page 60
+k28c14b | Period $T-2$: Optimal consumption
+@page 61
+kfcb1aa | Optimal consumption (many periods)
+@page 62
+k7052b5 | Optimal retirement (many periods)
+k56dbf6 | State shown: working
+@page 63
+ka21bf3 | DC-EGM full algorithm
+k62aa19 | DC-EGM ver. 2.0
+k4ec9d6 [2L] | Start from terminal period, compute optimal consumption rule and value function. Loop backwards over time:
+kd1656c [3L] | Compute the “secondary” upper envelope over the “zig-zag” regions of the d-specific value functions and update the corresponding consumption rules
+@page 64
+k8adfb4 | Properties of the full solution
+k09a70e | Value functions are non-concave and have ⟪kinks⟫
+k7be778 | Consumption functions have ⟪discontinuities⟫
+k5d4d43 | Discontinuities/kinks ⟪propagate⟫ through time and ⟪accumulate⟫
+ke20719 | This properties are attributes of the model itself.
+k9206a4 | Any solution method has to deal with these complexities.
+kf8f8de | DC-EGM matches the analytical solution perfectly!
+@page 65
+ke0f42f [2L] | Replicate the solution using model\_retirement.m
+kb97412 [3L] | Simulate the consumption path for $\beta R$ = 1 and discuss the accuracy of the solutions
+@page 66
+k6c2305 | Random returns $\tilde{R}$
+kb28e96 | Random shocks do help, ⟪however:⟫
+kcea9bb | Smooth out ⟪secondary⟫ kinks ⟪only⟫
+k3662f9 | Primary kinks (switching between discrete options) ⟪remain⟫
+k6320be [2L] | May not smooth out all kinks: continuous but sharp declines in optimal consumption at $t$ may lead to a discontinuity/kink at $t-1$
+k655cfa [2L] | Expectations in Euler equation have to be taken over discontinuous functions
+k5bcab2 | More kinks/discontinuities from sloppy computation
+k45d5d8 | Need to integrate over “continuous” intervals separately
+@page 67
+kf19076 | Period $T-3$: Optimal consumption with $\sigma=0.1$
+@page 68
+k0c56a9 | Before $T-3$: Optimal consumption with $\sigma=0.1$
+k8f0bc0 | Retirement threshold
+ka96ccb [2L] | Retirement threshold Secondary drop
+@page 69
+k3b03d3 | Period $T-3$: Optimal consumption with $\sigma=.2$
+@page 70
+k4538db | Period $T-3$: VF with $\sigma=.2$
+k1e58b8 [2L] | Secondaty kink Retirement threshold
+@page 71
+k8c4009 | Period $T-3$: Optimal consumption with $\sigma=.22$
+@page 72
+kf841b9 | Period $T-3$: VF with $\sigma=.22$
+@page 73
+k5adbda | Extreme value distributed taste shocks
+kfb5743 | ⟪Smooth out⟫ primary kinks
+k703ad5 [2L] | Extreme value distribution – closed form expectations and standard in empirical applications
+k969320 | Two interchangeable interpretations
+kbde2b3 | Structural: unobserved state variables
+k159e92 | Logit smoothing: to streamline the solution
+kc51a80 | Work together with other shocks in the model
+kb6f1af | EV taste shocks smooth out primary kinks
+k274839 | Random returns smooth out secondary kinks
+k0328f7 [2L] | Complete smoothing is not guaranteed in general: secondary kinks may persist
+@page 75
+kd0271c | Retirement problem with taste shocks
+k20da93 | Re-formulate ⟪in terms of⟫ choice specific ⟪value functions⟫
+k19a816 | = max  «$V_t(M_t,R)$ = max $⟦?⟧u(c)+\beta EV_{t+1}⟦?⟧\tilde{R}(M_t-c),R⟦?⟧⟦?⟧$»
+@page 76
+k6cae17 | Smoothed Euler equation
+k4145c6 | Without taste shocks – ⟪“discontinuous”⟫ Euler equation:
+k74e055 | With EV taste shocks – ⟪smoothed⟫ Euler equation:
+k321bc3 | Choice probability
+@page 77
+kc17049 | No taste shocks
+ka53606 | Euler residual value  «rotated»
+k7dbae7 | Consumption, c
+@page 78
+k901a51 | DC-EGM with taste shocks
+k6e6790 | DC-EGM ver. 3.0
+k93b770 [2L] | Compare the d-specifci value functions to fnid optimal switching points (compute upper envelope)
+@page 79
+k04b975 | With EV taste shocks DC-EGM becomes ⟪simpler⟫
+k24c14e [2L] | The problem is re-formulated in terms of ⟪choice specific value⟫ ⟪functions⟫
+kb192b8 [2L] | Calculation of primary upper envelope is replaced by calculation of ⟪logsum⟫
+k9ab236 | Easier computation of expectations (due to less discontinuities)
+kc64f70 | More memory is required to store choice specific value functions
+@page 80
+k6a7ad6 | Extreme value Homotopy
+kf5637e | Theorem: approximation with logit smoother
+k4010af [3L] | Let $\sigma$ be the scale of Type 1 extreme value taste shocks for the discrete choices in a DC problem with $D$ choices. Then we have the following bound
+k8bd8e0 [4L] | This implies that the extreme-value perturbed policy functions $c_{\sigma,t}(s,\epsilon)$ and $\delta_{\sigma,t}(s,\epsilon)$ converge pointwise to $c_t(s)$ and $\delta_t(s)$, the optimal continuous and discrete decision rules to a DP problem without any taste shocks as $\sigma\to0$.
+@page 81
+kbb28ef | Optimal consumption with taste shocks only
+k6f993a | Consumption, c  «rotated»
+k1d631c | Resources, m
+@page 82
+k951c66 | Optimal consumption with random returns
+@page 83
+k7014fe | Credit constraints
+kb5aed2 | Instead we “connect the dots” $(0,0)$ and $(M_t^{cc},M_t^{cc})$
+k608a91 | $M_t^{cc}$ — level of wealth corresponding to $A_t=0$
+k692f90 | Inevitable when value functions have to be computed
+k8d0990 [2L] | If utility is additively separable in consumption and discrete choices (AS), the problem can be avoided entirely!
+@page 84
+k485c70 | Dealing with credit constraints
+kf01f6d [2L] | For each $d_t$ compute $M_{t,dt}^{cc}$ correspond to zero savings EGM loop can be started from $A=0$
+ke7f018 | Value function for $M<M_{t,dt}^{cc}$ has analytic form
+k34bb9f | $EV_{t+1}^0(d_t)$ — expected value of ending period $t$ with $A_t=0$
+kb8dd79 | (AS)  «(AS) $\Rightarrow V_t^{dt}(M)=u(M)+v(d_t)+\beta EV_{t+1}^0(d_t)$»
+kcb2451 | $V_t^{dt}(M)$ do not intersect when $M<\min _{dt}⟦?⟧M_{t,dt}^{cc}⟦?⟧$
+k293b13 [2L] | $\Rightarrow$ No need to search for intersection points at nearly zero wealth $\Rightarrow$ Choice probabilities do not change
+@page 88
+k5133ac | Pension benefit $.25y$
+@page 89
+ka577b9 [3L] | Solve the model\_retirement.m with taste shocks
+k80b67a [3L] | Simulate some consumption paths and distributions of retirement age
+@page 90
+k197fa2 | Multi-dimensional  «Multi-dimensional»
+k27e199 | and Generalizations  «and Generalizations»
+kc80fcf | Giulio Fella, 2025
+k7b9b2c | ⟪Endogenous grid method⟫ (review, downloadable)
+@page 91
+kb6ae0f | EGM + VFI
+k2c9be8 | Barillas \& Fernandez-Villaverde, JEDC 2007
+k2ee52e | A Generalization of the Endogenous Grid Method
+kfba0f9 | Run EGM w.r.t. one choice keeping other controls fixed
+k75814a | Perform a VFI w.r.t. the rest of decision variables
+kc7a4e7 | Ludwig \& Schön, Computational Economics, 2018
+k956113 [2L] | Endogenous Grids in Higher Dimensions: Delaunay Interpolation and Hybrid Methods
+kcd0e11 [2L] | Solve the model of human capital investment + consumption/savings
+k01b7ad | Compare three approaches which differ by the interpolation method
+kbd4380 | Need to interpolate on irregular multidimensional grid
+@page 92
+k9b507f | Multidimensional endogenous grid
+@page 93
+kfe358f | Interpolation on the irregular grid
+k2fd693 | Johannes Brumm, Michael Grill, JEDC 2014
+kb4aac3 [2L] | Computing equilibria in dynamic models with occasionally binding constraints
+kb586cf | Delaunay triangulation based interpolation
+@page 94
+k642d26 | Matthew White, JEDC 2015
+k24e7c4 | The Method of Endogenous Gridpoints in Theory and Practice
+ka8c97a [2L] | “Visibility walk” approach to allocate the non-linear rectangle containing the interpolation point
+k29680f | Map non-linear rectangles into regular ones
+@page 95
+ke434cb | Alan Lujan, 2024
+ke7f225 | $\mathrm{EGM}^n$: The Sequential Endogenous Grid Method
+kbad8c3 | Improves on the interpolation scheme in White(2015)
+k4ec709 [2L] | Interpolate using “index coordinate points” of the matrices of endogenous grids
+k9c70ad | Multi-linear interpolation on non-linear grids afterwards
+kd56f38 | github.com/alanlujan91/multinterp
+@page 96
+kd16a48 | Jeppe Druedahl, Thomas Jørgensen, JEDC 2017
+k83408d [2L] | A General Endogenous Grid Method for Multi-Dimensional Models with Non-Convexities and Constraints
+k9b541e | Focus on occasionally binding constraints and for non-convexities
+kef4ed7 | Re-interpolate on regular grid while performing upper envelope
+@page 97
+k65de9f | Consumption + pension contributions model
+k01f8ef | Pension fund contributions policy function
+@page 98
+k6ce920 | Next period pension wealth $n$
+@page 99
+kd4e10f | General theory on multidimensional EGM
+kd5aa5f | ⟪Invertibility condition⟫ for the system of non-linear equations
+k416a7d | ⟪Formulate the⟫ sufficient condition,
+kfca520 | i.e. particular mapping has to be an ⟪injection⟫
+kacc86a | Iskhakov, Econ Letters 2015
+k1a456c [3L] | Multidimensional endogenous gridpoint method: solving triangular dynamic stochastic optimization problems without root-finding operations + Corrigendum
+k14167c | Focus on ⟪analytical invertibility⟫ to avoid root-finding operations
+@page 100
+k031ffc | Triangular example in $R^3$
+ked191d | $M_t\in R^3$ vector of resources at time $t$
+kc6e083 | $c_t\in R^3$ utilization of resources
+k5808d7 | $A_t\in R^3$ resources at the end of $t$ ⟪(post-decision states)⟫
+k1fdda1 | $A_t=g(M_t,c_t)$ intra-temporal evolution
+k8fa771 | $M_{t+1}=f(A_t,\tilde{R})$ inter-temporal evolution (budget constraint)
+kebeb7f | $\tilde{R}$ idiosyncratic stochastic shocks
+k2063ef | $u:R^3\to R$ utility of current resource utilization
+k335c04 | Plan:
+kb804a9 [2L] | Apply EGM ideas to discover the necessary assumptions on the fundamental of the problem that make it possible
+k657fe8 [2L] | Abstract away from the budget constraint and other feasibility restrictions
+@page 101
+k0b7497 | Post-decision states
+k0db7c2 | Note, that we already assumed:
+k47838d [2L] | allowing to replace the condition in the expectation in the Bellman equation to
+k032041 | $\Leftrightarrow A_t$ ⟪are⟫ sufficient statistics ⟪for $(M_t,c_t)$⟫
+kb5aae7 | **(TRI1)** Assume that the vector of ⟪post-decition state⟫ variables follows
+@page 102
+k73e3d4 | Bellman optimization and FOCs
+kc81fd8 | The first order conditions are:
+@page 103
+kfbe24a | Envelope conditions
+k63aa2e | Combining these with the FOCs on the previous slide, we have
+@page 104
+k14a0f0 [3L] | We have now expressed partial derivatives of the value function $(V_t)'_i$ as a ⟪linear functions of the marginal utilities $\mathcal{L}_t[u'(c_t)]$⟫ with coefficients given by partial derivatives of $g^i(•)$ functions
+k43b5cf | The system of Euler equations
+k06059b | interpolate $c_{t+1}(M_{t+1})$ from previous backward induction iteration
+kf5bed4 | RHS known, need to solve for $c_t^1,c_t^2,c_t^3$
+@page 105
+kbd9f13 | Sufficient conditions for EGM to be applicable
+kbbf4eb [2L] | **(TRI2)** Hessian of the utility function $u(c)$ is upper-triangular (up to permutations)
+k2404e2 | (to allow for solution by back substitution)
+k4a39b0 | **(CON)** Utility function $u(c)$ is strictly concave
+kc733fb | (to allow for inversion of each Euler equation)
+ke224df [2L] | **(INV)** Intra-temporal transition functions $g^i(M,c)$ have analytical inverses in the first argument $M=(g^i)^{-1}(A,c)$
+ke502ca | (to allow for constuction of endogenous grid)
+ke99687 [2L] | Then the system of Euler equations can be solved by back substitution ⟪without root-finding operations⟫ by inversion
+k28e27e [2L] | Proof is constructive: follow the EGM step for a grid imposed over the post-decision state space
+kcacdd4 [3L] | Conditions **TRI1, TRI2, CON, INV** are sufficient for the dynamic problem can be solvable (for interior solution) by the **Multidimensional** **EGM** algorithm
+@page 106
+k3bd269 | When are choices separable?
+k61a530 | A fruitful idea coming out of the previous analysis:
+k464acf | Represent multiple dimensions of choice as a sequence of choices
+k5c8044 | each choice is made subject to a pre-decision state $M^i$
+ka12b15 [2L] | post-decision states are given by $A^i=g^i(M^i,c^i)$ where $g^i$ is a deterministic function
+k68609b | pre- and post-decision states are chained such that $M^{i+1}=A^i$
+k1b38cf | random shocks are realized in transition from $t$ to $t+1$
+k18ced3 | Then ⟪TRI1 is satisfied:⟫ multidimentional EGM may apply
+@page 107
+k573ee1 | What if the marginal utilities are not invertible analytically?
+k6263b8 | Hallengreen, Jørgensen, Olesen, 2024
+kd8e8ff [2L] | The Endogenous Grid Method without Analytical Inverse Marginal Utility
+k95a8e0 | A possible approach is:
+kb02511 | ⟪Precompute⟫ marginal utilities on a fixed grid
+k3fcaf4 | ⟪Interpolate⟫ the function using any appropriate method
+kb2322a | Use ⟪numerical inverse⟫ in the EGM step, effectively “swapping ”
+k51bad6 | The rest of the algorithm is unchanged
+k5e6e24 | Can be applied to both one- and multi-dimensional problems
+@page 108
+k02c28f | Where can DC-EGM accuracy be improved?
+kefaeed | Wending Liu, Iskhakov, 2025
+k19fb2c [2L] | Policy Tree Descendant Algorithm for Solving Consumption-Savings Problems with Safety Net
+k6aa22f | Consumption floor introduces a kink in the value function
+k0568c7 | Kink propagation in deterministic problems as in DCEGM
+kbd1c1a | Source of inaccuracy in EGM/DCEGM:
+k2dad44 | ⟪Interpolation⟫ of value functions
+ke13ce4 | Location of the kinks/discontinuities ⟪is approximated⟫
+kf9b9d7 | Store linear policy function segments with their domains
+k218c75 | ⟪Recognize the⟫ tree structure of policy segments descendence
+kb03aae | Forward propagation to avoid interpolation
+@page 109
+k5f17a2 | Backward induction to build policy descending tree
+k655070 | The terminal period $t=T$
+@page 110
+k94a88a | Period $t=T-1$
+@page 111
+kc4356a | Period $t=T-2$
+@page 112
+k83cc1a | Policy descending tree
+@page 113
+k263ef3 | Accuracy of the policy descending tree algorithm
+kc18ef1 | 5000 simulated lifecycles
+k4acb87 | Simple comparison of attained life-time utility
+k227c0a | $range(x,y,n)=n$ points evenly spaced between $x$ and $y$
+kd6e1b9 | runtime is averaged over 100 runs
+k883069 | Method
+k6f9985 | Grids of $a$ Time (ms) \# winners
+ka2da27 | PTD
+k4403fc [3L] | EGM1 EGM2 range(0.0, 100.0, 200) EGM3 range(0.0, 200.0, 400)
+k7ac8d7 | range(0.0, 50.0, 100)
+k09f615 [2L] | ⟪Stochastic formulation⟫ by Monte Carlo integration over draws of income streams $(y_1,y_2,\ldots,y_T)$ following
+k38adf7 | Cai, Judd, QE 2025
+k09ccb9 [2L] | A simple but powerful simulated certainty equivalent approximation method for dynamic stochastic problems
+@page 114
+k02ee1d | Estimating life cycle models using
+k4b1d73 | endogenous gridpoint methods
+@page 115
+k86f42c | What to do with EGM methods
+k5844f1 | We can solve ⟪many⟫ problems of this type $\Rightarrow$
+k67a331 | Fast solver for important problems with discrete/continuous choice
+k384509 | calibration
+k01a27e | structural estimation with your favourite method
+kc30dfc [2L] | NFXP: inner loop to solve the model, outer loop to optimize the objective function
+k6f3a32 | Use the solver repeatedly in some “outer loop” $\to$
+kf2892c [2L] | individual heterogeneity : solve the model for each individual in the sample
+kc42c26 | unobserved heterogeneity : random effects
+kee17b1 | flexibility of distributional assumptions
+kddb3ee | ⟪Giulio Fella, 2025⟫ (see for a list of applications)
+k997205 | Endogenous grid method
+@page 116
+k11676d | EGM vs. MPEC
+k7ecb4f | Jørgensen, 2012 Economics Letters
+k0d43b3 [2L] | Structural Estimation of Continuous Choice Models: Evaluating EGM and MPEC.
+kd770bc [2L] | Deaton consumption/savings model in infinite horizon, MC experiment with ML on synthetic data, 1 structural parameter
+k71b9f9 | RMSE
+#= k6c82e6 | Time  ⇒ 时间
+k568787 [6L] | EGM MPEC EGM MPEC EGM MPEC
+ke726e5 | 0.1 sec.
+k04acc7 | 0.049 112.4 sec.
+kb78c94 | 1.9 sec.
+k5ac9fd | 93.7 sec.
+kf5c7d2 | 5.0 sec.
+k5c520a | 30.9 sec.
+@page 117
+k3d2b81 | Points to take home
+k51a3f3 | EGM and DC-EGM is fast and accurate solution methods
+kab4ba5 | No root-finding operations in regular case
+kc3ce49 | Efficient with credit constraint
+k0538c8 | Deterministic discrete-continuous problems are hard:
+kd6d98a | Kinks in value functions, discontinuous policy functions
+k85c89a | Snowball effect in the accumulation of kinks over time
+k65590a | With EV taste shocks the problem is alleviated
+k0be2a0 | EV taste shocks can be structural or added for smoothing
+k60db94 | Facilitate estimation using discrete choice data

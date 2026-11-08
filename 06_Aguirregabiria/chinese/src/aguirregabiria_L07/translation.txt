@@ -1,0 +1,288 @@
+# Aguirregabiria, Sequential Estimation of Dynamic Discrete Choice Games (Lecture 7) — 中文译文
+@page 1
+k5162f2 | 动态离散选择博弈的
+kc68786 | 序贯估计
+kf49d7e | 第 7 讲
+@page 2
+k4a9316 | 实证动态博弈的结构
+kc67d69 | 马尔可夫完美均衡
+k7fa605 | 不完全信息动态博弈
+kc44a52 | 序贯估计
+kdc154b | NPL 估计量
+ka693d9 | 计算 NPL 估计量的其他算法
+k03240b | 不动点迭代。
+kafdc6f | 牛顿法。
+k962e09 | 谱方法。
+@page 3
+kdc14e1 | 寡头竞争动态博弈的结构
+k71a53e | 动态博弈的结构
+@page 4
+kd34fdc | 基本结构
+k7fd312 | 时间是离散的，用 $t$ 标记。
+k34f16f | 博弈由 $N$ 家企业参与，用 $i$ 标记。
+k99dfc8 | 企业选择行动，以最大化市场中利润流的期望贴现值，
+k543847 | $\delta_i\in(0,1)$ 是贴现因子，$\pi_{it}$ 是企业 $i$ 在 $t$ 期的利润。
+keaa89f | 每期 $t$，企业作出一项投资/动态决策：$a_{it}$。
+k902ace | 这里我关注离散选择博弈：$a_{it}\in\mathcal{A}=\{0,1,\ldots,J\}$
+@page 5
+kd110c8 | 决策、状态与利润
+kc40eb5 | 当期利润 $\pi_{it}$ 取决于企业自身的行动 $a_{it}$、其他企业的行动 $a_{-it}=\{a_{jt}:j\neq i\}$，以及状态变量向量 $\mathbf{x}_t$。
+kd43dcb | $\mathbf{x}_t$ 包括：
+k3e1d00 | 取决于企业以往各期投资决策的内生状态变量，例如资本存量。
+kc317cd | 影响成本与消费者需求的外生状态变量。
+@page 6
+k73d403 | 例：产品质量上的动态竞争
+k3715ba | 每家企业生产一种⟪差异化产品。⟫消费者需求取决于产品质量 $(k_{it})$ 与价格 $(p_{it})$。
+k70c533 | 状态 $\mathbf{x}_t$ 包括：
+kc35a17 | 内生的产品质量：$\mathbf{k}_t=(k_{1t},k_{2t},\ldots,k_{Nt})$。
+k6b98a8 | 影响需求或成本的外生变量：$\mathbf{z}_t=(z_{1t},z_{2t},\ldots,z_{Nt})$。
+kf739a7 | 给定 $\mathbf{x}_t$，企业进行 Bertrand 价格竞争，由此决定每家企业的⟪Bertrand 均衡⟫可变利润：$r_i(\mathbf{x}_t)$。
+ke9225e | 总利润 $\pi_{it}$ 等于 $r_i(\mathbf{x}_t)$ 减去提高质量的投资成本 $IC_i(a_{it},k_{it})$：
+k44e6e1 | 质量存量按照如下转移规则内生演化：
+@page 7
+k22e7b0 | 状态变量的演化
+k3165b9 | ⟪外生的共同知识状态变量：⟫服从外生的马尔可夫过程，转移概率函数为
+kc29b2a | ⟪内生状态变量：⟫转移规则的形式取决于具体应用：
+ka7762e | 市场进入：$k_{it}=a_{it-1}$，从而 $k_{i,t+1}=a_{it}$
+kaea647 | 无折旧的投资：$k_{i,t+1}=k_{it}+a_{it}$。
+kaac82d | 确定性折旧的投资：$k_{i,t+1}=\lambda(k_{it}+a_{it})$
+kd5eb52 | 随机折旧的投资：$k_{i,t+1}=k_{it}+a_{it}-\xi_{i,t+1}$
+ka9e08c | 简洁起见，用 $f_x(\mathbf{x}_{t+1}|\mathbf{a}_t,\mathbf{x}_t)$ 表示所有状态变量的转移概率函数。
+@page 9
+kb8b3e8 | 动态博弈中的最优决策规则
+kad59d3 | 假设企业 $i$ 相信，市场中的其他企业现在和将来
+kf04987 | 都按照如下策略函数行事：
+ke14b16 | 对任意 $j\neq i$，$\alpha_j(\mathcal{I}_t)$
+k35cdec | 其中 $\mathcal{I}_t$ 是对企业在 $t$ 期所使用信息的某种设定。更具体地说：
+k13d7b7 | 给定这些信念 $\alpha_{-i}$，企业 $i$ 的收益为：
+k77e0a6 | 状态变量的转移概率为：
+@page 10
+kd35c5c | 最优反应与纳什均衡
+kbbf47b | 给定 $\pi_i^{\alpha}(a_{it},\mathbf{x}_t)$ 与 $f_{\mathcal{I},i}^{\alpha}(\mathcal{I}_{t+1}|a_{it},\mathcal{I}_t)$，可以把企业 $i$ 的最优反应定义为由如下 Bellman 方程所定义的单个决策者 DP 问题的解：
+k551987 | 令 $BR_i(\alpha_{-i})$ 为求解该 DP 问题的最优策略函数。它是对信念 $\alpha_{-i}$ 的最优反应。
+k844ab6 | 该动态博弈的⟪纳什均衡⟫由 $N$ 个策略函数 $\{\alpha_i(\mathcal{I}_t):i=1,2,\ldots,N\}$ 组成，使得对每家企业 $i$：
+k3df1fc | 也就是说：
+k24cd45 | 每家企业都按照自己的最优反应策略行事。
+kc6ebcf | 信念是理性的，即与均衡中企业的实际策略一致。
+@page 11
+k9475a9 | 马尔可夫完美均衡
+k2b6ea3 | 上述纳什均衡的定义取决于信息集 $\mathcal{I}_t$ 的选择。$\mathcal{I}_t$ 有多少种可能的选择，就有多少种纳什均衡。
+k5d9a7e | 大多数动态产业组织模型假设马尔可夫完美均衡（MPE）（Maskin \& Tirole，ECMA 1988；Ericson \& Pakes，REStud 1995）。
+k7edd71 | ⟪这一解概念对应于这样的纳什均衡：⟫参与人的策略只是与收益相关的状态变量的函数，$\mathcal{I}_t=\mathbf{x}_t$。
+k4f4661 | 为什么作此限制？
+kc3b675 | ⟪理性（Maskin \& Tirole）：⟫若其他参与人使用这类策略，则一个参与人以与收益无关的信息（例如状态变量的滞后值）为条件来调整行为，并不能获得更高的收益
+k526ae7 | ⟪维数：⟫它降低了状态空间的维数，使用起来很方便。
+@page 12
+k9fa4fd | 马尔可夫完美均衡——定义
+k9db97d | 令 $\alpha=\{\alpha_i(\mathbf{x}_t):i=1,2,\ldots,N\}$ 为一组策略函数。
+kd03203 | MPE 是由 $N$ 个策略函数构成的 $\alpha$，使得在给定其他参与人策略的情况下，每家企业都在最大化自身价值。
+k09430a | 给定其他企业的策略，一家企业的决策问题是单个决策者的动态规划（DP）问题。
+@page 13
+ke160dc | 马尔可夫完美均衡：最优反应 DP
+k7270e2 | 令 $V_i^{\alpha}(\mathbf{x}_t)$ 为 DP 问题的价值函数，该问题描述企业 $i$ 对 $\alpha$ 中其他企业策略的最优反应。
+k2f15bb | 这个价值函数是如下 Bellman 方程的唯一解：
+k98f622 | 其中（这里假设不存在建设时滞）：
+@page 14
+k83c4b7 | MPE——存在性
+ka1ee2c | Doraszelski \& Satterthwaite（RAND，2010）表明，在该模型中⟪当 $a_{it}$ 的选择集为离散时，⟫纯策略 MPE 的⟪存在性无法保证。⟫
+k1464f2 | 保证存在性的一种可能方法是允许混合策略。然而，计算混合策略 MPE 会带来很大的计算挑战。
+kfa14f9 | 为确立存在性，Doraszelski \& Satterthwaite（RAND，2010）提出⟪引入私人信息状态变量。⟫
+k9ff1a9 | Ericson-Pakes 模型的这种不完全信息版本，
+ke0efd1 | ⟪已被大多数⟫**实证应用**所采用。
+k188e1d | 主要原因在于——正如下文所示——从计量经济学的角度看，独立同分布的私人信息冲击是一种⟪非常便利的不可观测变量。⟫
+@page 15
+kf608d3 | 不完全信息
+kb55474 | 动态博弈
+@page 16
+kccea4b | 私人信息冲击
+k5d40ca | $\mathbf{x}_t$ 中的状态变量在 $t$ 期为市场中所有企业所知（共同知识）。
+k121c2e | 此外，企业的投资成本函数 $IC_i(.)$ 取决于
+kd678ed | 一个具有两条性质的状态变量向量 $\varepsilon_{it}$：
+k7dd2e9 | $\varepsilon_{it}$ 是⟪企业 $i$ 的私人信息，⟫其他企业不知道。
+k773810 | $\varepsilon_{it}$ ⟪在时间上独立同分布，在企业间相互独立，⟫其 CDF $G_i$ 在 $R^{|A|}$ 上具有全支撑。
+kab716f | 策略函数现在是 $\alpha_i(\mathbf{x}_t,\varepsilon_{it})$。
+k494424 | MPE 的定义与前面相同，只是策略变为 $\alpha_i(\mathbf{x}_t,\varepsilon_{it})$。
+@page 17
+k34376d | 条件选择概率
+k609efb | 用⟪条件选择概率（CCP）函数⟫来表示企业的策略非常方便。对任意 $(a,\mathbf{x})$：
+k6cc4ab | 由于函数 $P_i$ 是将函数 $\alpha_i$ 对 $\varepsilon_{it}$ 中的连续变量积分得到的，$P_i$ 是比 $\alpha_i$ 维数更低的对象。
+k8e1c77 | 在 $\varepsilon_{it}(a_{it})$ 以可加形式进入利润函数的离散选择博弈中，最优反应策略函数 $\alpha_i(\mathbf{x}_t,\varepsilon_{it})$ 与其 CCP 函数 $P_i(.|\mathbf{x}_t)$ 之间存在⟪一一对应关系⟫。
+kaedbd0 | 显然，给定 $\alpha_i(\mathbf{x}_t,\varepsilon_{it})$，存在唯一的 $P_i(.|\mathbf{x}_t)$。
+k040f6b | 反过来——给定 $P_i(.|\mathbf{x}_t)$，存在唯一的最优反应函数 $\alpha_i(\mathbf{x}_t,\varepsilon_{it})$——是⟪Hotz-Miller 反演定理⟫的推论。
+@page 18
+k1a019b | 作为 CCP 映射不动点的 MPE
+k5bd10b | 给定由 CCP 函数 $\mathbf{P}$ 描述的策略函数，可以把⟪期望利润 $\pi_i^{\mathbf{P}}$⟫与⟪期望转移 $f_i^{\mathbf{P}}$⟫定义为：
+k139762 | ⟪我们还定义⟫期望条件选择价值：
+k52e061 | 其中：
+@page 19
+ke4ef07 | MPE 是一个 CCP 向量 $\mathbf{P}\equiv\{P_i(a_i|\mathbf{x}):\text{对任意 }(i,a_i,\mathbf{x})\}$，使得对任意 $(i,a,\mathbf{x})$：
+k3fe524 | 这个方程组定义了一个从 CCP 空间 $\mathbf{P}$ 到其自身的不动点映射：
+kad4f1f | ⟪映射 $\Psi(.)$ 是连续的。因此，⟫根据 Brouwer 不动点定理，均衡存在。
+k910f24 | 一般而言，该模型存在多重均衡。
+@page 20
+ke0bd08 | 用 CCP 表示的 MPE：
+k91e973 | 一个例子
+kc296bb | 假设向量 $\varepsilon_{it}$ 独立同分布，服从第一类极值分布。
+k3c978c | 那么，MPE 是一个向量 $\mathbf{P}\equiv\{P_i(a|\mathbf{x}):\text{对任意 }(i,a,\mathbf{x})\}$，使得：
+k46148c | 其中
+kf7d3bf | 且 $V_i^{\mathbf{P}}$ 是如下 Bellman 方程的唯一解：
+@page 21
+kf2ae67 | 序贯估计
+@page 22
+k83a953 | 估计——预备知识
+k1c8f08 | 模型的原始要素 $\{\pi_i,\beta_i,f_x,G_{\varepsilon}\}$ 可以用研究者未知的参数向量 $\theta$ 来描述。
+k52731d | 不妨把 $\theta$ 分成四个子向量：$(\theta_{\pi},\theta_f,\beta,\theta_{\varepsilon})$。
+k458c11 | 在大多数实证应用中，主要挑战在于⟪估计 $\theta_{\pi}$ 中的“动态参数”：⟫
+k4176fd | $\theta_f$ 可以在动态决策模型“之外”估计。
+kf40b52 | 消费者需求与企业的可变成本（属于 $\theta_{\pi}$ 的一部分）可以在动态决策模型“之外”估计。
+kf3b4ae | 大多数应用假设 $\theta_{\varepsilon}$（$\varepsilon$ 的分布）与 $\beta$ 已知。
+kcc0053 | 动态博弈估计的重点，通常是刻画动态的参数，即投资成本、进入/退出成本、固定成本。
+@page 23
+k879289 | 估计方法提纲
+k96f552 | ⟪均衡唯一⟫的模型的极大似然估计（MLE）
+k56fa00 | ⟪Rust 的⟫**嵌套不动点（NFXP）**⟪算法。⟫
+kb08865 | ⟪存在多重均衡⟫的模型的极大似然估计（MLE）
+k37cfe9 | 序贯⟪CCP 方法⟫
+@page 24
+ke4fe8e | 估计方法
+k1406fb | 4.1 均衡唯一时的 MLE
+@page 25
+k65dea9 | MLE：均衡唯一的模型
+kfdaea5 | 存在一些充分条件，使得对参数 $\theta$ 的每个可能取值，动态博弈都有唯一的均衡。
+k013505 | 均衡唯一性的充分条件举例如下：
+k3f916e | 有限期 $T$。
+ka833fe | 在每一期 $t$ 内，企业依次作出决策：企业 1 先行，企业 2 其次，……，企业 $N$ 最后。这些决策成为顺序中靠后企业的共同知识。
+kb1fde9 | 令 $P_{it}(a_{it}|\mathbf{x}_t,\theta)$ 为参数向量为 $\theta$ 时，企业 $i$ 在 $t$ 期的均衡 CCP 函数。
+k095f3b | ⟪完整的对数似然函数⟫为 $\ell(\theta)=\sum_{m=1}^M\ell_m(\theta)$，其中 $\ell_m(\theta)$ 是市场 $m$ 的贡献：
+@page 26
+k1636e4 | 嵌套不动点（NFXP）算法
+kb6da0f | MLE 为：
+kb2ca03 | Rust 的 NFXP 算法是计算 MLE 的一种方法。对每个试验值 $\boldsymbol{\theta}$，它把 BHHH 迭代⟪（外层算法）⟫与均衡求解算法⟪（内层算法）⟫结合起来。
+k3fa528 | 从一个初始猜测值出发：$\widehat{\boldsymbol{\theta}}_0$。
+k6f08be | 在每次⟪外层迭代 $k$⟫中，进行一次 BHHH 迭代：
+k47da9d | 得分向量 $\partial\ell_m(\widehat{\boldsymbol{\theta}}_k)/\partial\boldsymbol{\theta}$ 取决于 $\partial\log P_i(a_{imt}|\mathbf{x}_{mt},\widehat{\boldsymbol{\theta}}_k)/\partial\boldsymbol{\theta}$。为得到这些导数，⟪内层算法⟫用不动点迭代求解给定 $\widehat{\boldsymbol{\theta}}_k$ 时的均衡 CCP。
+ka5edd8 | 外层 BHHH 迭代持续进行，直到 $||\widehat{\boldsymbol{\theta}}_{k+1}-\widehat{\boldsymbol{\theta}}_k||<$ 某个小常数
+@page 27
+k167424 | 4.2 存在多重均衡时的 MLE
+k1838c7 | 多重均衡下的 NFXP
+ke9d903 | MPEC
+@page 28
+ke3ffe2 | 多重均衡下的 NFXP
+k60c57e | 令 $\mathcal{P}(\theta)$ 为与结构参数取值 $\theta$ 相对应的正则 MPE 集合。
+k8df251 | Doraszelski \& Satterthwaite（2011）表明，对 $\theta$ 的每个取值，集合 $\mathcal{P}(\theta)$ 都是离散且有限的。
+k7e8a52 | 假设模型的结构使我们有算法能够对任意试验值 $\theta$ 计算均衡集合 $\mathcal{P}(\theta)$。
+k41ed34 | 例如 Iskhakov, Rust, \& Schjerning（2016）中的递归词典序搜索（RLS）算法。
+k1fd7c8 | 那么，MLE 定义为：
+@page 29
+k5161d6 | NFXP 算法的步骤如下。
+kd62ff8 | 从初始猜测值 $\theta^0$ 出发。
+k740602 | ⟪内层迭代 S——求解：⟫在第 $n+1$ 次迭代，给定 $\theta^n$，用 RLS 算法找出均衡集合 $\mathcal{P}(\theta^n)$。
+kd3faf6 | ⟪内层迭代 M——对 $\tau$ 最大化：⟫选择给定 $\theta^n$ 时似然值最大的均衡类型 $\tau^*(\theta^n)$。
+k3a19ec | ⟪外层迭代——BHHH：⟫给定特定均衡下的对数似然函数 $\ell^{\tau^*(\theta^n)}(\theta)$，用 BHHH 算法得到新的 $\theta^{n+1}$。
+kd94628 | 迭代直到 $||\theta^{n+1}-\theta^n||<$ cconv。
+@page 30
+kf8fc7e | 多重均衡下的 MPEC
+ka20b39 | 存在多重均衡时，$\ell(\theta)$ 不是函数而是对应。MLE 不能定义为 $\ell(\theta)$ 的 argmax。
+kf5847c | 为了在多重均衡模型中定义 MLE，不妨定义一个扩展的或⟪伪似然函数。⟫
+ke63bee | 对任意的 $\theta$ 值与企业 CCP $\mathbf{P}$，定义：
+k1dace1 | 其中 $\Psi_i$ 是最优反应概率函数。
+@page 31
+k353f26 | ⟪MLE 是一对 $(\widehat{\boldsymbol{\theta}}_{MLE},\widehat{\mathbf{P}}_{MLE})$，它⟫在 CCP 为均衡策略的约束下最大化 $Q$：
+kba406e | =
+kcebfc5 | 或者使用拉格朗日函数：
+k5fdb13 | 一阶条件即拉格朗日方程组：
+@page 32
+ke7bf14 | 可以用牛顿法求这个拉格朗日方程组的根。
+k97abd4 | ⟪一个关键的计算问题是⟫该方程组的维数非常高。
+kcc637a | 该算法中最耗时的部分是⟪计算雅可比矩阵 $\nabla_{\mathbf{P}}\Psi(\widehat{\boldsymbol{\theta}},\widehat{\mathbf{P}})$。⟫在动态博弈中，它一般不是稀疏矩阵，可能包含数十亿乃至数万亿个元素。
+kd50108 | 对新的 $\mathbf{P}$ 值计算最优反应映射 $\Psi(\boldsymbol{\theta},\mathbf{P})$，需要求解一个估值算子，并求解一个与 $\mathbf{P}$ 维数相同的方程组。
+@page 33
+k77f226 | 4.3 序贯 CCP 方法
+@page 34
+k1736e3 | 两步 CCP 方法
+kd4870c | 这类方法完全不需要求解企业的最优反应或均衡，哪怕一次也不需要。
+k13db5e | ⟪Hotz \& Miller（REStud，1993）⟫是这类方法的开创性贡献。他们证明了条件选择价值可以写成 CCP、转移概率与 $\theta$ 的已知函数。
+ke23c3d | 假设单期利润关于参数是线性的：
+k401d51 | 其中 $h(a_{it},a_{-it},\mathbf{x}_t)$ 是研究者已知的函数向量。
+k9e1c9d | 条件选择价值函数 $v_i^{\mathbf{P}}(a_{it},\mathbf{x}_t)$ 为：
+k296888 | 其中未来行动 $a_{t+j}$ 按照均衡 CCP 选择。
+@page 35
+k6ec254 | 我们可以写成：
+kcdd403 | 给定企业的均衡 CCP、$\mathbf{P}$、$\beta$ 以及 $\mathbf{x}$ 的转移概率，可以用（例如）前向蒙特卡洛模拟来计算这些现值。
+@page 36
+kd17d98 | 有了条件选择价值的这种表示，伪似然函数 $Q(\boldsymbol{\theta},\mathbf{P})$ 的结构几乎与静态或简约形式的离散选择模型相同。
+ke5c287 | 进入 $Q(\boldsymbol{\theta},\mathbf{P})$ 的最优反应概率，可以看作标准随机效用模型中的选择概率：
+kd411ef | 给定 $\widetilde{h}_i^{\mathbf{P}}(.,\mathbf{x}_{mt})$、$\widetilde{e}_i^{\mathbf{P}}(.,\mathbf{x}_{mt})$ 以及 $\varepsilon$ 分布的参数化设定（例如 logit、probit），参数向量 $\theta_i$ 可以像标准 logit 或 probit 模型那样估计。
+@page 37
+keec66b | 该方法分两步进行。
+kd51d15 | 令 $\widehat{\mathbf{P}}^0$ 为真实 $\mathbf{P}^0$ 的一致非参数估计量。$\theta$ 的两步估计量定义为：
+k66bcd3 | 在标准正则条件下，该两步估计量是 $\sqrt{M}$ 一致且渐近正态的。
+kc37b56 | 它可以推广到包含市场层面的不可观测异质性（例如 Aguirregabiria \& Mira（2007）；Arcidiacono \& Miller（2011））。
+k330ead | 可以用蒙特卡洛模拟计算现值：Bajari, Benkard, \& Levin（2007）。
+k4c4680 | 局限：第一步中 CCP 估计不精确会导致有限样本偏误。
+@page 38
+kef8a7b | 嵌套伪似然（NPL）
+k56ef94 | 施加均衡约束，但不需要：
+kd3fc01 | 对每个试验值 $\boldsymbol{\theta}$ 反复求解 MPE（如 NFXP）
+kcb1696 | 计算 $\nabla_{\mathbf{P}}\Psi(\widehat{\boldsymbol{\theta}},\widehat{\mathbf{P}})$（如 NFXP 与 MPEC）
+k3dd0ea | NPL $(\widehat{\boldsymbol{\theta}}_{NPL},\widehat{\mathbf{P}}_{NPL})$ 满足两个条件：
+k96af94 | 给定 $\widehat{\mathbf{P}}_{NPL}$，有 $\widehat{\boldsymbol{\theta}}_{NPL}=\arg\max_{\boldsymbol{\theta}}Q(\boldsymbol{\theta},\widehat{\mathbf{P}}_{NPL})$
+kc5df79 | 给定 $\widehat{\boldsymbol{\theta}}_{NPL}$，有 $\widehat{\mathbf{P}}_{NPL}=\Psi(\widehat{\boldsymbol{\theta}}_{NPL},\widehat{\mathbf{P}}_{NPL})$
+k430100 | 在与 MLE 相同的正则条件下，NPL 估计量一致且渐近正态。对动态博弈而言，NPL 估计量的渐近方差大于 MLE。
+@page 39
+k06b713 | 计算 NPL 的一种算法是⟪NPL 不动点算法。⟫
+k96c9e8 | 从初始值 $\widehat{\mathbf{P}}_0$ 出发，在第 $k\geq1$ 次迭代：
+kf53ac2 | ⟪（第 1 步）⟫给定 $\widehat{\mathbf{P}}_{k-1}$，$\widehat{\boldsymbol{\theta}}_k=\arg\max_{\boldsymbol{\theta}}Q(\boldsymbol{\theta},\widehat{\mathbf{P}}_{k-1})$；
+kc91336 | ⟪（第 2 步）⟫给定 $\widehat{\boldsymbol{\theta}}_k$，$\widehat{\mathbf{P}}_k=\Psi(\widehat{\boldsymbol{\theta}}_k,\widehat{\mathbf{P}}_{k-1})$。
+k87b417 | 初始值 $\widehat{\mathbf{P}}_0$ 的一个自然选择是用数据得到的 CCP 频率估计量。
+k8e810e | 在大多数应用中，第 1 步非常简单，其计算成本与求静态单个决策者离散选择模型的 MLE 相同。
+kc75400 | 第 2 步相当于求解一次维数与 $\mathbf{P}$ 相同的线性方程组。
+k6e597c | 这种不动点算法的一个局限是⟪不能保证收敛。⟫另一种已被用来计算 NPL 的算法是⟪谱残差算法。⟫
+@page 40
+k35d9eb | 计算 NPL 估计量的算法
+k1b5527 | NPL 估计量可以描述为 CCP 向量空间中的一个不动点：
+k6a90d7 | 其中 $\phi\left(\widehat{\mathbf{P}}\right)$ 是⟪NPL 映射：⟫
+kfb07ae | $\Psi(\mathbf{P},\boldsymbol{\theta})$ 是均衡映射，$\widehat{\theta}(\widehat{\mathbf{P}})$ 是伪 MLE 映射。
+kfaf141 | 我们研究计算 NPL 估计量的 3 种算法。
+k08fecd | NPL 映射 $\phi$ 中的不动点迭代。
+k66fa80 | 用牛顿法求解方程组 $\mathbf{P}-\phi(\mathbf{P})=0$
+kf3235e | 用谱残差法求解方程组 $\mathbf{P}-\phi(\mathbf{P})=0$
+k2f8a0d | 不能保证收敛。(2) 能保证收敛，但在大多数应用中不可行。(3) 相对于 (1) 和 (2) 具有优势。
+@page 41
+kfbde18 | NPL 不动点迭代
+k968737 | 令 $\mathbf{P}^0\equiv\{\mathbf{P}_i^0:\text{对任意 }i\}$ 为任意的 CCP 向量。
+ke7a021 | 在第 $n$ 次迭代：
+k4a8396 | 检查是否收敛：
+kb13e28 | =
+kb1a712 | =
+k734bef | 其中 $\kappa$ 是一个小的正常数，例如 $\kappa=10^{-6}$。
+kf71a75 | **不能保证收敛。**⟪这是一个严重的局限。⟫
+@page 42
+k59969d | 牛顿法
+k521da7 | 定义函数 $f(\mathbf{P})\equiv\mathbf{P}-\Psi\left(\mathbf{P},\widehat{\theta}(\mathbf{P})\right)$。
+k48d5f2 | 求 NPL 估计量等价于求 $f$ 的零点（根）。
+k0e496e | 我们可以用牛顿法求 $f$ 的根。
+kd701d7 | （$\nabla f(\mathbf{P})$ 是雅可比矩阵）
+k5b4344 | 检查是否收敛：$\left\|\mathbf{P}^n-\mathbf{P}^{n-1}\right\|\leq\kappa$
+k84adac | ⟪保证收敛⟫（收敛到多重均衡中的某一个）。
+@page 43
+kd8cb36 | 牛顿迭代的主要计算成本来自雅可比矩阵 $\nabla f(\mathbf{P})$ 的计算。
+k6fbf99 | 该矩阵中的导数没有闭式表达式。而且在这类模型中，这个矩阵不是稀疏的。
+k014dba | 该矩阵的维数为 $N|\mathcal{A}||\mathcal{X}|\times N|\mathcal{A}||\mathcal{X}|$，计算其中任一个元素都需要求解许多单个决策者的动态规划问题，每个问题的复杂度为 $O(|\mathcal{X}|^3)$。
+k1c2611 | 总之，在大多数 $|\mathcal{X}|$ 大于 $10^5$ 的实证应用中，牛顿法并不可行。
+@page 44
+kd75f8a | 谱残差法
+k9b05fe | 这是求解高维非线性方程组 $f(\mathbf{P})=0$ 的通用方法。
+kb081ea | 它有两个非常吸引人的特点：
+k015f95 | 它不需要求导，一次迭代的成本相当于
+k7100ed | 计算一次 $f(\mathbf{P})$，与一次不动点迭代的成本相同。
+kdb4180 | 在温和的正则条件下它收敛到一个解，
+kc3cf72 | 收敛性质与牛顿法同样良好。
+@page 45
+k04d8bf | 谱方法提出如下更新规则/迭代：
+k61686d | 其中 $\alpha_n$ 是谱步长，为标量。
+k0ef419 | 文献中提出了不同的更新规则，常用的是 Barzilai and Borwein（1988）：
+kc6a1cb | 谱残差法收敛的直观原因在于：$\alpha_n$ 的更新可以保证朝着正确的方向收敛。
+# p41 cases rows (brace now kept in the background)
+kf44544 | 若 $\left\|\mathbf{P}^n-\mathbf{P}^{n-1}\right\|\leq\kappa$，则 $\mathbf{P}^n$ 与 $\theta^n=\widehat{\theta}(\mathbf{P}^{n-1})$ 即为 NPL
+k60de01 | 若 $\left\|\mathbf{P}^n-\mathbf{P}^{n-1}\right\|>\kappa$，则进入第 $n+1$ 次迭代

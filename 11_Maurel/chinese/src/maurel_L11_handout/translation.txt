@@ -1,0 +1,5 @@
+# Maurel L11 handout: everything else comes from maurel_L11/translation.txt via the shared memory
+k549e5a | 建立在动态离散规划模型的估计方法之上（Wolpin，1984；Pakes，1986；Rust，1987……）。
+k23c2d1 | 预期学业能力显著影响各大学选项的效用 $\to$ 显著的努力成本。
+# same choice as in the slides version (memory from Miller L10 would give "，用")
+k8fcd25 | 其中

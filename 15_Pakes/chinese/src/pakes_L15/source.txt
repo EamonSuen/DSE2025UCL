@@ -1,0 +1,316 @@
+# 15_Pakes/DSE-2025-London.pdf  (45 pages)
+# id | English (inline math is a rough reconstruction; check it)
+
+@page 1
+k1d8776 | Dynamic Games: Problems and Prospects.
+k5e5c2e | Ariel Pakes ( Harvard University).
+k02912f | DSE Summer-school 2025, UCL, London.
+k36e82f | July 5, 2025
+kf08069 | Ariel Pakes ( Harvard University). DSE SummDery-nscahmoiocl ⟪G20am25e,s: CPLro,bLleomndsoann.d Prospects.⟫
+@page 2
+k64dd60 | Background
+kd5af0b | Background: Empirical Work in I.O.
+k18fc0a [4L] | In developing the methodology needed to empirically analyze static questions in I.O. we took the framework for the analysis from our theory colleagues and used econometric methodology it to incorporate the richness of various market institutions.
+k560eb2 | In particular we took
+kcfa1ff [2L] | from theory; the idea of using some form of Nash equilibrium as it allowed us to analyze counterfactuals and
+k0c2c10 [2L] | from econometrics; methodology for incorporating both observed and unobserved heterogeneity, and computational tools.
+k8e8903 [5L] | This started in the analysis of full information take it or leave it games (retail pricing), but expanded to include Nash bargaining, models that allowed for asymmetric information, and non-price allocation (or matching) mechanisms. Much remains to be done on pricing in more complex environments.
+@page 3
+kafd9f5 | Dynamic analysis started analogously.
+k5388b5 [2L] | I.e. we took frameworks taken from our theory colleagues. They made assumptions which insured that the
+kc2b742 | state variables evolve as a Markov process
+k4f47e5 [2L] | and the equilibrium is some form of Markov Perfection (no agent has an incentive to deviate at any value of the state variables).
+k839807 [2L] | Star and Ho (1969) and more directly Maskin and Tirole (1988) who use full information environments.
+k418515 [2L] | We started as in static analysis, trying to adapt the dynamic framework to the richness of different real world institutions.
+kc8dc9b | Ericson and Pakes (1995) develop a framework for doing this.
+@page 4
+k4655a2 | Basic Full Info Markov Perfect Game
+kb869df | States.
+kc45d13 | $i\in\mathcal{Z}^+$ (could be multidimensional)
+k21137c | $s_i$ will be the number of firms with efficiency level $i$,
+k5f1ec5 [2L] | $s=[s_i;i\in\mathcal{Z}^+]$ is the “industry structure” (a counting measure of the number of firms at each different efficiency level).
+k680867 [2L] | $\zeta$ aggregate state variable that evolves exogenously (perhaps as a Markov process). E.g. outside alternative.
+@page 5
+k6bb11e | Bellman Equation: ”Capital Accumulation” Games
+kd0ebcf [3L] | $pr(i'|i,x,\zeta)$. This is a game where my own investment only affects my own state variables. $\xi$ is an aggregate state, it evolves exogenously and affects all players the same way
+kd35c21 | $q(s-e(i)|i,x,s,\zeta)$ perception of where my competitors will be.
+k2be7f6 | $\mathcal{P}=\{p(i'|x,\zeta);x\in\mathcal{R}^+\}$, stochastically increasing in $x$ for every $\zeta$.
+k1269ea [2L] | $q[\cdot|i,s,\zeta]$ is the equilibrium object. It embodies the incumbent’s beliefs about entry and exit.
+@page 6
+kc39658 | Many possible entry models. Example:
+k56d276 | Must pay $x_e(>\beta\varphi)$ to enter,
+k23eca4 | enters one period later at state $\omega_e\in\mathrm{Ω}^e\subset\mathcal{Z}^+$ with probability $p^e(\cdot)$.
+kb94de3 [2L] | Only enters if the expected discounted value of future net cash flows from entering is greater than the cost of entry.)
+k3c3137 | Dynamic Equilibrium.
+k542b60 [2L] | Every agent chooses optimal policies given its perceptions on likely future industry structures
+k4aba5c [2L] | Those perceptions are consistent with the behavior of the agent’s competitors everywhere, i.e. $\forall$ possible $(i,s)$.
+@page 7
+kfb75b6 [2L] | Doraszelski and Satterwaite (2003) prove existence (to insure this we need random entry fees and exit costs).
+ka2beea | E-P have conditions which imply that any equilibria
+k394dac [2L] | Is “computable”, i; never more than $n$ firms active \& Only observe “i” on Ω = $\{1,\ldots,K\}\Rightarrow$ need only compute equilibria for $(i,s)\in\mathrm{Ω}\times S$
+ka49196 | Generates a homogeneous Markov chain for industry structures [for
+k2c3a0e | i.e.  «$\{s_t\}]$, i.e. $Q(s'|s)$»
+k2ad0be | And provide conditions on the primitives such that insure that any
+k0b90f8 | equilibrium $Q[\cdot|\cdot]$ is ergodic. [Picture].
+kaaca12 | $\#R$ is frequently much smaller than $\#S$
+k2956eb [3L] | Limiting probabilities converges to an invariant measure over points in $R$ (often referred to as a ”steady state” of the system, though ”steady” seems to be a misnomer; as the state is not constant).
+@page 8
+kf9e6bc [2L] | Why were we less successful in adapting these models to empirically analyzing dynamic issues?
+k53d014 | **The complexity issue.** In empirical settings the model presumes agents
+ke0b02d | Can access a large amount of information and
+kad694f [2L] | Either compute or learn an unrealistic number of strategies (one for each information set).
+kf828d9 | The complexity of Markov Perfection both
+k2aea6a | limited our ability to do dynamic analysis of market outcomes,
+kbb464d [2L] | and led to a question of whether some other notion of equilibria will better approximate agents’ behavior.
+@page 9
+kaf5d45 [2L] | What would an agent (or a researcher) have to do to compute an equilibrium?
+keb46e9 [5L] | Think of this as an iterative algorithm as in single agent problems, but when you calculate the continuation value you use the optimal policies of competitors in the last iteration to integrate where the algorithm expects them to be in the coming period. You then maximize current returns plus discounted continuation values and iterate until convergence.
+k33c2b4 [2L] | If we were to use a standard iterative computational tool (e.g. Pakes and McGuire, 1994), the burden would be a function of three factors
+k609fcf | the number of points evaluated at each iteration;
+kc6127d | the computational burden per point
+kfb24fe | the number of iterations (value \&/or policy function iterations).
+@page 10
+kfb4483 | Number of Points.
+k8b818c [2L] | Since each of the $n$ active firms can only be at $K$ distinct states, the number of points we need to evaluate at each iteration, or
+k67bb4a [3L] | Exchangeability of functions in the state variables of a firm’s competitors: we do not need to differentiate between two vectors of competitors that are permutations of one another (see Pakes (1993) for details )
+k82f4e0 | **Burden per Point.** Determined by
+k465136 [4L] | the cost of calculating the expected value of future states the firm’s own, as well as its competitors. If there is positive probability on each of $\kappa$ points for each of the $m-1$ active competitors of a given firm. Then we need to sum over $\kappa^m$ possible future states.
+k7a6da1 [2L] | The cost of obtaining the optimal polices and given the continuation value.
+@page 11
+ke39262 | Conclusion
+k44f2a4 [4L] | The computational burden of the model grows quickly in both the number of firms ever simultaneously active (it grows geometrically in this dimension) and the number of state variables per firm (it grows exponentially in this dimension). “The Curse of Dimensionality” .
+k265427 [4L] | Consequently though pointwise algorithm has been used both; (i) as a tool for investigating theoretical issues where analytic solutions were not possible, and (ii) as a framework fo controlling for dynamic selection in static problems, they have seen limited use in empirical work.
+kac230e [2L] | There were different responses to this in the computational literature, and in the theory literature; both of which were well aware of the problem.
+k783aa7 [2L] | We look first to the computational literature which turned to approximations.
+k388852 [2L] | Come back to the theory literature: look for weaker equilibrium concepts.
+@page 12
+k9b25e4 | Approximation Techniques.
+kf3e511 [3L] | A number are available. Each has their problems, but they compute equilibria with much less of a computational burden than the standard algorithm. Others here are more up on this than I am. Early contributions
+k5a7f90 [3L] | Deterministic approximation techniques. This starts in economics with the book by Judd(2004). It has now expanded with the use of various AI related tools.
+kb57cb9 | Stochastic Algorithm (Pakes and Mcguire, 2001)
+k6b1626 | Continuous time algorithm. Doraszelski and Judd (2004).
+kb6315b [2L] | Oblivious equilibrium (mean field theory). Benkard, Van Roy, Weintraub, 2010. Approximate using moments of the distribution.
+k4fcf3c [3L] | An issue that arises with approximations is that when attempting to analyzing a counterfactual, you are trying to analyze an environment where the data used for approximations are not directly relevant.
+@page 13
+k5ddc6d [2L] | Theory: First ask if assuming asymmetric information helps if we stay with perfection?
+kf05796 [2L] | It decrease the number of state variables by assuming agents only have access to a subset of the state variables.
+kd3fca8 [3L] | Since agents presumably know their own characteristics and these tend to be persistent, the “perfectness” notion would then lead us to a “Bayesian” Markov Perfect solution.
+k55e688 [5L] | **Is assuming ”Bayesian MP” more realistic?** It decreases the information access and retention conditions but increases the burden of computing the policies significantly. The additional burden results from the need to compute posteriors, as well as optimal policies; and the requirement that they be consistent with one another.
+kcc00fc [2L] | There is a question of whether agents can learn the optimal policies. I come back to this below.
+@page 14
+kb48bce | Theory Issues.
+kfd3a91 | The initial dynamic frameworks $\mathrm{assumed}^1$
+k7cebc8 [2L] | state variables evolve as a Markov process (tractable and often verifiable, so we keep it)
+k3b953a [2L] | and the equililbrium is some form of Markov Perfection (no agent has an incentive to deviate at any value of the state variables).
+kda398f [2L] | The complexity of the perfectness assumption led to; (i) doubts about its ability to mimic behavior, and (ii) implementation problems for researchers.
+kabba2f [2L] | The ways one thought to circumvent the problems, like asymmetric information, just led to even more complex frameworks.
+k6dde0f | $^1\mathrm{Maskin}$ and Tirole (1988) I.O. theory; Ericson and Pakes (1995) applied work.
+@page 15
+kafc80b | Both theory \& empirical work explored ways forward. Theory
+k365c33 | weaker notions of equilibrium that were less cognitively demanding, \&
+ka6c0f7 | learning processes that mimic how firms respond to change.
+keb01bf | Examples
+kdc23d6 | Fudenberg and Levine (1993); Self-confirming equilibrium.
+k0745bb | Osborne and Rubinstein (1998); Procedurally rational players.
+k7f6e7f | Esponda and Pouzo (2016); Berk-Nash equilibrium (improper priors)
+k52c22e | Jehiel,(2020) Analogy based expectations equilibrium (ESWC volume)
+k70fdea [3L] | Done in context of repeated game where the focus is on learning how competitors play. Related empirical work; Hortascu and Puller, 2008, Doraszelski, Lewis,\& Pakes,2018, on electricity markets.
+k3133e0 [3L] | Most of what we are interested in concerns the determinants and implications of investments in the ”payoff relevant” states. To use these ideas to analyze those issues we need to modify the theoretical framework.
+@page 16
+kc6fe85 | Issues for the applied researcher.
+k454cce | Premise: the complexity of Markov Perfection both
+k3561c6 | limits our ability to do dynamic analysis of market outcomes, but also
+k08877f [2L] | leads to a question of whether some other notion of equilibria will better approximate agents’ behavior.
+k94e2f9 [2L] | What assumptions of MP might we relax? The initial frameworks made assumptions which insured that the
+@page 17
+k98fece | On the Markov Assumption.
+k48df8e [3L] | Except in situations involving active experimentation to learn (where policies are transient), we are likely to stick with the assumption that states evolve as a finite order Markov process. Reasons
+k1ba36b | Convenience and fits the data well.
+ka2f9f0 [2L] | Realism suggests information access and retention conditions limit the memory used.
+k331e37 [4L] | We can bound unilateral deviations (Ifrach and Weintraub, 2014), and have conditions which insure those deviations can be made arbitrarily small by letting the length of the kept history grow (White and Scherer, 1994).
+kb0410e [3L] | There are situations where we might not want to have the process be time homogenous (this often depends on the assumptions on ”outside alternatives” in demand). I come back to this below.
+@page 18
+k47f12e | Perfection.
+k429482 [4L] | The fact that Markov Perfect framework becomes unwieldily when confronted by the complexity of real world institutions, raises the question of whether some other notion of equilibrium will better approximate agents’ behavior.
+k5151be | The complexity issue implies that agents
+kf6a63d [2L] | have access to and can retain a large amount of information (all state variables), and
+k70c619 [2L] | can either compute or learn an unrealistic number of strategies (one for each information set).
+k35c358 | **How demanding is this?** Durable goods example.
+@page 19
+k3bde42 | Abandoning Perfection In A Dynamic Game.
+k27b7e8 [2L] | I start with strategies that are “rest points” to a dynamical system. This makes the job of defining a rest point much easier because
+kb41e07 [2L] | strategies at the rest point likely satisfy a Nash condition of some sort; else someone has an incentive to deviate.
+k065b09 [2L] | However it still leaves opens the question: What is the form of the Nash Condition?
+kd868df | There remains the question of how firms learn equilibrium policies.
+k080077 [2L] | We don’t believe firms firms jump to an equilibrium instantaneously, and we might want to analyze the transition path.
+ka8e4d6 [2L] | There are multiple equilibria in realistic dynamic games, and the transition path will pick out the relevant one.
+k1fa143 | I come back to this below.
+@page 20
+k47d3c6 [2L] | What Conditions Can We Assume for the Rest Point at States that are Visited Repeatedly?
+kc95a69 | We expect (and I believe should integrate into our modelling) that
+k5745e9 [2L] | Agents perceive that they are doing the best they can at each of these points, and
+k96e092 [3L] | These perceptions are at least consistent with what they observe. Note that if a state is visited repeatedly, the firm sees the distribution of profits associated with it.
+k3618df [3L] | **Note.** It might be reasonable to assume more than this: that agents (i) know and/or (ii) explore, properties of outcomes of states not visited repeatedly. I come back to this below.
+@page 21
+k7f1bb4 | Formalization of Assumptions.
+k23a139 [2L] | Denote the information set of firm $i$ in period $t$ by $J_{i,t}.J_{i,t}$ will contain both public $(\xi_t)$ and private $(\omega_{i,t})$ information, so $J_{i,t}=\{\xi_t,\omega_{i,t}\}$.
+k14df65 [2L] | Assume $(J_{1,t},\ldots J_{nt,t})$ evolves as a finite state Markov process on $\mathcal{J}$ (or can be adequately approximated by one).
+kb3e33a [3L] | Policies, say $m_{i,t}\in\mathcal{M}$, will be functions of $J_{i,t}$. For simplicity assume $\#\mathcal{M}$ is finite, and that it is a simple capital accumulation game (not necessary \& not always appropriate), i.e. $\forall(m_i,m_{-i})\in\mathcal{M}^n,\&\forall\omega\in\mathrm{Ω}$
+ka043e2 [3L] | The public information, $\xi$, is used to predict competitor behavior and common demand and cost conditions (these evolve as an exogenous Markov process).
+@page 22
+k93c0e5 | A “state” of the system, is
+k55cffe [3L] | $\#\mathcal{S}$ is finite. $\Rightarrow$ any set of policies will insure that $s_t$ will wander into a recurrent subset of $\mathcal{S}$, say $\mathcal{R}\subset\mathcal{S}$, in finite time, and after that $s_{t+\tau}\in\mathcal{R}$ w.p.1 forever.
+ke3ddd5 [2L] | Note that the agents need not keep track of all of $s_t$, only $J_{i,t}$; i.e. $J_{i,t}$ is whatever management conditions on when forming dynamic policies.
+k1c81c3 [2L] | Let the agent’s perception of the expected discounted value of current and future net cash flow were it to chose $m$ at state $J_i$, be
+k86f862 | and of expected profits be $\pi^E(m|J_i)$.
+@page 23
+k963275 | Our assumptions imply:
+kb51306 [2L] | Each agent choses an action which maximizes its perception of its expected discounted value, and
+kf4d296 [2L] | For those states that are visited repeatedly (i.e. are in the recurrent class or $\mathcal{R})$, these perceptions are consistent with observed outcomes.
+@page 24
+kc830ba | Formally
+k9b94a3 | $\&,\forall J_i$ which is a component of an $s\in\mathcal{R}$
+k6a3a10 [2L] | where, if $p^e(\cdot)$ provides the empirical probability (the fraction of periods the event occurs)
+#= kcffa50 | and  ⇒ 以及
+k6517f8 | while
+@page 25
+k54c063 | “Experience Based Equilibrium”
+k97e849 [4L] | These are the conditions of a (restricted) EBE (Fershtman and Pakes, 2012). Conceptually similar to a number of theory papers cited above, but we allow state variables to evolve over time, and that introduces new issues.
+ke813ce [5L] | Bayesian Perfect satisfy them, but so do weaker notions. In particular EBE does not require consistent perceptions for points that are not visited repeatedly. This opens up a different avenue for multiplicity as perceptions for points not visited can influence decisions at the points visited; a point we come back to below.
+kf9aef1 | Consider two computation algorithms.
+kf5cf2d [3L] | The first is an algorithm that firms could also use to learn equilibrium play. Likely more useful for small perturbations, as to learn after a dramatic change would take a long time.
+ka4de4c [2L] | The second does not have the advantage of a learning rule, but goes directly to compute an equilibrium (a rest point in the Nash sense).
+@page 26
+k734c76 | Computational Algorithm.
+ka05225 [3L] | Asynchronous reinforcement learning algorithm (first used for dynamic games in Pakes and McGuire, 2001), earlier machine learning literature for single agent problems calls this ”Q-learning”.
+ke30e8b [4L] | The fact that it is based on learning from realized data makes it a candidate to analyze perturbations to the environment (provided they are not large enough to induce experimentation), as well as to compute equilibrium to dynamic games.
+ke11411 [3L] | If there is more than one equilibria, the learning algorithm will pick one out. If algorithm is run many times from the same initial conditions, it will pick out a distribution of equilibria.
+k19ba2b [2L] | Formally it circumvents the two sources of the curse of dimensionality in computing equilibrium.
+@page 27
+kb0c34a | Iterations
+k496eea [5L] | The computation problem is now different for management then for the researcher as management just conditions on $J_{i,t}$ but the researcher must compute equilibria for $s_t=(J_{1,t}\ldots J_{nt})$. Here we deal with the computational problem for researchers. We come back to the firm’s problem below.
+ka31d33 | Iterations are defined by
+k646eba [2L] | A location, say $L^k=(J_1^k,\ldots J_{n(k)}^k)\in\mathcal{S}$: is the information sets of active agents .
+k1b71b3 | Objects in memory (i.e. $M^k)$:
+k4ba822 | perceived evaluations, $W^k$,
+ka971d5 | No. of visits to each point, $h^k$.
+k8d7312 [3L] | **Must update $(L^k,W^k,h^k)$.** Computational burden determined by; memory constraint, and compute time. I use a simple (not neccesarily optimal) structure to memory.
+@page 28
+k11158c | Update Location.
+k0e0334 | Calculate “greedy” policies (policies are now $”m”)$ for each agent
+kecd7d4 | = arg  «$m_{i,k}^*$ = arg $\max W^k(m|J_{i,k})$»
+ke5f163 | Take random draws on outcomes conditional on $m_{i,k}^*$:
+ke828ac | E.g.; if we invest in “payoff relevant” $\omega_{i,k}\in J_{i,k}$, draw $\omega_{i,k+1}$ conditional
+kdb3d40 | on  «on $(\omega_{i,k},m_{i,k}^*)$.»
+kea8839 | Use outcomes to update $L^k\to L^{k+1}$.
+@page 29
+ke28fac | Update $W^k$.
+k0d7aa4 [4L] | “Learning” interpretation: Simple case: assume agent observes the competitors’ static controls $m_{-i}$ (usually a price or bid) and initially we will assume the agent knows (perhaps through estimation) the primitives; $\pi_i(\cdot),p(\omega_{i,t+1}|\omega_{i,t},m_{i,t})$. These objects can be estimated ”off-line”.
+ka99c9c | Its ex poste perception of what its value would have been had it chosen
+kb47f36 | is  «$m$ is»
+kf22d3e [2L] | where $J_i^{k+1}(m)$ is what the $k$ + 1 information would have been given $m$ and competitors actual play.
+@page 30
+k1c9be8 [3L] | Treat $V^{k+1}(J_{i,k})$ as a random draw from the possible realizations of $W(m|J_{i,k})$, and update $W^k$ as in stochastic integration (Robbins and Monroe,1956)
+k175835 | or  «or»
+k842d5c [3L] | (other weights are more efficient as the early estimates of $V^{k+1}(J_{i,k},m)$ are noisier than the later estimates, and it would be good to know how to use information on close states to update a given state ....)
+@page 31
+kbd71a2 | Notes.
+k9468ec [2L] | If we have equilibrium valuations we tend to stay their, i.e. if $^*$ designates equilibrium
+kffd0f6 | So if it reaches equilibrium it tends to stay at equilibrium.
+k89725f [3L] | As in all computational algorithms for dynamic games there is no guarantee that it will converge, but the learning interpretation provides a rational for using it regardless.
+kc23d70 [3L] | In fact, the smoothing implicit in the draws tends to mitigate the convergence problem in pointwise algorithms, but it may take many iterations (question arises as to whether firms can do better).
+ke990b4 [2L] | Agents (not only the analyst) could use the algorithm to find equilibrium policies or adjust to perturbations in the environment.
+@page 32
+ke6df11 | Formally algorithm has no curse of dimensionality.
+k05c66c [2L] | Computing continuation values: integration is replaced by averaging two numbers.
+kdee705 | algorithm eventually wanders into $\mathcal{R}$ and stays their, and $\#\mathcal{R}\leq\#\mathcal{J}$.
+k223fd5 [2L] | Fershtman and Pakes (2012) also provide a test for equilibrium that has no curse of dimensionality.
+k3649b8 [2L] | Still the number of states can grow large (typically grows linearly in the number of state variables).
+k91cb9a [4L] | One way around this is to nest functional form approximations into this. There is a related Operations Research literature on computation of single agent problems often refered to as “TD learning” (see Sutton and Barto,1998).
+@page 33
+k3979b3 | Multiplicity of REBE.
+ka22a04 [2L] | Recall that $\mathcal{R}$ is the recurrent class (the points that are visited repeatedly).
+kccdea2 [4L] | $\mathcal{R}$ contains both “interior” and “boundary” points. Points at which there are feasible strategies which can lead outside of $\mathcal{R}$ are boundary points. Interior points are points that can only transit to other points in $\mathcal{R}$ no matter which (feasible) policy is chosen.
+keebf9d [4L] | Our conditions only insure that perceptions of outcomes are consistent with the results from actual play at interior points. Perceptions of outcomes for some feasible (but in-optimal) policy at boundary points are not tied down by actual outcomes.
+k6a1195 [3L] | ”MPBE” are a special case of (restricted) EBE and they have multiplicity. Here differing perceptions at boundary points can support a (possibly much) wider range of equilibria.
+@page 34
+k4788fe | Narrowing the Set of Equilibria.
+k2304ce [4L] | Often if the firms are in an equilibrium, the data will reveal which of the possible equilibria they are in. So the problem really is only a problem when calculating counterfactuals. There are a number of ways of limiting the number of equilibria, but none that I am aware of that give us uniqueness.
+k69f558 [2L] | Constrain the initial condition to whatever is in the data (history limits the equilibria that can be generated).
+k8d02ff [4L] | Asker, Fershtman, Jihye, and Pakes, (2020, RAND), compute equilibria in which firms experiment with $m_i\not=m_i^*$ at boundary points. Leads to a stronger notion of, and test for, equilibrium (Boundary Consistency).
+ke16eb6 [3L] | Boundary consistency insures that perceptions are consistent with the results from **actual play** for each **feasible** action at boundary points (and hence on $\mathcal{R})$ if one played the strategies in memory.
+@page 35
+keff5a4 | Boundary Consistency
+ka6d343 [4L] | Let $B(J_i|\mathcal{W})$ be the set of actions at $J_i\in s\in\mathcal{R}$ which could generate outcomes which are not in the recurrent class (if it is not empty, $J_i$ is a boundary point) and $B(\mathcal{W})=\cup_{Ji\in\mathcal{R}}B(J_i|\mathcal{W})$. Then the extra condition needed to insure “Boundary Consistency” is:
+k93371d | **Extra Condition.** Let $\tau$ index future periods, then $\forall(m,J_i)\in B(\mathcal{W})$
+k9c0ce1 [2L] | where $E[\cdot|J_i,\mathcal{W}]$ takes expectations over future states starting at $J_i$ using the policies generated by $\mathcal{W}.♠$
+@page 36
+ked6ecb [2L] | A Note on Proceeding to Empirical Work (These are notes from Dubois Pakes, 2025?).
+ka007b4 | Suggestion:
+k019378 [3L] | start with an empirical model, where the firm maximizes given its perceptions, but the perceptions need not be ”correct” or ”equilibrium” perceptions.
+k5b87cf [4L] | This should use the data to determine which variables the firm’s policies seem to respond to that are in your data. Typically includes a function of profits, institutional features and controls or states of competing firms.
+kba9ba8 [3L] | Then add a serially correlated unobserved state to account for variables that the firm knows but are not in your data (this is almost always needed).
+@page 37
+k187b2e | Moving to Data (Dubois and Pakes, 2025?)
+k28fa9e [2L] | Theory is agnostic with respect to the agent’s information set, but empirical work must specify it.
+k6e130f | We use two models
+k5cf2af [2L] | Empirical Model: Assumes maximizing behavior but does not assume correct perceptions of the future.
+k1f0d55 | Equilibrium Model: Imposes the constraints of an EBE.
+ka72243 | What is the role of the empirical model?
+k9a3970 | Determine the state variables which consist of
+k6bca74 | variables in the data that advertising responds to, and
+k9cceb6 [2L] | properties of unobservables (determinants of advertising that the firm responds to but are not in our data).
+@page 38
+k83e13e | Continue Role of Empirical Model.
+k3c58ec [2L] | clarify the aspects of the the model needs replicate in order to provide a credible model of behavior
+kd3116d | In estimating the empirical model be careful to account for issues
+k1aadfc | generated by the unobserved serially correlated states. Especially
+kea2f92 [2L] | selection issues when there is either exit, or firms stopping to invest for a period.
+k979489 [2L] | endogeneity of right hand side variables problems that arise from serial correlation of the unobservables.
+kafef7b [2L] | Empirical model only differs from previously used models (Benkard et. al. 2007; Pakes et. al. 2007) in that
+k959860 | we do not assume equilibrium perceptions.
+k872e1f | we do allow for serially correlated unobserved state variables.
+@page 39
+kb40fdb | Counterfactuals.
+k5e95ed [2L] | Vefore you go to the counterfactual, you should see if the empirical model is rich enough to adequately approximate the data.
+k0100d3 [3L] | Counterfactuals re-parameterize the primitives of the problem. They are necessarily ”out-of-sample” so use of the empirical model alone is inappropriate.
+k3d08de | There are two options for analyzing counterfactuals.
+k884100 | Use a learning algorithm, could be the one we went over.
+kc0144c | Use the direct algorithm I go to now.
+@page 40
+k2c924e | Note
+kc29f37 [3L] | Nobody believes that the market switches to the new equilibrium instantaneously, so there is likely some learning process. The question is if a learning model available to the researcher is a good approximation.
+k6c3f3e [2L] | If the firm learns from information not in our data, the learning models we have access to may be inappropriate.
+k6238f6 [3L] | Going directly to an equilibrium seems more appropriate for longer run predictions. Of course if there are continual changes in the environment that may not be the right way to do the analysis.
+@page 41
+k5baac6 | Algorithm: Overview (from Dubois-Pakes).
+kb05053 | Problems in computing fixed point for dynamic market equilibria.
+k0c8937 | Dimension of state space (how many points do we need policies for).
+k236a0b [3L] | Do not compute policies for all possible states. Only compute separate policies for each product in each time period (small no. of points). This is ”pointwise”: i.e. no discretization or approximations.
+k8d281b | Computing continuation values (dimension of integral).
+k88db37 [4L] | Substitute simulation for integration. Average of simulated sequences of continuation values. Random variables that must be held constant across iterations. Can use last period’s investment measures post sample incentives (so post sample is firm’s perceptions).
+kf75a35 [2L] | Algorithm starts at initial point in the data. It assumes each point visited is in the recurrent class of a boundary consistent equilibrium thereafter.
+@page 42
+k0cc37b | Algorithm Details.
+k162338 [2L] | Algorithm is iterative. Iterations are indexed by $l$ \& associated with policy functions. Initial estimate is the empirical model’s policy function.
+k64cfc6 | Assume that the policy function is
+#= k46148c | where  ⇒ 其中
+k991d66 | and $\nu_t$ is independent of history.
+k75d5fa [3L] | Start with the estimate of the policy function obtained from the empirical model, and holding the process generating $\omega_t$ equal to the empirical model’s estimate.
+@page 43
+k1067bb [2L] | At each iteration.use the policy functions in memory to simulate $K$ sample paths for profits, $\{\pi^{k,l}(\cdot)_{j,t}\}$ and the serially correlated
+kee527e [2L] | unobservable, $\{\omega_{h,j,t}^{k,l}\}$ for each firm, keeping the underlying random draws the same across iterations (else it will not converge).
+kd8409c | Compute the averages over the sample paths of $\{\pi^{k,l}(\cdot)_{j,t}\}$ and $\{\omega_{h,j,t}^{k,l}\}$
+k9502e2 | say $\{\pi^l(\cdot)\}_{j,t},\&\{\omega_{h,j,t}^l\}_{h,j,t}$.
+k134dda | Compute the average discounted value $W_{j,t}^l\equiv⟦?⟧_{\tau=1}^{\infty}\beta^{\tau}\pi^l(\cdot)_{j,t+\tau}$.
+k99630d | The marginal return for $a_t$ (which we set equal to one) is
+@page 44
+kb99321 [2L] | Terminal period’s contribution: Use the last observed advertising, say $T_j$, to approximate for $⟦?⟧_{\tau=Tj}^{\infty}(\beta\rho)_{\partial\xi t+1}^{\tau\partial\pi(\cdot)t+\tau}\beta_{a,h}$ (eliminates need to assume
+k221b38 | firm’s perceptions about post sample process is the same as in sample).
+k374159 | Update the policy function. Regress the dependent variable
+kee505c | Finally compute
+k1f78c1 | If $Y^l<10^{-5}$ stop. If $Y^l>10^{-5}$ proceed to iteration $l+1$.
+@page 45
+k49778b [3L] | If the control goes to zero at some point (could be due to exit, or for other reasons), in fitting the control one should allow also for the exit decision).
+kd78c4d [2L] | You are not estimating anything, parameters are taken from elsewhere (including $\beta)$.
+k7e29a7 | That is it for now. I hope it was useful.

@@ -1,0 +1,348 @@
+# 08_Rust_ml/DSE25_Kang(John)_Final.pdf  (69 pages)
+# id | English (inline math is a rough reconstruction; check it)
+
+@page 1
+k347ef2 | ⟪An⟫ Empirical Risk Minimization ⟪Approach for⟫
+k109c88 | Offline Inverse RL and Dynamic Discrete Choice Model
+kc62656 | Enoch Hyunwook $\mathrm{Kang}^{*1}$, Hema $\mathrm{Yoganarasimhan}^1$ and Lalit $\mathrm{Jain}^{12}$
+#= k6623ac | Econometric Society Summer School in Dynamic Structural Econometrics 2025  ⇒ 2025 年计量经济学会动态结构计量经济学暑期学校
+ka8d471 | 1 Foster School of Business, University of Washington
+kaf3401 | 2 Google Deepmind
+@page 2
+ke7af43 | We will discuss...
+k1bf4b5 | Motivation: Large-scale problems
+kf7408c | Recap: Dynamic Discrete Choice (DDC) models
+k43e1ef | Recap: what we know about solving the DDC models
+k63f1dc | The one-shot gradient-based optimization approach
+k68c05e | Bias correction for estimation and the empirical risk minimization framework
+k460edd | GLADIUS algorithm and its global optimality
+kce2bbe | Simulation experiments
+@page 3
+#= kcdd629 | Outline  ⇒ 提纲
+@page 9
+kad5687 | Single-agent $^2$ Markov Decision Process (MDP)
+kc93fae | Given offline dataset $\mathcal{D}=(s_0,a_0,s_1,a_2,\ldots)$, where $s_t$ = state at $t,a_t$ = action at $t$
+k513056 | $\mathcal{D}$ is collected from agent’s interaction with the ⟪Markov Decision Process $(\mathcal{S},\mathcal{A},P,\nu_0,r,G,\beta)$:⟫
+k1f5efa | $-\mathcal{S}$ denotes the state space, $\mathcal{A}$ denotes a finite action space
+kf002e6 | $-P\in\Delta_{\mathcal{S}}^{\mathcal{S}\times\mathcal{A}}$ is a Markovian transition kernel, $\nu_0\in\Delta_{\mathcal{S}}$ is the initial state distribution over $\mathcal{S}$
+kdb8529 | $-\beta\in(0,1)$ a discount factor
+kb1043f | $-r(s,a)+\epsilon_a$ is the reward agent privately observes $^1$
+kbfb6c9 | $r\in\mathbb{R}^{\mathcal{S}\times\mathcal{A}}$ is a deterministic part of reward.
+k9184c6 | $\epsilon_a^{i.}\sim^{i.d.}G(\delta,1)$ is the random part of the reward, where $G$ is Type 1 Extreme Value (T1EV)
+k98e4cb | distribution (i.e., Gumbel distribution)
+k2eea6b [2L] | $^1\mathrm{This}$ reward form is often said to satisfy linear additivity and conditionally independence $^2\mathrm{We}$ will discuss extension to the unobserved heterogeneity setup at the end
+@page 10
+k4861a0 | Notations
+k5fe6d4 | Given an initial state $s_0\sim\nu_0$, we define the distribution of state-action sequences for policy $\pi$
+k112f3c | over the sample space $(\mathcal{S}\times\mathcal{A})^{\infty}=\{(s_0,a_0,s_1,a_1,\ldots):s_h\in\mathcal{S},a_h\in\mathcal{A},h\in\mathbb{N}\}$ as $\mathbb{P}_{\nu 0,\pi}$
+kf3950e | We also use $\mathbb{E}_{\nu 0,\pi}$ to denote the expectation with respect to $\mathbb{P}_{\nu 0,\pi}$
+k562275 | We further define:
+k682ae0 | $-$ Optimal policy $\pi^*:=\mathrm{argmax}_{\pi\in\Delta\mathcal{A}}^{\mathcal{S}}\mathbb{E}_{\nu 0,\pi,G}⟦?⟧⟦?⟧_{h=0}^{\infty}\beta^h(r(s_h,a_h)+\epsilon_{ah})⟦?⟧$
+ke79364 | $-$ Value function $V^*(s):=\max _{\pi\in\Delta\mathcal{A}}^{\mathcal{S}}\mathbb{E}_{\nu 0,\pi,G}⟦?⟧⟦?⟧_{h=0}^{\infty}\beta^h(r(s_h,a_h)+\epsilon_{ah})|s_0=s⟦?⟧$
+k98f9a5 | $-$ Q-function
+@page 11
+ke3ce88 | Dynamic Discrete Choice (DDC) Model estimation problem
+k31d020 | Assumption 1 (Rationality)
+k0d131a | Data $\mathcal{D}$ is collected from agent’s interaction with the MDP $(\mathcal{S},\mathcal{A},P,\nu_0,r,G,\beta)$ while
+k3035a3 | following the optimal policy $\pi^*$.
+ka6aab8 | Definition 1 (Dynamic Discrete Choice (DDC) model estimation problem)
+kd3322c | Given offline data $\mathcal{D}$, under Assumption 1, we would like to find $a$ function rˆ $\in\mathcal{R}\subseteq\mathbb{R}^{\mathcal{S}\times\mathcal{A}}$:
+k3f609f | where $\mathcal{S}:=\{s\in\mathcal{S}|\mathbb{P}_{\nu 0,\pi}^*(\{s_h=s\})>0$ for some $h\geq0\}$ defines the optimal policy’s
+k8df961 | coverage, which consists of states that are reachable with nonzero probability under the
+k6e2cc4 | expert’s optimal policy $\pi^*.^3$
+k6d826e | $^3\mathrm{Inferring}$ rewards beyond $\bar{\mathcal{S}}$ would be ill-posed even with infinite data. Similarly, computing MSE using the $\pi^*’\mathrm{s}$ state-action
+keb4789 | distribution is natural since the goal is to recover the reward function that explains the expert’s behavior.
+@page 12
+k88381f | Basic results in DDC model
+k1ff7ba | Fact 1 (Optimality equations)
+k49022c | Under Assumption 1, we have
+k558004 | for $a\in\mathcal{A}$
+kc2867a | Optimality equation (1): $\pi^*-Q^*$ relationship
+k11f70a | Optimality equation (2): Bellman equation with respect to $Q^*$
+@page 13
+k8febf0 | Note) T1EV (Gumbel) distribution setup
+k1fb48c | Recall that reward’s random part is $\epsilon_a^{i.}\sim^{i.d.}G(\delta,1)$, where $G$ is Type 1 Extreme Value (T1EV)
+k43a3e9 | $-G(0,1)$ is not a mean 0 distribution
+k74b523 | (mean $\delta+\gamma=0+\gamma=\gamma)$
+k59f675 | $-G(-\gamma,1)$ is a mean 0 distribution
+k5ebf39 | (mean $\delta+\gamma=-\gamma+\gamma=0)$
+ke1c53f | For simplicity, we will use $\epsilon_a^{i.}\sim^{i.d.}G(-\gamma,1)$ throughout
+@page 14
+k79e38b | Note) DDC-IRL equivalence
+k192549 | DDC-IRL difference is about the way of explaining ⟪randomness⟫ in action choice:
+k2f3ceb | $-$ Dynamic Discrete Choice model (DDC)’s explanation:
+kf77098 | “There is an unobserved random state component that induces this uncertainty”
+kd924e7 | $-$ Inverse Reinforcement Learning (IRL)’s explanation:
+k428116 | “The action choice itself is random, because the agent inherently prefers a random action choice”
+ka3320e | Fact 2
+k4b39ff | Exactly the same optimality equations in **Fact 1** hold for DDC and $IRL.^4$
+k7fd61e | Indeed, IRL community has been rediscovering what DDC has developed.
+k247f37 | For details, see Appendix C of Kang et al., (2025)
+kbc3995 | $^5“\mathrm{Identifiability}$ in inverse reinforcement learning”, Cao et al., NeurIPS 2021
+kd52a00 | $^6“\mathrm{A}$ maximum likelihood framework for ofiflne inverse reinforcement learning” Zeng et al., NeurIPS 2023
+@page 16
+k4e1cba | Recall. Optimality equations
+k51f429 | We would like to use them to find the $r$ and $Q^*$.
+k3f214d | For that, let’s rewrite these equations.
+@page 17
+kf068dc | Rewriting the optimality equation (1)
+k9954e1 | Define
+k0109c2 | , as  «, as $\hat{p}_Q(a|s)$.»
+k8b39a5 | Then for $Q$, to satisfy the optimality equation (1), it must satisfy $\pi^*(a|s)=\hat{p}_Q(a|s)$.
+k1c4d54 | Lemma 1
+k59528f | ⟪We define $\mathcal{L}_{NLL}(Q)(s,a):=-\log (\hat{p}_Q(a|s))$ and call it⟫ negative $\log $ likelihood (NLL) loss.
+k0b0b63 | Rewritten optimality equation (1):
+@page 18
+k07243e | Known results for solving DDC models
+k4635df | Assumption 2
+kdd6ac7 | For all $s\in\mathcal{S}$, there exists an action $a_s\in\mathcal{A}$ set $r(s,a_s)=0$.
+kab4794 | ⟪Under Assumption 2, we know⟫ two ways of solving DDC models:
+k6d3314 | $r,Q^*$ estimation
+k45a739 | (Hotz and Miller 1993)
+k015373 | $Q^*$ minimizes $\mathbb{E}_{(s,a)\sim\pi}^*[\mathcal{L}_{NLL}(Q)(s,a)]$
+kf8bd64 | $Q^*$ satisfies the Bellman equation $\forall s\in\mathcal{S},a\in\mathcal{A}2.Q^*(s,a):=\mathbb{E}_{\pi,\nu 0}^*[⟦?⟧_{t=0}^{\infty}\beta^tr(s_t,a_t)+\epsilon_{at}|s,a]$
+@page 19
+kcb5607 | We observe two challenges common to both approaches
+kd7c448 | Nestedness of optimization (No one-shot optimization)
+k8103a6 | Curse of dimensionality
+@page 20
+k522808 | Challenge 1: Optimization Requires Nesting
+k397785 | $Q^*$ satisfies the Bellman equation $\forall s\in\mathcal{S},a\in\mathcal{A}$
+kc3cf8b | In both cases, we need to parametrize $r$ (to satisfy equation (2) part).
+kf2f713 | ⟪But then, we⟫ need to solve a nested optimization:
+kc8028b | $-$ the equation (1) part is the outer loop, which is ⟪about optimization within $Q$ space⟫
+k09acaf | $-$ the equation (2) part is the inner loop, which is ⟪about deriving $Q$ from $r$⟫
+@page 21
+kf09272 | Challenge 2: Curse of dimensionality
+kd5e8a8 | Challenge 2: for both, solving equation (2) for a large-scale problem is challenging
+k4c537d | $-$ ⟪when we follow Rust (1994):⟫ we need to solve Bellman equation
+ke682de | $Q(s,a)=r(s,a)+\beta E'_{s\sim P(s,a)}⟦?⟧\ln ⟦?⟧⟦?⟧_{a\in\mathcal{A}}$ exp(Q $(s',a))⟦?⟧|s,a⟦?⟧$
+k682ef7 | Computational complexity exponentially increases ⟪as the dimension increases⟫
+k044c38 | $-$ when we follow Hotz and Miller (1993): ⟪we need transition function estimation⟫ to
+k0b89d7 | compute $Q(s_t,a_t):=\mathbb{E}_{\pi,\nu 0}^*[⟦?⟧_{t=0}^{\infty}\beta^tr(s_t,a_t)]$
+k59d4c7 | Statistical complexity exponentially increases ⟪as the dimension increases⟫
+@page 23
+k8c06ea | Nonparametric function approximation to address the curse of dimensionality
+k8e3b02 | There are two $\mathrm{ways}^7$ to solve the Bellman equation ⟪without transition function knowledge:⟫
+ke90f7d | $-$ ⟪Fitted fixed point⟫ iteration (e.g., Fitted value iteration, Fitted Q-iteration)
+k9439fc | John introduced this earlier
+k064b75 | Studied by Adusumilli and Eckardt $(2022)^8$
+kda0a9d | ⟪Suffers instability⟫ when combined with neural networks (next page)
+kbbdc4c | $-$ ⟪Gradient-based⟫ squared Bellman error (BE) minimization
+kb0783d | No prior works (I will explain this later)
+k08113a | This paper
+kfac5be | $^7\mathrm{See}$ “Offline reinforcement learning in large state spaces: algorithms and guarantees”, Jiang and Xie, Statistical Sciences (to
+k334a86 | appear). Note that importance sampling approaches are excluded as they do not guarantee the Bellman equation to hold.
+kccc165 | $^8\mathrm{Adusumilli}$, and Eckardt, “Temporal-Difference estimation of dynamic discrete choice models”, RES (to appear)
+@page 24
+kef7d21 | Divergence issue of Fitted fixed point iteration methods
+k607642 | Theorem 2 (Tsitsiklis and Roy 1996, Jiang and Xie 2025)
+k8d856f | Fitted fixed point methods can diverge even when all of the following hold:
+k3e3016 | $|\mathcal{D}|=\infty$ and the fitting is exact (i.e., perfect optimization using infinite computation).
+k8a1330 | $\mathcal{F}isa$ 1-dim linear function class that exactly captures $Q^*,i.e.,Q^*\in\mathcal{Q}$ (a.k.a.
+k75489e | realizability).
+k144a5b | This is not just a theoretical $\mathrm{phenomenon}^9$, and instability is a huge issue in practice.
+k620e7f | This issue becomes even worse when combined with neural networks.
+ka4757e | Intuitively: ‘Solving for Bellman equation involves bootstrapping unrealized functions’ $^{12}$
+k786bc7 | $^9\mathrm{Tsitsiklis}$ and Roy, “Feature-based methods for large scale dynamic programming”, Machine Learning (1996)
+k6b6044 | $^{10}\mathrm{Van}$ Hasselt et al., “Deep reinforcement learning and the deadly triad”, arXiv:1812.02648 (2018).
+k588d45 | $^{11}\mathrm{Wang}$ et al., “Instabilities of offline rl with pre-trained neural representation”, ICML (2021)
+k09d030 | $^{12}\mathrm{Jiang}$ and Xie, “Offline reinforcement learning in large state spaces: algorithms and guarantees”, Statistical Sciences (2025)
+@page 25
+k07efb1 | The question answered in this paper
+k08d892 | ⟪Can $a$⟫ scalable gradient-based method ⟪infer rewards (or $Q^*$ function) while⟫ provably ensuring
+k73ba14 | ⟪global optimality⟫ without any assumption on reward structure/transition function knowledge?
+@page 27
+k74a33b | Terms: Bellman operators
+k13005b | ⟪Define the⟫ Bellman operator $\mathcal{T}$ ⟪as:⟫
+k0fcf16 | $\mathcal{T}Q(s,a):=r(s,a)+\beta\mathbb{E}'_{s\sim P(s,a)}\ln ⟦?⟧$ exp(Q $(s',a'))|s,a$
+k10b74a | ⟪Define the⟫ empirical Bellman operator $\mathcal{T}⟦?⟧$ ⟪as:⟫
+k24b271 | $\mathcal{T}⟦?⟧Q(s,a,s'):=r(s,a)+\beta\ln ⟦?⟧$ exp(Q $(s',a'))|s,a$
+k661b4f | Note that we have $\mathbb{E}'_{s\sim P(s,a)}⟦?⟧\hat{\mathcal{T}}Q(s,a,s')⟦?⟧=\mathcal{T}Q(s,a)$.
+@page 28
+k654587 | Term: Bellman Error (BE) loss and Temporal Difference (TD) loss
+k1bae18 | The Bellman equation:
+k99c9f0 | ⟪We define $\mathcal{L}_{BE}(Q)(s,a):=(Q(s,a)-\mathcal{T}Q(s,a))^2$ and call it⟫ squared Bellman Error (BE) loss.
+k8fc493 | ⟪We define $\mathcal{L}_{TD}(Q)(s,a):=(Q(s,a)-\mathcal{T}⟦?⟧Q(s,a,s'))^2$ and call it⟫ squared Temporal Difference
+kcdb045 | (TD) loss.
+@page 29
+k049fc2 | Recall. Rust (1994) way
+kbe72a1 | Under Assumption 2, we have:
+kff331b | $Q$ minimizes $\mathbb{E}_{(s,a)\sim\pi,\nu 0}^*[\mathcal{L}_{NLL}(Q)(s,a)]$
+k828f53 | $Q$ satisfies the Bellman equation $\forall s\in\mathcal{S},a\in\mathcal{A}$
+@page 30
+k4be0e4 | Magnac and Thesmar (2009)
+k3310af | $Q$ satisfeis the Bellman equation for all $(s,a_s)$ with $s\in\mathcal{S}$
+@page 31
+ke8da37 | Rewriting optimality equation (2)
+kbc8767 | Note that we have
+kd52d0f | $\{Q\in\mathcal{Q}|Q$ satisfies the Bellman equation for all $(s,a_s)$ with $s\in\mathcal{S}\}$
+@page 32
+kb8725e | Magnac and Thesmar (2009) (Modified)
+kf0a984 | No $r\mathrm{rel}⟦?⟧\mathrm{a}⟦?⟧\mathrm{ted}$ term
+k9ecda7 | $Q$ minimizes $\mathbb{E}_{(s,a)\sim\pi,\nu 0}^*[1_{a=as}\mathcal{L}_{BE}(Q)(s,a)]$
+k27e2e5 | $⟦?⟧\mathrm{No}$ unknown $r\mathrm{tha}⟦?⟧\mathrm{n}⟦?⟧\mathrm{ks}$ to Assumption $2⟦?⟧$
+k17c4ea | No more $r$ parametrization required. We can avoid the nested optimization by parametrizing $Q!$
+@page 33
+k6d5fec | The one-shot minimization by expected risk minimization
+kf32d44 | Definition 2 (Expected risk minimization problem)
+k783f12 | The expected risk minimization problem is defined as the problem of finding $Q$ that
+kf2b4d3 | minimizes the expected risk $\mathcal{R}_{exp}(Q)$, which is defnied as
+kf1b123 | Theorem 3 (Identification via expected risk minimization)
+k71c420 | The solution $Q⟦?⟧$ to the expected risk minimization problem uniquely identifies $Q^*uptos\in\bar{\mathcal{S}}$
+k9e51dc | and $a\in\mathcal{A}$. Furthermore, we can uniquely identify $ruptos\in\bar{\mathcal{S}}$ and $a\in\mathcal{A}by$
+@page 35
+kedd311 | Estimation challenge and the TD method
+k2f3633 | The idea of estimating and minimizing
+kfa41b2 | looks straightforward, but it is ⟪challenging⟫ due to $\mathcal{L}_{BE}(Q)(s,a)=(\mathcal{T}Q(s,a)-Q(s,a))^2$ term
+kfefdfc | $-\mathcal{T}Q(s,a):=r(s,a)+\beta\mathbb{E}'_{s\sim P(s,a)}⟦?⟧\ln ⟦?⟧⟦?⟧_{a\in\mathcal{A}}$ exp(Q $(s',a'))⟦?⟧|s,a⟦?⟧$ is not empirically
+k2c2c86 | available unless we know the transition function
+k15ec90 | $-$ Instead, $\mathcal{T}⟦?⟧Q(s,a,s'):=r(s,a)+\beta⟦?⟧\ln ⟦?⟧⟦?⟧_{a\in\mathcal{A}}$ exp(Q $(s',a'))⟦?⟧|s,a⟦?⟧$ is available.
+k9eebd4 | Therefore, a natural proxy for $\mathcal{L}_{BE}(Q)(s,a)=(\mathcal{T}Q(s,a)-Q(s,a))^2$ term is
+k533a00 | This is often called the ⟪Temporal difference (TD) method.⟫ Would this work?
+@page 36
+k7024f6 | TD method does not minimize the Bellman error
+ke8afbf | ⟪Issue: The⟫ TD method does not guarantee that the Bellman equation holds ⟪due to $\mathrm{bias}.^{13}$⟫
+k914918 | Lemma 4 (TD is biased)
+kbc2c68 | Never 0 unless $⟦?⟧P⟦?⟧is$ deterministic
+kd520c9 | Define $\delta_Q(s,a,s'):=\mathcal{T}⟦?⟧Q(s,a,s')-Q(s,a)$. Intuitively, the bias above happens because
+k9a5e85 | $^{13}\mathrm{For}$ the same reason, the semi-gradient TD method proposed by Adusumilli and Eckardt (2022) does not guarantee the
+k8ac699 | Bellman equation to hold.
+@page 37
+k37c91e | The bi-conjugate trick
+k3772fa | We employ an approach often referred to as the ⟪“bi-conjugate Trick”⟫ which replaces the
+k006147 | problematic square function by a linear function called the bi-conjugate:
+k589524 | = max2  «= max2 $\cdot\mathbb{E}'_{s\sim P(s,a)}[\delta_Q(s,a,s')|s,a]\cdot h-h^2$»
+ka63efb | By further re-parametrizing $h$ using $\zeta=h-r(s,a)+Q(s,a)$, after some algebra, we arrive at
+kfe6014 | Lemma 5. (Next page)
+@page 38
+k59462f | Debiasing by bi-conjugate trick
+k199dd4 | Lemma 5
+k64cd43 | We can express the squared Bellman error as
+kd10c5c | where, with $V_Q(s):=\ln ⟦?⟧⟦?⟧_{a\in\mathcal{A}}\exp (Q(s,a))⟦?⟧$,
+kc561d9 | Variance of $V⟦?⟧_Q⟦?⟧(s')$ due to $P$
+kc7d9bd | Define the minimizer (over all states and actions) of $D(Q)(s,a)as$
+kcea0b7 | then $r(s,a)=Q^*(s,a)-\beta\zeta^*(s,a)$.
+@page 39
+kcc8295 | Modified one-shot minimization framework
+k473145 | Theorem 6
+k9b9ff1 | $Q^*$ is uniquely identified by
+k700165 | Furthermore, $r(s,a)=Q^*(s,a)-\beta\zeta^*(s,a)$ where $\zeta^*$ is defined in Lemma 5.
+k7e513d | That is, $r$ ⟪estimation is free⟫ after $Q^*$ estimation.
+@page 40
+k87a695 | Empirical Risk Minimization (ERM) framework
+k9206f7 | Definition 3 (Empirical risk minimization)
+k92c05e | Given $N:=|\mathcal{D}|$ where $\mathcal{D}isa$ finite dataset. An empirical risk minimization problem is defined
+k1c4605 | as the problem of finding $Q$ that minimizes the empirical risk $\mathcal{R}_{emp}(Q;\mathcal{D})$, which is defined as
+@page 42
+k718d4e | Parametrization and realizability
+kfef203 | Given the compact state space $\mathcal{S}$ with $\mathrm{dim}(\mathcal{S})<\infty$ and the finite action space $\mathcal{A}$ with
+kce8a67 | $|\mathcal{A}|<\infty$, consider a set of parametrized functions
+k37f26a | where $\mathcal{F}$ denotes a class of functions such as linear, polynomial or deep neural network function
+k686f99 | class that is parametrized by $\theta$. We make the following assumption, often called the
+k282af7 | realizability assumption.
+k47e536 | Assumption 3 (Realizability)
+k870568 | $\mathcal{Q}$ contains an optimal function $Q^*$, meaning there exists $\theta^*\in$ Θ such that $Q_{\theta}^*=Q^*$.
+@page 43
+k127713 | Solving minimax optimization via gradient ascent-descent
+kb156be | We would like to solve the minimax optimization problem
+ka0b440 | A canonical way of solving minimax optimization is to apply gradient $\mathrm{ascent}-\mathrm{descent}^{14}$
+kda4dbf | Initialize with arbitrary $\zeta_{\theta 1}$ and $Q_{\theta 2}$
+kbd5d7e | Alternative between maximizing for $\zeta_{\theta 1}$ and minimizing for $Q_{\theta 2}$
+k2b8ed4 | $^{14}\mathrm{Yang}$ et al., “Global convergence and variance-reduced optimization for a class of nonconvex-nonconcave minimax problems”
+@page 45
+k9a5f24 | When is GLADIUS globally optimal?
+k429f92 | Definition 4 (Polyak-L�ojasiewicz (PL) condition with respect to $\ell_2$ norm)
+k62e06b | Given Θ $\in\mathbb{R}^{d\theta},a$ function $g:\Theta⟦?⟧\to\mathbb{R}$ is said to satisfy the Polyak-L�ojasiewicz (PL) condition
+kdca379 | with respect to $\ell_2$ norm if $g$ has $a$ nonempty solution set and $a$ finite minimal value $g(\theta^*)$ for
+ka0af03 | $\theta^*\in\Theta\subseteq\mathbb{R}^d$, and there exists some $c>0$ such that $_2^1∥\nabla g(\theta)∥_2^2\geq c(g(\theta)-g(\theta^*)),\forall\theta\in\Theta$.
+@page 47
+k17902b | Lemma 7 (Yang et al., 2020)
+k7c8222 | $A$ minimax optimization of function $f(\theta_1,\theta_2)$ (minimizing for $\theta_1$, maximizing for $\theta_2)is$
+k2e7466 | guaranteed to converge to $a$ global minimum ⟪through⟫ gradient ascent-descent ⟪if the function⟫
+k3948da | satisfies the ⟪PL condition⟫ in terms of both $\theta_1$ and $\theta_2$.
+ka53583 | Corollary 8
+k2231e9 | GLADIUS achieves global optimality if
+kacb5ca | satisfies PL in terms of both $\theta_1$ and $\theta_2$.
+@page 48
+kf783b3 | Is GLADIUS globally optimal?
+k545185 | Lemma 9
+ka0dfe4 | ⟪For⟫ linear function and $a$ Neural network parametrization ⟪of $QasQ_{\theta},\mathcal{L}_{NLL}(Q_{\theta})(s,a)$ and⟫
+kf43274 | $\mathcal{L}_{BE}(Q_{\theta})(s,a)$ satisfies PL condition with respect to $\theta$.
+k070de3 | Lemma 10
+k627aa9 | ⟪For⟫ linear function and $a$ Neural network parametrization ⟪of $Q$ and $\zeta$, the expected risk and⟫
+k346d34 | the empirical risk both satisfy the PL condition with respect to $\theta_1$ and $\theta_2$.
+k59f525 | Theorem 11 (Global optimality of GLADIUS)
+k2b919e | ⟪For⟫ linear function and $a$ Neural network parametrization ⟪of $Q$ and $\zeta$, the above equation⟫
+kef6c72 | satisfies PL for both $\theta_1$ and $\theta_2$. That is, ⟪GLADIUS achieves global optimality.⟫
+@page 49
+k5404db | Statistical analysis
+k93535f | Lemma 12 (Charles and Papailiopoulos (2018), Lei (2023))
+k3f556f | Define N-sampled dataset as $\mathcal{D}_N$. Also, define the minimum of empirical risk $\mathcal{R}_{emp}(\theta)as$
+k3e03c4 | $\theta_{\mathcal{D}N}^*.If\mathcal{R}_{emp}(\theta)$ satisfies PL in terms of $\theta$,
+k992046 | where $\sigma$ is specified in the paper.
+@page 50
+kcd5042 | Theoretical Results for GLADIUS – A Summary
+k02b9e1 | Theorem 13 (Global convergence)
+ke12646 | Under Assumption 3, for linear and neural network parametrization of $Q$ and $\zeta$,
+k535b24 | where $T$ is the number of gradient steps, $N$ is the sample size, and the values of constants $\gamma$,
+kd8301e | $\nu$, and $\sigma$ are specified in the paper.
+k827961 | This is  «This is $O(1/T)$ and $O(1/N)$ rate convergence (par existing parametric methods)»
+#= kcffa50 | and  ⇒ 以及
+ke2ccff | rate convergence (par existing parametric methods)  «This is $O(1/T)$ and $O(1/N)$ rate convergence (par existing parametric methods)»
+@page 52
+k8e3494 | Simulation
+@page 55
+k9979bf | Performance test
+@page 61
+k557b2d | Why does this happen?
+@page 62
+k949e82 | Reason 1. GLADIUS does well only in the frequently occurring regions
+@page 63
+kbda8e2 | Reason 2. Estimation difficulty under data imbalance
+k7587a2 | This is a well-known issue in RL $^{15}$: “The use of $a$ projection operator onto $a$ space of function
+kea7b97 | approximators with respect to $a$ distribution induced by the behavior policy can result in poor
+k634e22 | performance if that distribution does not sufficiently cover the state space.”.
+keb13d3 | $-$ ⟪i.e.,⟫ extrapolation to data-poor regions =
+k1b60f0 | $-$ All trajectories start from mileage 1. Also, the replacement action (action 0) resets the
+ka276f1 | mileage to 1. Therefore, most states observed in the expert data are within mileage 1-5.
+kd43363 | $^{15}\mathrm{Tsitsiklis}$ and Van Roy, “Analysis of temporal-difference learning with function approximation”, NeurIPS 1996
+@page 64
+k94b03c | Scalability
+@page 65
+k5f96ff | Scalability test result
+@page 66
+k12b71c | Summary
+kf6cc1d | We want a ⟪scalable⟫ DDC method. Combine with non-parametric (e.g., ML) methods?
+kf7664e | Fitted fixed-point iteration methods are provably unstable.
+k3b7434 | No globally optimal convergent gradient-based method exists.
+k1de70b | In this study, we propose one!
+keb9c6e | ⟪Global optimally convergent,⟫ e.g., even with Neural Network parametrization
+k6f0171 | Nice ⟪empirical performance⟫ for standard benchmark
+kc3f31b | ⟪Scales well⟫ up to $10^{100}$ states $(\gg$ \# of atoms in the universe), losing only 10\% precision
+@page 67
+k5f1cc9 | Further discussions
+k6c69d9 | Q: How is it possible to identify the rewards if the ⟪data size is far smaller than $10^{100}$ states?⟫
+k81ead6 | A: Think of it like fitting a smooth sheet to a few measured points on a landscape: once
+k30c275 | you know how the sheet bends, you can read offthe height anywhere without having
+k3fd335 | measured every spot. The sheet is controlled by only a few-thousand adjustable “knobs”
+k91281f | ⟪(neural network weights).⟫ Sample size we need depends on the knob structure complexity.
+kdf498a | Q: Given rˆ, don’t we anyway need explicit estimation of $P$ for ⟪counterfactual analysis?⟫
+ke3f513 | $-$ A: No, given dataset $\{s_0,a_0,s_1,a_1\ldots \}$, we now have $\{s_0,a_0,r\mathrm{ˆ}(s_0,a_0),s_1,a_1,r\mathrm{ˆ}(s_1,a_1)\ldots \}$.
+k72b095 | Given a counterfactual scenario (e.g., a reward intervention), ⟪we can apply offline RL⟫
+k4e787e | ⟪algorithms directly⟫ to recover the corresponding counterfactual optimal policy.
+@page 68
+k7a5124 | Future extensions
+kf80086 | The proposed method can be extended to address the ⟪unobserved heterogeneity.⟫
+k893799 | Adapting to unobserved heterogeneity is often called “in-context learning (ICL)” in ML
+k6cda63 | We can implement ICL given a gradient-based estimation method $^{1617}$
+k981aee | In this paper, we propose one, so we can implement ICL! (A working paper coming soon!)
+k9aa80a | ⟪The PL condition proof can be extended for⟫ offline reinforcement learning (offline RL)
+kcabf93 | No gradient-based offline RL method has been proven to be globally convergent
+k5e5ed4 | The results in this paper can be easily extended (A working paper coming soon!)
+kb2371c [2L] | $^{16}\mathrm{Ahn}$ et al. “Transformers learn to implement preconditioned gradient descent for in-context learning.” NeurIPS23 $^{17}\mathrm{Wang}$ et al. “Transformers learn temporal difference methods for in-context reinforcement learning.”, arXiv:2405.13861.
+@page 69
+k17d1fe | Thank you for listening!
+kc94767 | Special thanks to John Rust for the kind invitation to give this talk and for his detailed and
+k36fe81 | insightful comments on the paper. Many thanks as well to the DSE organizers for their
+kbb1069 | excellent coordination.

@@ -1,0 +1,769 @@
+# Schjerning, Lecture 3: NFXP algorithm for estimation of equilibrium models — 中文译文
+@page 1
+k6857ff | 第 3 讲：用于估计均衡模型的
+k50cfc2 | 嵌套不动点（NFXP）算法
+@page 2
+k5bcd86 | 第一部分
+k5b291f | 嵌套不动点算法（NFXP）
+k44818f | Rust（ECTA，1987）：
+kd4019a | =
+k7e7b6d | =
+k167d27 | Harold Alois Zuercher，1926 年 6 月 16 日—2020 年 6 月 21 日（94 岁）
+@page 3
+kc0aa8e | 谁会关心 Harold Zurcher？
+k2fd96e | 职业选择（Keane and Wolpin，JPE 1997）
+kd219f3 | 退休（Rust and Phelan，ECMA 1997）
+k260651 | 品牌选择与广告（Erdem and Keane，MaScience 1996）
+kb20935 | 大学专业选择（Arcidiacono，JoE 2004）
+k7f0672 | 个人迁移决策（Kennan and Walker，ECMA 2011）
+k59a1d2 | 高中入学与工作决策（Eckstein and Wolpin，ECMA
+ke423b6 | 促销与消费者库存行为的动态（Hendel and Nevo，ECMA 2006）
+ke451a7 | 经验品市场中的广告、学习与消费者选择（Ackerberg，IER 2003）
+kde523c | 路径选择模型（Fosgerau et al，Transp. Res. B）
+k7c33d6 | 生育与劳动供给决策（Francesconi，JoLE 2002）
+kc9c681 | 居住地与工作地选择（Buchinsky et al，ECMA 2015）
+k7f3f9b | 不同等候名单设计下的均衡分配：来自已故捐献者肾脏的证据（Agarwal et al，ECMA 2021）
+k482a6e | 汽车的均衡交易⟪（Gillingham et al，JPE 2022）⟫
+kc0df83 | ……还有很多
+@page 6
+k03ad3a | 动态结构计量经济学的“巨无霸指数”
+@page 7
+k345878 | Zurcher 的公交车发动机更换问题
+k90ba25 | ⟪选择集：⟫二元选择集，$C(x_t)=\{0,1\}$。
+k406ab0 | 更换发动机（$d_t=1$）或常规维护（$d_t=0$）
+kd3210e | ⟪状态变量：⟫Harold Zurcher 观测到 $s_t=(x_t,\varepsilon_t)$：
+k619f5f | $x_t$：自上次发动机大修/更换以来，到 $t$ 期的里程
+k3dd161 | $\varepsilon_t=[\varepsilon_t(d_t=0),\varepsilon_t(d_t=1)]$：决策特定的状态变量
+ka4a3f6 | ⟪效用函数：$U(x_t,\varepsilon_t,d_t;\theta_1)=$⟫
+k08b2d1 | 状态变量过程
+ka0b42c | $\varepsilon_t$ 独立同分布，条件密度为 $q(\varepsilon_t|x_t,\theta_2)$
+k5d43f3 | $x_t$（自上次更换以来的里程）
+k21182a | 若更换发动机，公交车的状态重置为 $x_t=0$。
+kcd186d | 待估参数 $\theta=(RC,\theta_1,\theta_3)$
+kdcbce4 | （固定参数：$(\beta,\theta_2)$）
+@page 8
+kddd849 | 最大化问题的递归形式
+ka9582d | Bellman 方程
+k1ad021 | 期望是在给定受控运动规律 $p(s'|s,d)$ 时，对下一期状态 $s'=(x',\varepsilon')$ 的取值求取的
+k98dbf4 | 其中 $\varepsilon=(\varepsilon(1),\ldots,\varepsilon(J))\in R^J$
+k8bf758 | 难以计算满足 $T(V)=V$ 的不动点 $V$
+kd6d864 | $x$ 是连续的，$\varepsilon$ 是连续的且为 $J$ 维
+kff5243 | $V(x,\varepsilon)$ 是高维的
+k977d3f | 计算 $E$ 可能需要高维积分
+k352231 | 计算 $V(x',\varepsilon')$ 可能需要高维插值/近似
+kae04a9 | $V(x,\varepsilon)$ 不可微
+@page 9
+kd86264 | Rust 的假设
+k5e2457 | 偏好的可加可分性 **(AS)**：
+k9b6a21 | 条件独立 **(CI)**：
+k3bdbe4 | 状态变量 $s_t=(x_t,\varepsilon_t)$ 服从（条件独立的）受控马尔可夫过程，其概率密度为
+k0d2326 | $\varepsilon$ 服从第一类极值分布（EV1）**(EV)**
+k07d2eb | 每个选择特定的状态变量 $\varepsilon_t(d)$ 都假设独立同分布，服从极值分布，其 CDF 为
+k49e4ec | $F(\varepsilon_t(d);\mu,\lambda)=\exp(-\exp(-(\varepsilon_t(d)-\mu)/\lambda))$，$\varepsilon_t(d)\in R$
+ke1de74 | 其中 $\mu=0$，$\lambda=1$
+@page 10
+kd31665 | Rust 的假设简化了 DP 问题
+kd33f13 | 分离出选择特定价值的确定性部分 $v(x,d)$（假设 AS 与 CI）
+k9211e1 | 在约简后的状态空间上重新表述 Bellman 方程（假设 CI）
+k36c330 | 利用 EV1 的性质计算最大值的期望（假设 EV）
+@page 11
+kd6cd4b | AS 与 CI 下的 DP 问题
+kd6a8f2 | 分离出选择特定价值的确定性部分 $v(x,d)$
+k4366fe | 于是
+@page 12
+k636ba4 | 2a. 期望价值函数空间中的 Bellman 方程
+kc445ed | 令 $EV(x,d)=E\left[V(x',\varepsilon')\mid x,d\right]$ 表示期望价值函数。
+ka5cec9 | 由于 CI，可以在期望价值函数空间中表述 Bellman 方程
+kb7bc72 | $\Gamma$ 是压缩映射，有唯一不动点 $EV$，即
+k99270f | VFI / SA 全局收敛
+k590b53 | $EV(x,d)$ 维数较低：不依赖于 $\varepsilon$
+@page 13
+kf3c44a | 2b. 积分价值函数空间中的 Bellman 方程
+k75a9e0 | 令 $\bar{V}(x)=E\left[V(x,\varepsilon)\mid x\right]$ 表示积分价值函数
+k771930 | 由于 CI，可以在积分价值函数空间中表述 Bellman 方程
+k389794 | $\bar{V}(x)=\bar{\Gamma}(\bar{V})(x)\equiv\int V(x,\varepsilon)q(\varepsilon|x)d\varepsilon$
+k9cbc7e | $\bar{\Gamma}$ 是压缩映射，有唯一不动点 $\bar{V}$，即
+k4c9f8e | $\bar{V}(x)$ 维数较低：不依赖于 $\varepsilon$ 和 $d$
+@page 14
+k5e8d14 | 在 EV 下计算最大值的期望
+ka50d0d | 可以利用 EV1 分布的性质表示最大值的期望（假设 EV）
+k5e56c5 | 最大值的期望 $\bar{V}(x)$ 可以表示为“对数和”
+kfcf87e | 条件选择概率 $P(x,d)$ 有闭式的 logit 表达式
+k1ad4b3 | 巨大的好处
+ka8ca7d | 避免对 $\varepsilon$ 进行 $J$ 维数值积分
+ka1e9ee | $P(d|x)$、$\bar{V}(x)$ 与 $EV(x,d)$ 都是光滑函数。
+@page 15
+k1c9ac1 | AS、CI 与 EV 下的 DP 问题
+k39b9d3 | 把这些放在一起
+kdaa36d | 条件选择概率（CCP）为
+k53f6a1 | 期望价值函数可以作为压缩映射 $\Gamma_\theta$ 的唯一不动点求得，$\Gamma_\theta$ 定义为
+k91f2be | 我们用下标 $\theta$ 强调 Bellman 算子 $\Gamma_\theta$ 依赖于参数。
+kba469f | 相应地，不动点 $EV_\theta$ 及由此得到的 CCP $P(d|x,\theta)$ 都是待估参数的隐函数。
+@page 16
+k827ede | 如何处理连续的里程状态？
+k7d0fde | Rust 将里程状态空间⟪$x$ 离散化为 $n$ 个网格点⟫
+k0e2218 | $X=\{x_1,\ldots,x_n\}$，其中 $x_1=0$
+k29bbb8 | 里程转移概率：对 $l=0,\ldots,L$
+k8cc886 | 其中 $\theta_3=[\theta_{3,1},\ldots,\theta_{3,L}]$，$\theta_{3,0}=1-\sum_{l=1}^L\theta_{3,l}$，且 $\theta_{3,l}\geq0$
+k46a6de | 下一期的里程 $x'$ 最多上移 $L$ 个网格点。
+k841dce | $L$ 由里程的经验分布确定。
+@page 17
+ka54936 | $L=2$ 时里程的状态转移矩阵
+ka1cb3a | =
+@page 18
+k8d3bca | 矩阵形式的 Bellman 方程
+k6abd6a | ⟪期望价值⟫函数空间中的 Bellman 方程
+k269eb6 | =
+k46b1bc | ⟪积分价值⟫函数空间中的 Bellman 方程
+kcadb86 | =
+k9cfc44 | $\Pi(d)$ 是以决策 $d$ 为条件的 $n\times n$ 状态转移矩阵
+@page 19
+k8b7ce3 | Rust 假设下的结构估计
+k67f076 | ⟪数据：$(d_{i,t},x_{i,t})$，$t=1,\ldots,T_i$⟫，$i=1,\ldots,N$
+ka8b93a | 对数似然函数
+@page 20
+kb3400d | 嵌套不动点算法
+k1266ec | 由于压缩映射 $\Gamma_\theta$ 总有唯一的不动点，约束 $EV_\theta=\Gamma(EV_\theta)$ 意味着不动点 $EV_\theta$ 是 $\theta$ 的隐函数。
+k1f60b2 | 因此，NFXP 求解无约束最优化问题
+k236eff | 外层循环（爬山算法）：
+k56f27d | 对 $\theta$ 最大化似然函数 $L(\theta,EV_\theta)$
+kb2fa34 | 拟牛顿算法：通常为 BHHH、BFGS 或二者结合。
+k1a3b47 | 每次计算 $L(\theta,EV_\theta)$ 都需要求解 $EV_\theta$
+ka84c5c | 内层循环（不动点算法）：
+k7e66a4 | 由 $EV_\theta=\Gamma(EV_\theta)$ 定义的隐函数 $EV_\theta$ 用以下方法求解：
+kbbb5c7 | 逐次逼近（SA）/ 价值函数迭代（VFI）
+k503c60 | Newton-Kantorovich（NK）迭代
+@page 21
+kc6ef6a | 结构估计结果，$\mathrm{n}=175$
+@page 22
+k81b854 | MATLAB 实现，$\mathrm{n}=175$（复现 Table X）
+ka6dfe4 | run\_busdata.m 的输出：
+@page 23
+kee1b9d | 估计的风险函数
+@page 24
+k4e7be5 | 均衡公交车里程与发动机需求
+k574225 | 令 $\pi$ 为受控过程 $\{i_t,x_t\}$ 的长期平稳（即均衡）分布
+k0051fc | 于是 $\pi$ 由如下函数方程的唯一解给出
+k7d0106 | $\pi$ 是受控状态转移矩阵的遍历分布
+kea45af | 显然，$\pi$ 的均衡分布是结构参数 $\theta$ 的隐函数，我们用记号 $\pi_\theta$ 强调这一点
+k1eb6ad | 给定 $\pi_\theta$，还可以得到年度均衡发动机需求作为 $RC$ 的函数的简单公式
+@page 25
+kea4853 | 均衡公交车里程，公交车组 4
+@page 26
+kd74bc7 | 需求函数，公交车组 4
+@page 27
+ke631c6 | 带均衡约束的数学规划
+k5c7be3 | MPEC 求解约束最优化问题
+k216067 | =
+k00869a | 使用 KNITRO 等通用约束优化求解器
+k57de88 | Su and Judd（ECMA，2012）考虑了两种实现：
+k216b3d | MPEC/AMPL：
+k23da7a | AMPL 构建问题并将其传给 KNITRO。
+kf1ec3a | 自动微分（雅可比矩阵与黑塞矩阵）
+ke0adda | 雅可比矩阵与黑塞矩阵的稀疏模式
+k7ce024 | MPEC/MATLAB：
+k261de2 | 用户需要提供雅可比矩阵、黑塞矩阵与稀疏模式
+k575bad | Su and Judd 没有提供解析导数。
+k5e726c | ktrlink 提供 MATLAB 与 KNITRO 求解器之间的接口。
+k4b46b6 | =
+ka343e5 | =
+@page 28
+k8916e2 | 蒙特卡洛：Rust 的 Table X——第 1、2、3 组
+k14a60f | Su and Judd（ECMA，2012）对 NFXP 与 MPEC 进行了正面比较
+k2eccad | 实验设计
+keb4187 | 不动点维数：$n=175$
+k4b1680 | 维护成本函数：$c(x,\theta_1)=0.001*\theta_1*x$
+k67eb4c | 里程转移：停留或最多上移 $L=3$ 个网格点
+k104937 | 真实参数值：
+kc871c0 | 在真实参数值处求解⟪EV⟫
+k026747 | 模拟 250 个数据集，每个包含 50 辆公交车 10 年的月度数据
+@page 29
+ke96731 | NFXP 是恐龙级的老方法吗？
+@page 30
+kcb9d05 | NFXP 的“心肺复苏”
+k7f693c | ⟪第 1 步：⟫阅读 NFXP 手册并打印 NFXP 口袋指南 ⏎ ⟪第 2 步：⟫对 logit 与对数和公式进行再中心化
+k8f4bfd | ⟪第 3 步：⟫使用不动点多重算法（SA+NK）
+k0854a1 | ⟪第 4 步：⟫提供 Bellman 算子的解析梯度
+k251873 | ⟪第 5 步：⟫提供似然函数的解析梯度
+k9da3df | ⟪第 6 步：⟫使用 BHHH（以梯度外积近似黑塞矩阵）
+kd2b369 | 如果 NFXP 的心跳仍然微弱：
+k0e6754 | 在救援到来之前，反复阅读 NFXP 口袋指南！
+@page 32
+kf52113 | 第 1 步：NFXP 文档
+k5d20d0 | 参考文献
+kff7b72 | =
+k3636ff | =
+ka74fe8 | =
+@page 33
+k670d22 | 嵌套不动点算法
+kf259d6 | NFXP 文档手册第 6 版（Rust 2000，第 18 页）：
+k6e9a0c | 形式上，可以把嵌套不动点算法看作求解如下约束最优化问题：
+k0d73f6 | =
+k1483fa | 由于压缩映射 $\Gamma$ 总有唯一的不动点，约束 ⟪$EV$⟫$=\Gamma_\theta(EV)$ 意味着不动点 $EV_\theta$ 是 $\theta$ 的隐函数。因此，约束最优化问题 (3) 化简为无约束最优化问题
+k8d96e5 | 其中 $EV_\theta$ 是由 $EV_\theta=\Gamma(EV_\theta)$ 定义的隐函数。
+@page 34
+kbab712 | NFXP 口袋指南
+@page 35
+k71cf2c | 第 2 步：再中心化以保证数值稳定
+kc37d35 | logit 公式必须再中心化。
+k0966da | “对数和”也必须再中心化
+ke74be1 | 若选择 $v_0=\max_j v_j$，就可以避免上溢/下溢造成的数值不稳定
+@page 36
+k9148e3 | 第 3 步：使用不动点多重算法（SA+NK）
+k97579e | ⟪问题：⟫求压缩映射 $\Gamma_\theta$ 的不动点
+k17fcc7 | 不动点多重算法：
+ked9c95 | 通过压缩迭代进行逐次逼近（SA）：
+k59356c | 误差界：$||EV_{k+1}-EV||\leq\beta||EV_k-EV||$
+kb40763 | $\to$ 线性收敛 $\to$ 当 $\beta$ 接近 1 时很慢
+kc270bf | Newton-Kantorovich（NK）迭代：
+ka86a28 | 用牛顿法求解 $F=[I-\Gamma](EV_\theta)=0$
+k39cadd | $\Gamma'_\theta$ 是 $\Gamma_\theta$ 的 Fréchet 导数
+k2389ee | $I$ 是 $B$ 上的恒等算子
+k6cd2f0 | 0 是 $B$ 中的零元
+k7dfd97 | 误差界：$||EV_{k+1}-EV||\leq A||EV_k-EV||^2$
+k821954 | $\to$ 在不动点 $EV$ 附近二次收敛
+@page 37
+k72c104 | 逐次逼近，$\beta=0.9999$
+k6332fd | =
+ked8fa0 | =
+ke829f5 | =
+k02d6df | =
+k0459be | =
+k580a77 | 观察：
+kfdf100 | 由于压缩性质，容差总在改善
+k9dc11d | 当 $\beta$ 接近 1 时，$tol_k$ 很快放缓，下降得非常慢
+k5af746 | 相对容差 $tol_{k+1}/tol_k$ 趋近于 $\beta$
+@page 38
+k3e9af1 | 逐次逼近——当 $\beta$ 接近 1 时非常慢
+@page 39
+k0ecf8a | 逐次逼近——线性收敛
+@page 40
+kc333fe | Newton-Kantorovich 迭代，$\beta=0.9999$
+k98ed93 | =
+k483efe | =
+k675bcb | =
+k014f8a | =
+k106eb0 | =
+k3209e7 | =
+k0f1f82 | =
+k06190f | =
+kcb9778 | 二次收敛！
+k6e5af0 | 一旦进入吸引域，速度非常快
+@page 41
+k9a5aee | Newton-Kantorovich 迭代——二次收敛！
+k637d46 | 误差界与迭代次数
+k9ac706 | log(误差界)
+keff4e9 | =
+kc5fd94 | 迭代次数
+@page 42
+k188dcc | 何时切换到 Newton-Kantorovich？
+kaac608 | 假设 $EV_0=EV+k$。
+k3f501e | （初始 $EV_0$ 等于不动点 $EV$ 加上一个任意常数）
+kb0c467 | 再做一次逐次逼近并不能解决这个问题：
+k3eadc7 | $tol_0=\|EV_0-\Gamma(EV_0)\|=\|EV+k-\Gamma(EV+k)\|$
+k71cbcb | $tol_1=\|EV_1-\Gamma(EV_1)\|=\|EV+\beta k-\Gamma(EV+\beta k)\|$
+k3fad77 | 牛顿法会立即“剥离”无关的常数 $k$
+ka49ae8 | 只要 $tol_1/tol_0$ 足够接近 $\beta$，就切换到牛顿法
+@page 43
+kac8437 | 不动点（多重）算法
+k95a4f6 | 不动点多重算法
+kca25b7 | 逐次压缩迭代
+kfee160 | 直到 $EV_k$ 进入吸引域
+kec7397 | （即当 $tol_{k+1}/tol_k$ 接近 $\beta$ 时）
+k8e7bf4 | Newton-Kantorovich（二次收敛）
+ka1cf39 | 直到收敛
+kc807f3 | （即当 $\|EV_{k+1}-EV_k\|$ 接近机器精度时）
+@page 44
+k5d1cac | 第 4 步：Bellman 算子的解析导数
+kc84291 | Bellman 算子的导数 $\bar{\Gamma}'$
+kd43c67 | NK 迭代需要用到
+kf1bedb | 在离散化近似中，$\bar{\Gamma}'$ 是 $n\times n$ 矩阵，由 $n\times1$ 向量函数 $\bar{\Gamma}(V_\theta)$ 对 $n\times1$ 向量 $\bar{V}_\theta$ 的偏导数构成
+k44442f | $\bar{\Gamma}'_\theta$ 就是 $\beta$ 乘以以选择概率加权的状态转移概率矩阵
+kcdb683 | MATLAB 中只需一行代码
+kfaf5ff | 对 $\Gamma'$ 可以推导出类似的矩阵
+@page 45
+k2a1eed | 第 1—4 步：$\bar{\Gamma}_\theta$ 与 $\bar{\Gamma}'_\theta$ 的 MATLAB 实现
+k6809a8 | =
+k403bf9 | =
+kb39cc2 | \% 保留的价值
+kbe45f3 | \% 更换的价值
+k238dfb | \% 再中心化对数和
+kff9cad | =
+kdc9bf9 | =
+k12f703 | \% 如有需要，计算保留的概率
+kfaa443 | =
+k3785f7 | =
+k7a92f3 | =
+ke26d0b | =
+k5a3eb9 | =
+@page 46
+k975210 | 第 1—4 步：$\Gamma_\theta$ 与 $\Gamma'_\theta$ 的 MATLAB 实现
+k2c85e0 | =
+kdc6463 | =
+kbd37e5 | \% 保留的价值
+k5b95d3 | =
+k02c175 | =
+ke1f6bb | =
+k145125 | \% ev(1) 是更换的期望价值
+k6ec31f | \% 如有需要，同时计算选择概率
+k0a9058 | =
+k955575 | \% 对 ev(1) 求导时加上额外一项，
+kc20235 | =
+@page 47
+k747630 | 第 5 步：提供似然函数的解析梯度
+k536e37 | 简单地使用链式法则：
+k4c4f81 | 梯度（对效用参数）——与标准 logit 类似
+k8dfe46 | 选择特定价值函数的导数
+kf58e88 | $\partial u(j)/\partial\theta_1$ 很容易计算
+k24e969 | $\partial\bar{V}_\theta/\partial\theta$ 可以由隐函数定理得到
+k8c34ee | ⟪其中 $[I-\bar{\Gamma}'_\theta]^{-1}$ 是⟫ N-K 算法的副产品！！！
+ke21e4a | Bellman 算子对 $\theta_1$ 的导数
+k0960f3 | 其中 $\cdot$ 表示逐元素相乘
+@page 48
+k31f429 | 第 5 步：得分的 MATLAB 实现
+kb2ff2b | =
+k8e0cd8 | =
+k7db4ca | \% 计算得分（使用链式法则——分三步）
+k767bee | =
+kd7b795 | =
+k0b923d | =
+k90d79f | =
+k028926 | =
+k3e5ce0 | =
+kbf9f4e | =
+k5ae983 | =
+@page 49
+k30724f | 第 6 步：BHHH
+k3e16e2 | 回顾 Newton-Raphson
+k080af7 | Berndt, Hall, Hall, and Hausman（1974）：
+k1e2cdf | 用得分的外积近似黑塞矩阵
+kb85605 | ⟪为什么这样做是合理的？⟫信息等式：
+kb41907 | （若模型设定正确，对 MLE 成立）
+@page 50
+kbf16e3 | 有时线搜索也帮不了牛顿法
+kba6823 | 非凹的似然
+kb48651 | 凸区域：
+k0cb808 | Newton−Raphson 朝梯度的
+k60b24f | 反方向移动
+ke2b533 | NR 向下坡移动（方向完全错了）
+k384a1a | 凹区域：
+ka4d278 | BHHH：依然很好
+k62293d | Newton−Raphson 朝梯度的
+k3bffea | NR 向上坡移动
+@page 51
+k98b9cd | 优点
+kbb006e | $\Sigma_i s_i s'_i$ 总是正定的
+kdf0f64 | 即当 $\lambda$ 足够小时，它总是向上坡移动
+k5f8ddf | 不依赖二阶导数
+k0fe24d | 缺点
+ke6759b | 只是好的近似
+kd83cfa | 在真实参数处
+k9cd6ae | 当 $N$ 较大时
+k7d07de | 对设定正确的模型（原则上只对 MLE 成立）
+k32f935 | 只有超线性收敛——不是二次收敛
+kc3d9a4 | 可以在最初几次迭代中使用 BHHH，然后在迭代开始收敛时切换到 BFGS 进行更新，以得到对黑塞矩阵更准确的近似。
+@page 52
+k8ed38d | 可以在最初几次迭代中使用 BHHH，然后在迭代开始收敛时切换到 BFGS 进行更新，以得到对黑塞矩阵更准确的近似。
+@page 53
+k74b1ca | 用 BHHH！
+@page 54
+ke6d0a6 | 收敛！
+k61fee3 | =
+k743dad | =
+kf03b60 | =
+kcb0eeb | =
+ke5a9fa | =
+k66c1ff | =
+ke8510e | =
+ke7a325 | =
+k6e1176 | =
+k57fdad | =
+ka2b635 | =
+@page 55
+kc80557 | MPEC 与 NFXP-NK 的比较：样本量 6,000
+k02ec64 | 收敛
+k5038fd | CPU 时间
+k43abfe | 主迭代
+ke8b492 | 函数
+k0cf025 | Bellman
+k4eb50a | N-K
+kbbaa43 | （共 1250 次）
+kbf767e | （秒）
+kc349b5 | 次数
+k1f81d5 | 计算次数
+k6e4a1e | =
+k3419e1 | =
+kea6e69 | =
+@page 56
+k89d7f2 | 总结
+k3506fe | Su and Judd（Econometrica，2012）使用了一种低效的 NFXP 版本，
+kd65cb1 | 它只依靠逐次逼近法来求解不动点问题。
+ke484b4 | 使用 Rust（1987）提出的高效 NFXP 版本，我们发现：
+k1b2907 | 当样本量相对较小时，MPEC 与 NFXP-NK 的表现相近。
+k73f16b | 当 $\beta\to1$ 时，NFXP 不会变慢
+kc11876 | MPEC 的优点
+kc1fb32 | 对于不想花时间编写实现 NFXP-NK 所需的专用程序的人来说，它容易使用。
+k6fa377 | 可以很容易地用直观的 AMPL 语言实现。
+kbe561e | 推断
+k007afd | NFXP：通过对无约束似然的黑塞矩阵（NFXP 的副产品）求逆，可以轻易计算标准误。
+kd0dbf2 | MPEC：标准误可以通过对加边黑塞矩阵求逆计算。⏎ Reich and Judd（2019）：提出了计算置信区间的简单而有效的方法。
+k3ae4e6 | 估计生命周期模型时，MPEC 似乎并不合适
+@page 57
+k89b22d | 第二部分
+kaa3da9 | 汽车的均衡交易
+ka1e662 | （JPE，2022）
+k518e5d | 双重嵌套不动点算法（DNFXP）
+kd95c96 | Kenneth Gillingham，$^{\text{耶鲁大学}}$，
+k0ebe67 | Fedor Iskhakov，
+k69fcff | 澳大利亚国立大学
+ka03e7c | Anders Munk-Nielsen，
+k5ca464 | 哥本哈根大学
+k1b4c62 | John Rust，
+kbb3e75 | ，以及
+kbb696a | 乔治城大学
+k2624e0 | Bertel Schjerning，
+@page 58
+kaa87d2 | 在丹麦一辆沃尔沃多少钱？
+@page 59
+k200f6e | 约 200,000 美元！
+ka0efb9 | 美国建议零售价：62,350 美元
+@page 61
+k35f63d | 丹麦汽车登记税：180\%！（另加 25\% 增值税）
+@page 62
+k54318b | 丹麦的汽车税
+ka51a27 | **年收入：**300—500 亿丹麦克朗
+kbff709 | $\sim=2-3$ 个百分点的 GDP
+kd6d9cb | $\sim=4-7$ 个百分点的总税收
+kda37f3 | 大部分收入来自对新车所有权和登记的征税。
+kc5f592 | 汽车使用税（燃油税）并不特别高
+ka08f39 | **政策问题：**把汽车税从购置环节转向使用环节会有什么影响？
+kb39366 | **我们的主要实证发现：**丹麦的新车税已越过拉弗曲线的顶点。我们找到了能改善福利的税收政策：降低新车税、提高燃油税，从而提高消费者福利和政府税收，并减少 $\mathrm{CO}_2$ 排放。
+@page 63
+k452031 | 汽车的均衡交易
+kdd9fe0 | 一个易于处理的新车与二手车交易动态均衡模型
+k6e3153 | 汽车
+kec4a8f | 最初在一级市场作为新车出售，此后在（二级）二手车市场交易，直至最终报废
+k3941e3 | $j\in\{1,\ldots,J\}$ 标记车型（例如品牌/型号）
+k15dd1c | $a\in\{1,\ldots,\bar{a}\}$ 标记所交易汽车的车龄。
+kba38ef | 消费者
+k2d7944 | 驾驶决策：⟪开多少⟫
+k0d68aa | ⟪所有权决策：⟫购买、更换、交易与报废决策
+k210ef0 | ⟪无限期存活⟫，最大化期望贴现效用
+k8b719c | ⟪异质性：⟫选择特定的 IID EV/GEV 偏好冲击，以及离散类型 $\tau$
+kf41653 | 均衡
+k9a70b9 | ⟪内生的⟫二手车价格 $P$ ⟪与⟫所有权分布 $q$
+@page 64
+ka6b4b8 | DNFXP 算法（路线图）
+k5d22fc | **外层优化：**对 $\theta$ 进行极大似然搜索
+k6e2407 | **内层均衡求解：**求价格 $P^\star$，使 $ED(P^\star,q(P^\star))=0$
+k6eea41 | **超额需求：**$P$ 的每个试验值都需要
+k1853f2 | 在给定 $P$ 时求解单个决策者的 DP/不动点
+k33d5a3 | 计算转移矩阵 $\Omega(P)$ 与 $Q$
+kcd422c | 求平稳的持有分布 $q(P)$：$q=q\Omega(P)Q$
+kfe98a5 | 计算超额需求 $ED(P,q(P))$
+@page 67
+k451917 | 汽车所有权的效用与消费者异质性
+kb30e8d | 效用 = $u(i,a)-\mu\left[\text{运营成本}+\text{交易与交易成本}\right]+\epsilon$
+k0d26e7 | 汽车效用 $u(i,a)$ 是车龄 $a$ 的递减函数，反映了
+k4c2ceb | 汽车服务效用的下降
+k6ee5a3 | 维修成本的上升
+k9319ee | 货币的边际效用 $\mu$
+k52e2d7 | 具有个体特有异质性的⟪消费者⟫
+k008fee | **极值**消费者类型（偏好移动项）
+k6ef666 | 对 $\epsilon$ 采用 GEV 设定 $\to$ 嵌套选择，允许备选项之间相关
+k63d5cb | logit 选择概率与解析的期望
+@page 68
+k8e28c5 | 消费者选择树
+k042cef | $j=\varnothing$（清空）
+k070b95 | $j=\kappa$（保留）
+k12844b | $j\in\{1\ldots J\}$（更换）
+k347f76 | $s=1_s$（报废）
+k6db5f0 | $s=0_s$（出售）
+k43a3d8 | $d=0$（新车）
+k59a214 | （报废）
+kf4992c | （出售）
+@page 69
+kd9fd68 | 加强版 Zurcher：车主的交易问题
+k6e6975 | 状态
+k712332 | 现有车辆 $(i,a)$，交易车辆 $(j,d)$
+k4a895b | 当现有车辆 $(i,a)$ 被更换时，还有一个报废选择 $s\in\{0_s,1_s\}$：出售还是报废被替换的车。
+k2739f9 | 对于无车的消费者以及车辆已达最终车龄 $\bar{a}$ 的车主，有类似的递归最大化问题
+@page 70
+k1ed097 | 选择特定价值函数
+kcfcdf5 | =
+kcab0da | 当期效用
+k71429d | 未来价值
+k44f0fe | 对于无车的消费者以及车辆已达最终车龄 $\bar{a}$ 的车主，有类似的表达式
+@page 71
+kc7395b | 求解消费者问题
+kc357fe | $EV$ 空间中 Bellman 算子的不动点
+k0e8fdb | 于是条件选择概率有解析形式，类似于
+k8f4d12 | 注：CCP 隐含地依赖于汽车价格 $P$
+k4771e2 | 出售/报废决策 $s$ 是可分的⟪（详见论文）⟫
+k0ff6f0 | 用基于梯度的牛顿法、配合非常精确的初始值求解不动点
+@page 75
+k741e85 | 平稳流量市场均衡框架
+k8b5939 | 假设
+k5504af | 新车供给完全无弹性 $P_j$
+k705a82 | 报废车需求完全有弹性 $P_j$
+k29e96a | $J(\bar{a}-1)$ 个内生决定的二手车价格 $P_{jd}$
+k416357 | 定义：所有权分布
+k61eda1 | $q_{ia}$ 是持有车龄为 $a$ 的汽车 $i$ 的消费者比例
+k0b9fef | 根据时序假设，任一时期购买的新车在下一时期计为一年车龄的汽车
+kb25a9d | （因此 $q_{j0}$ 没有定义）
+@page 77
+kb2238a | 定义：平稳均衡
+k1972b3 | 一对 $q^\star\in R^{J\bar{a}+1}$ 与 $P^\star\in R^{J(\bar{a}-1)}$，使得
+k239193 | 消费者最大化期望贴现效用，
+k0f0f45 | 所有可交易汽车的二级市场出清，
+k3be3d5 | 所有权分布不随时间变化。
+k80370d | 所有权分布 $q$ 的动态由下式描述
+k7398fe | 交易转移概率矩阵 $\Omega(P)$ 由交易决策的条件选择概率构成
+k77a474 | 物理转移概率矩阵 $Q$：汽车老化 + 随机转移到最终车龄 $\bar{a}$（非自愿报废）
+k4c2aa4 | 我们在论文中还证明了这一平稳均衡的流量性质：每期报废的所有汽车，恰好由同期购买的新车数量补足
+@page 78
+kf3d717 | 交易转移概率矩阵
+k3500d2 | =
+k3fd653 | $(J\bar{a}+1)\times(J\bar{a}+1)$ 矩阵
+k76e76e | =
+k12a60a | ⟪是⟫交易阶段之后⟪汽车的⟫分布
+k08a950 | $\Delta_{ij}(P)$ 由把车 $i$ 换成车 $j$ 的选择概率构成
+k12d082 | $\Lambda_i(P)$ 由保留车 $i$ 的概率构成
+k7579f7 | $\Pi(\varnothing|\varnothing,P)$ 是保持无车状态的概率
+@page 79
+kdc585a | 物理转移概率矩阵
+k7d0190 | 汽车以概率 $1-\alpha_j$ 老化
+k3f2fcf | 以概率 $\alpha_j$ 发生全损事故
+kf08934 | 每个 $Q_j$ 块的最后一行适用于新购买的汽车
+kce3289 | =
+k5d1dff | ⟪是⟫下一期⟪的⟫所有权分布
+@page 80
+k743ed1 | 平稳的持有分布
+keb6ae9 | =
+k308ce0 | =
+k471eca | 所有权分布不随时间变化的条件：
+k6f5db6 | =
+kcfd448 | 定理（平稳所有权分布的唯一性）
+k6fd0b0 | 若 GEV 冲击分布的尺度为正，则平稳所有权分布唯一。
+@page 84
+kfaa9ea | 超额需求函数
+k49b975 | **需求：**购买给定汽车 $(j,d)$ 的消费者比例：
+k515442 | **供给：**出售（而非报废）其汽车 $(j,d)$ 的车主比例
+kf0cbe3 | **市场出清条件**是关于所有权份额 $q$ 与价格 $P$ 的非线性方程组
+k4d9d7f | 给定平稳性条件 $q=q(P)$
+k9413ca | $J(\bar{a}-1)$ 个方程，$J(\bar{a}-1)$ 个未知数
+@page 85
+k59be22 | 平稳均衡的存在性
+k4bf40a | 定理（均衡存在性）
+k15c43a | 具有个体特有异质性消费者的汽车经济中，
+k1176ba | 平稳均衡 $(q^\star,P^\star)$ 存在，并且
+kd62903 | 均衡中有：
+k188475 | 只证明了存在性：$q^\star$ 唯一，但 $P^\star$ 是否唯一尚不清楚
+k4b36f8 | 不过在计算中没有看到任何多重性的迹象
+@page 87
+k871cbb | 如何快速计算平稳流量均衡？
+kcfba89 | 求解非线性方程组：
+k0c9250 | ⟪基于梯度的求解器！⟫（论文通过一系列引理证明，模型中所有主要对象都是价格的光滑函数）
+k026bc4 | 解析导数
+k8469f1 | **精确的初始值**来自不含交易成本的类似问题的解⟪（线性方程组，见附录）⟫
+kd8a61c | 因此使用牛顿法：
+kde0a15 | 求解 DP 问题时（Newton-Kantorovich）
+kb09f56 | 求解均衡价格时
+k2a795c | 最大化似然时
+k2e3a76 | 处处使用微积分的链式法则，由已算出的部分构建梯度
+kc81e99 | 用简单的 Matlab 实现在笔记本电脑上求解合理规模问题的运行时间（秒）
+@page 88
+ka1635e | 加入持续性的消费者异质性
+kce2aaf | 我们扩展模型，允许几种类型的消费者异质性：
+k577817 | 不随时间变化的 • 随时间变化的 • 二者结合
+k1e0e26 | 存在性定理
+k7600f5 | 计算算法⟪关于类型数是线性的⟫
+k2c45c7 | 允许消费者按汽车的车龄与类型进行分选
+ke05e7c | 富人持有更新更好的车，穷人持有更旧更差的车
+k88d9fa | ⟪交易收益⟫与更长的汽车寿命
+k83fd90 | 均衡条件只略有变化
+k991ae3 | 按类型的平稳性：$\forall\tau\ q_\tau^\star=q_\tau^\star\Omega_\tau(P^\star)Q$
+k281f6e | 加总的市场出清：$0=\sum_\tau f_\tau ED(P^\star,q_\tau^\star)$。
+k1af972 | 对类型积分后的市场出清条件
+@page 89
+k7b2f60 | 富裕与贫穷消费者之间的交易收益
+k283b75 | 富人的沃尔沃
+kf8b998 | 穷人的沃尔沃
+@page 90
+k31e813 | 示例：两类消费者的汽车持有
+kc4455c | 正常的交易成本
+kb6bbfa | 高交易成本
+k89041b | 富人 ⏎ 穷人
+kc1efcf | 人口比例
+kde8fff | 无车
+k4cbd25 | 无车
+ke4144c | 车龄
+k923ddb | 各情形下消费者的分选
+k4c7a75 | 交易成本的异质性影响
+k3ffe4f | 复现代码（见 run\_illustrations.m）：https://github.com/fediskhakov/EQB
+@page 91
+ke2927f | 示例：均衡价格——两类消费者
+k50fdde | 两类型均衡 ⏎ 单一类型：富人 ⏎ 单一类型：穷人
+k3e8248 | 价格
+k5be2fd | 高交易成本：
+kb36703 | 均衡价格与所有消费者都是富人的经济相近（许多穷人现在被挤出市场）
+kfc3995 | 交易成本限制了交易收益
+k6b5df2 | $\to$ 部分地“扼杀”了二手车市场。
+keea1ee | （汽车更早报废）
+@page 93
+k6d511b | 双重嵌套不动点 MLE 估计量
+k24fd70 | **数据：**按观测类型 $\tau$ 统计的家庭从状态 $x$（结合所有权与可观测特征）转移到 $x'$ 的次数 $N_{xx'\tau}$
+kdba205 | 令 $\theta$ 表示结构参数向量
+k9bba97 | 可观测家庭状态 $x$ 的转移概率 $\Pi(x'|x,\tau,\theta)$ 由 $\theta$ 处的选择概率与转移概率构成
+k6bc144 | （详见论文）
+kd0673e | 似然函数
+k956e9a | 似然函数的解析梯度同样依赖于微积分的链式法则和已算出的导数
+ka767b4 | 用 BHHH 算法近似黑塞矩阵
+@page 94
+ke3ba53 | 模拟一项假想税制改革的效果
+k10130c | 丹麦拟议的 IRUC 改革：
+k6a51c3 | 降低登记税，并且
+k48b85f | 提高使用税（道路收费或燃油税）。
+k1291c8 | 关心的结果：
+k270530 | 汽车所有权与车型选择的均衡动态：
+k90425f | 新车销售与二级市场交易
+k741e26 | 车队车龄与报废
+kec6be5 | 汽车存量的价值
+kdc022c | 驾驶、燃油需求与排放
+k72ebc3 | 再分配与福利
+kf34268 | 需要同时刻画这些效果
+kc6a858 | 实施反事实模拟：
+kcab871 | 用丹麦登记数据估计模型
+k74c55d | 将新车登记税率减半
+k5cf5a5 | ⟪提高燃油税⟫税率，使税收保持不变
+k627c1e | 计算经济/福利/环境方面的影响
+@page 95
+kbe18ac | 包含驾驶的效用设定
+kc23528 | 考虑如下效用函数⟪（省略下标 $i$ 与 $\tau$）⟫
+k4b4927 | $u(a,x)=u_{car}(a)+u_{drive}(a,x)+\mu[\text{交易}+\text{交易成本}]$
+k1aef97 | 所有权效用：$u_{car}(a)=\alpha_0+\alpha_1a+\alpha_2a^2$
+k4e4ae7 | 驾驶效用：
+kecdeb4 | $x$ 为驾驶公里数，$p$ 为含税的每公里成本
+k2c7d4a | ⟪参数⟫可以因车型 $i$ 与消费者类型 $\tau$ 而异
+kbb8e86 | 参数的估计值见论文及在线附录
+k1f17bd | 假设
+k91b8d7 | 汽车发生事故及其他物理损耗的概率与驾驶量 $x$ 无关。
+kcbe7c1 | $\Rightarrow$ ⟪驾驶是整个 DP 问题中的一个静态子问题⟫，可以单独求解
+@page 96
+kb87291 | 最优驾驶量
+k2e5966 | ⟪由一阶条件导出的⟫结构驾驶方程
+k549957 | 将最优驾驶量代回 $u(a,x)$
+k265b30 | $u\left(a,x^*(p,a)\right)-\mu[\text{交易}+\text{交易成本}]=$
+k852d88 | $(d_0,d_1,d_2)$ 是简约形式参数，可以用驾驶数据单独估计
+kc6a0ea | $(u_0,u_1,u_2)$ 是间接效用参数，可以与 $\mu$ 一起由动态模型识别
+k9b9e81 | 从而结构参数 $(\alpha_0,\alpha_1,\alpha_2,\gamma_0,\gamma_1,\mu,\phi)$ 可识别
+@page 97
+ke9d484 | 系数设定与估计阶段
+kd69c45 | 用最小二乘估计驾驶方程的简约形式参数 $(d_0,d_1,d_2)$
+k5f3254 | 截距 $d_0=d_0^\tau+d_0^i$，含汽车与消费者固定效应
+k9d124f | 车龄的共同系数 $d_1$
+k18b1af | 驾驶成本的系数 $d_2=d_2^\tau$，按消费者类型区分
+kce0833 | 用 DNFXP MLE 估计间接效用系数 $(u_0,u_1,u_2)$ 以及其余参数 $(\mu,\phi)$、交易成本与事故概率
+kb86638 | 截距 $u_0^\tau$ 与车龄系数 $u_1^\tau$ 按消费者类型区分
+k550154 | 货币的边际效用 $\mu_\tau$ 按消费者类型区分
+ke30326 | 事故概率按车型 $i$ 区分
+k08492d | 买方与卖方的交易成本⟪（详见论文）⟫
+kd18b4c | 反推出结构参数，以便进行反事实模拟
+@page 98
+k880652 | 模型刻画了丹麦家庭的关键特征
+k778faa | ⟪贫穷⟫家庭不拥有汽车的可能性显著高于⟪富裕⟫家庭，后者对任何车型都愿意支付更多
+k1e8c83 | ⟪夫妻⟫比⟪单身⟫更可能拥有汽车，并且对汽车的支付意愿普遍更高
+k867ccb | 与⟪通勤距离短⟫的家庭相比，⟪通勤距离长⟫的家庭相对更可能拥有汽车，对汽车的支付意愿也更高
+kdc5bd4 | 所有家庭都偏好重型车甚于轻型车、偏好棕色车（高油耗）甚于绿色车（低油耗）：
+k461ee8 | 重型棕色 $\succ$ 重型绿色 $\succ$ 轻型棕色 $\succ$ 轻型绿色
+k2fe9b6 | ⟪通勤距离长⟫的家庭比⟪短⟫的家庭开得多得多，富裕家庭更是如此
+k1f09e9 | 模型意味着各家庭的燃油价格弹性在 -0.10 到 -0.60 之间，与 Gillingham and Munk-Nielsen（2015）相近
+@page 99
+kb07fe3 | 模型拟合：家庭特定的市场份额
+kfd486b | 预测的市场份额（\%）
+k2d1958 | =
+kb4301e | =
+k5b5f25 | =
+k046a03 | =
+ke1220d | 无车
+kf404b9 | 实际市场份额（\%）
+@page 100
+k1f911a | 模型拟合：实际与预测的购买概率
+kc5e836 | 数据 ⏎ 模型
+ka2cb54 | 选择概率（\%）
+k1b9e3a | 所购汽车的车龄
+kfe07f7 | 购买概率
+@page 101
+k1df4d8 | 模型拟合：观测到的所有权分布
+kd1df98 | =
+keaf8e1 | 人口比例（\%）
+@page 102
+k4ec2a0 | 模型拟合：预测的所有权分布
+@page 103
+k1700d6 | 轻型，棕色
+k32d05b | 轻型，绿色
+k039f2b | 组内家庭比例
+kdc5454 | =
+k04f722 | 车龄
+k08370a | 重型，棕色
+k515d65 | 重型，绿色
+@page 105
+k7348af | 预测的二级市场均衡价格
+k417180 | 轻型，棕色 ⏎ 轻型，绿色 ⏎ 重型，棕色 ⏎ 重型，绿色
+kbf6ab1 | 价格，1000 丹麦克朗
+k35c5dc | 预测价格与 DAF 推荐的二手车价格相近。
+@page 106
+k9411e3 | 反事实模拟
+k3c635e | ⟪登记税减半：⟫新车价格下降 25.6\%（最便宜的车）到 28.6\%（最贵的车）
+k000d3f | 我们考虑以下四种情景：
+k51244e | **基准：**按 2008 年丹麦税率校准。
+k5642a2 | **天真，预期：**⟪非均衡⟫模拟：
+kec1ba7 | 假设新车与二手车价格按比例下降
+k8ed8c7 | 提高燃油税，使总税收⟪保持中性⟫
+k7591d1 | （燃油税占油价的比例从 56\% 提高到 76\%）
+k3c581a | **天真，实现：**⟪均衡⟫模拟：
+k4f8b0b | 政策同上，并施加市场均衡
+k72479b | 在均衡中并非收入中性
+keb5a4b | （税收比预期低 20\%！）
+kbac314 | 精明的政策制定者：
+kc938dd | 政策在均衡中保持收入中性
+k7ff80e | 燃油税更低，但总税收更高（与天真的政策制定者实际实现的税收相比）
+@page 107
+k8c3e46 | 政策模拟结果
+k8add0a | =
+k0abed0 | =
+k596e1c | =
+k738551 | 政策选择变量
+k025f10 | 登记税（低档税率） ⏎ 登记税（高档税率）
+k97be30 | 燃油税（占油价的比例）
+k3f6ef3 | 价格
+kc5c8d2 | 价格，轻型，棕色（1000 丹麦克朗） ⏎ 价格，轻型，绿色（1000 丹麦克朗） ⏎ 价格，重型，棕色（1000 丹麦克朗） ⏎ 价格，重型，绿色（1000 丹麦克朗） ⏎ 燃油价格（丹麦克朗/升）
+k6848ce | 结果
+k59feef | 社会剩余（1000 丹麦克朗）
+k687328 | 总税收（1000 丹麦克朗） ⏎ 燃油税收入（1000 丹麦克朗）
+k8376aa | 汽车税收入（1000 丹麦克朗） ⏎ 非 CO2 外部性（1000 丹麦克朗） ⏎ 外部性（1000 丹麦克朗） ⏎ 消费者剩余（1000 丹麦克朗） ⏎ CO2（吨）
+k3eb9ab | 驾驶（1000 公里）
+k0dc52d | E(车龄)
+k8757f9 | Pr(无车)
+@page 108
+k777646 | 新车登记税与燃油税的拉弗曲线
+kf2b916 | 新车登记税与燃油税相对于基准水平 1 的倍数。
+kfc2a1a | 来自新车销售税与燃油税的税收。
+@page 109
+k5c5a0d | $\mathrm{CO}_2$ 排放与新车登记税、燃油税的关系
+@page 110
+k9b09a9 | 社会福利（不含 $\mathrm{CO}_2$）与登记税、燃油税的关系
+@page 111
+k8456b2 | $\mathrm{CO}_2$ 排放与社会福利之间的权衡
+@page 112
+kb260fb | **理论贡献：**在一个易于处理的一级与二级市场模型中刻画了均衡并证明了其存在性。
+k892545 | **应用贡献：**一个易于处理的模型，包含
+kc66385 | 交易、报废、消费者/汽车异质性，
+k37def0 | 灵活的效用：用 $39\cdot10^6$ 个观测在笔记本电脑上不到 30 分钟就能估计 131 个参数
+kfd688e | **结论：**丹麦的高税率高于拉弗曲线的顶点
+k563994 | “天真”模型高估了这一效应的强度，
+kb2d06d | 可能导致对税收和环境都有害的政策
+kec4591 | 存在减少 $\mathrm{CO}_2$、同时增加税收与社会福利的机会
+# p103-104 (previously treated as hidden)
+kfe979c | 模型拟合：观测到的分选
+k6a7646 | 模型拟合：预测的分选

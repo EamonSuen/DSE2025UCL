@@ -1,0 +1,24 @@
+# Aguirregabiria, Structural DDC Models with Fixed Effects (DSE 2024, Madison) — 中文译文
+# 与 2025 年版相同的句子自动沿用 aguirregabiria_L06 的译文（见 source.txt 中 #= 行）。
+@page 1
+kb0f035 | 含固定效应的结构动态
+k18cd8b | 离散选择模型
+k2dad3e | 2024 年 8 月 5 日
+k091c2a | 含固定效应的结构 DDC
+@page 2
+kbaf6c8 | 将⟪真实动态⟫（过去决策的因果效应）与⟪虚假动态⟫（持续性的不可观测异质性 [UH]）区分开来，是动态模型计量经济学中的一个基本问题。
+@page 3
+kc80a2a | **缺点：**对 UH 的参数化约束一旦设定错误，可能给“真实动态”的估计带来严重偏误。
+k225858 | 关注刻画“真实动态”的结构参数的识别，而不关注 UH 分布的识别。
+k2ac6e4 | **缺点：**UH 的分布不能完全识别，这限制了我们能识别的反事实。
+@page 5
+kd6aaa2 | 我们将看到，把 FE 方法应用于动态结构模型，需要⟪差分掉条件选择价值函数中的延续价值⟫部分。
+@page 6
+k8f93fb | 这一方法得益于非线性 FE 模型识别方面的最新进展：Bonhomme（ECMA，2012），Chernozhukov et al.（ECMA，2013），Honoré \& Weidner（2020），Aguirregabiria \& Carro（2023），Patel \& Weidner（2024）。
+@page 7
+kbd59c8 | 结构参数的条件 MLE。
+@page 20
+kf4f6ae | 例 2：投资模型
+kfee5a3 | 在这类模型中，$y_t\in\{0,1,2,\ldots\}$ 是投资决策，$x_t$ 是资本存量变量：
+@page 31
+k995a27 | 反事实？？？？？

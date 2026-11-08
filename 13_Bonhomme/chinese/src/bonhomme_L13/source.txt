@@ -1,0 +1,519 @@
+# 13_Bonhomme/Slides_DSE_2025_lecture.pdf  (78 pages)
+# id | English (inline math is a rough reconstruction; check it)
+
+@page 1
+k2bab20 | Incorporating Unobserved Heterogeneity
+k64de0b | into Structural Models
+k0ecec7 | St´ephane Bonhomme
+k39493c | University of Chicago
+#= k92a337 | Econometric Society Summer School  ⇒ 计量经济学会暑期学校
+#= k0776fa | in Dynamic Structural Econometrics  ⇒ 动态结构计量经济学
+kebe722 | University College London, July 5 2025
+@page 2
+#= kcdd629 | Outline  ⇒ 提纲
+k446613 | Mixture representation
+kb5cfaf | Strategies for identification
+ka0e094 | Random-effects estimation
+k8ef24e | Grouped fixed-effects estimation
+k76c74b | Applications
+@page 4
+ka6c3a9 | A dynamic choice model
+kdc793d | Finite horizon. Choices $c_t$. States $s_t$.
+ka777a6 | Utility $u(c_t,s_t)$. Discount factor $\beta$.
+k31167c | State transition $s_{t+1}|s_t,c_t$.
+ke96077 | Agents maximize expected utility.
+k85a572 | Bellman’s principle implies the value functions
+@page 5
+#= k4a362e | Unobserved heterogeneity  ⇒ 不可观测异质性
+k8e0f4e [2L] | Heterogeneity in preferences $u$ (also: technology, ability, ...), and discounting $\beta$.
+kb6d487 | Beliefs may also be heterogeneous.
+k6919c7 | State transitions can be heterogeneous as well.
+k630650 [2L] | We’ll mostly focus on permanent unobserved heterogeneity (simpler!).
+k68b2db [2L] | Unobserved heterogeneity matters quantitatively. A classic example is Keane and Wolpin’s (1997) analysis of career choices.
+@page 6
+k726c25 | Discrete or continuous types
+k4aae97 [2L] | A common approach in structural work is to assume latent types take a small number of values:
+kc1eaa9 | $a\in\mathcal{A}=\{a_1,\ldots,a_K\}$, where K is $“\mathrm{small}”$.
+k049936 [2L] | This is a tractable approach to allow for multi-dimensional heterogeneity.
+k42ac8c [2L] | For example, utility $u(c_t,s_t,a)$ can be type-specific. Equivalently, each type of agent has her own utility function $u_a(c_t,s_t)$.
+k68478a [3L] | Continuous-type modeling has the advantage of being more realistic, since it allows for within-group as well as between-group heterogeneity. However, it is also more challenging.
+@page 7
+k4afe3f [3L] | Let $Y$ be a vector containing all endogenous variables in the model. This includes choices $c_t$, (endogenous) state variables $s_t$, as well as any additional payoffvariables.
+k820cd6 [2L] | Let $X$ be a vector containing all exogenous variables, including initial conditions and time-invariant characteristics.
+ka73b99 | Let $A$ be a vector containing the latent types.
+k2a1f35 [2L] | Finally, let $\theta$ contain all structural parameters. We assume $Y,X,A$ are all discrete.
+k06668b | We can write, using the law of total probability,
+@page 8
+ka0ec40 | Linear system
+k6e3a9e | In compact form, we can equivalently write (at each $x)$:
+k23345f [2L] | Here $D_x$ is the “data” vector. It has as many elements as $Y$ has points of support. Dimension $n\times1$.
+k29c23e [2L] | In turn, $M_x(\theta)$ is the “model” matrix, with $y’\mathrm{s}$ in rows and $a’\mathrm{s}$ in columns. Dimension $n\times K$.
+k1f34d2 | Lastly, $\pi_x$ is the “heterogeneity” vector. Dimension $K\times1$.
+@page 10
+k396f56 | Differencing (I): recovering $\theta$
+ka710e8 | This slide and the next two follow the functional differencing ap-
+k41d64e | proach (B., 2012).
+ke9323d | Starting from $D_x=M_x(\theta)\pi_x$, a “residual” (or “within”) projection
+kd6ba0a | gives
+kb50a0d | This provides moment restrictions on $\theta$. Any $n\times1$ vector $h_x$ gives
+k85fb6e | a moment function
+k3c3212 | where $e_y$ is the canonical vector with a one in position $y$, which satisfies
+k55e168 | Identification typically requires larger support of $Y$ compared to $A$
+k76200f | (“overidentification”).
+@page 11
+k8964c6 | Background: SVD and Moore-Penrose pseudo-inverse
+ka38bc0 [2L] | Let $M$ be an $n\times K$ matrix. We can always write the singular value decomposition (SVD)
+kbe0a9c [2L] | where $U$ is $n\times n$ orthogonal, $V$ is $K\times K$ orthogonal, and $S$ has a diagonal upper-left block and zeros everywhere else.
+kdcef56 | The Moore-Penrose pseudo-inverse of $M$ is
+k73812b [2L] | where $S⟦?⟧$ has a diagonal upper left block whose elements are the inverses of those of $S$, and zeros everywhere else.
+k2c746e [2L] | $MM^{\dagger}$ and $I_n-MM^{\dagger}$ are orthogonal projectors onto the image of $M$ and its ortho-complement, respectively.
+@page 12
+kc7e6cd | Differencing (II): recovering $\pi_x$
+k5ef114 | Suppose that $M_x(\theta)$ has $\mathrm{rank}K$.
+k8d578d | Then $M_x(\theta)^{\dagger}M_x(\theta)=I_K$.
+k567927 | This implies that $\pi_x$ is identified (given $\theta)$, as
+k1b3e5e | For any $K\times1$ vector $g_x$, we can construct the functions
+#= kcffa50 | and  ⇒ 以及
+kb874e3 | which satisfy
+@page 13
+kb889bc | Independence restrictions
+k8a140a | While the previous arguments require parametric restrictions on
+k36b920 | $Y|X,A$, structural models often imply conditional independence re-
+k3f2c7c | strictions with strong identifying power.
+kb636b1 | A general approach for discrete data was proposed by Hu (2008)
+k46d1a3 | and subsequently generalized (see Hu, 2015, for a monograph).
+k6f5ecd | Suppose $Y=(Y_1,Y_2,Y_3)$ are independent given $A,X$. Then
+k9f2a64 | In matrix form, for given $x$ and $y_2$,
+@page 14
+k40699a | Eigenvalue decomposition
+k2f874b | From the previous slide, the model implies the system
+k215482 | where we assume $M_x^1$ and $M_x^3$ have $\mathrm{rank}K$, and $\Delta_x^2(y_2)$ is diagonal.
+kf04eb0 [2L] | Suppose that $y_2\in\{0,1\}$ for simplicity. Let $D_x^{13}(0)=USV'$ be the singular value decomposition of $D_x^{13}(0)$.
+kef5fe1 | Let  «$•$ Let $\mathrm{Ω}_x=S^{-21}U'M_x^1\Delta_x^2(0)^2$. Since»
+k22a4ed | Since  «$•$ Let $\mathrm{Ω}_x=S^{-21}U'M_x^1\Delta_x^2(0)^2$. Since»
+kdd8bad | we have
+@page 15
+k47577a | Eigenvalue decomposition (cont.)
+k6fcd17 | Moreover, we have
+k8e4bc4 | This is an eigenvalue decomposition.
+k99f5a0 [3L] | Hence, if the diagonal elements of $\Delta_x^2(0)^{-1}\Delta_x^2(1)$ are all distinct, then the columns of $\mathrm{Ω}_x$ are uniquely determined, as the corresponding eigenvectors. It then follows that $M_x^1$ and $M_x^3$ are identified.
+kbd70cc [4L] | Identification is up to labeling, i.e., permutation of the columns of $M_x^1$ and $M_x^3$. Note this labeling is $x-\mathrm{specific}$. Recovering a common labeling across $x’\mathrm{s}$ requires exploiting more of the model’s structure (Aguirregabiria and Mira, 2019).
+@page 16
+kbd094a | Identifying content of covariates
+k2f0c9c | In discrete choice, outcomes have limited variation. However, state
+kc9387b | variables and other covariates often exhibit more variation, which can
+k9b8e04 | be exploited under additional assumptions.
+ka8d8bd | As an example, suppose $X$ is independent of $A$. Then
+kfcddc6 | Stacking all restrictions across $x$ values then gives
+ke6ebd5 | where $D$ is $(n\mathrm{dim}x)\times1$ and $\pi$ is $K\times1$.
+k2accc5 | In a similar spirit, the assumption that the law of motion of dynamic
+k49f111 | state variables does not depend on heterogeneity has identifying con-
+k5a1bd2 | tent, as shown by Kasahara and Shimotsu (2009).
+@page 17
+k464a53 | Extensions (I): Time-varying heterogeneity
+k4bf9b6 [2L] | Time-varying unobservables are important in structural models (e.g., human capital, firm productivity, workers’ effort...).
+ke1d316 | Existing identification strategies rely on Markovian assumptions:
+k47e5cb [2L] | Hu and Shum (2012) provide identification results, with applications to structural models. See also Arcidiacono and Miller (2011).
+kba1d77 [2L] | The statistics literature on Hidden Markov Models (HMM) is vast, see for example the tutorial by Rabiner (1989).
+@page 18
+kdfaac2 | Extensions (II): Continuous heterogeneity
+k05528f | Allowing for continuous heterogeneity complicates identification.
+k9babae | The identity
+k40844e | continues to hold, but now $\pi_x$ is a function (of $a)$, and $M_x(\theta)$ is a
+k270626 | linear operator (i.e., a linear mapping between functions).
+k1da74b | Identification is unlikely to hold when $Y$ is discrete, as in structural
+k00a769 | dynamic discrete choice models (although there are some exceptions,
+k3ede37 | as in Aguirregabiria, Gu and Luo, 2021).
+kff6a29 | When outcomes are continuous, Hu and Schennach (2008) provide
+k0b28ed | identification conditions generalizing the analysis of Hu (2008).
+kbc5231 | The full-rank assumptions on $M_x^1$ and $M_x^3$ become nonparametric
+k82ed37 | “completeness” conditions.
+@page 20
+k5c3ab5 | Maximum likelihood
+k81728a [2L] | Parameterize $\pi_x(a)=\pi(a,x;\gamma)$, where $\gamma$ is a low-dimensional parameter.
+k5333ad | The likelihood function takes the form
+kef30ae [3L] | A possibility is to maximize this likelihood using a nested fixed point approach (Rust, 1987), or other methods such as MPEC (Su and Judd, 2012).
+k8e4361 [3L] | In mixture models, the presence of local optima is a pervasive issue, and it is important to sample multiple starting values for the parameters.
+@page 21
+kaf47ff | EM algorithm
+kedcf95 | A common way to maximize the likelihood in the presence of un-
+k4ce7f9 | observed heterogeneity is to use the Expectation-Maximization (EM)
+k496bfe | algorithm (Dempster, Laird, and Rubin, 1977).
+ka9cb34 | The EM algorithm iterates between 2 steps:
+k88c931 | E-step: compute the posterior probabilities
+k20a1eb | M-step: maximize with respect to $\theta',\gamma'$
+kf82b1a | Arcidiacono and Miller (2011) develop an EM approach for dynamic
+k9fefce | discrete choice models based on conditional choice probabilities.
+@page 22
+k0bf6c2 | Joint diagonalization
+kb04fa1 [2L] | Under independence restrictions, nonparametric estimation of distributions is possible.
+k13b871 [2L] | Consider the case where $Y=(Y_1,Y_2,Y_3)$ are independent given $A,X$. Then we have, for all $y_2$,
+kf42108 [2L] | This suggests estimating $\mathrm{Ω}_x$ as the joint eigenvectors to a set of matrices.
+kd4433d [2L] | B., Jochmans and Robin (2015, 2016) propose and study such nonparametric estimators.
+kd18cee [2L] | Implementation relies on algorithms for approximate joint diagonalization of matrices based on elementary rotations (e.g., Givens).
+@page 23
+kf25565 | Continuous heterogeneity
+k257f53 [3L] | In the continuous case, if one is willing to parameterize the distribution of heterogeneity, then one can maximize the $\log $ of the integrated likelihood,
+kab8da8 [3L] | Implementation of the EM algorithm requires approximating the integrals. An alternative is to draw $A_i^{(s)}$ values, for $s=1,\ldots,S$, from the posterior distribution in every E step (“stochastic EM”).
+kab63a1 [5L] | Allowing for nonparametric $\pi_x$, and possibly nonparametric outcome distributions as well, is more challenging. For the former, nonparametric maximum likelihood (Kiefer and Wolfowitz, 1957) provides an option. Sieve-MLE (e.g., Chen, 2007) provides a general-purpose approach.
+@page 25
+kf8c83d | The GFE model
+ke7b35d [2L] | An alternative view of types is given by the Grouped Fixed Effects (GFE) approach (B. and Manresa, 2015).
+k45fe1f [2L] | In this approach, all types $A_i$, for $i=1,\ldots,n$, are viewed as discrete parameters to estimate.
+k79399a | No probability model of the heterogeneity is needed.
+k395513 [2L] | In addition, the dependence of the types $A_i$ on covariates $X_i$ is fully unrestricted.
+ka22467 [2L] | For example, one can analyze ex post how estimated types $A⟦?⟧_i$ depend on covariates $X_i$.
+@page 26
+kef15bc | The role of $T$
+k6f8f34 | To learn about the type $A_i$ one needs the dimension of $Y_i$ (typically,
+k0bd200 | the time dimension $T)$ to be relatively large.
+k57cb7b | For an intuition, suppose we want to estimate types based on the
+kb04374 | model $Y_i=A_i+U_i$, where $U_i|A_i\sim\mathcal{N}⟦?⟧0,_T^{\sigma 2}⟦?⟧$.
+kbf8989 | For two individuals $i$ and $j$ whose types are such that $A_i>A_j$, the
+kd22ed7 | probability of a classification mistake is
+ka8cde7 | This only tends to zero if $T$ tends to infinity...
+kcdf41f | ... but tends to zero exponentially fast as $T$ grows.
+@page 27
+k27ac6f | Joint GFE estimation
+k72a5fa | Likelihood model $f(Y_i|X_i,A_i,\theta)$ (structural model given the types).
+kfa5585 | A joint GFE estimator maximizes
+k4e918f [2L] | with respect to $\theta,A_1,\ldots,A_K$ (the “centroids”), and $k_1,\ldots,k_N$ (the group membership indicators).
+kb8e31d [4L] | In regression settings, there is an extensive literature in computer science on algorithms for k-means clustering and clusterwise regression. Recent grouping methods include Chetverikov and Manresa (2021), Mugnier (2023), and Gu $etal$. (2024).
+k9bd220 [2L] | However, joint classification and estimation is computationally expensive in structural models.
+@page 28
+#= k86c0c3 | Two-step grouped fixed-effects estimation  ⇒ 两步分组固定效应估计
+k119dc3 | B., Lamadon and Manresa (2022) propose two-step GFE:
+k0db8f6 [2L] | First step: Estimate a partition of individual units, $\{k⟦?⟧_i\}$, by applying kmeans to individual-specific moments $h_i=h(Y_i,X_i)$; that is:
+k58bc4d | where $(k_1,\ldots,k_n)\in\{1,\ldots,K\}^n$.
+k7999a8 [3L] | Second step: Maximize the log-likelihood function with respect to common parameters and group-specific individual effects, where the groups are given by the $k⟦?⟧_i$ estimated in the first step; that is:
+@page 29
+k82edc8 | Theoretical justifications for grouping in a grouped world
+k6152f3 [3L] | In a grouped data generating process, the groups are consistent as $n$ and $T$ tend to infinity (B. and Manresa, 2015, Hahn and Moon, 2010, Lin and Ng, 2012, Su $etal$., 2016).
+k53b1e0 [2L] | The asymptotic distribution of parameter estimates is not affected by group estimation.
+kaf0f9f [2L] | Conditions for group consistency allow $n$ to grow polynomially faster than $T$. This does not require long panels.
+ka70860 | Group consistency hinges on groups being sufficiently well separated.
+k661931 [2L] | The number of groups $K$ can be consistently estimated using information criteria such as BIC, or using testing methods (e.g., Lu and
+k221055 | Su, 2017).  «Su, 2017).»
+@page 30
+k639078 | Theoretical justifications for grouping in a continuous world
+kabf0b6 [2L] | When heterogeneity $A_i$ is continuous, type estimates converge to some “pseudo-true values” as $n$ tends to infinity for $T$ fixed (Pollard,
+k83904f [3L] | Moreover, parameter estimates remain consistent for the true parameter values provided $K,n,T$ all tend to infinity (B., Lamadon and Manresa, 2022).
+k31333d [2L] | In that case, the groups are a regularization device, and $K$ can be viewed as a tuning parameter.
+kb0a94a [2L] | The convergence rate of two-step GFE estimators depends crucially on the dimensionality of heterogeneity.
+@page 32
+kcd82af | Dynamic discrete model of location choice
+k0a2080 | Choices $j_{it}$, payoffs $W_{it}$, states $(X_{it},A_i)$.
+k5fa10b | The likelihood function is (under standard assumptions):
+k9d4487 [2L] | The vector $h_i$ may contain moments of payoffvariables or observed state variables, or individual choice probabilities.
+k852882 [2L] | B., Lamadon and Manresa (2022) estimate a structural model of location choice in the spirit of Kennan and Walker (2011).
+@page 33
+ka2183d | K-means clustering with $K$ = 3 groups
+#= ke5e429 | Data  ⇒ 数据
+k943df0 | Partition
+k860e6d | log−wage in location B  «rotated»
+k3f274c | log−wage in location A
+k32a66a [2L] | Notes: Average log-wages in locations $A$ (East) and $B$ (West), for male movers in NLSY79.
+@page 34
+k15e30b | K-means clustering with $K$ = 10 groups
+@page 35
+kedfe83 | K-means in the presence of a low underlying dimension
+k710951 | $K$ = 3 groups
+kf7c9bd | $K$ = 5 groups
+k6981a2 [2L] | Notes: Sample with the same conditional mean as in the NLSY79, and one third of the conditional standard deviation.
+@page 36
+k7a9c68 | Model (in the spirit of Kennan and Walker, 2011)
+kf46a49 | Locations: $j_{it}\in\{1,\ldots,J\}$. Log-wages in $j:\ln W_{it}=A_i(j)+\varepsilon_{it}(j)$.
+ke965f9 | Utility: $U_{it}(j)=\rho W_{it}(j)+\xi_{it}(j)$. Mobility costs: $c_{j,j'}$.
+k591ea8 [3L] | Agents face uncertainty about their types $A_i(\cdot)$ in future locations. They have rational expectations, and solve an infinite-horizon optimization problem with continuous heterogeneity.
+k8ea11f [3L] | Discrete estimation: in the first step, estimate $A⟦?⟧(j_{it},k⟦?⟧_i)$ by discretizing location-specific log-wage means. In the second step, estimate utility and cost parameters by solving the dynamic problem.
+k8303fa | There are $K$ state variables given any history of locations.
+@page 37
+kd081c7 | Calibration and simulation
+k86723d [5L] | NLSY79 data used to calibrate parameter values. Males older than 22, followed until 1994. Log-wage residuals net of age, race and education dummies. Two regions: A (North-East and South) and B (North-Central and West). Wages are 9\% higher in A. Mobility rates are low (1.5\% yearly).
+ke8cc8b [3L] | $K$ = 10, and, following Kennan and Walker (2011), there is a probability to be a “stayer type”. Estimates show a positive wage effect $\rho⟦?⟧=.28$ and large costs $c⟦?⟧=2.1$ (assumed symmetric).
+kf5a8e1 [2L] | Given parameter values, the model with continuous heterogeneity is simulated. $(A_i(1),A_i(2))$ is assumed to be bivariate normal.
+k939d4e | The model is estimated using two-step GFE.
+@page 38
+kd36c1e | Parameter estimates (average $K⟦?⟧$ is 7)
+k7feb23 | Wage effects
+k5a6838 | Mobility costs
+kbbbf26 | density  «rotated»
+k60231a | parameter value
+k76f625 [4L] | Notes: Solid is two-step grouped fixed-effects, dotted is bias-corrected, dashed is iterated once and bias-corrected, dashed-dotted is iterated three times and biascorrected. The vertical line indicates the true parameter value. $N=1889,T=16$, 500 replications.
+@page 39
+kbcf146 | Long-run effects of wages on location
+k37b289 | Steady state probability in Region A  «rotated»
+kf4a29d | two−step
+kb497b0 | two−step, b.c.
+kdda83f | iterated $(3\mathrm{x})$, b.c.
+kf19073 | All workers  «rotated»
+k42dc3a | log−wage difference
+k489747 [4L] | Notes: $(a)$ is two-step grouped fixed-effects, $(b)$ is bias-corrected, $(c)$ is iterated three times and bias-corrected. The dashed curve indicates the true value. Solid curves are means, and dotted curves are 97.5\% and 2.5\% percentiles, across simulations. 500 replications.
+@page 40
+kb3b38c | Long-run effects of wages on location (mover types only)
+k498223 | Mover types only  «rotated»
+@page 41
+k3a5fdc | Worker and firm heterogeneity
+kf11e62 [2L] | Important questions: firm/worker sorting and optimal allocations, sources of earnings inequality...
+kf9c27f [2L] | Two literatures have approached these questions from different angles using matched employer employee data:
+k8b13a0 [2L] | -Two-way fixed-effects regressions, since Abowd, Kramarz and Margolis (1999, AKM).
+kf02935 | -Structural models of worker and firm sorting, inspired by Becker
+k78ef9b [2L] | B., Lamadon and Manresa (2019) develop a framework with the aim of building a bridge between these two approaches.
+@page 42
+kfc5cfb | Fixed-effects regressions
+ka52a21 | AKM regression:
+kd69bfc [3L] | This allows documenting the association $cov(workerFE,firmFE)$, and more generally the contributions of workers and firms to earnings dispersion.
+k7ec731 [2L] | Provides a tractable way of allowing for two-sided heterogeneity using matched data.
+k97c8e3 [2L] | Widely applied method, in labor economics and outside (schools, hospitals, cities...).
+@page 43
+ka93390 | Two features of the fixed-effects model
+k7b8c59 [2L] | Additive model (in logs). Hence a very specific form of complementarity between worker and firm unobservables.
+kf42c6d [3L] | -Feature emphasized in the theoretical and structural literature on sorting models (Becker 1974, Shimer and Smith 2000, Eeckhout and Kircher 2011, Hagedorn Law and Manovskii 2017, among others).
+k74cc98 [2L] | Static model. In particular, earnings after a job move do not depend on the previous employer given the current one.
+k481916 [2L] | -This is potentially inconsistent with wage posting models, or models with bargaining for example.
+@page 44
+kfa32da | Heterogeneity
+k30cf4f | N workers, J firms, T periods.
+k3ee12d [2L] | Firms are characterized by the class they belong to, $k_{it}\in\{1,\ldots,K\}$ denoting the class of firm $j_{it}$.
+kf48a1c [3L] | $k_{it}=k(j_{it})$ could be the firm itself (when $K=J)$, or a firm characteristic such as industry. B., Lamadon and Manresa (2019) assume discrete firm heterogeneity and use two-step GFE.
+kf265de | Unobserved worker types $A_i$ may be discrete or continuous.
+@page 45
+k7021f9 | Static model, two periods
+k89f0e1 | Period 1:
+k7df944 | $-\mathrm{Atype}-a$ worker in a $\mathrm{class}-k$ firm draws log-earnings $Y_{i1}$ from $F_{ka}(y_1)$.
+k3abbda | Period 2:
+k1e643c [2L] | -The worker moves to a $\mathrm{class}-k'$ firm with a probability that depends on $a$ and $k$ (and $k')$, not on $Y_{i1}$.
+k2c7a66 [2L] | -If she moves, the worker draws log-earnings $Y_{i2}$ from a distribution $F_{k'a}^m(y_2)$ that depends on $a$ and $k'$, not on $(k,Y_{i1})$.
+k9cb8eb [2L] | Two assumptions: 1) mobility is driven by types/classes, 2) serial independence upon job change.
+@page 46
+k01db14 | Dynamic model, four periods
+k4aac08 [2L] | Periods 1 and 2: A $\mathrm{type}-a$ worker in a $\mathrm{class}-k$ firm draws log-earnings $(Y_{i1},Y_{i2})$ from a bivariate distribution that depends on $(a,k)$.
+k8f66fd | Period 3:
+k21891d [2L] | -The worker moves to a $\mathrm{class}-k'$ firm with a probability that depends on $a,k$ and $Y_{i2}$ (and $k')$, not on $Y_{i1}$.
+k1d7ea4 [2L] | -If she moves, the worker draws log-earnings $Y_{i3}$ from a distribution that depends on $a,k',k,Y_{i2}$, not on $Y_{i1}$.
+k576096 [2L] | Period 4: The worker then draws log-earnings $Y_{i4}$ from a distribution that depends on $a,k',Y_{i3}$, not on $(k,Y_{i2},Y_{i1})$.
+@page 47
+kfb7300 | Link to theoretical models
+k9fcd5a | Static model:
+kc72a09 [4L] | -Example: Shimer and Smith (2000), without or with on-the-job search (workers’ threat points being the value of unemployment). -No role for match-specific draws, unless independent over time or measurement error. No sequential auctions.
+k93ecdd | Dynamic model:
+k8681cf [5L] | -Models where state variables $(a,k_t,Y_t)$ are first-order Markov. -Examples: wage posting, sequential auctions (Lamadon, Lise, Meghir and Robin 2015), with aggregate shocks (Lise and Robin 2014). -No latent human capital accumulation $(a_t)$, no permanent+transitory within-job earnings dynamics (example: random walk+i.i.d. shock).
+@page 48
+k06948f | Main equations (static model)
+k1c497e [2L] | Let $m_{it}$ denote mobility between $t$ and $t$ + 1. In the static model on two periods we have:
+kc66c6c | (MOV)
+k811fa9 | (CROSS)
+kaebc06 [2L] | Firm classes $k_{it}=k(j_{it})$ can be recovered using (MOV) and/or (CROSS).
+kbf5612 [2L] | BLM show how to recover $F_{ka},F_{k'a}^m$, and $p_{kk'}(a)$ from (MOV) using job movers, and $q_k(a)$ from (CROSS) using the first cross-section.
+@page 49
+k8db330 | Identification under discrete worker types (sketch)
+k840d0c [2L] | Let $k\not=k'$ be firm classes, and write (MOV) for $(k,k')$ transitions in matrix form:
+kb12a41 [2L] | where for simplicity assume that $F_{ka}=F_{ka}^m$, and that the matrices $F(k)=[F_{ka}(y_1)]_{(y1,a)}$ are squared.
+kbab543 [2L] | If there are movers of all types making $k⟦?⟧\to k'$ and $k'⟦?⟧\to k$ transitions, and under suitable $\mathrm{rank}$ conditions:
+k8bdfec [2L] | identifies $F_{ka}$ up to scale (pinned down as it is a cdf) and labeling of the types.
+k1aa1f9 [2L] | With continuous types these become operator restrictions, and identification requires completeness (as in Hu and Schennach, 2008).
+@page 50
+k14d2b1 | Recovering firm classes
+kc0ba17 [2L] | Identification results hold at the class level $k_{it}$, which could in principle coincide with the firm $j_{it}$.
+kf6b4f4 [3L] | However, in typical matched datasets allowing for firm-specific parameters increases computational cost and raises statistical challenges (e.g., incidental parameter “low mobility” bias).
+kcda50e [3L] | BLM propose a dimension reduction method, which may be performed in an initial estimation step. We provide conditions for consistency of the firm classification under discrete firm heterogeneity.
+k855760 [2L] | The classification is based on earnings, although BLM use a variety of other approaches, using other data (worker flows, value-added).
+@page 51
+kd2298f | Classification using k-means
+k67b6d5 [2L] | Unobservable firm heterogeneity operates at the level of firm classes in the model, not at the level of individual firms.
+kf5accb [2L] | For example, the log-earnings cdfs $F_j$ should be the same for all firms $j$ in class $k=k(j)$.
+kafa026 | This motivates the following k-means estimator:
+k4b554f [2L] | where $F⟦?⟧_j$ denotes the empirical cdf of log-earnings in firm $j,n_j$ is the number of workers in firm $j$, and $y_1,\ldots .,y_D$ are wage quantiles.
+@page 52
+kf13fb0 | Two-step GFE estimation
+k9342de | Estimate the classes $k⟦?⟧_{it}=k⟦?⟧(j_{it})$ using clustering.
+kdfa043 | Estimate the model’s parameters given the $k⟦?⟧_{it}$.
+k833730 [2L] | Wage cdfs $F_{ka}$ and $F_{ka}^m$ are Gaussian with $(k,a)-\mathrm{specific}$ means and variances. BLM use the EM algorithm for computation.
+k9ec926 [2L] | A key feature is that, conditional on the firm classes, the likelihood factors across workers.
+k462d1c [2L] | Hence, estimating firm classes in a first step gets us back to a single-agent problem!
+@page 53
+k16d112 | Descriptive statistics on estimated firm classes
+kef958a | class:
+kd87c44 | all
+kd82856 | number of workers
+kc05092 | number of firms
+k45c3c1 | mean firm reported size
+k09777a [2L] | number of firms $\geq10$ (actual size) number of firms $\geq50$ (actual size)
+k313a5c | \% high school drop out
+kd63ecf | \% high school graduates
+kb5231e | \% some college
+k8b3825 | \% workers younger than 30
+k223fb5 | \% workers between 31 and 50
+k95dcb6 | \% workers older than 51
+kb8cef2 | \% workers in manufacturing
+k536342 | \% workers in services
+kf7b979 | \% workers in retail and trade
+k3c5dd5 | \% workers in construction
+kf45d0b | mean log-earnings
+kf51696 | variance of log-earnings
+kf99f05 | skewness of log-earnings
+k1c9233 | kurtosis of log-earnings
+ka235f6 [2L] | between-firm variance of log-earnings 0.0462 0.0044 0.0036 0.0018 0.0032 0.0016 mean log-value-added per worker
+k7cb8a2 | Notes: Males, fully employed in the same firm 2002 and 2004, continuously existing
+k3fd5b8 | firms. Figures for 2002.
+@page 54
+ke3adb5 | Estimated mean log-earnings and proportions of worker types
+kde3787 | Mean log-earnings
+k8657b8 | Proportions of worker types
+k5fee3b | type proportions  «rotated»
+kee9a26 | log−earnings  «rotated»
+k35b505 | firm class k
+k5cad5f [4L] | Notes: Static model, 2002-2004. The left graph plots estimates of the means of log-earnings distributions, by worker type and firm class. The right graph shows estimates of the proportions of worker types in each firm class. Left: brackets indicate parametric bootstrap 2.5\% and 97.5\% quantiles (200 replications).
+@page 55
+kef8176 | Quantifying human inputs in teams
+k97387f [2L] | How much do individuals contribute to team output? This is a central question in research and innovation, labor economics, sports...
+kc37a58 [3L] | B. (forthcoming) proposes an econometric framework to quantify individual contributions when only the output of their teams is observed.
+k5a32ec [2L] | The identification strategy relies on following individuals who work in different teams over time.
+k9feb61 [3L] | Two applications: to estimate the impact of economists on research quality, and the contributions of inventors to the quality of their patents.
+@page 56
+k30c40a | Framework: workers and teams
+kd5919e [2L] | Workers $i=1,\ldots,N$ are nodes in the hypergraph. Workers collaborate and produce output in teams.
+kff2537 | Workers are linked to one another by hyperedges.
+kb939cf [2L] | Hyperedges are referred to as teams, and the set of workers in a team $j$ of size $n$ us denoted as $\{i_1(j),\ldots,i_n(j)\}$.
+k28eced [2L] | Worker $i$ contributes to the team a quantity $A_i$. The type $A_i$ is constant across collaborations.
+@page 57
+kcb385d | Collaboration hypergraph: an example
+@page 58
+k07fe28 | Framework: production
+k8e027b | The output $Y_{nj}$ of a team $j$ with $n$ workers is given by
+kcab1bb [2L] | where $\phi_n$ is the production function of an $n-\mathrm{worker}$ team, symmetric with respect to its first $n$ arguments.
+k20cf82 [2L] | $\varepsilon_{nj}$ represent other factors, or shocks, that affect team output beyond workers’ inputs $A_i$.
+k664ab5 [2L] | The model has no “team effects”. Here a team is simply a collection of workers, plus an $\varepsilon$ shock.
+@page 59
+k442dad | Framework: main assumptions
+k948ab0 | Assumption 1 (Network exogeneity):
+k71f556 | $\varepsilon_{nj}’\mathrm{s}$ are independent of $(i_1(j),\ldots,i_n(j))’\mathrm{s}$ conditional on $A_i’\mathrm{s}$.
+k59af2f [2L] | Assumption 1 restricts team formation. It will fail if, before joining a team, workers have advanced information about $\varepsilon_{nj}$.
+k33572d | Assumption 2 (Independent shocks):
+k174f58 | $\varepsilon_{nj}’\mathrm{s}$ are independent, and independent of $(i_1(j),\ldots,i_n(j))’\mathrm{s}$ and $A_i’\mathrm{s}$.
+k8b4a95 [2L] | Assumption 2 implies in particular that shocks to workers who collaborate repeatedly over time are serially independent.
+@page 60
+ka7f6b2 | Nonlinear production
+ke96abd | $A_i$ takes at most $K$ values.
+keaf5a6 [2L] | Random-effects approach: $A_1,\ldots,A_N$ are drawn from the joint distribution $⟦?⟧_i\pi(A_i)$, where $\pi(A_i)$ are type probabilities.
+k5df970 [3L] | An important question is how types $A_i$ correlate with collaborations $(i_1(j),\ldots,i_n(j))$. B. (forthcoming) reports results based on three approaches:
+k2d5846 | Independent random-effects (RE).
+k803d3d | Correlated RE (using degrees as worker characteristics).
+kb2fc0d [2L] | Joint RE, modeling both production and team formation (using a stochastic blockmodel of team formation).
+@page 61
+k677eeb | Nonlinear production: identification
+k3179c9 | Suppose $A_i’\mathrm{s}$ are independent of $(i_1(j),\ldots,i_n(j))’\mathrm{s}$, and team size is
+kfcd828 [2L] | Focusing on workers who produce at least three times on their own gives:
+k084fea | Solo $\mathrm{pro}⟦?⟧⟦?⟧\mathrm{duction}$
+k67ea2b [2L] | This identifies $\Pr ⟦?⟧Y_{1j}\leq y|A_{i1(j)}=a⟦?⟧$ and $\pi(a)$ under suitable $\mathrm{rank}$ conditions (Allman $etal$., 2009, Hu, 2008).
+@page 62
+k7895e6 | Nonlinear production: identification (cont.)
+k786670 [2L] | Pairwise productions are then identified by focusing on pairs of workers who produce once on their own and once together:
+kbf69df | Pairwise $\mathrm{p}⟦?⟧⟦?⟧\mathrm{roduction}$
+k584f44 [2L] | This argument relies on workers who produce on their own (though see Allman $etal$., 2011).
+@page 63
+k9606e3 | Nonlinear production: random-effects (RE) likelihood
+k2a7025 | Suppose that output density depends on a finite-dimensional $\theta$.
+kfc8b86 [2L] | In the applications: log-normal specification in the sample of economists, and negative binomial specification in the sample of inventors.
+kd2e8f5 | However, the RE likelihood
+k09ef60 [2L] | involves an intractable $N-\mathrm{dimensional}$ sum over all possible worker type realizations.
+kc9fdaf [2L] | The likelihood does not factor in simple ways, except in the special case where all teams consist of one worker.
+@page 64
+k1b1990 | Nonlinear production: variational approximation
+k20f1f6 [2L] | To reduce computational complexity, B. (forthcoming) follows a mean-field variational approach (Bishop, 2006).
+kb180d0 [2L] | The idea is to introduce an auxiliary distribution $⟦?⟧_{i=1}^Nq_i(a_i)$, and set it to be as close as possible to the posterior density $p(a_1,\ldots,a_N;\theta,\pi)$
+kde04fa | of  «of $a_1,\ldots,a_N$.»
+k753ae9 [2L] | Unlike the posterior density $p$, its variational approximation $q$ factors across $i$. This makes estimation feasible even in large data sets.
+kae4a6e [3L] | This idea is widely used in network models such as stochastic blockmodels (Daudin $etal$., 2008), and more generally in settings with complex data (e.g., Blei $etal$., 2003).
+@page 65
+ke664a9 | Variational approximation (cont.)
+k87375e | The variational objective function is
+kd7fc24 | KL  «KL $\mathrm{div}⟦?⟧\mathrm{e}⟦?⟧\mathrm{rgence}$»
+k455bf1 | Equivalently, we have
+kc42595 [3L] | This expression is feasible to compute whenever team size $n$ is sufficiently small. One maximizes the “evidence lower bound” ELBO using the EM algorithm (Bishop, 2006, Mariadassou $etal$., 2010).
+@page 66
+kf37da4 | Variational approximation: statistical properties
+k6e335b [3L] | In stochastic blockmodels, Bickel $etal$. (2013) provide conditions under which the mean-field variational estimator is consistent and asymptotically normal.
+k251bb3 | Their conditions rely on the network growing in a particular way.
+kc63861 [2L] | Under their asymptotic, the variational estimator and the (intractable) maximum likelihood estimator are first-order equivalent.
+k08a4f9 [2L] | B. (forthcoming) conducts Monte Carlo simulation exercises to probe the accuracy of the variational estimator.
+@page 67
+k70d94a | Monte Carlo simulation
+k2d4c12 | Smaller sample
+k866e9b | Larger sample
+k316a64 | True Mean $\mathrm{p}2.5\%\mathrm{p}97.5\%$
+ke54598 | Mean $\mathrm{p}2.5\%\mathrm{p}97.5\%$
+k685aeb | Mean type 1
+kdf1616 | Mean type 2
+kc9eb96 | $\mathrm{Var}$. type 1
+kf1c8cb | $\mathrm{Var}$. type 2
+k04aa60 | Mean type (1,1)
+ke81b49 | Mean type (1,2)
+k343bd4 | Mean type (2,2)
+k06c32a | $\mathrm{Var}$. type (1,1)
+k9707e2 | $\mathrm{Var}$. type (1,2)
+kd38604 | $\mathrm{Var}$. type (2,2)
+k82ef2a | Prop. type 1
+kec8ba6 [3L] | Notes: Estimates of the random-effects model with $K$ = 2 groups, in data generated according to that model with $K_0$ = 2 groups. 500 simulations. The smaller sample has 156 workers and 896 teams, the larger sample has 921 workers and 5447 teams.
+@page 68
+k69d87d | Application to economists and research quality
+kbf6490 | Data from Ductor $etal$. (2014), drawn from the EconLit database.
+k59006a [2L] | Articles published between 1995 and 1999, with at most three coauthors.
+k001b00 | Only authors who produced at least 5 articles during the period.
+k9e3348 [2L] | There are 41150 articles and 6509 authors. 50\% of authors produce at most 8 articles, while 1\% of authors produces at least 39.
+k0fdff2 [3L] | Output is a measure of journal quality (Kodrzycki and Yu, 2006), which is a ranking between 0 and 100, net of multiplicative time effects.
+@page 69
+kf9b3ac | Nonlinear model estimates, economic researchers $(K=4)$
+k378e9e | Sorting
+kac8d23 | Heterogeneity and complementarity
+k098a09 | average output  «rotated»
+kda0302 | type author 2  «rotated»
+k44c6d7 | type author 2
+kf380a5 | type author 1
+k9c62f1 [4L] | Notes: Random-efefcts estimates of $a$ finite mixture model with $K$ = 4 types. Panel $(a)$ shows the type proportions for authors producing together in 2-author teams. Panel $(b)$ shows average output for different type combinations. Overall type proportions: 15\% (type $I),20\%$ (II), $36\%$ (III), 29\% (IV).
+@page 70
+k50e637 | Nonlinear model estimates, economic researchers: Joint RE
+kd11af5 [4L] | Notes: Random-efefcts estimates of $a$ finite mixture model with $K$ = 4 types, joint RE specification (using $a$ Poisson blockmodel of team formation). Panel $(a)$ shows the type proportions for authors producing together in 2-author teams. Panel $(b)$ shows average output for different type combinations.
+@page 71
+k9ac3a2 | Optimal allocation, economic researchers $(K=4)$
+k9426f4 | Independent RE
+kef8924 | Joint RE
+k6980a9 [3L] | Notes: Proportions of types for authors producing together in $a$ 2-author team, in the allocation that maximizes total output. In panel $(a)$ and $(b)$ the estimates are obtained using independent and joint random-effects, respectively.
+@page 72
+ke5e569 | Application to inventors and patent quality
+k4e68b9 [3L] | Data from Akcigit $etal$. (2016). Their main source is the disambiguated inventor data of Li $etal$. (2014), which identifies unique inventors in the USPTO data.
+k84aad7 [2L] | Patents from the US and granted between 1995 and 1999, and in the class “Computers and Communications”.
+ka687c3 | Only inventors who produced at least 5 patents.
+k2e6baf | There are 30068 patents and 5896 inventors.
+kfd5ff1 [2L] | Output is a Hall et al.’s (2001) measure of truncation-adjusted forward citations, net of multiplicative time effects.
+@page 73
+k7419bc | Nonlinear model estimates, patents and inventors $(K=4)$
+k97739f | type inventor 2  «rotated»
+kb7972b | type inventor 2
+ke347c0 | type inventor 1
+k986dbb | Notes: Panel $(a)$ shows the type proportions for inventors in 2-worker teams. Panel
+kdf3acb [2L] | shows average output for different combinations of the types. Overall type proportions: 6\% (type $I),25\%$ (II), $52\%$ (III), 17\% (IV).
+@page 74
+k980025 | Nonlinear model estimates, patents and inventors: joint RE
+k988f26 | Notes: Joint RE specification (using $a$ Poisson model of team formation). Panel
+k831982 [2L] | shows the type proportions for inventors in 2-worker teams. Panel $(b)$ shows average output for different combinations of the types.
+@page 75
+k2e2c86 | Optimal allocation, patents and inventors $(K=4)$
+k3a0cb6 [3L] | Notes: Proportions of types for inventors producing together in $a$ 2-inventor team, in the allocation that maximizes total output. In panel $(a)$ and $(b)$ the estimates are obtained using independent and joint random-efefcts, respectively.
+@page 76
+k5dd3e7 [2L] | Application to inventors and patent quality: Heterogeneity, sorting and complementarity out of sample
+kf215f2 [3L] | Notes: Sample from Akcigit et al. (2016). The model is estimated on the 1995- 1999 period, with $K$ = 4 types. Inventors producing together in 2-worker teams between 2000 and 2005.
+@page 77
+kc6929f | Some references from my own work
+k061060 [3L] | Bonhomme (forthcoming): “Teams: Heterogeneity, Sorting, and Complementarity”, Proceedings of the 2020 World Congress of the Econometric Society.
+k10b70d | Bonhomme (2012): “Functional Differencing”, Econometrica.
+k2f5247 [2L] | Bonhomme and Manresa (2015): “Grouped Patterns of Heterogeneity in Panel Data”, Econometrica.
+kf4cc08 [2L] | Bonhomme, Lamadon and Manresa (2022): “Discretizing Unobserved Heterogeneity”, Econometrica. + Working paper version
+k235e2f [2L] | Bonhomme, Lamadon and Manresa (2019): “A Distributional Frameowrk for Matched Employer-Employee Data”, Econometrica.
+kb7240f | More at: https://sites.google.com/site/stephanebonhommeresearch/
+@page 78
+k18f2ef | Some other references
+k82d9f8 [2L] | Aguiregabiria and Mira (2010): “Dynamic discrete choice structural models: A survey”, Journal of Econometrics.
+k0ce23e [3L] | Hu (2008): “Identification and estimation of nonlinear models with misclassification error using instrumental variables: A general solution”, Journal of Econometrics.
+k6011e3 [3L] | Hu (2015): “Microeconomic models with latent variables: applications of measurement error models in empirical industrial organization and labor economics”.
+k7481c1 [2L] | Kasahara and Shimotsu (2009): “Nonparametric identification of finite mixture models of dynamic discrete choices”, Econometrica.

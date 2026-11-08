@@ -1,0 +1,419 @@
+# 06_Aguirregabiria/Lecture_16_Identification_Non_Equilibrium_Beliefs_Games/slides/slides_nonequilibrium_beliefs_ucl_2025.pdf  (64 pages)
+# id | English (inline math is a rough reconstruction; check it)
+
+@page 1
+kd8e850 | IDENTIFICATION \& ESTIMATION OF
+k2893a2 | NON-EQUILIBRIUM BELIEFS IN
+kcfaa84 | GAMES OF INCOMPLETE INFORMATION
+ka3c17f | LECTURE 16
+#= k92a337 | Econometric Society Summer School  ⇒ 计量经济学会暑期学校
+#= k0776fa | in Dynamic Structural Econometrics  ⇒ 动态结构计量经济学
+#= ke4db0a | Victor Aguirregabiria (University of Toronto)  ⇒ Victor Aguirregabiria（多伦多大学）
+k7bb8d5 | UCL – July 5, 2025
+#= k68f749 | Victor Aguirregabiria  ⇒ =
+#= kd60990 | DDC Games  ⇒ DDC 博弈
+@page 2
+ka9f7b8 | Games of Oligopoly Competition with Non-Equilibrium Beliefs
+#= k2473e9 | Introduction  ⇒ 导论
+k291489 | Static games: Model
+k52356d | Identification \& Estimation in Static Games
+k582a5a | Dynamic games: Model
+k56087e | Identification \& Estimation in Dynamic Games
+k4eb1c1 | Application: Aguirregabiria \& Magesan (REStud, 2020)
+@page 3
+#= k0270ca | INTRODUCTION  ⇒ 引言
+@page 4
+k2ff3d8 | Firms’ Information \& Beliefs
+kc035f0 [2L] | In oligopoly markets, a firm’s behavior depends on its ⟪beliefs⟫ ⟪about the behavior of other firms⟫ in the market.
+kbbb2ac [2L] | ⟪Firms form their beliefs under⟫ **uncertainty and asymmetric** **information** ⟪.⟫
+k74a851 [3L] | Firms are different in their ⟪ability for collecting and processing⟫ ⟪information,⟫ for similar reasons as they are heterogeneous in their costs of producing goods and services.
+kab7226 | ⟪We expect firms to be⟫ heterogeneous in their beliefs.
+k1fcd4d [2L] | This heterogeneity has implications on their performance and on market outcomes.
+@page 5
+k9393cf | Sources of Biased Beliefs about Other Firms’ Strategies
+k70945f [2L] | In this lecture we focus on firms’ uncertainty and potentially biased beliefs about about other competitors’ strategies.
+k24cf44 | There are different potential sources of bias in these beliefs:
+k3a41ba [2L] | ⟪Limited information / attention:⟫ Some firms do not have information about variables that are known to other firms.
+k60ce08 [2L] | ⟪Bounded rationality:⟫ Limited capacity to process information / to compute.
+k30af32 [2L] | ⟪Strategic uncertainty:⟫ With multiple equilibria, firms may have different beliefs about the selected equilibrium. Some firms believe
+kc87325 [3L] | they are playing the Bertrand equilibrium with high prices, other firms believe they are playing the equilibrium with low prices, and others believe that they are playing a collusive equilibrium.
+@page 6
+k2a23da | Relaxing Firms’ Rational Beliefs
+k52d769 [2L] | Despite these arguments, in most fields in economics (and IO in particular), the status quo is ⟪assuming Rational Expectations.⟫
+k470ff4 | There are good reasons to impose assumption of equilibrium
+k29456f | ⟪beliefs. This⟫ restriction has identification power:
+kd44980 | In identification and estimation of structural parameters.
+kca7ee4 [2L] | In counterfactual analysis: model predicts how beliefs change endogenously.
+k1c9dd8 [2L] | But it can be unrealistic in some applications, and can imply serious biases in our views on firms’ competition.
+ka07907 [3L] | In this topic, we review some recent structural empirical papers of oligopoly competition that ⟪relax the assumption of firms’⟫ ⟪rational beliefs.⟫
+@page 7
+kbf2a40 | WHERE IS MORE LIKELY TO FIND BIASED BELIEFS?
+k5348f1 [2L] | Taking into account the sources of biased beliefs mentioned above, it seems more likely to find this phenomenon:
+k9d10a7 [2L] | In ⟪young industries⟫ / markets, where managers are still learning about competitors’ strategies.
+k97445e [2L] | After substantial ⟪structural changes⟫ in the industry: regulatory changes, important mergers, technological change.
+k8826c5 [2L] | In markets with substantial ⟪heterogeneity in costs/demand⟫ across firms, such that strategies can show substantial heterogeneity.
+kff2c93 | In markets where ⟪tacit collusion⟫ is more likely.
+k08b52d [4L] | In markets where computing an optimal (or close to optimal) strategy is not trivial and there are ⟪not simple heuristics / rules of⟫ ⟪thumb⟫ (e.g., auctions in electricity markets; pricing in insurance markets).
+@page 8
+k2e4b1c | STATIC GAMES: MODEL
+@page 9
+kf488b9 | Static Game:
+ka3e78d | Profit Function
+k350ae2 | $N$ firms competing in a market. The profit function of firm $i$:
+ke39486 | $a_i$ is firm i’s action, either continuous or discrete.
+k0299e4 | $a_{-i}$ is the vector with the actions of the other firms.
+k59e413 | **x** represents variables that are common knowledge.
+k9f67d2 | $\varepsilon_i$ is private information of firm $i$
+kfb9ab8 | Firms’ types $(\varepsilon_1,\varepsilon_2,\ldots,\varepsilon_N)$ are drawn from a distribution $F$.
+k83d333 [2L] | Firms choose simultaneously their actions $a_i$ to maximize their respective expected profits.
+@page 10
+k496b11 | Static Games:
+k538e99 | Beliefs
+kce66c7 [2L] | A firm does not know the private information of its competitors and therefore it does not know (ex-ante) their actions.
+k7cf8e8 | Firms form probabilistic beliefs about the actions of competitors.
+kae028c [2L] | Let $b_i(a_{-i}|\varepsilon_i,\mathrm{x})$ be a probability density function that represents the belief of firm $i$.
+@page 11
+k6b7fe2 | Best Response
+kbb382a | Given its beliefs, a ⟪firm’s expected profit⟫ is:
+k60d7f4 [2L] | A firm chooses its ⟪strategy function $\sigma_i(\varepsilon_i,\mathrm{x};b_i)$,⟫ to maximize expected profits:
+@page 12
+k8f2326 | Characterization of Best Response Strategies
+k991845 | Let $\Delta\Pi_i(a_i,a_{-i},\varepsilon_i,\mathrm{x})$ be the ⟪marginal profit function:⟫
+k3917f0 | $⟦?⟧$ continuous action:
+kfb8333 | discrete action:
+k686227 [2L] | ⟪ASSUMPTION 1: $\Delta\Pi_i$⟫ is strictly monotonic in $a_i$ and additively separable in $\varepsilon_i$:
+k536b2c | ASSUMPTION 2:
+k7d02ef | Independent private values $\varepsilon_i$.
+k8cfe81 | The CDF $F$ is strictly increasing .
+k250761 | The beliefs function $b_i(a_{-i}|\varepsilon_i,x)$ does not depend on $\varepsilon_i$.
+@page 13
+k699f69 | Characterization of Best Response Strategies [2]
+k420a45 | Let $\Delta\pi_i^e(a_i,\mathrm{x};b_i)$ be the expected marginal profit up to $\varepsilon_i$.
+ke39253 | ⟪[A]⟫ A necessary \& sufficient condition for best response $a_i$ is:
+@page 14
+kda230a | Characterization of Best Response Strategies [3]
+k66fe77 [2L] | ⟪[B]⟫ For any value $a^0$, the ⟪cumulative choice probability function⟫ ⟪(CCP) $P_i(a^0|\mathrm{x})\equiv\Pr (a_i\leq a^0|\mathrm{x})$⟫ satisfies the condition:
+kf51ca1 | $P_i(a^0|\mathrm{x})=F⟦?⟧\Delta\pi_i^e(a^0,\mathrm{x};b_i)|\mathrm{x}⟦?⟧$ for $a^0>0$
+ke93d8a | ⟪[C]⟫ The ⟪quantile function $Q_i(a^0|x)\equiv F^{-1}⟦?⟧P_i(a^0|\mathrm{x})⟦?⟧$:⟫
+ke70e1a | $Q_i(a^0|\mathrm{x})=\Delta\pi_i^e(a^0,\mathrm{x};b_i)$ for $a^0>0$
+@page 15
+kf804e8 | Example 1: Cournot with Independent Private Costs
+k9c546e | $a_i\in R_+$ is firm i’s amount of output.
+k7f8755 | Inverse demand function is $p$ = p(Q,x) where $Q=\sum_{i=1}^Na_i$.
+k575013 | A firm’s marginal cost function is $c_i(a_i,\mathrm{x})+\varepsilon_i$.
+k9bd183 | Then, the quantile condition (= expected marginal profit up to $\varepsilon_i)$:
+@page 16
+k9b7dc2 | Example 2: Market Entry with IP Entry Costs
+kf7dabb | $a_i\in\{0,1\}$ indicator of ”firm $i$ is active in the market”.
+ka15997 | A firm’s profit **if not active** is zero, $\Pi_i(0)=0$.
+k4d26c3 | A firm’s profit **if active** is: $\Pi_i(1)=v_i(a_{-i},\mathrm{x})-ec_i(\mathrm{x})-\varepsilon_i$.
+k535007 | Then, the quantile condition is:
+@page 17
+kfe7fbb | Example 3: Procurement Auction with IP Costs
+ka75ddb | $a_i\in R$ represents firm i‘s bid.
+kdd277f | Profit function: $\Pi_i=(a_i-c_i(\mathrm{x})-\varepsilon_i)1\{a_j>a_i\forall j\not=i\}$
+k1a3799 | The expected profit function is:
+k651012 [2L] | where $W(a_i,\mathrm{x},b_i)\equiv_{a-i}1\{a_j>a_i\forall j\not=i\}b_i(a_{-i}|\mathrm{x})da_{-i}$ is firm i’s subjective probability of wining the auction.
+@page 18
+k35ead1 | Example 3: Procurement Auctions [2]
+k1f516c | The expected marginal profit function is:
+k83a12d | where $\Delta W(a_i,\mathrm{x},b_i)=\partial W(a_i,\mathrm{x},b_i)/\partial a_i$.
+k919b07 | We have that $\sigma_i(\varepsilon_i,\mathrm{x},b_i)=a^0$ if and only if
+k07485f | Then, $\sigma_i(\varepsilon_i,\mathrm{x},b_i)\leq a^0$ iff $\varepsilon_i\leq a^0-c_i(\mathrm{x})+_{\Delta W(a0,x,bi)}^{W(a0,x,bi)}$ such that:
+@page 19
+kb0f804 | General Model of Firms’ Beliefs
+kf5fba9 [2L] | These best response conditions contain all the restrictions of the model on beliefs function $b_i$ and profit function $\Delta\pi_i$.
+k3a07c1 [2L] | Many models of competition in IO – under different types of equilibrium concepts are particular versions of this model.
+k7c5bf0 [2L] | **Auctions, Bertrand competition, Cournot competition, Entry** **models** ⟪under different types of restrictions on firms’ beliefs:⟫
+k0bb30b | Bayesian Nash equilibrium.
+k2866dd [2L] | Level-K and Cognitive Hierarchy Beliefs. Rationalizability.
+@page 20
+kac6fee | Bayesian Nash Equilibrium
+k1cc1e7 [2L] | Under Bayesian Nash Equilibrium (with independent private values):
+k097641 [2L] | This is the most commonly used solution concept in games of incomplete information in IO.
+k3862cb [3L] | It has received particular attention in **auction games** and in discrete choice models of **market entry,** but it has been also applied to games of quantity or price competition.
+@page 21
+k7686d4 | Cognitive Hierarchy \& Level-K Models
+k69f0be | Equilibrium concepts where firms have biased beliefs, that is,
+k556821 [2L] | There is a finite number $K$ of belief types that correspond to different levels of strategic sophistication.
+k0dc47b | Believes for Level-0 can be arbitrary, $b^{(0)}$ (or CDF $B^{(0)})$.
+k9fb188 | Level-1 firms believe that all the other firms are level 0: (CDF $B^{(1)})$
+@page 22
+k41329b | Cognitive Hierarchy \& Level-K Models [2]
+k668c82 | In **Level-k model,** level-k firm believes all other firms are $k-1$:
+k8c9be7 [2L] | In **Cognitive Hierarchy model,** a level-k firm believes that all other firms come from a probability distribution over levels 0 to
+kba95fc | These models impose restrictions on beliefs.
+k71f333 [2L] | There is a finite number K of belief types (typically 2 or 3). These belief functions satisfy a hierarchical equilibrium.
+@page 23
+k6fb9e5 | Rationalizability
+kdaa8ad [2L] | The concept of Rationalizability (Bernheim, 1984; Pearce, 1984) imposes two restrictions on firms’ beliefs and behavior.
+ke8b796 | $[\mathrm{A}.1]$ Every firm is rational in the sense that it maximizes its
+k972d3c | own expected profit given beliefs.
+kfb1ad7 | $[\mathrm{A}.2]$ This rationality is common knowledge, i.e., every firms
+kf51b74 [2L] | knows that all the firms know that it knows ... that all the firms are rational.
+k8a7b34 [2L] | Aradillas-Lopez \& Tamer (2008) study identification under Rationalizability.
+kcf9362 [2L] | In a game with multiple equilibria, the solution concept of Rationalizability allows for biased beliefs.
+kd70d88 [2L] | Each firm has beliefs that are consistent with a BNE, but these beliefs may not correspond to the same BNE.
+@page 24
+ka7e44e | STATIC GAMES: IDENTIFICATION
+@page 25
+#= k580393 | DATA  ⇒ 数据
+k172937 [3L] | The researcher has a sample of $M$ local markets, indexed by $m$, where she observes firms’ actions and state variables **(firms’** **choice data):**
+k022afe [2L] | In addition to these data, the researcher may have data on some components of the profit function.
+k529ba3 | I distinguish three cases, from better to worse case scenarios:
+k954a9d | Choice data + Revenue function + Cost function.
+k4526f8 | Choice data + Revenue function
+kca5c43 | Only Choice Data
+@page 26
+k4aec9b | Choice data + Revenue function + Cost function
+k73b45e [2L] | It is convenient now to distinguish between revenue and costs in the profit function:
+k7f61d9 | Such that:
+kf32434 [2L] | Both $\Delta r_i$ and $\Delta c_i$ may depend on the actions of other firms, $a_{-i}$. It depends on the model, on the type of decision variable.
+k6a28e2 [2L] | In an entry model or in a Cournot model, $\Delta c_i$ typically does not depend on $a_{-i}$.
+k44137a [4L] | In a model of price competition with differentiated product, $\Delta c_i$ typically depends on $a_{-i}:\Delta c_i$ depends on the quantity produced \& sold by $i$, this quantity depends (through demand) on the own price and the price of competitors.
+@page 27
+kcc3001 | Binary Choice – Two Players Game
+k5ed978 [2L] | Game of price competition where firms choose between a low price $(a_i$ = 0) and a high price $(a_i=1)$.
+ke17a0c | Notation:
+kec31aa | $p_i(\mathrm{x})\equiv p_i(1|\mathrm{x})=\mathrm{prob}$. choosing high price.
+ka5cdc4 | $b_i(\mathrm{x})\equiv b_i(1|\mathrm{x})$ = belief $\mathrm{prob}$. competitor chooses high price.
+ka057c7 | Expected marginal profit (up to $\varepsilon_i)$:
+@page 28
+kcaa30e | Binary Choice – Two Players Game [2]
+kd5b626 | Best response probability:
+kfd67f3 | Using quantile $Q_i(\mathrm{x})\equiv F^{-1}(p_i(\mathrm{x}))$:
+k0b31f8 | For the moment, I assume that $F$ is known to the researcher.
+@page 29
+kb63f65 | Identification with Revenue \& Cost Data
+k0305b9 | In the static case with two-players, beliefs are identified:
+kdecd42 [2L] | This belief function can be compared to the actual choice probability of the competitor to test unbiased / rational beliefs:
+k1be613 [2L] | We can also test other restrictions on beliefs such as level-K or Cognitive Hierarchy models.
+ka4feb5 [2L] | If panel data, we can study how beliefs evolve over time (learning).
+@page 30
+k1b381d | Identification with Revenue but No Cost Data
+ke2f7d4 [2L] | MR functions $\Delta r_i(0,\mathrm{x})$ and $\Delta r_i(1,\mathrm{x})$ are known to the researcher but the MC is not known.
+kfc9232 | Without further restrictions, the system of equations
+k6b7a70 | cannot identify the unknown functions $b_i(\mathrm{x})$ and $\Delta c_i$.
+kecb328 [3L] | Without further restrictions, any belief function (including the BNE belief) is consistent with observed behavior, $Q_i(\mathrm{x})$, given the appropriate $\Delta c_i$ function.
+@page 31
+k1c0a51 | Identification: Firm-Specific Cost Shifter
+kb4d453 | Exclusion Restriction (Firm specific cost shifter):
+kbd7717 [2L] | The vector **x** has a firm-specific components that affect the marginal profit of a firm but not the marginal profit of other firms.
+k35f208 | That is, **x** = $(⟦?⟧\mathrm{x},\mathrm{z}_i,\mathrm{z}_{-i})$ such that:
+k753262 | EXAMPLES:
+k7c3ff4 | Wage rate that a firm pays to its workers.
+k6991f1 | Wholesale prices that a firm pays to its suppliers.
+k157307 | The firm’s installed capacity.
+kb8d834 | The firm’s capital stock.
+kdc3e5f | The firm’s Total Factor Productivity.
+@page 32
+kbe49cd | IDENTIFICATION OF BELIEFS
+k499bf9 [2L] | ⟪The⟫ observed change in the behavior of firm $i$ given a change in z of its competitors ⟪can identify firm i’s beliefs.⟫
+k28a4ab | Let $A,B$, and $C$ be three values for $\mathrm{z}_{-i}$. Then:
+k371ea1 | And taking the ratio between these two differences, we have that:
+k1d69eb [2L] | The object in LHS depends only on beliefs. The object in RHS is identified from firm i’s observed behavior.
+@page 33
+k00acc2 | Testing Different Models of Beliefs \& Learning
+kea25e3 | Given this identified beliefs object, we can test different models or
+kd33eb1 | restrictions on beliefs such that:
+kcd8faa | Unbiased beliefs of firm $i$.
+k2dab13 | Rationalizability.
+k887dac | Cognitive Hierarchy model; Level-k
+k9df9e0 | If we have panel data over several periods of time, we can also
+k7338e7 | test different models of learning / beliefs updating:
+kc76ef1 | Bayesian learning
+kd24cc3 | Fictitious play.
+k78cf15 | Adaptive learning.
+@page 34
+k530605 | EXTENSIONS OF THIS IDENTIFICATION RESULT
+k0c03a5 | This result on the identification of beliefs about other firms’
+k10f7fd | strategies can be extended to incorporate:
+kcf7a5d | More than two players.
+k20cd29 | Continuous choice games.
+k5e1dae | Ordered multinomial choice games.
+k53cb99 | Dynamic games (discrete and continuous choice).
+k46f0ec | Nonparametric distribution of private information $F$.
+@page 35
+kceb034 | Dynamic Games: Model
+@page 36
+k9e1279 | Model:
+ka4ff77 | Dynamic Game
+k5645c0 | $N$ firms indexed by $i$. Every period $t$, each firm takes an action
+k1f5a2f | ⟪One-period⟫ **profit function** ⟪is:⟫
+k47d2aa | $\mathrm{x}_t$ = vector of common knowledge state vars. with ⟪transition⟫
+kcee3db [2L] | $\varepsilon'_{it}s$ are private info of player $i$ and unobservable to researcher. It is i.i.d. over time and players.
+@page 37
+ka709d5 | Maintain some assumptions from MPE
+k73d1da [2L] | **ASSUMPTION 1** ⟪(Payoff relevant state variables):⟫ Players’ strategy functions depend only on payoff relevant state variables: $\mathrm{x}_t$ and
+k5ded9e [3L] | **ASSUMPTION 2** ⟪(Maximization of intertemporal payoffs):⟫ Players are forward looking and maximize expected intertemporal payoffs.
+k7cd405 [2L] | **ASSUMPTION 3** ⟪(Rational beliefs on own future behavior):⟫ Players have rational expectations on their own behavior in the future.
+k764225 [2L] | ⟪We⟫ relax ⟪the assumption that firms have⟫ unbiased or equilibrium beliefs on other players’ behaviour,
+@page 38
+k6eda82 | Strategies, Choice Probabilities, and Beliefs
+k49326b | Let $\sigma_{it}(\mathrm{x}_t,\varepsilon_{it})$ be the strategy function for player $i$ at period $t$.
+k2ed42f | $P_{it}(a_i|\mathrm{x}_t)\equiv\Pr (\sigma_{it}(\mathrm{x}_t,\varepsilon_{it})=a_i|\mathrm{x}_t)$ choice probability of player $i$.
+k0794e0 [2L] | $B_{it+s}^{(t)}(a_{-i}|\mathrm{x}_{t+s})$ ⟪beliefs⟫ of player $i$ at period $t$ about the behavior of other players at period $t+s$.
+ke76357 [3L] | The model allows the belief functions $B_{it+s}^{(t)}$ to vary freely both over $t$ (i.e., over the period when these beliefs are formed) and over $t+s$ (i.e., over the period of the other players’ behavior).
+kd1b8ab [2L] | In particular, the model allows players to update their beliefs and learn (or not) over time $t$.
+@page 39
+kec0093 | Sequence of $\mathrm{Beliefs}B_{it+s}^{(t)}$
+k9d5adc | Period of the opponents’ behavior (  «Period of the opponents’ behavior (»
+@page 40
+k298ab1 | Best Response Functions
+k65f7d7 | Given her beliefs at period $t,\mathrm{B}_i(t)=⟦?⟧B_{i,t+s}^{(t)}:s\geq0⟦?⟧$, a player best
+k317df2 [2L] | response at period $t$ is the solution of a single-agent Dynamic Programming problem.
+kb263ae [2L] | At period $t$, the DP problem can be described in terms of: **(1)** a sequence of ⟪expected one-period payoff functions:⟫
+kb41fa1 | ⟪And (2) a sequence of⟫ transition probability functions:
+@page 41
+kd628fb | Best Response Functions [2]
+k71bc18 [2L] | The solution of this DP problem implies the vector of ⟪conditional⟫ ⟪choice value functions⟫ at period $t$:
+k1d275b | ⟪And the⟫ best response choice probabilities:
+k9d2a6b | For instance, in a logit model:
+@page 42
+k80ecf2 | Structure of the conditional choice values
+kf70ed9 | By definition the values $v_{it}^{B(t)}(a_i,\mathrm{x}_t)$ have the following structure:
+kb692f6 | $\mathrm{B}_{it}^{(t)}(\mathrm{x}_t)$ = vector of beliefs $[B_{it}^{(t)}(a_{-i}|\mathrm{x}_t)$ for any value $a_{-i}]$.
+k23d642 | $\mathrm{B}_{(>t)}^{(t)}$ = beliefs formed at $t$ on rivals’ behavior at $t+s>t$.
+k7c80bc | $\pi_{it}(a_{it},\mathrm{x}_t)$ = vector of payoffs $[\pi_{it}(a_{it},a_{-i},\mathrm{x}_t)$ for any value $a_{-i}]$.
+k7a122c | = vector of continuation values  «$(a_{it},\mathrm{x}_t)$ = vector of continuation values $[\mathrm{c}_{it}$»
+k43eef9 | for  «$(a_{it},a_{-i},\mathrm{x}_t)$ for»
+k45104a | any value $a_{-i}]$ with:
+@page 43
+ka02232 | Dynamic Games: Identification of Beliefs
+kfacbfc | Identification of Beliefs
+@page 44
+#= ke5e429 | Data  ⇒ 数据
+k3a142a | Random sample of $M$ markets, indexed by $m$, where we observe
+kbc4910 | $N$ and $T^{data}$ are small and $M$ is large.
+kdf4a2b | The payoff functions $\pi_{it}(a_{it},a_{-it},\mathrm{x}_t)$ and the beliefs functions
+kd66202 | $B_{it+s}^{(t)}(a_{-i}|\mathrm{x}_{t+s})$ ⟪are⟫ nonparametrically specified.
+kff0490 | The distribution of the unobservables $\Lambda$ is assumed known.
+k133a22 [2L] | I focus here in a model with two players, $i$ and $j$, but the paper results can be extended to $N$ players.
+@page 45
+ka140cb | Inversion of CCPs
+kf20861 | The model is described by the conditions:
+k049c03 | The CCPs $P_{it}(a_i|\mathrm{x}_t)$ are identified using data from $M$ markets.
+k41f2e8 [2L] | ⟪Hotz-Miller inversion theorem⟫ implies that we can invert the best response mapping to obtain value differences
+kf7dbf7 | $⟦?⟧v_{it}^{B(t)}(a_i,\mathrm{x}_t)\equiv v_{it}^{B(t)}(a_i,\mathrm{x}_t)-v_{it}^{B(t)}(0,\mathrm{x}_t)$ as functions of CCPs:
+k847403 [2L] | The identification problem is to obtain beliefs and payoff functions given that $\Lambda^{-1}(a_i;\mathrm{P}_{it}(\mathrm{x}_t))$ are known.
+@page 46
+kfb1985 | Structure of the restrictions
+k12185b | Value differences $⟦?⟧v_{it}^{B(t)}(a_i,\mathrm{x}_t)$ are:
+kf2a3ce [2L] | $\pi⟦?⟧_{it}(a_{it},\mathrm{x}_t)$ = vector of payoff differences $[\pi_{it}(a_{it},a_{-i},\mathrm{x}_t)-\pi_{it}(0,a_{-i},\mathrm{x}_t)$ for any value $a_{-i}]$.
+ka6be8f | = vector of differences of continuation values  «$(a_{it},\mathrm{x}_t)$ = vector of differences of continuation values»
+k3b5a1f | for any value  «$(0,a_{-i},\mathrm{x}_t)$ for any value $a_{-i}]$.»
+@page 47
+k5bfc7c | Identification Assumptions
+kd85784 [2L] | ⟪ASSUMPTION ID-1.⟫ A player has the same beliefs in markets with the same **x** variables.
+k67537e | $B_{imt+s}^{(t)}(.|\mathrm{x})=B_{it+s}^{(t)}(.|\mathrm{x})$ for any market $m$
+k90fec5 [3L] | ⟪ASSUMPTION ID-2 (Static Exclusion Restriction):⟫ $\mathrm{x}_t=(s_{it},s_{jt},\mathrm{w}_t)$ such that $s_{it}$ enters in the payoff function of player $i$ but not in the payoff of the other player.
+k761b7c [3L] | ⟪ASSUMPTION ID-3 (Dynamic Exclusion Restriction):⟫ The transition probability of the state variable $s_{it}$ is such that the value of $s_{it+1}$ does not depend on $(s_{it},s_{jt})$:
+@page 48
+k9265f3 | Static Exclusion Restriction (ID-2)
+k42ff13 [2L] | The exclusion restriction ID-2 appears naturally in many applications of dynamic games of oligopoly competition.
+k4bff70 [4L] | Incumbent status, capacity, capital stock, or product quality of a firm at period $t-1$ are state variables that enter in a firm’s payoff function at period $t$ because there are investment and adjustment costs that depend on these lagged variables.
+kdf279a [3L] | A firm’s payoff $\pi_{it}$ depends also on the competitors’ values of these variables at period $t$, but it does not depend on the competitors’ values of these variables at $t-1$.
+k8e05c2 [5L] | Importantly, the assumption does not mean that player $i$ does not condition her behavior on those excluded variables. Each player conditions his behavior on all the (common knowledge) state variables that affect the payoff of a player in the game, even if these variables are excluded from his own payoff.
+@page 49
+kc4d610 | Dynamic Exclusion Restriction (ID-3)
+k616ec0 [2L] | An important class of models that satisfies this condition is when $s_{it}=a_{i,t-1}$, such that the transition rule is simply:
+k97d5fc [3L] | Many dynamic games of oligopoly competition belong to this class, e.g., market entry/exit, technology adoption, and some dynamic games of quality or capacity competition, among others.
+@page 50
+k3826dd | Example: Quality competition
+kd0509a | Quality ladder dynamic game (Pakes and McGuire, 1994).
+k148de7 | $s_{it}$ is the firm’s quality at $t-1$.
+ke90f80 | The decision variable $a_{it}$ is the firm’s quality at period $t$, such that:
+k8250ae [2L] | The model is dynamic because the payoff function includes a cost of adjusting quality that depends on $a_{it}-s_{it}$:
+kfccc87 [2L] | Given competitors quality at period $t,a_{jt}$, firm i’s profit does not depend on competitors’ qualities at $t-1$.
+@page 51
+k598e3a | Role of the Exclusion restrictions
+k0d5f42 [2L] | Under the two exclusion restrictions, the state variables $\mathrm{s}_{-it}$ (the competitors $s_j)$ do not enter in the payoffs $\pi⟦?⟧_{it}(a_{it},s_{it})$ and on the
+ka9fd70 | continuation values  «continuation values $⟦?⟧\mathrm{c}_{it}$»
+k993427 | Note: Though  «Note: Though $⟦?⟧\mathrm{c}_{it}$»
+k0ce763 | depends on beliefs, these are beliefs at  «$(a_{it},s_{it})$ depends on beliefs, these are beliefs at»
+kd6355c | periods $t+s>t$ and therefore depend on $(s_{it+s},\mathrm{s}_{-it+s})$ for
+k57635e | Therefore, the dependence of $\ln $
+k83b712 | with respect to
+k178306 | $\mathrm{s}_{-it}$ captures the dependence of beliefs $\mathrm{B}_{it}^{(t)}(s_{it},\mathrm{s}_{-it})$ with respect to
+@page 52
+k849e02 | For any player $i$, any period $t$ in the data, any value of $(a_{-i},s_{it})$,
+k0a5d8b [2L] | and any combination of three values $\mathrm{s}_{-it}$, say $(\mathrm{s}_{-i}^{(a)},\mathrm{s}_{-i}^{(b)},\mathrm{s}_{-i}^{(c)})$, the following function of beliefs is identified:
+@page 53
+ke49263 | For instance, in a binary choice logit with two-players:
+kd43812 | Note that we cannot identify beliefs about competitors’ behavior
+k9bbf14 [2L] | at future periods: $B_{it+s}^{(t)}$ for $s>0$. However, $B_{it}^{(t)}$ can provide substantial information about learning.
+@page 54
+k12cd60 | Empirical Application
+#= k367221 | EMPIRICAL APPLICATION  ⇒ 实证应用
+kbed65c [2L] | Dynamic game of store location by McDonalds (MD) and Burger King (BK) using data for United Kingdom during the period
+kbfade4 | Panel of 422 local markets (districts) and six years, 1990-1995.
+k866976 [2L] | Information on the number of stores of McDonalds (MD) and Burger King (BK) in United Kingdom.
+k751385 [3L] | Information on local market characteristics such as population, density, income per capita, age distribution, average rent, local retail taxes, and distance to the headquarters of each firm in UK.
+@page 55
+k6e7b87 | Evolution of the Number of Stores \& Markets
+k547fa3 | Data: 422 markets, 2 firms, 5 years
+kd8ef2a | 4,220 observations
+kf283dc | Burger King
+kb9f6f9 | McDonalds
+k31093e | \# Markets
+k2a1ced | \# of stores
+k00870f | stores
+k1d34a8 | per market
+@page 56
+#= k68c2cc | Model  ⇒ 模型
+kda75c3 [2L] | $k_{imt}\in\{0,1,\ldots,|\mathcal{K}|\}$ number of stores of firm $i$ in market $m$ at period $t-1$.
+kaf5b05 | $a_{imt}\in\{0,1\}$ decision of firm $i$ to open a new store.
+k28d2df | $a_{imt}+k_{imt}$ = \# stores of firm $i$ at period $t$.
+k7c58db [2L] | $S_{imt}$ = Distance of the centroid of marker $m$ to the centroid of the closest market where firm $i$ had stores at year $t-1$.
+k2ae4d1 | Firm i’s total profit function is equal to:
+@page 57
+k41cda6 | Model [2]
+k737027 | Variable profit function:
+k2f490c | Entry cost:
+k720c77 | Fixed cost:
+@page 58
+k3c61f3 | Tests of Unbiased Beliefs
+kaa6414 | Data: 422 markets, 5 years
+k17bfe9 | 2,110 observations
+kcf8a7d | BK: $D⟦?⟧$ (p-value)
+k138f29 | MD: $D⟦?⟧$ (p-value)
+kf29374 | We can reject hypothesis that BK beliefs are unbiased (p-value
+k1fb951 [2L] | Restriction is more clearly rejected for large values of the state variable (distance to chain network) $S_{MD}$.
+@page 59
+k538581 | Where to impose unbiased beliefs?
+k219d3d | We propose three different criteria:
+k36fce0 | [1] Minimize distance $⟦?⟧⟦?⟧B_i-P_j⟦?⟧⟦?⟧$
+k246ceb | [2] Impose unbiased beliefs for smallest values of $S_j$.
+k60ddb5 | [3] Most visited values of $S_j$.
+k41fca9 [3L] | In this empirical application, the three criteria have the same implication: impose unbiased beliefs at the lowest values for the distance $S_j$.
+@page 60
+kf4ca27 | Estimation of Dynamic Game
+k78cc6a | $\beta$ = 0.95 (not estimated)
+k2a31cb | Equilibrium Beliefs
+k95bd26 | Biased Beliefs
+k5b3e31 | BK  «BK»
+ke066dc | MD  «MD»
+ka32321 | $\mathrm{Var}$ Profits:
+k30fb6b | cVaPn cannibalization  «cVaPn cannibalization»
+k44d390 | cVoPm competition  «cVoPm competition»
+k380631 | Log-Likelihood
+@page 61
+k826443 | Fixed Costs:
+k569696 | qFuCa quadratic in k  «qFuCa quadratic in k»
+@page 62
+k997bab | Entry Cost:
+kf0f3f2 | SEC (linear in S)  «SEC (linear in S)»
+@page 63
+k7d3385 | Implications of biased beliefs on BK’s profits
+k40fa5c [3L] | We compare the value of BK’s profits during years 1991 to 1994 given its actual entry decisions with this firm’s profits if its entry decisions were based on unbiased beliefs on MD’s behaviour.
+k9b4e77 | Having unbiased would increase BK’s total profits ⟪in UK by:⟫
+k55ca41 | 2.78\% in 1991;  «2.78\% in 1991;»
+ka7b873 | 2.11\% in 1992;  «2.11\% in 1992;»
+k18a176 | 1.20\% in 1993;  «1.20\% in 1993;»
+k70b8e5 | 0.87\% in 1994.  «0.87\% in 1994.»
+ke10044 [4L] | Biased beliefs occur in markets which are relatively far away from the firm’s network of stores. These markets are relatively smaller, and biased beliefs decline over time in the sample period as the result of geographic expansion.
+@page 64
+k1efcd2 | Summary and Conclusions
+ka9f827 [3L] | Strategic uncertainty can be important for competition in oligopoly markets. Under these conditions, the assumption of equilibrium beliefs can be too restrictive.
+k3c56af [2L] | We present sufficient conditions for the NP identification of preferences and beliefs.
+k279c01 [2L] | We apply these ideas to actual data and find that bias beliefs can be useful to explain a puzzle in the data.

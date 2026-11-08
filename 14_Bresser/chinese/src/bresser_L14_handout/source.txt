@@ -1,0 +1,777 @@
+# 14_Bresser/SubjectiveExpectationsLifeCycleModels_handout.pdf  (72 pages)
+# id | English (inline math is a rough reconstruction; check it)
+
+@page 1
+#= k2899a2 | Subjective expectations in life-cycle models  ⇒ 生命周期模型中的主观预期
+#= kc95b4c | Jochem de Bresser  ⇒ =
+#= k76e0e0 | Tilburg University and Netspar  ⇒ 蒂尔堡大学与 Netspar
+#= k7e199d | July 5 2025  ⇒ 2025 年 7 月 5 日
+@page 2
+#= k92af48 | History of subjective expectations  ⇒ 主观预期的历史
+#= kb50c92 | (Bruine de Bruin et al., 2023)  ⇒ （Bruine de Bruin 等，2023）
+#= k4660e8 | Source: The Economist, 13-06-2025  ⇒ 来源：《经济学人》，2025-06-13
+#= kb672a2 | $1940\mathrm{s}$: University of Michigan’s Surveys of Consumers and Survey of  ⇒ 20 世纪 40 年代：密歇根大学的消费者调查与消费者金融调查，
+#= k2443d4 | Consumer Finances by George Katona and others  ⇒ 由 George Katona 等人主持
+#= k19455c | Idea: past behavior not always good guide for future  ⇒ 思路：过去的行为并不总是未来的良好指引
+#= k9b4628 | Subjective expectations incorporated in aggregate measures relevant  ⇒ 主观预期被纳入与研究和政策相关的
+#= k88b058 | for research and policy  ⇒ 总量指标之中
+@page 3
+#= k9a7466 | Why measure subjective expectations?  ⇒ 为什么要测量主观预期？
+#= k8e171f | Household expectations valuable to  ⇒ 家庭预期的价值在于
+#= k83941d | (Katona and Klein, 1952; Manski, 2004)  ⇒ （Katona 与 Klein，1952；Manski，2004）
+#= kd25972 | Predict choices  ⇒ 预测选择
+#= k317caa | Understand how those choices are made (preferences, expectations,  ⇒ 理解这些选择是如何作出的（偏好、预期、
+#= k984848 | constraints)  ⇒ 约束）
+#= kd4b4ae | Understand formation of expectations  ⇒ 理解预期的形成
+#= k30d9de | Economic theory models decision making based on **probabilistic**  ⇒ 经济理论基于**概率性**
+#= ke132d1 | expectations $^{(Manski,2004)}$  ⇒ 预期对决策建模（Manski，2004）
+#= k33556b | Inter-personal comparability  ⇒ 人与人之间可比
+#= k4878ca | Internal (logical) consistency  ⇒ 内部（逻辑）一致
+#= kf1a1c3 | Different moments (location, dispersion)  ⇒ 不同的矩（位置、离散程度）
+@page 4
+#= kba41d2 | Popularity grew since early $1990\mathrm{s}$  ⇒ 自 20 世纪 90 年代初以来日益流行
+#= k88669f | Empirical evidence in favor of subjective expectations  ⇒ 支持主观预期的经验证据
+#= k6d98cf | Survival expectations predict actual survival  ⇒ 生存预期能够预测实际生存
+#= k87f906 | (Hurd and McGarry, 2002)  ⇒ （Hurd 与 McGarry，2002）
+#= kbfae6a | Adolescents’ expectation of life events predict those events $^{(Fischhoff}$  ⇒ 青少年对人生事件的预期能够预测这些事件（Fischhoff
+#= k9a7fae | et al., 2000)  ⇒ 等，2000）
+#= k825494 | Additional drivers  ⇒ 其他推动因素
+#= k1ef570 | Subjective measures (e.g., Michigan Survey of Consumers) predict  ⇒ 主观测量（例如密歇根消费者调查）能够预测
+#= k084760 | changes in consumption and inflation  ⇒ 消费和通货膨胀的变化
+#= kc6c81d | (Carroll et al., 1994; Ludvigson, 2004;  ⇒ （Carroll 等，1994；Ludvigson，2004；
+#= kfd4066 | Ang et al., 2007)  ⇒ Ang 等，2007）
+#= ka0622c | Doubts about rationality of expectations  ⇒ 对预期理性的怀疑
+#= kd913c9 | (Tversky and Kahneman, 1974)  ⇒ （Tversky 与 Kahneman，1974）
+#= k7d155b | Currently many (most?) major household surveys include expectations  ⇒ 目前，许多（大多数？）大型家庭调查都包含预期
+#= kff3d39 | questions  ⇒ 问题
+#= k3640fb | 6 in U.S., multiple in Europe (U.K.) and Canada  ⇒ 美国有 6 项，欧洲（英国）和加拿大也有多项
+@page 5
+#= k8119e7 | Roadmap  ⇒ 路线图
+#= k2473e9 | Introduction  ⇒ 导论
+#= k9d6b40 | Life-cycle models  ⇒ 生命周期模型
+#= k24d799 | Literature overview  ⇒ 文献综述
+#= k5e098f | Measurement models  ⇒ 测量模型
+#= k482d50 | Heterogeneous survival expectations in a life-cycle model $^{(deBresser,}$  ⇒ 生命周期模型中的异质性生存预期（de Bresser，
+@page 6
+#= k137e20 | Decisions with long-term consequences  ⇒ 具有长期后果的决策
+#= k96c1f9 | Saving and retirement  ⇒ 储蓄与退休
+#= k6a4acc | Health investments  ⇒ 健康投资
+#= k9e76bf | Education, marriage, ...  ⇒ 教育、婚姻……
+#= k76c74b | Applications  ⇒ 应用
+#= k08207c | Understand observed behavior (why save?)  ⇒ 理解观察到的行为（为什么储蓄？）
+#= k89a6a7 | Predict behavior under counterfactual institutions (pension reform)  ⇒ 预测反事实制度（养老金改革）下的行为
+#= k1d6245 | Basic ingredients  ⇒ 基本要素
+#= k7208e6 | Choices  ⇒ 选择
+#= k9dfd34 | Preferences  ⇒ 偏好
+#= kad7c70 | Expectations  ⇒ 预期
+#= k936fa1 | (Manski, 2004; Ko¸sar and O’Dea, 2023)  ⇒ （Manski，2004；Koşar 与 O’Dea，2023）
+#= k90bcf2 | States of nature (health, survival, wage) Future choices  ⇒ 自然状态（健康、生存、工资） ⏎ 未来的选择
+#= kfcec49 | Budget constraint (institutions)  ⇒ 预算约束（制度）
+@page 7
+#= k5a68db | A sketch of a life-cycle model  ⇒ 生命周期模型的概要
+#= k527dc6 | (based on Ko¸sar and O’Dea, 2023, and  ⇒ （基于 Koşar 与 O’Dea，2023，以及
+#= k82c421 | Van der Klaauw and Wolpin, 2008)  ⇒ Van der Klaauw 与 Wolpin，2008）
+#= k85abc4 | Structure: discrete time (age) $t$ in years, certain death at age $T$  ⇒ 结构：离散时间（年龄）$t$，以年为单位，在年龄 $T$ 时必然死亡
+#= kea6888 | Consumption $c_t$ (continuous)  ⇒ 消费 $c_t$（连续）
+#= kf11eed | Labor supply $h_t$ (discrete, up to age $T^R)$  ⇒ 劳动供给 $h_t$（离散，直到年龄 $T^R$）
+#= k3ee21a | **Utility function** (consumption $c_t$ and leisure $l_t)$  ⇒ **效用函数**（消费 $c_t$ 与闲暇 $l_t$）
+#= k8f4d79 | Budget constraint  ⇒ 预算约束
+#= k958f57 | if  ⇒ 若
+#= k0da932 | $a_{t+1}=(a_t+\kappa\times$ pension $(\mathrm{h}_T^R,\mathrm{y}_T^R)-c_t)(1+r)$ if $t\geq T^R$  ⇒ =
+@page 8
+#= k0b246c | ⟪Risk⟫ (expectations)  ⇒ ⟪风险⟫（预期）
+#= k2c6723 | Personal or demographic states: longevity  ⇒ 个人或人口学状态：寿命
+#= k0f883b | Features of economic environment: wage $y_t$  ⇒ 经济环境的特征：工资 $y_t$
+#= kbfb26b | Future policy: pension $(\mathrm{h}_T^R,\mathrm{y}_T^R)$  ⇒ 未来的政策：养老金 $(\mathbf{h}_{T^R},\mathbf{y}_{T^R})$
+#= k4e0640 | E.g., $s_{i,t+1}$ is one-year survival probability conditional on survival to age $t$  ⇒ 例如，$s_{i,t+1}$ 是在存活到年龄 $t$ 的条件下再存活一年的概率
+#= k8baf36 | Recursive specification  ⇒ 递归设定
+#= k5b54e2 | = maxU  ⇒ =
+#= k880771 | subject to the budget constraint  ⇒ 满足预算约束
+#= k41bcd1 | state $\chi_t=\{a_t,\mathrm{y}_t,\mathrm{h}_t\};\mathrm{y}_t=(y_1,\ldots,y_t)$  ⇒ 状态 $\chi_t=\{a_t,\mathbf{y}_t,\mathbf{h}_t\}$；$\mathbf{y}_t=(y_1,\ldots,y_t)$
+@page 9
+#= kc9a5e9 | Solving the model  ⇒ 求解模型
+#= k4c094a | Collect unknown model features in $\theta$  ⇒ 把未知的模型特征归入 $\theta$
+#= kfd128e | Preference parameters $\{\beta,\gamma,\nu\}$, expectations $\kappa$  ⇒ 偏好参数 $\{\beta,\gamma,\nu\}$，预期 $\kappa$
+#= kb313ec | If $\theta$ were known: backward induction to obtain decision rules  ⇒ 若 $\theta$ 已知：用逆向归纳得到决策规则
+#= k58ea70 | Model solution implies trajectories of choices and of **expectations of**  ⇒ 模型的解隐含着选择的轨迹，以及
+#= kc6118c | future choices  ⇒ 对未来选择的**预期**的轨迹
+#= k7a4214 | **Identification:** difefrent $\theta$ lead to different distributions of observables  ⇒ **识别：**在模型下，不同的 $\theta$ 导致
+#= k1b0dbc | under the model  ⇒ 可观测变量的不同分布
+#= k96bdaa | Binary property of model + joint distribution of observables  ⇒ 模型的二元性质 + 可观测变量的联合分布
+#= kc0de17 | More data allow less restrictive model  ⇒ 数据越多，模型所需的限制就越少
+@page 10
+#= k5ec976 | Estimation  ⇒ 估计
+#= k9c472c | **Step 1:** Estimate processes outside the model if possible (exogenous)  ⇒ **第 1 步：**尽可能在模型之外估计各个过程（外生的）
+#= ke9b2d6 | All objects that do not depend on decision rules $c⟦?⟧_t$ and $h⟦?⟧_t$  ⇒ 所有不依赖于决策规则 $\hat{c}_t$ 与 $\hat{h}_t$ 的对象
+#= k66d7c0 | E.g., interest rate $r$  ⇒ 例如利率 $r$
+#= k2941f1 | **Step 2:** Estimate remaining unknown model features in $\theta$ by matching  ⇒ **第 2 步：**通过把模型含义与观测数据相匹配，
+#= ke7d293 | model implications to observed data  ⇒ 估计 $\theta$ 中其余未知的模型特征
+#= k446f56 | Preference parameters $\{\beta,\gamma,\nu\}$ and endogenous aspects of  ⇒ 偏好参数 $\{\beta,\gamma,\nu\}$ 以及预期的
+#= k3eec5a | expectations (formation, learning)  ⇒ 内生方面（形成、学习）
+#= k54d0a6 | Maximum Likelihood or Method of Moments  ⇒ 极大似然或矩方法
+@page 11
+#= k57b675 | Rational expectations  ⇒ 理性预期
+#= k477a2f | **Rational expectations:** expectations equal to our estimates  ⇒ **理性预期：**预期等于我们的估计
+#= kf96321 | e.g., $s_{i,t+1}$ = actuarial forecast  ⇒ 例如，$s_{i,t+1}$ = 精算预测
+#= k0fa5e4 | Requires only data on choices and state variables  ⇒ 只需要关于选择和状态变量的数据
+#= kdc6434 | Expectations equal estimated processes for state variables  ⇒ 预期等于状态变量的估计过程
+#= kdeab9a | Good approximation if  ⇒ 在以下情况下是良好的近似：
+#= k0b500e | Decision makers have the **same information** as econometrician  ⇒ 决策者拥有与计量经济学家**相同的信息**
+#= k46d571 | Decision makers **process that information** as econometrician  ⇒ 决策者像计量经济学家一样**处理这些信息**
+#= k9b19c0 | (inference)  ⇒ （推断）
+@page 12
+#= k298815 | Subjective expectations  ⇒ 主观预期
+#= k2cb488 | $s⟦?⟧_{i,t+1}$ and/or $E⟦?⟧_{i,t}[V_{t+1}|\chi_t]$ are based on survey data from individual $i$  ⇒ $\hat{s}_{i,t+1}$ 和/或 $\hat{E}_{i,t}[V_{t+1}|\chi_t]$ 基于来自个体 $i$ 的调查数据
+#= kf9e47a | We know how respondent $i$ **understands the survey questions**  ⇒ 我们知道受访者 $i$ **如何理解调查问题**
+#= k98a4d3 | Tries to report $s_{i,t+1}$ (meta-data: time stamps, self-evaluations)  ⇒ 试图报告 $s_{i,t+1}$（元数据：时间戳、自我评价）
+#= k2197ab | We know how respondent $i$ **uses the response format**  ⇒ 我们知道受访者 $i$ **如何使用回答格式**
+#= k1127af | Transformation $s_{i,t+1}\to s⟦?⟧_{i,t+1}$ (peculiarities in responses)  ⇒ 转换 $s_{i,t+1}\to\hat{s}_{i,t+1}$（回答中的特殊性）
+#= k59afa7 | Face/construct/predictive validity  ⇒ 表面效度/构念效度/预测效度
+#= ke634db | Best practice in survey design  ⇒ 调查设计的最佳实践
+#= kb28150 | (Bruine de Bruin et al., 2023, see also Dillman,  ⇒ （Bruine de Bruin 等，2023；另见 Dillman，
+#= k54dd38 | 2011; Bergman et al., 2020)  ⇒ 2011；Bergman 等，2020）
+#= k232b88 | Cognitive interviews  ⇒ 认知访谈
+#= k0e8dca | Simple language  ⇒ 简单的语言
+@page 13
+#= kb2ac59 | Subjective vs rational expectations  ⇒ 主观预期与理性预期
+#= kb946b8 | Identification problem: observed choices compatible with multiple  ⇒ 识别问题：观察到的选择与偏好和预期的多种
+#= k042102 | combinations of preferences and expectations  ⇒ 组合相容
+#= k2b622a | (Manski et al., 1991;  ⇒ （Manski 等，1991；
+#= k546ad3 | Manski, 2004)  ⇒ Manski，2004）
+#= k0b68e5 | Observing expectations directly allows greater flexibility:  ⇒ 直接观察预期可以带来更大的灵活性：
+#= k6cb21e | “...it is enough to assume that elicited expectations faithfully de-  ⇒ “……只需假设诱导出的预期如实地描述了
+#= kf68cb3 | scribe persons’ perceptions of their environments”  ⇒ 人们对其环境的感知”
+#= k97fde2 | Manski (2004)  ⇒ Manski（2004）
+#= k971c1b | Expectations may not follow observed realization of states Processes may be non-stationary  ⇒ 预期可能不遵循观察到的状态实现值 ⏎ 过程可能是非平稳的
+#= k6c05d0 | Level and heterogeneity  ⇒ 水平与异质性
+#= k31bb46 | Important question of measurement  ⇒ 重要的测量问题
+#= kd8a18e | More data, not degrees of freedom  ⇒ 是更多的数据，而不是自由度
+#= k79a244 | Expectation formation in status quo and in counterfactual  ⇒ 现状与反事实中的预期形成
+@page 14
+#= kc9a807 | Considerations for survey design  ⇒ 调查设计的考虑
+#= kdbba2e | Probabilistic survey items that elicit direct analogues of model objects  ⇒ **概率性**调查题项，诱导出**模型对象的直接对应物**
+#= k63a7eb | (Manski, 2004; Bruine de Bruin et al., 2023)  ⇒ （Manski，2004；Bruine de Bruin 等，2023）
+#= k286e87 | Choice probabilities are more informative than discrete choice  ⇒ 选择概率比离散选择更有信息量
+#= kca645b | (Manski,  ⇒ （Manski，
+#= ke51d98 | **Resolvable uncertainty** in stated preferences for incomplete scenarios Ranking of alternatives  ⇒ 对不完整情景的陈述偏好中的**可消解的不确定性** ⏎ 对备选项排序
+#= k12dbee | Example: three questions on future pension claiming  ⇒ 例子：关于未来领取养老金的三个问题
+#= k129096 | “Agreement with the following statement: $I$ will collect pension  ⇒ “对以下说法的同意程度：我将在 65 岁之前开始领取
+#= k5f67bb | benefits by age 65.  ⇒ 养老金。
+#= k262b84 | completely agree, ..., 5. completely disagree” “At what age do you expect to start collecting pension benefits?  ⇒ 完全同意，……，5. 完全不同意” ⏎ “您预计从多少岁开始领取养老金？
+#= k0231f3 | ... years old”  ⇒ …… 岁”
+#= k8d1531 | “What is the chance that you will collect pension benefits by age 65?  ⇒ “您在 65 岁之前开始领取养老金的可能性有多大？
+@page 16
+#= k9a53f4 | Two types of subjective expectations $^{(Manski,2004)}$  ⇒ 两类主观预期（Manski，2004）
+#= k5a5268 | Over states of nature  ⇒ 关于自然状态
+#= k84a8bb | Economic/policy environment  ⇒ 经济/政策环境
+#= k6d2ff7 | Replacement rate income at retirement  ⇒ 退休时的收入替代率
+#= ka40028 | Income (wage) next year  ⇒ 明年的收入（工资）
+#= k558a10 | Personal characteristics  ⇒ 个人特征
+#= k776be7 | Survival: “What is the percent chance that you will live to be age 75 or more?”  ⇒ 生存：“您活到 75 岁或以上的百分比概率是多少？”
+#= k667833 | Over choices  ⇒ 关于选择
+#= k3f555b | Labor supply: “What are the chances that you will be working  ⇒ 劳动供给：“您在 62 岁以后仍从事全职工作的
+#= k4299b3 | full-time after you reach age 62?”  ⇒ 可能性有多大？”
+#= kac0194 | Bequests: “Including property and other valuables, what are the  ⇒ 遗产：“包括房产和其他贵重物品在内，您（以及您的[伴侣]）
+#= kc8c481 | changes that you (and your [partner]) will leave an inheritance  ⇒ 留下总额 1 万美元或以上遗产的
+#= k963428 | totaling \$10,000 or more?”  ⇒ 可能性有多大？”
+@page 17
+#= k65f4ee | Subjective expectations in life-cycle models: states of the nature  ⇒ 生命周期模型中的主观预期：自然状态
+#= k814226 | Expectation formation not modeled  ⇒ 不对预期形成建模
+#= kfe88ea | Survival  ⇒ 生存
+#= kadc953 | Saving and bequests: Gan et al. (2015), Bissonnette et al. (2017), Heimer et al. (2019), de Bresser (2024)  ⇒ 储蓄与遗产：Gan 等（2015），Bissonnette 等（2017），Heimer 等（2019），de Bresser（2024）
+#= k72e3b6 | Annuity demand: O’Dea and Sturrock (2023), Pang (2025)  ⇒ 年金需求：O’Dea 与 Sturrock（2023），Pang（2025）
+#= k55fe92 | Annuity supply: Hosseini (2015)  ⇒ 年金供给：Hosseini（2015）
+#= kfa99aa | Income shocks:  ⇒ 收入冲击：
+#= kc79bf0 | Pistaferri (2001), Attanasio et al. (2020), Arellano et al. (2024)  ⇒ Pistaferri（2001），Attanasio 等（2020），Arellano 等（2024）
+#= k11c4cb | Policy environment:  ⇒ 政策环境：
+#= ka37b49 | Van der Klaauw and Wolpin (2008)  ⇒ Van der Klaauw 与 Wolpin（2008）
+#= kfacb44 | Models with expectation formation  ⇒ 含预期形成的模型
+#= k847281 | Survival:  ⇒ 生存：
+#= k415bce | Groneck et al. (2016), Caliendo et al. (2020)  ⇒ Groneck 等（2016），Caliendo 等（2020）
+#= k74d2bf | Pension entitlements:  ⇒ 养老金权益：
+#= k9a8089 | Hentall-MacCuish (2019)  ⇒ =
+@page 18
+#= kd606c0 | Subjective expectations in life-cycle models: choice expectations I  ⇒ 生命周期模型中的主观预期：选择预期 I
+#= kfc338f | Features  ⇒ 特点
+#= k9d249b | Actual choices not available (e.g., life-care annuities in NL)  ⇒ 无法获得实际选择（例如荷兰的终身护理年金）
+#= kf4b5d6 | Conditional choices allow fully specified economic environment that  ⇒ 条件选择可以设定一个完整的经济环境，
+#= k6265f1 | maps into model  ⇒ 并与模型对应
+#= k38381f | Choice set and characteristics  ⇒ 选择集与特征
+#= k10e8f0 | Identification through experimental variation in attributes (e.g., price)  ⇒ 通过属性（例如价格）的实验变异实现识别
+#= k1852aa | Combination with actual choices: estimation efficiency or validation  ⇒ 与实际选择相结合：提高估计效率或用于验证
+#= k1723c1 | **Unconditional** choice expectations (large HH surveys)  ⇒ **无条件**选择预期（大型家庭调查）
+#= k531199 | Expected behavior given **current information set** of respondent  ⇒ 给定受访者**当前信息集**的预期行为
+#= ke0cf5b | Labor supply/retirement:  ⇒ 劳动供给/退休：
+#= k2e35eb | Wolpin and Gonul (1985), Van der Klaauw and  ⇒ Wolpin 与 Gonul（1985），Van der Klaauw 与
+#= k98f6f9 | Wolpin (2008)  ⇒ Wolpin（2008）
+#= kf57eb7 | Bequests:  ⇒ 遗产：
+#= k552e6e | McGee (2021), Erdenesuren (2023)  ⇒ McGee（2021），Erdenesuren（2023）
+@page 19
+#= k5c5a24 | Subjective expectations in life-cycle models: choice expectations II  ⇒ 生命周期模型中的主观预期：选择预期 II
+#= kedf9a2 | **Conditional** choice expectations (bespoke surveys)  ⇒ **条件**选择预期（专门设计的调查）
+#= k902b56 | Expected behavior in **hypothetical scenario(-s)**  ⇒ **假设情景**中的预期行为
+#= k3fab8c | E.g., labor supply given health: Giustinelli and Shapiro (2024)  ⇒ 例如，给定健康状况的劳动供给：Giustinelli 与 Shapiro（2024）
+#= k9ccdcb | Behavior in multiple states of the world: **no selection**  ⇒ 在多种世界状态下的行为：**没有选择偏差**
+#= k5a6a90 | Conditions that may never prevail  ⇒ 可能永远不会出现的条件
+#= kdef733 | Multiple scenarios create within-individual variation  ⇒ 多个情景产生个体内部的变异
+#= k301aaf | Examples (discrete and/or probabilistic)  ⇒ 例子（离散和/或概率性）
+#= kc30a88 | Retirement:  ⇒ 退休：
+#= k18a464 | Van Soest and Vonkova (2014), Ameriks et al. (2020)  ⇒ Van Soest 与 Vonkova（2014），Ameriks 等（2020）
+#= k48550e | Long-term care insurance:  ⇒ 长期护理保险：
+#= kdde64b | Boyer et al. (2020), Michaud and St. Amour  ⇒ Boyer 等（2020），Michaud 与 St. Amour
+@page 21
+#= k01c4e4 | Complications of working with subjective expectations  ⇒ 使用主观预期的复杂之处
+#= ka8c8e1 | Complex mapping expectations $\to$ survey reports  ⇒ 从预期到调查报告的映射很复杂
+#= k227230 | Logically inconsistent probabilities (monotonicity)  ⇒ 逻辑上不一致的概率（单调性）
+#= k372316 | Choice probabilities inconsistent with our model (recall error)  ⇒ 与我们的模型不一致的选择概率（回忆误差）
+#= kf40681 | Reported probabilities a-priori implausible (e.g., 100\% certain to  ⇒ 报告的概率先验上就不可信（例如，100\% 确定
+#= k4c1f63 | survive past future age)  ⇒ 能活过未来某个年龄）
+#= k905cc3 | Rounding  ⇒ 取整
+#= ke6bbf6 | Bunching of reported probabilities at multiples of 10\%  ⇒ 报告的概率在 10\% 的倍数处聚集
+#= kc463e5 | Latent construct (40\% multiple of 1 and 10)  ⇒ 潜在构念（40\% 既是 1 的倍数，也是 10 的倍数）
+#= kaf553a | Survey-induced or not (scale 0-10 or 0-100\%)  ⇒ 是否由调查引起（0–10 刻度或 0–100\%）
+#= ke6db2f | Focal answers  ⇒ 焦点回答
+#= kaad2db | Excess bunching at 0, 50, 100\%  ⇒ 在 0、50、100\% 处过度聚集
+#= k17b415 | Epistemic uncertainty rather than subjective risk  ⇒ 认知上的不确定性，而非主观风险
+#= ke05806 | (Fischhoffand Bruine  ⇒ （Fischhoff 与 Bruine
+#= k9a5979 | De Bruin, 1999; De Bruin et al., 2000)  ⇒ De Bruin，1999；De Bruin 等，2000）
+@page 22
+#= k064cad | Example: bunching in survival probabilities  ⇒ 例子：生存概率的聚集
+#= k903e47 | Pension barometer  ⇒ 养老金晴雨表
+#= k4482b2 | DNB Household Survey  ⇒ DNB 家庭调查
+#= kc0ea87 | Target age 75  ⇒ 目标年龄 75
+#= k7eca3a | FractionFraction  ⇒ =
+#= k2ed827 | Target age 85  ⇒ 目标年龄 85
+#= k1d4efe | Survival probability (\%)  ⇒ 生存概率（\%）
+#= k682d4c | Stated probability to live to age 75/85  ⇒ 陈述的活到 75/85 岁的概率
+#= k90d9b3 | (de Bresser, 2019)  ⇒ （de Bresser，2019）
+@page 23
+#= k57f30e | How to model subjective expectations?  ⇒ 如何对主观预期建模？
+#= k40323a | Partial identification  ⇒ 部分识别
+#= k428a2a | (Manski and Molinari, 2010; Bissonnette and de Bresser,  ⇒ （Manski 与 Molinari，2010；Bissonnette 与 de Bresser，
+#= kd03b68 | For continuous variable: limited number of grid points  ⇒ 对连续变量：格点数目有限
+#= k216fe6 | Rounding:  ⇒ 取整：
+#= k724bc7 | Inferred from all reported probabilities  ⇒ 从所有报告的概率推断
+#= k8e294b | Inferred from probabilities one-by-one (worst case)  ⇒ 逐个从概率推断（最坏情形）
+#= kd06caf | Non-linear least squares and spline interpolation  ⇒ 非线性最小二乘与样条插值
+#= k15b48c | (Dominitz and Manski,  ⇒ （Dominitz 与 Manski，
+#= keb35f0 | 1997; Bellemare et al., 2012)  ⇒ 1997；Bellemare 等，2012）
+#= kb5615e | NLLS with suitable distribution (log-normal for income)  ⇒ 用合适的分布做 NLLS（收入用对数正态分布）
+#= kc8efc9 | Linear or higher order splines  ⇒ 线性或更高阶的样条
+#= kd25e91 | Parametric mixing model  ⇒ 参数混合模型
+#= kd79b8c | (Kleinjans and Soest, 2014; de Bresser, 2019, 2024)  ⇒ （Kleinjans 与 Soest，2014；de Bresser，2019，2024）
+#= k8418ef | Handles both focal answers and rounding  ⇒ 同时处理焦点回答和取整
+#= k2d937c | Conditional means provide partial pooling for individual-specific  ⇒ 条件均值为个体特定的参数提供
+#= kf1f142 | parameters  ⇒ 部分合并（partial pooling）
+@page 24
+#= k2e4c11 | Classification different modeling approaches  ⇒ 不同建模方法的分类
+#= kd9af92 | Point identification  ⇒ 点识别
+#= k476c6d | Expectations constructed individual-by-individual  ⇒ 逐个个体 ⏎ 构建预期
+#= k1b6739 | Parametric distr. by NLLS Spline interpolation  ⇒ NLLS 参数分布 ⏎ 样条插值
+#= k2daecd | No rounding, no smoothing Rounding, no smoothing Rounding, smoothing  ⇒ 无取整，无平滑 ⏎ 取整，无平滑 ⏎ 取整，平滑
+#= k27e673 | Partial pooling of expectations  ⇒ 预期的部分合并
+@page 25
+#= k594224 | Different modeling approaches – data for respondent $i$  ⇒ 不同的建模方法：受访者 $i$ 的数据
+#= k9adbdf | Reported $\mathrm{prob}.\mathrm{p}_{i,70}$  ⇒ 报告的概率 $\mathrm{p}_{i,70}$
+#= ke67b5e | Survival probability (\%)  ⇒ 生存概率（\%）
+#= kff9f1f | Age  ⇒ 年龄
+#= k4b4e60 | Current age 55  ⇒ 当前年龄 55
+@page 26
+#= kb20192 | One-by-one expectations – partial identification  ⇒ 逐个构建的预期：部分识别
+#= k0b51bc | Max. age 110  ⇒ 最大年龄 110
+ka3ed90 | Ad i ibl
+kf502e8 | di  «di»
+@page 27
+#= kca11ed | One-by-one expectations – point identification  ⇒ 逐个构建的预期：点识别
+#= k46b1dd | Gompertz $\mathrm{prob}.\mathrm{s}_{i,70}$  ⇒ Gompertz 概率 $\mathrm{s}_{i,70}$
+#= kcbe4af | - S(t,  ⇒ =
+#= k9661f8 | Gompertz dist.  ⇒ Gompertz 分布
+@page 28
+#= ke6b95d | Partial pooling – parametric mixing model I  ⇒ 部分合并：参数混合模型 I
+#= k404b17 | Data (DNB Household Survey):  ⇒ 数据（DNB 家庭调查）：
+#= keb2181 | “Please indicate your answer on $a$ **scale of 0 thru 10,** where 0  ⇒ “请在 **0 到 10 的刻度**上给出您的回答，其中 0
+#= k621630 | means ‘no chance at all’ and 10 means ‘absolutely certain’.  ⇒ 表示‘完全没有可能’，10 表示‘绝对确定’。
+#= k49bbe5 | How likely is it that you will attain (at least) the age of [65]?”  ⇒ 您活到（至少）[65] 岁的可能性有多大？”
+#= k257cd4 | Answers can be interpreted as probabilities  ⇒ 回答可以解释为概率
+#= kbadc12 | **Rounding** enforced by response scale  ⇒ 回答刻度强制了**取整**
+#= k9e1279 | Model:  ⇒ 模型：
+#= k0b74ee | Expectations follow **Gompertz distribution**  ⇒ 预期服从 **Gompertz 分布**
+#= k64b1d7 | Common baseline hazard, multiplied by health and individual effects  ⇒ 共同的基准风险率，乘以健康效应和个体效应
+#= kf592de | Ordinal rounding model  ⇒ 有序取整模型
+#= kdcb228 | **Conditional means** for individual effects capture variation in  ⇒ 个体效应的**条件均值**刻画了
+#= k78be7f | expectations  ⇒ 预期决定
+@page 29
+#= ka68cef | Partial pooling – parametric mixing model II  ⇒ 部分合并：参数混合模型 II
+#= kec3c10 | True expectations follow Gompertz distribution:  ⇒ 真实预期服从 Gompertz 分布：
+#= k25bb08 | $S_{i,ti+\tau k}$ for individual $i$ with age $t_i$, target age $t_i+\tau_k$  ⇒ 对年龄为 $t_i$ 的个体 $i$，目标年龄为 $t_i+\tau_k$ 时为 $S_{i,t_i+\tau_k}$
+#= kac5da3 | Two steps from true $S_{i,ti+\tau k}$ to reported $P_{i,ti+\tau k}$:  ⇒ 从真实的 $S_{i,t_i+\tau_k}$ 到报告的 $P_{i,t_i+\tau_k}$ 有两步：
+#= k62cec0 | Add recall error $\varepsilon_{i,ti+\tau k}$  ⇒ 加上回忆误差 $\varepsilon_{i,t_i+\tau_k}$
+#= k9c61e7 | $P_{i,ti+\tau k}^*$ rounded (10, 50, 100) and censored between 0 and  ⇒ $P_{i,t_i+\tau_k}^*$ 被取整（10、50、100），并被截断在 0 与
+@page 30
+#= k10a68b | Partial pooling – parametric mixing model III  ⇒ 部分合并：参数混合模型 III
+@page 31
+#= k87d1aa | Parameter estimates for subjective survival  ⇒ 主观生存的参数估计
+#= k7ab726 | Pre-reform (1993-2001)  ⇒ 改革前（1993–2001）
+#= k117ba4 | Post-reform (2006-2016)  ⇒ 改革后（2006–2016）
+#= k57351b | Expectations – hazard rates  ⇒ 预期：风险率
+#= ke1906a | Heteroskedasticity recall error  ⇒ 回忆误差的异方差
+#= k3e769f | Poor health  ⇒ 健康较差
+#= k4f79a1 | Educ. $\mathrm{middle}^a$  ⇒ 中等教育$^a$
+#= kd6548b | Educ $\mathrm{high}^a$  ⇒ 高等教育$^a$
+#= k733fd2 | Constant  ⇒ 常数项
+#= k39095a | $\mathrm{Var}[\zeta_i]$ (ind. efefcts) $\mathrm{Var}[\eta_{it}]$ (seq. effects)  ⇒ $\mathrm{Var}[\zeta_i]$（个体效应） ⏎ $\mathrm{Var}[\eta_{it}]$（序列效应）
+#= kc553f2 | Baseline hazard  ⇒ 基准风险率
+#= k47bed2 | $\mathrm{Var}⟦?⟧\zeta_i^r⟦?⟧$ (ind. effects) $\mathrm{Var}⟦?⟧\eta_{it}^r⟦?⟧$ (seq. effects)  ⇒ $\mathrm{Var}[\zeta_i^r]$（个体效应） ⏎ $\mathrm{Var}[\eta_{it}^r]$（序列效应）
+#= k369b28 | Number of individuals Number of probabilities Log-likelihood  ⇒ 个体数 ⏎ 概率数 ⏎ 对数似然
+#= k39b4df | $^a$ Baseline: low education level (lower secondary education). Educ. middle: intermediate vocational. Educ. high: (applied) university. Standard errors in parentheses. $***p<0.01,**p<0.05,*p<0.1$  ⇒ $^a$ 基准：低教育水平（初中教育）。中等教育：中等职业教育。高等教育：（应用科学）大学。括号中为标准误。$***p<0.01,**p<0.05,*p<0.1$
+@page 32
+#= kcd4878 | Subjective mortality estimates – level  ⇒ 主观死亡率估计：水平
+#= k2a05cb | Estimation sample (’93−’01) Simulation sample (’06−’16)  ⇒ 估计样本（’93–’01） ⏎ 模拟样本（’06–’16）
+#= kd9fdae | Probability  ⇒ 概率
+#= k2016d5 | poor health  ⇒ 健康较差
+#= kf05037 | good health  ⇒ 健康良好
+@page 33
+#= k2b29e1 | Individual-level coefficients: conditional means  ⇒ 个体层面的系数：条件均值
+#= kce4e96 | **Mixing distribution:** distribution of subjective survival in population  ⇒ **混合分布：**总体中主观生存的分布
+#= k01c4f4 | **Conditional means:** approximations of individual-specific subjective  ⇒ **条件均值：**对个体特定的主观生存的
+#= kf03ba4 | survival  ⇒ 近似
+#= k5fa8b4 | Mixing distribution (prior) + probabilities reported by individual $i$  ⇒ 混合分布（先验）+ 个体 $i$ 报告的概率
+#= k2d647e | $=\Rightarrow$ posterior distribution for individual and sequence effect $i$  ⇒ $\Longrightarrow$ 个体 $i$ 的个体效应与序列效应的后验分布
+#= k2896db | Means of posterior distributions as approximation of $\zeta_i$ and $\eta_{it}$  ⇒ 用后验分布的均值近似 $\zeta_i$ 与 $\eta_{it}$
+@page 34
+#= k33c0df | Conditional means of unobserved heterogeneity  ⇒ 不可观测异质性的条件均值
+#= k316d57 | Individual effects  ⇒ 个体效应
+#= k80ea9a | Pre−reform Post−reform  ⇒ 改革前 ⏎ 改革后
+#= kddf342 | ProbabilityDensity  ⇒ =
+#= k8135a1 | Pre−reform  ⇒ 改革前
+#= ka2e975 | Post−reform  ⇒ 改革后
+#= k8cea7f | Mean (good health)  ⇒ 均值（健康良好）
+#= k48c6fc | p25/p75  ⇒ =
+#= kf300e8 | p5/p95  ⇒ =
+@page 35
+#= k0ef074 | Different mortality estimates – levels and variation  ⇒ 不同的死亡率估计：水平与变异
+#= kc51131 | Life tables  ⇒ 生命表
+#= k94d77f | Average subj. expectations  ⇒ 平均主观预期
+#= k20a356 | ProbabilityProbability  ⇒ =
+#= k99d03f | Heterogeneity: pre−reform d. Heterogeneity: post−reform  ⇒ =
+@page 37
+#= k68de3c | Can subjective survival expectations improve performance of structural retirement model?  ⇒ 主观生存预期能否改进结构退休模型的表现？
+#= k713362 | (de Bresser, 2024)  ⇒ （de Bresser，2024）
+#= k914708 | Population aging necessitates pension reform  ⇒ 人口老龄化使养老金改革势在必行
+#= k966912 | In the Netherlands:  ⇒ 在荷兰：
+#= kc47f2d | Statutory retirement age public pension increases with life expectancy  ⇒ 公共养老金的法定退休年龄随预期寿命提高
+#= k6ddbee | Occupational pensions are adjusted for claiming age  ⇒ 职业养老金按领取年龄进行调整
+#= kef4ae1 | Long-running panels allow validation of counterfactual predictions  ⇒ 长期面板使得可以验证反事实预测
+@page 38
+#= k973d5e | Different combinations of preferences and expectations may...  ⇒ 偏好与预期的不同组合可能……
+#= k96c2ae | ... imply similar retirement in one policy regime  ⇒ ……在一种政策制度下隐含相似的退休行为
+#= k30774f | ... yet different retirement in counterfactual regime  ⇒ ……却在反事实制度下隐含不同的退休行为
+#= k9db53a | Three types of survival expectations  ⇒ 三类生存预期
+#= kb45216 | Rational expectations (life tables)  ⇒ 理性预期（生命表）
+#= k30b73a | Average subjective survival  ⇒ 平均主观生存
+#= kcd1bc7 | Heterogeneous subjective survival  ⇒ 异质性主观生存
+#= k3eabf8 | Measurement model of subjective survival  ⇒ 主观生存的测量模型
+#= k4e0fc6 | Heterogeneity captured through single parameter  ⇒ 异质性由单个参数刻画
+#= k282623 | Validation of counterfactual model predictions is important  ⇒ 验证模型的反事实预测很重要
+@page 39
+#= kade5e4 | Model outline  ⇒ 模型概要
+#= k4a255f | Unitary model for men aged 50-100 (yearly)  ⇒ 针对 50–100 岁男性的单一主体模型（按年）
+#= k353a9c | **Choices:** labor supply, consumption, claiming benefits (occ. pension, DI,  ⇒ **选择：**劳动供给、消费、领取福利（职业养老金、DI、
+#= k5684e9 | UI)  ⇒ UI）
+#= kdc3dec | Details  ⇒ 细节
+#= ked2b54 | **Preferences:** consumption, leisure, bequests  ⇒ **偏好：**消费、闲暇、遗产
+#= kcaaca5 | **Risk:** longevity, health, wage  ⇒ **风险：**寿命、健康、工资
+#= k02a468 | Pre-reform pension regime (1993-2001) and post-reform regime  ⇒ 改革前的养老金制度（1993–2001）与改革后的制度
+@page 40
+#= k5e8520 | State variables  ⇒ 状态变量
+#= ka8f5d0 | Instantaneous utility from **consumption** and **leisure**  ⇒ 来自**消费**和**闲暇**的即期效用
+#= kab9279 | CRRA utility  ⇒ CRRA 效用
+#= k2f9948 | Time costs of  ⇒ 时间成本：
+#= k5a7f3e | Work (fixed cost) (French, 2005)  ⇒ 工作（固定成本）（French，2005）
+#= k3ab7a7 | Claiming DI or UI (stigma/lack of knowledge)  ⇒ 领取 DI 或 UI（污名/缺乏了解）
+#= kef6dba | Utility from leaving **bequests $^{(French,2005)}$**  ⇒ 来自留下**遗产**的效用（French，2005）
+#= ked85e6 | Weight allowed to depend on household size  ⇒ 权重可以取决于家庭规模
+@page 41
+#= keed666 | Details budget  ⇒ 预算细节
+#= k0a6c22 | Pensions  ⇒ 养老金
+#= k7e36e3 | Taxes  ⇒ 税收
+#= k66ec25 | Sources of income:  ⇒ 收入来源：
+#= kad772f | Earnings  ⇒ 劳动所得
+#= kc0692c | Disability and unemployment benefits (up to age 65)  ⇒ 残疾和失业福利（直到 65 岁）
+#= k0a2a0b | Public pension (automatic at age 65)  ⇒ 公共养老金（65 岁时自动领取）
+#= k39207c | Occupational pension  ⇒ 职业养老金
+#= k9f9c08 | Replacement rate of final earnings, function of years worked  ⇒ 最终收入的替代率，是工作年数的函数
+#= kd58262 | Exogenous income of spouse  ⇒ 配偶的外生收入
+#= kd6c49a | Cash-on-hand = wealth + net income – medical expenditures  ⇒ 手头现金 = 财富 + 净收入 − 医疗支出
+#= k76fb92 | Government transfers guarantee $c_{min}=n_t\times7,000$  ⇒ 政府转移保证 $c_{min}=n_t\times7{,}000$
+@page 42
+#= kcf32cc | Policy reform: actuarial adjustments to pensions  ⇒ 政策改革：养老金的精算调整
+#= k720b5d | Effect  ⇒ 效应
+#= k8bd99a | Unified system: claiming may  ⇒ 统一制度：可以从 60 岁起
+#= k8b7937 | Early retirement age 59-64;  ⇒ 提前退休年龄 59–64 岁；
+#= k3d8714 | start at any age from age 60  ⇒ 的任何年龄开始领取
+#= kf7c88a | regular benefits afterwards  ⇒ 之后领取常规养老金
+#= k039943 | Actuarial adjustments: benefits  ⇒ 精算调整：在 65 岁之前
+#= k7996da | Early retirement replacement  ⇒ 提前退休替代率
+#= keb7376 | lowered by 6\% per year for  ⇒ 领取的，养老金每年
+#= kd0624b | rate 85\%; no actuarial  ⇒ 为 85\%；无精算
+#= k022600 | claiming before age 65; raised  ⇒ 减少 6\%；延迟领取的，
+#= kcf8e08 | adjustment  ⇒ 调整
+#= k6dbfe9 | by 7\% for delayed claiming  ⇒ 每年增加 7\%
+#= kae3ae1 | No continued accrual of pension  ⇒ 不再继续积累
+#= k20f31a | Continued accrual of pension  ⇒ 提前退休期间
+#= ke7b1bf | entitlements  ⇒ 养老金权益
+#= kfd47f6 | entitlements while on early  ⇒ 继续积累养老金
+#= kc326dd | retirement  ⇒ 权益
+#= k8bea5f | Cohorts: born from 1950  ⇒ 队列：1950 年及以后
+#= k102361 | Cohorts: born before 1950  ⇒ 队列：1950 年以前出生
+#= k264500 | onwards  ⇒ 出生
+@page 43
+#= kb8f31c | **Method of Simulated Moments** estimation algorithm  ⇒ **模拟矩方法**估计算法
+#= k4ad837 | (French, 2005; De  ⇒ （French，2005；De
+#= k071edd | Nardi et al., 2010; French and Jones, 2011)  ⇒ Nardi 等，2010；French 与 Jones，2011）
+#= ka75342 | Estimate all processes that do not require model (mortality etc.) Take initial conditions (state variables) from data  ⇒ 估计所有不需要模型的过程（死亡率等） ⏎ 从数据中取初始条件（状态变量）
+#= k3c53ab | Simulate life cycles for 5,000 workers  ⇒ 模拟 5,000 名工人的生命周期
+#= k51bbb0 | Compare target moments and simulations (MM objective function) MSM estimator maximizes fit of simulations to data (simulated  ⇒ 比较目标矩与模拟结果（MM 目标函数） ⏎ MSM 估计量最大化模拟对数据的拟合（模拟
+#= k3ac461 | annealing)  ⇒ 退火）
+#= k711b30 | Target moments: age profiles for  ⇒ 目标矩：以下变量的年龄曲线
+#= k59fee3 | Labor supply (hrs/participation) by health  ⇒ 按健康状况划分的劳动供给（小时数/参与）
+#= ka82413 | DI, UI and occ. pension claiming  ⇒ 领取 DI、UI 和职业养老金
+#= k11a437 | Quartiles of wealth  ⇒ 财富的四分位数
+@page 44
+#= ke5e429 | Data  ⇒ 数据
+#= k5dc6a1 | Data taken from DNB Household Survey (DHS)  ⇒ 数据取自 DNB 家庭调查（DHS）
+#= k268629 | Administered by CentERdata at Tilburg University  ⇒ 由蒂尔堡大学的 CentERdata 管理
+#= k86fce4 | 5,000 individuals in 3,000 households  ⇒ 3,000 个家庭中的 5,000 名个体
+#= kc62eb3 | Sampled from address registry  ⇒ 从地址登记册中抽样
+#= kb0ddd9 | Sample selection:  ⇒ 样本选择：
+#= k657099 | Auxiliary processes  ⇒ 辅助过程
+#= k261511 | Men aged 50+ during relevant waves (1993-2001 and 2006-2016)  ⇒ 相关调查轮次（1993–2001 和 2006–2016）中 50 岁及以上的男性
+#= k2aef9d | Target moments  ⇒ 目标矩
+#= k7438fc | Sample for auxiliary processes, but never self-employed; 15+ years work experience; relevant cohort (before 1950/1950 and later)  ⇒ 辅助过程的样本，但从未自雇；15 年以上工作经验；相关队列（1950 年以前/1950 年及以后）
+@page 45
+#= k939535 | Parameter estimates  ⇒ 参数估计
+#= kdc8d3f | Average subj. $\exp $.  ⇒ 平均主观预期
+#= k4360e0 | Heterogeneous $\exp $.  ⇒ 异质性预期
+#= kd507ab | Utility function  ⇒ 效用函数
+#= k8afb69 | Concavity $(\sigma)$  ⇒ 凹性 $(\sigma)$
+#= k9de9d8 | Consumption weight $(\kappa)$  ⇒ 消费权重 $(\kappa)$
+#= k2220ee | Discount factor $(\beta)$  ⇒ 贴现因子 $(\beta)$
+#= k95c7a9 | Fixed cost of work; hrs/yr $(\gamma)$  ⇒ 工作的固定成本；小时/年 $(\gamma)$
+#= k55c696 | Time cost of bad health; hrs/yr $(\delta)$  ⇒ 健康不佳的时间成本；小时/年 $(\delta)$
+#= kab611f | Stigma cost DI; hrs/yr $(\phi)$  ⇒ DI 的污名成本；小时/年 $(\phi)$
+#= k19af30 | Stigma cost UI; hrs/yr $(\xi)$  ⇒ UI 的污名成本；小时/年 $(\xi)$
+#= k9afcea | Bequests  ⇒ 遗产
+#= ka6632a | Intercept bequest weight $(\theta_0)$  ⇒ 遗产权重的截距 $(\theta_0)$
+#= k6d6020 | Slope bequest weight $(\theta_1)$  ⇒ 遗产权重的斜率 $(\theta_1)$
+#= ke6ea14 | Concavity bequests $(K)$  ⇒ 遗产的凹性 $(K)$
+#= kd2e652 | Function value  ⇒ 函数值
+#= kdf49d6 | Standard errors in parentheses.  ⇒ 括号中为标准误。
+@page 46
+#= ka47b6e | Model fit I  ⇒ 模型拟合 I
+#= k65ab4b | Hours worked  ⇒ 工作小时数
+#= k1f909e | Fraction workingHours (1,000s)  ⇒ =
+#= k74d2f1 | Participation  ⇒ 参与
+#= k68c2cc | Model  ⇒ 模型
+@page 47
+#= k572bab | Model fit II  ⇒ 模型拟合 II
+#= k927f40 | Benefits  ⇒ 福利
+#= ke7ec86 | occ. pension  ⇒ 职业养老金
+#= k21604b | 100,000s 2012 EurosFraction claiming  ⇒ =
+#= k83dc75 | DI  ⇒ =
+#= k9d5787 | UI  ⇒ =
+#= k9205f4 | Wealth  ⇒ 财富
+@page 48
+#= k7ab290 | Counterfactual predictions – average retirement age  ⇒ 反事实预测：平均退休年龄
+#= ka0842c | Pre-reform sample (’93-’01)  ⇒ 改革前样本（’93–’01）
+#= k934108 | Post-reform sample (’06-’16)  ⇒ 改革后样本（’06–’16）
+#= k83fd70 | Difference (yrs)  ⇒ 差值（年）
+#= kfe40b8 | Average pension age  ⇒ 平均养老金领取年龄
+#= kf72f0e | Simulations  ⇒ 模拟
+#= k8b0bd5 | Average subj. $\exp $. Heterogeneous $\exp $.  ⇒ 平均主观预期 ⏎ 异质性预期
+#= kbec958 | 95\% confidence intervals based on robust standard errors in parentheses.  ⇒ 括号中为基于稳健标准误的 95\% 置信区间。
+@page 49
+#= k8f5ca9 | Counterfactual predictions – average hours worked  ⇒ 反事实预测：平均工作小时数
+#= kc6dcf7 | Heterogenous $\exp $.  ⇒ 异质性预期
+#= kcb910e | DifferenceHours (1,000s)  ⇒ =
+#= k68e12a | Pre-reform  ⇒ 改革前
+#= ka7ecb4 | Post-reform  ⇒ 改革后
+@page 50
+#= k303683 | Influence of estimates on out-of-sample predictions: average retirement age  ⇒ 估计值对样本外预测的影响：平均退休年龄
+#= k6ee9cb | Average retirement age  ⇒ 平均退休年龄
+#= ka17c9a | data  ⇒ 数据
+#= k4babb5 | Prefs:  ⇒ 偏好：
+#= kb1504a | het. $\exp $.  ⇒ 异质性预期
+#= k336f37 | changing one parameter at a time (het. $\exp .\to$ avg subj. $\exp .)$  ⇒ 一次改变一个参数（异质性预期 $\to$ 平均主观预期）
+#= kbd18fd | avg subj. $\exp $.  ⇒ 平均主观预期
+@page 51
+#= kde7fe7 | The level of expectations affects preference estimates  ⇒ 预期的水平影响偏好估计
+#= k2973d2 | Actuarial and subjective mortality yield different preference estimates  ⇒ 精算死亡率与主观死亡率给出不同的偏好估计
+#= kcc3263 | Similar model fit  ⇒ 模型拟合相似
+#= k0bb3e3 | Poor counterfactual predictions  ⇒ 反事实预测很差
+#= k25d6fd | Retirement age increases by 4-5 yrs (data: 2.6 yrs)  ⇒ 退休年龄提高 4–5 年（数据：2.6 年）
+#= k693ae8 | Heterogeneity affects preferences and improves predictions  ⇒ 异质性影响偏好并改进预测
+#= k0cdf1b | Model fit similar to homogeneous survival expectations  ⇒ 模型拟合与同质生存预期相似
+#= k3b7586 | Accurate counterfactual predictions  ⇒ 反事实预测准确
+#= k180460 | Retirement age increases by 2.7 yrs  ⇒ 退休年龄提高 2.7 年
+#= kfaeec2 | Key preference estimates: risk aversion, patience, consumption weight and bequest weight  ⇒ 关键的偏好估计：风险厌恶、耐心、消费权重和遗产权重
+#= kb52485 | No improvement from limited heterogeneity based on health behaviors  ⇒ 基于健康行为的有限异质性没有带来改进
+@page 52
+#= k63aafb | Moving forward  ⇒ 展望
+#= kc444cd | Elicitation of conditional probabilities  ⇒ 诱导条件概率
+#= k25a21f | Perceptions of causal effects  ⇒ 对因果效应的认知
+#= k29f31c | (e.g., Giustinelli and Shapiro, 2024)  ⇒ （例如 Giustinelli 与 Shapiro，2024）
+#= kce9762 | Joint distributions  ⇒ 联合分布
+#= k095159 | Updating of expectations in cross-sectional data  ⇒ 截面数据中预期的更新
+#= kbf307d | Elicitation of **uncertainty** in addition to perceived risk  ⇒ 除感知风险外，还诱导**不确定性**
+#= k4be72a | Intervals for reported probabilities  ⇒ 报告概率的区间
+#= k2d182e | (e.g., Giustinelli et al., 2019)  ⇒ （例如 Giustinelli 等，2019）
+#= k764f21 | Together with PhDs we will work on:  ⇒ 我们将与博士生一起开展以下工作：
+#= k8289d8 | Model of life-care annuities with subjective expectations on both  ⇒ 终身护理年金模型，其中对状态和选择
+#= k680c92 | states and choices  ⇒ 都带有主观预期
+#= k65acc1 | Income processes estimated on subj. probabilities, survey measure of  ⇒ 收入过程，基于主观概率、收入的调查测量
+#= k7945eb | income, and admin income  ⇒ 以及行政收入数据进行估计
+@page 53
+#= k481817 | References I  ⇒ 参考文献 I
+#= k8a5a1e | Ameriks, J., Briggs, J., Caplin, A., Lee, M., Shapiro, M. D., and Tonetti, C. (2020).  ⇒ =
+#= k3badda | Older americans would work longer if jobs were flexible. American Economic Journal: Macroeconomics, 12(1):174–209.  ⇒ =
+#= k0c419e | Ang, A., Bekaert, G., and Wei, M. (2007). Do macro variables, asset markets, or surveys  ⇒ =
+#= kfd05cc | forecast inflation better? Journal of Monetary Economics, 54:1163–1212.  ⇒ =
+#= k97e685 | Arellano, M., Attanasio, O., Crossman, S., and Sancibri´an, V. (2024). Estimating  ⇒ =
+#= k2f1eb2 | flexible income processes from subjective expectations data: evidence from india and colombia. Technical report, National Bureau of Economic Research.  ⇒ =
+#= k6bba5a | Attanasio, O., Kovacs, A., and Molnar, K. (2020). Euler equations, subjective  ⇒ =
+#= k5e7112 | expectations and income shocks. Economica, 87(346):406–441.  ⇒ =
+#= k31b8fb | Bellemare, C., Bissonnette, L., and Kr¨oger, S. (2012). Flexible approximation of  ⇒ =
+#= ka6ab8b | subjective expectations using probability questions. Journal of Business \& Economic Statistics, 30(1):125–131.  ⇒ =
+#= kb4829d | Bergman, A., Chinco, A., Hartzmark, S. M., and Sussman, A. B. (2020). Survey  ⇒ =
+#= k7c5be9 | curious? start-up guide and best practices for running surveys and experiments online. Technical report. Working paper (October 5, 2020).  ⇒ =
+#= kdfe801 | Bissonnette, L. and de Bresser, J. (2018). Eliciting subjective survival curves: Lessons  ⇒ =
+#= kde7247 | from partial identification. Journal of Business \& Economic Statistics, 36(3):505–515.  ⇒ =
+@page 54
+#= kb3ab67 | References II  ⇒ 参考文献 II
+#= k785a88 | Bissonnette, L., Hurd, M. D., and Michaud, P.-C. (2017). Individual survival curves  ⇒ =
+#= k2bac69 | comparing subjective and observed mortality risks. Health economics,  ⇒ =
+#= kc91c48 | 26(12):e285–e303.  ⇒ =
+#= k060e76 | Boyer, M. M., De Donder, P., Fluet, C., Leroux, M.-L., and Michaud, P.-C. (2020).  ⇒ =
+#= k507e23 | Long-term care insurance: Information frictions and selection. American Economic Journal: Economic Policy, 12(3):134–169.  ⇒ =
+#= kf5f54a | Bruine de Bruin, W., Chin, A., Dominitz, J., and Van der Klaauw, W. (2023).  ⇒ =
+#= kea35b3 | Household surveys and probabilistic questions. In Handbook of Economic Expectations, pages 3–31. Elsevier.  ⇒ =
+#= k4c430c | Caliendo, F. N., Gorry, A., and Slavov, S. (2020). Survival ambiguity and welfare.  ⇒ =
+#= k1daae8 | Journal of Economic Behavior \& Organization, 170:20–42.  ⇒ =
+#= kde7086 | Carroll, C. D., Fuhrer, J. C., and Wilcox, D. W. (1994). Does consumer sentiment  ⇒ =
+#= k3a889f | forecast household spending? if so, why? The American Economic Review,  ⇒ =
+#= k376e4c | de Bresser, J. (2019). Measuring subjective survival expectations–do response scales  ⇒ =
+#= k32b018 | matter? Journal of Economic Behavior \& Organization, 165:136–156.  ⇒ =
+#= k69271d | de Bresser, J. (2024). Evaluating the accuracy of counterfactuals: heterogeneous survival  ⇒ =
+#= k253a3d | expectations in a life cycle model. Review of Economic Studies, 91(5):2717–2743.  ⇒ =
+@page 55
+#= k2b060f | References III  ⇒ 参考文献 III
+#= k482030 | De Bruin, W. B., Fischhoff, B., Millstein, S. G., and Halpern-Felsher, B. L. (2000).  ⇒ =
+#= k8118ea | Verbal and numerical expressions of probability:?it’s a fifty–fifty chance? Organizational behavior and human decision processes, 81(1):115–131.  ⇒ =
+#= k48d7be | De Nardi, M., French, E., and Jones, J. B. (2010). Why do the elderly save? The role of  ⇒ =
+#= kc875dc | medical expenditures. Journal of Political Economy, 118(1):39–75.  ⇒ =
+#= kae84d1 | Dillman, D. A. (2011). Mail and Internet surveys: The tailored design method–2007  ⇒ =
+#= k83f729 | Update with new Internet, visual, and mixed-mode guide. John Wiley \& Sons.  ⇒ =
+#= kbf8056 | Dominitz, J. and Manski, C. F. (1997). Using expectations data to study subjective  ⇒ =
+#= k0c352e | income expectations. Journal of the American statistical Association,  ⇒ =
+#= ked390c | Erdenesuren, L. (2023). On the estimation of bequest and precautionary saving motives  ⇒ =
+#= kd03e1a | using self-reported bequest probabilities. Phd thesis, Tilburg University. Chapter: “On the estimation of bequest and precautionary saving motives using self-reported bequest probabilities”, Available at https://repository.tilburguniversity.edu/server/api/core/bitstreams/ d7908661-e8a1-444f-ad73-8156d017272e/content.  ⇒ =
+#= kd418c1 | Fischhoff, B. and Bruine De Bruin, W. (1999). Fifty–fifty= 50\%? Journal of Behavioral  ⇒ =
+#= k8064ff | Decision Making, 12(2):149–163.  ⇒ =
+@page 56
+#= k6c05c4 | References IV  ⇒ 参考文献 IV
+#= ke62b86 | Fischhoff, B., Parker, A. M., De Bruin, W. B., Downs, J., Palmgren, C., Dawes, R., and  ⇒ =
+#= k808de7 | Manski, C. F. (2000). Teen expectations for significant life events. The Public Opinion Quarterly, 64(2):189–205.  ⇒ =
+#= k201904 | French, E. (2005). The effects of health, wealth and wages on labour supply and  ⇒ =
+#= k2df482 | retirement behaviour. Review of Economic Studies, 72(2):395–427.  ⇒ =
+#= k1333d6 | French, E. and Jones, J. B. (2011). The effects of health insurance and self-insurance on  ⇒ =
+#= kebe7a8 | retirement behavior. Econometrica, 79(3):693–732.  ⇒ =
+#= ka09c8a | Gan, L., Gong, G., Hurd, M., and McFadden, D. (2015). Subjective mortality risk and  ⇒ =
+#= k819eac | bequests. Journal of Econometrics, 188(2):514–525.  ⇒ =
+#= k850c40 | Giustinelli, P., Manski, C. F., and Molinari, F. (2019). Precise or imprecise probabilities?  ⇒ =
+#= k5e734f | evidence from survey response on late-onset dementia. Technical report, National Bureau of Economic Research.  ⇒ =
+#= k73f9c2 | Giustinelli, P. and Shapiro, M. D. (2024). Seate: Subjective ex ante treatment effect of  ⇒ =
+#= k88e936 | health on retirement. American Economic Journal: Applied Economics,  ⇒ =
+#= kecac04 | Gourieroux, C., Monfort, A., and Renault, E. (1993). Indirect inference. Journal of  ⇒ =
+#= k761663 | Applied Econometrics, 8(S1):S85–S118.  ⇒ =
+@page 57
+#= k78ce9a | References V  ⇒ 参考文献 V
+#= ka71a97 | Gourinchas, P.-O. and Parker, J. A. (2002). Consumption over the life cycle.  ⇒ =
+#= k3d4372 | Econometrica, 70(1):47–89.  ⇒ =
+#= k517571 | Groneck, M., Ludwig, A., and Zimper, A. (2016). A life-cycle model with ambiguous  ⇒ =
+#= k36e7bb | survival beliefs. Journal of Economic Theory, 162:137–180.  ⇒ =
+#= k60717b | Heimer, R. Z., Myrseth, K. O. R., and Schoenle, R. S. (2019). Yolo: Mortality beliefs  ⇒ =
+#= k18aef8 | and household finance puzzles. The Journal of Finance, 74(6):2957–2996.  ⇒ =
+#= kf60062 | Hentall-MacCuish, J. (2019). Costly attention and retirement. arXiv preprint  ⇒ =
+#= k19597b | arXiv:1904.06520.  ⇒ =
+#= ke02358 | Hosseini, R. (2015). Adverse selection in the annuity market and the role for social  ⇒ =
+#= kbc483e | security. Journal of Political Economy, 123(4):941–984.  ⇒ =
+#= k9e4048 | Hubbard, R. G., Skinner, J., and Zeldes, S. P. (1995). Precautionary saving and social  ⇒ =
+#= k305ecf | insurance. Journal of Political Economy, 103(2):360–399.  ⇒ =
+#= ke944a3 | Hurd, M. D. and McGarry, K. (2002). The predictive validity of subjective probabilities  ⇒ =
+#= k6d99b0 | of survival. The Economic Journal, 112(482):966–985.  ⇒ =
+#= kcd6ca7 | Katona, G. and Klein, L. R. (1952). Psychological data in business cycle research. The  ⇒ =
+#= k73b625 | American Journal of Economics and Sociology, 12(1):11–22.  ⇒ =
+#= k851fc7 | Kleinjans, K. J. and Soest, A. V. (2014). Rounding, focal point answers and nonresponse  ⇒ =
+#= k6bda31 | to subjective probability questions. Journal of Applied Econometrics, 29(4):567–585.  ⇒ =
+@page 58
+#= k52e040 | References VI  ⇒ 参考文献 VI
+#= k6aa0ee | Ko¸sar, G. and O’Dea, C. (2023). Expectations data in structural microeconomic models.  ⇒ =
+#= k38ed34 | In Handbook of Economic Expectations, pages 647–675. Elsevier.  ⇒ =
+#= k315c57 | Ludvigson, S. C. (2004). Consumer confidence and consumer spending. Journal of  ⇒ =
+#= kc9ec35 | Economic perspectives, 18(2):29–50.  ⇒ =
+#= k54799f | Manski, C. F. (1999). Analysis of choice expectations in incomplete scenarios. Journal  ⇒ =
+#= ke91332 | of Risk and Uncertainty, 19:49–66.  ⇒ =
+#= k0015ac | Manski, C. F. (2004). Measuring expectations. Econometrica, 72(5):1329–1376.  ⇒ =
+#= kd38d80 | Manski, C. F. et al. (1991). Adolescent econometricians: How do youth infer the returns  ⇒ =
+#= k37029e | to schooling? Number 952. University of Wisconsin-Madison.  ⇒ =
+#= kfae3ef | Manski, C. F. and Molinari, F. (2010). Rounding probabilistic expectations in surveys.  ⇒ =
+#= kce14f3 | Journal of Business \& Economic Statistics, 28(2):219–231.  ⇒ =
+#= k9a77d4 | McGee, R. (2021). Old age savings and house price shocks. Technical report, Research  ⇒ =
+#= kb5a92a | Report.  ⇒ =
+#= k119f43 | Michaud, P.-C. and St. Amour, P. (2023). Longevity, health and housing risks  ⇒ =
+#= k128371 | management in retirement. Technical report, National Bureau of Economic Research.  ⇒ =
+#= k60c239 | O’Dea, C. and Sturrock, D. (2023). Survival pessimism and the demand for annuities.  ⇒ =
+#= kb6bda8 | Review of Economics and Statistics, 105(2):442–457.  ⇒ =
+@page 59
+#= kbaeb2a | References VII  ⇒ 参考文献 VII
+#= k59c721 | Pang, T. (2025). Subjective survival expectations and annuitization decisions. Available  ⇒ =
+#= k3fc6a0 | at SSRN 5116562.  ⇒ =
+#= kf9a82d | Pistaferri, L. (2001). Superior information, income shocks, and the permanent income  ⇒ =
+#= k2ac8d0 | hypothesis. Review of Economics and Statistics, 83(3):465–476.  ⇒ =
+#= kd78763 | Smith Jr, A. A. (1993). Estimating nonlinear time-series models using simulated vector  ⇒ =
+#= k36203c | autoregressions. Journal of Applied Econometrics, 8(S1):S63–S84.  ⇒ =
+#= k5f818d | Tversky, A. and Kahneman, D. (1974). Judgment under uncertainty: Heuristics and  ⇒ =
+#= k6bdc69 | biases: Biases in judgments reveal some heuristics of thinking under uncertainty. Science, 185.  ⇒ =
+#= k8b8c33 | Van der Klaauw, W. and Wolpin, K. I. (2008). Social security and the retirement and  ⇒ =
+#= kce0cf8 | savings behavior of low-income households. Journal of Econometrics, 145(1-2):21–42.  ⇒ =
+#= k50fc79 | Van Soest, A. and Vonkova, H. (2014). How sensitive are retirement decisions to  ⇒ =
+#= kfdf938 | financial incentives? a stated preference analysis. Journal of Applied Econometrics,  ⇒ =
+#= k8fd154 | Wolpin, K. I. and Gonul, F. (1985). On the use of expectations data in micro surveys:  ⇒ =
+#= k9730dd | The case of retirement.  ⇒ =
+@page 60
+#= ke3cfe4 | Maximum Likelihood estimation  ⇒ 极大似然估计
+#= k61bb8d | back  ⇒ 返回
+#= k896d58 | Add error $\varepsilon_t$ with CDF $F(\varepsilon)$ to single-period utility  ⇒ 在单期效用中加入 CDF 为 $F(\varepsilon)$ 的误差 $\varepsilon_t$
+#= k053a4b | Data: $N$ individuals for $T^d$ periods  ⇒ 数据：$N$ 个个体，$T^d$ 个时期
+#= k3293f7 | Choices (e.g., wealth, labor supply) and/or expectations (e.g., $\mathrm{prob}$.  ⇒ 选择（例如财富、劳动供给）和/或预期（例如在未来年龄
+#= k8fc201 | of working at future ages)  ⇒ 工作的概率）
+#= k39d786 | $\theta⟦?⟧_{ML}$ maximizes the likelihood function $\mathcal{L}(D,\theta)=\prod_{i=1}^NL(\mathcal{D}_i,\theta)$:  ⇒ $\hat{\theta}_{ML}$ 最大化似然函数 $\mathcal{L}(D,\theta)=\prod_{i=1}^N L(\mathcal{D}_i,\theta)$：
+@page 61
+#= ka618bc | If agent’s problem does not have analytical solution and/or there are  ⇒ 如果个体的问题没有解析解，和/或存在
+#= k56d467 | missing state variables: **Maximum Simulated Likelihood**  ⇒ 缺失的状态变量：**模拟极大似然**
+#= k347c09 | Solve model at  ⇒ 在
+#= k837c75 | to obtain optimal decisions  ⇒ 处求解模型，得到最优决策
+#= kcffa50 | and  ⇒ 以及
+#= kbb7927 | Simulate behavior using those decision rules  ⇒ 用这些决策规则模拟行为
+@page 62
+#= kb1e4fe | Method of Simulated Moments  ⇒ 模拟矩方法
+#= kef0114 | Moments mˇ $(\theta)$ summarize behavior simulated from the model  ⇒ 矩 $\check{\mathrm{m}}(\theta)$ 概括了从模型模拟出的行为
+#= k23381d | Should be informative about parameters to be estimated  ⇒ 它们应当对待估参数有信息量
+#= kbe7772 | E.g., (expected) labor supply moments to estimate relative weights on consumption and leisure  ⇒ 例如，用（预期的）劳动供给矩来估计消费与闲暇的相对权重
+#= kacab71 | Mean / quantiles  ⇒ 均值/分位数
+#= k9559a5 | Conditional / unconditional  ⇒ 条件/无条件
+#= k5eec6e | Estimate $\theta$ bringing simulated behavior as close as possible to the data **m:**  ⇒ 估计 $\theta$，使模拟行为尽可能接近数据 **m**：
+#= k3f4a8d | mˇ  ⇒ =
+#= k34ce5b | **W** is symmetric positive definite weighting matrix  ⇒ **W** 是对称正定的加权矩阵
+#= k0f0fa6 | Generalization: **Indirect Inference**  ⇒ 推广：**间接推断**
+#= kb129bf | (Gourieroux et al., 1993; Smith Jr, 1993)  ⇒ （Gourieroux 等，1993；Smith Jr，1993）
+@page 63
+#= k61514f | Indirect Inference  ⇒ 间接推断
+#= k5e7832 | Specify **auxiliary model** of observables  ⇒ 设定可观测变量的**辅助模型**
+#= k038711 | Easy to compute  ⇒ 易于计算
+#= kab9ae3 | Estimator when applied to data: $\beta⟦?⟧_A$  ⇒ 应用于数据时的估计量：$\hat{\beta}_A$
+#= k1baeec | Constant-only model equivalent to MSM  ⇒ 只含常数的模型等价于 MSM
+#= k104c74 | Estimate parameters by minimizing distance between auxiliary parameters  ⇒ 通过最小化辅助参数之间的距离来估计参数，
+#= k411ce6 | from observed and simulated data  ⇒ 辅助参数分别来自观测数据和模拟数据
+#= k210706 | **W** is symmetric positive defniite weighting matrix  ⇒ **W** 是对称正定的加权矩阵
+@page 64
+#= k079a55 | Decisions at different ages  ⇒ 不同年龄的决策
+#= kb52b36 | Back  ⇒ 返回
+#= k47a106 | Consumption  ⇒ 消费
+#= k05e08b | Labor supply (0/1500/  ⇒ 劳动供给（0/1500/
+#= kf80d11 | 2000/2500 hrs/yr)*  ⇒ 2000/2500 小时/年）*
+#= k406918 | If health is poor:  ⇒ 若健康状况较差：
+#= k62c189 | Disability insurance (DI, 0/1)  ⇒ 残疾保险（DI，0/1）
+#= k6f083a | Occupational pension (0/1)  ⇒ 职业养老金（0/1）
+#= k9f28ca | Early retirement  ⇒ 提前退休
+#= k573d5f | Public pension  ⇒ 公共养老金
+#= keaf5b3 | No labor supply  ⇒ 无劳动供给
+#= k9fe198 | *If labor supply equals zero, individual does not claim DI or occupational pension and labor market history entitles individual to unemployment insurance (UI), UI benefits are received automatically. UI benefits stop in case the agent chooses to work or claim DI or occupational pensions; when the entitlement is exhausted; or at age 65.  ⇒ *若劳动供给为零、个人不领取 DI 或职业养老金，且其劳动市场经历使其有权领取失业保险（UI），则自动领取 UI 福利。若个人选择工作或领取 DI 或职业养老金、权益用尽或年满 65 岁，UI 福利即停止。
+@page 65
+#= kb20d56 | Life cycle model: state variables  ⇒ 生命周期模型：状态变量
+#= k19de69 | Variable  ⇒ 变量
+#= kb1564f | Values  ⇒ 价值
+#= k3703cd | Health  ⇒ 健康
+#= kf872e2 | Good/bad  ⇒ 好/差
+#= k3b7c53 | $\{1$ = no occupational pension scheme,  ⇒ $\{1$ = 无职业养老金计划，
+#= kf282d4 | 2 = occupational pension scheme – not claimed, 3 = occupational pension scheme – $\mathrm{claimed}\}$  ⇒ 2 = 有职业养老金计划——未领取， ⏎ 3 = 有职业养老金计划——已领取$\}$
+#= kf5bda4 | Benefit level occ. pension Years worked  ⇒ 职业养老金的福利水平 ⏎ 工作年数
+#= k57bcbd | 15 – 50 years  ⇒ 15–50 年
+#= kccebc7 | Final $\mathrm{earnings}^a$  ⇒ 最终收入$^a$
+#= keb03ae | DI eligibility  ⇒ DI 资格
+#= k10ef0a | not eligible/eligible  ⇒ 无资格/有资格
+#= ke66920 | UI eligibility  ⇒ UI 资格
+#= k668cfb | $\{1$ = not eligible (0 years),  ⇒ $\{1$ = 无资格（0 年），
+#= kad789d | 4 = fully eligible (3 $\mathrm{years})\}$  ⇒ 4 = 完全有资格（3 年）$\}$
+#= k126eb5 | $^a$ All monetary amounts in 2012 Euros  ⇒ $^a$ 所有货币金额均以 2012 年欧元计
+@page 66
+#= ke8510e | Estimates  ⇒ =
+#= k46e7f5 | Utility:  ⇒ 效用：
+#= k6ce876 | $c_t$ consumption; $l_t$ leisure; $n_t$ equivalence scale for the number of  ⇒ $c_t$ 为消费；$l_t$ 为闲暇；$n_t$ 为家庭人数的
+#= k2fb625 | individuals in the household  ⇒ 等价尺度
+#= k8c8085 | $\sigma$ concavity of utility function; $\kappa$ relative weight of consumption in  ⇒ $\sigma$ 为效用函数的凹性；$\kappa$ 为消费在效用函数中的
+#= kff5cb0 | utility function  ⇒ 相对权重
+#= k83f67d | Leisure:  ⇒ 闲暇：
+#= k74e2c5 | $l_t=4,000-h_t-\gamma I\{h_t>0\}-\delta I\{\mathrm{health}=\mathrm{bad}\}-$ stigma costs  ⇒ $l_t=4{,}000-h_t-\gamma I\{h_t>0\}-\delta I\{\mathrm{health}=\mathrm{bad}\}-$ 污名成本
+#= kae7e9b | 4,000 hours time endowment  ⇒ 4,000 小时的时间禀赋
+#= kf06ecc | $h_t$ hours worked (0/1500/2000/2500 hours per year)  ⇒ $h_t$ 为工作小时数（每年 0/1500/2000/2500 小时）
+#= k4cff87 | $\gamma$ fixed leisure cost of work; $\delta$ leisure cost of being in bad health  ⇒ $\gamma$ 为工作的固定闲暇成本；$\delta$ 为健康不佳的闲暇成本
+#= kb30bf1 | Stigma costs for DI and UI expressed in hours of leisure  ⇒ DI 和 UI 的污名成本以闲暇小时数表示
+@page 67
+#= k9d46d0 | Bequest motive (adapted from French, 2005)  ⇒ 遗产动机（改编自 French，2005）
+#= k7a20f4 | $w_t$ wealth; $n_t$ equivalence scale (HH size)  ⇒ $w_t$ 为财富；$n_t$ 为等价尺度（家庭规模）
+#= k9fe8e9 | $\theta_1$: weight of bequests in utility depends on survival of spouse  ⇒ $\theta_1$：遗产在效用中的权重取决于配偶是否存活
+#= k4ac55e | $K$ determines curvature of bequest utility  ⇒ $K$ 决定遗产效用的曲率
+@page 68
+#= kf8731a | Actuarial tables, use Bayes’ rule to condition on health $m_t$:  ⇒ 精算表，用贝叶斯法则以健康状况 $m_t$ 为条件：
+#= kcb503a | Subjective expectations – no heterogeneity  ⇒ 主观预期：无异质性
+#= k6cc79b | Subjective expectations – heterogeneity  ⇒ 主观预期：有异质性
+#= kd13346 | Life tables conditional on smoking and drinking  ⇒ 以吸烟和饮酒为条件的生命表
+#= k9fbf1b | AR(1) logit estimated on observed health $m_t$:  ⇒ 对观测到的健康状况 $m_t$ 估计的 AR(1) logit：
+#= k1816e4 | Wage  ⇒ 工资
+#= kb9abf3 | AR(1) estimated on observed wages  ⇒ 对观测工资估计的 AR(1)
+#= k2f2130 | (Gourinchas and Parker, 2002)  ⇒ （Gourinchas 与 Parker，2002）
+@page 69
+#= k9ba2ef | Consumption cannot exceed cash-on-hand $x_t$:  ⇒ 消费不能超过手头现金 $x_t$：
+#= kc8b3ed | $w_t$ is wealth; $netinc_t$ is net income; $inc_t^{sp}$ is (exogenous) net income of the  ⇒ $w_t$ 为财富；$netinc_t$ 为净收入；$inc_t^{sp}$ 为配偶的（外生）净收入；
+#= kad9463 | spouse; $OOP_t$ are out-of-pocket medical expenditures  ⇒ $OOP_t$ 为自付医疗支出
+#= kb4cb2b | 20\% wage penalty for working part time (1500 hrs/yr)  ⇒ 兼职工作（每年 1500 小时）有 20\% 的工资惩罚
+#= k5e8e2b | DI and UI replace 70\% of earnings (capped at 50,400 Euros)  ⇒ DI 和 UI 替代 70\% 的收入（上限为 50,400 欧元）
+#= k9f5160 | Automatic transfer from UI/DI to public pension at age 65  ⇒ 65 岁时自动从 UI/DI 转为公共养老金
+#= k56244c | Government transfers guarantee minimum consumption $c_{min}$:  ⇒ 政府转移保证最低消费 $c_{min}$：
+#= kbab50b | (Hubbard et al., 1995)  ⇒ （Hubbard 等，1995）
+@page 70
+#= k7e3259 | Flat rate subsistence income  ⇒ 统一费率的基本生活收入
+#= k3c02e3 | Automatic onset at age 65  ⇒ 65 岁时自动开始领取
+#= k98e5a2 | 9,000 Euros/year for individual in couple  ⇒ 夫妻中的个人每年 9,000 欧元
+#= k50fcab | 90\% of employees covered  ⇒ 90\% 的雇员被覆盖
+#= kf97bc1 | Mandatory participation with fixed contribution rate  ⇒ 强制参加，缴费率固定
+#= ka09f19 | Two phases (pre-reform):  ⇒ 两个阶段（改革前）：
+#= k640115 | Age 59-65: early retirement pension (VUT)  ⇒ 59–65 岁：提前退休养老金（VUT）
+#= k8af635 | 85\% replacement rate; no actuarial adjustment; continued accumulation of entitlements  ⇒ 85\% 的替代率；无精算调整；继续积累权益
+#= ke3e014 | Phased out around year 2000 for cohorts 1950 and later  ⇒ 2000 年前后对 1950 年及以后出生的队列逐步取消
+#= k2586a5 | Age 65 and older: regular occupational pension  ⇒ 65 岁及以上：常规职业养老金
+#= k14a988 | Replacement rate is function of contribution years (1.75pp per year)  ⇒ 替代率是缴费年数的函数（每年 1.75 个百分点）
+@page 71
+#= kd3bd2f | Tax function  ⇒ 税收函数
+#= k10f5eb | worker  ⇒ 工作者
+#= k0d278a | Marginal tax rate  ⇒ 边际税率
+#= k468363 | pensioner  ⇒ 养老金领取者
+#= kbab422 | Income before tax $(1,000\mathrm{s}$ 2012 Euros)  ⇒ 税前收入（千欧元，2012 年价格）
+@page 72
+#= k9899f0 | Effect of abolishment early retirement (VUT)  ⇒ 取消提前退休（VUT）的效果
+#= kc40d8f | mean retirement age 61.2  ⇒ 平均退休年龄 61.2
+#= ka58647 | simulation sample (’06−’16)  ⇒ 模拟样本（’06–’16）
+#= k79a6d3 | estimation sample (’93−’01)  ⇒ 估计样本（’93–’01）
+#= k9feabe | mean retirement age 63.8  ⇒ 平均退休年龄 63.8

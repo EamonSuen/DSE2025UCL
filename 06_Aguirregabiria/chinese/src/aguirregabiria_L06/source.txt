@@ -1,0 +1,257 @@
+# 06_Aguirregabiria/Lecture_6_Structural_DDC_with_Fixed_Effects/slides/slides_fe_structural_ddc_ucl_2025.pdf  (37 pages)
+# id | English (inline math is a rough reconstruction; check it)
+
+@page 1
+k2f18fb | STRUCTURAL DYNAMIC DISCRETE CHOICE
+kf652c2 | MODELS WITH FIXED EFFECTS
+k70626b | LECTURE 6
+k92a337 | Econometric Society Summer School
+k0776fa | in Dynamic Structural Econometrics
+ke4db0a | Victor Aguirregabiria (University of Toronto)
+k648cfd | UCL – July 1st, 2025
+k68f749 | Victor Aguirregabiria
+kd60990 | DDC Games
+@page 2
+#= k2473e9 | Introduction  ⇒ 导论
+k0270ca | INTRODUCTION
+k2d3bb5 [4L] | Disentangling ⟪true dynamics⟫ —the causal effect of past decisions— from ⟪spurious dynamics⟫ arising from persistent unobserved heterogeneity (UH) is a fundamental challenge in the econometrics of dynamic models.
+kd5805a | Challenges with short panels (Heckman, 1981):
+k96a757 [2L] | ⟪Incidental Parameters Problem (IPP):⟫ Treating UH as fixed parameters implies inconsistent estimation of parameters of interest.
+k19a281 [2L] | ⟪Initial Conditions Problem (ICP):⟫ There is no Nonparametric Identification of the distribution of UH and initial conditions.
+k4d674a | Two alternative approaches to deal with the Nonparametric
+k5f5a40 | No-Identification from the ICP:
+k6c51cc | Random Effects (RE).
+k3a1c16 | Fixed Effects (FE).
+@page 3
+k1dd1e6 | RANDOM EFFECTS (RE) vs. FIXED EFFECTS
+kc061a9 | Random Effects (RE): ⟪Integrating out UH.⟫
+k668b4f [2L] | We deal with the ICP by imposing parametric \& finite support restrictions on the joint distribution of UH and initial conditions.
+k31599f | **Pros:** Full identification of structural parameters \& distribution of UH.
+k0a9ed4 [2L] | **Cons:** The potential misspecification of parametric restrictions on UH can introduce substantial biases in the estimates of ”true dynamics”.
+keb36e3 | ⟪Fixed Effects (FE):⟫ Differencing out UH.
+k9ac10a [2L] | Focus on identification of structural parameters capturing ”true dynamics” and not on the identification of the distribution of UH.
+ke500f5 | **Pros:** NP specification of UH. Robust identification of true dynamics.
+ke4c271 [2L] | **Cons:** Distribution of UH is not fully identified. It limits the counterfactuals we can identify. ⟪(easy to deal with)⟫
+kc438c9 | **Cons:** Not all dynamic models have consistent FE estimators.
+@page 4
+k5cba40 | FIXED EFFECTS IN STRUCTURAL DDC MODELS
+k047fcb [2L] | Until recently, all applications of Structual DDC models use RE models to deal with UH.
+k464e5f [2L] | The absence of applications using a FE approach was partly because of two common beliefs.
+k7e25b1 [3L] | Belief that there are not consistent FE estimators in structural models where agents are forward-looking: ⟪problem with continuation⟫ ⟪values.⟫
+k924a85 [3L] | Belief that, even if structural parameters are identified, we cannot identify ⟪Average Marginal Effects (AME)⟫ and other Counterfactuals as these depend on the distribution of the UH.
+k1c62e0 | Recent developments have challenged these beliefs.
+@page 5
+kd3ca61 | BYPRODUCT OF FE APPROACH: COMPUTATIONAL GAINS
+k899a52 [3L] | As we will see, one of the FE methods (Conditional MLE) requires ⟪differencing out the continuation value⟫ component of the conditional choice value function.
+k9a2e3f [3L] | This implies that this estimation approach (Conditional MLE) does not require solving any dynamic programming problem, or computing present values, or even one-period forward expectation.
+k62018d [2L] | The computational cost of implementing the Conditional MLE does not depend on the dimension of the state space.
+@page 6
+k54b7bb | THIS LECTURE
+kbd8495 | This lecture presents recent results on Structural DDC - FE Models.
+kd0329f | Aguirregabiria, Gu, \& Luo (Journal of Econometrics, 2021)
+keed1d0 [2L] | Identification \& estimation of structural DDC-FE with lagged decision and duration as state variables.
+k7364bb | Aguirregabiria (Econometrics Journal, 2023)
+k41953f | Application to dynamic demand for differentiated products
+kdbcddc | Aguirregabiria \& Carro (Review of Economics \& Statistics, 2025)
+k2e219b | Identification of Average Marginal Effects.
+kd7304c | Aguirregabiria, Gu, \& Mira (Working Paper, 2025)
+k569055 | Extension to Dynamic Discrete Choice Games.
+@page 7
+kcdd629 | Outline
+k5964ba | OUTLINE
+#= k68c2cc | Model  ⇒ 模型
+k894eef | Identification of Structural Parameters.
+kdc891c | Conditional Likelihood - Sufficient Statistics Approach.
+kfb6e28 | Functional Differencing.
+#= k5ec976 | Estimation  ⇒ 估计
+k876e96 | Conditional MLE
+kd75f42 | GMM
+k2b134a | Empirical application – Dynamic Demand for Differentiated Product.
+@page 8
+kaac8c7 | MODEL
+@page 9
+k16d4e6 | MODEL: DECISION \& STATE VARIABLES
+kcfe568 | ⟪Decision variable: $y_{it}\in\mathcal{Y}=\{0,1,\ldots,J\}$.⟫
+kd33354 | Agent maximizes $E_t[\sum_{s=0}^{\infty}\delta_i^sU_{i,t+s}].U_{it}$ is the utility function.
+k0a0abc | $U_{it}$ depends on current choice, $y_{it}$, and on:
+kf15f41 | ⟪Two types of unobservables⟫ for the researcher, $(\alpha_i,\varepsilon_{it})$;
+k0974fc | Two types of observable state variables:
+kc455d6 | $z_{it}$ = strictly exogenous state variables.
+k3e1b5a | $x_{it}$ = endogenous state variables.
+@page 10
+kaf1ac3 | MODEL: UTILITY FUNCTION
+kd21f05 | The current payoffof choosing alternative $j$:
+kf6a26b | Payofffunction $\beta(j,s_{it})$ is unrestricted.
+k9e60fc | Unobservables:
+kf8d4f1 | Both types of onobservables are additively separable.
+kb022d1 | $\varepsilon_{it}(j)$ i.i.d. type I extreme value distributed;
+k6b7eb1 | ⟪FE model: $p(\alpha_i(0),\ldots,\alpha_i(J)|x_{i1},z_{i1},\ldots,z_{iT}\}$⟫ is unrestricted.
+@page 11
+k764c59 | OPTIMAL DECISION \& CCPs (conditional on $\alpha_i)$
+k593a04 | The optimal decision is:
+kd6a0ae | ⟪where $cv(j,s_{it},\alpha_i)$ is the⟫ continuation value function:
+k828aa6 [2L] | The extreme value type 1 distribution of the unobservables $\varepsilon$, implies the ⟪conditional choice probability (CCP)⟫ function:
+@page 12
+ked9e4e | IDENTIFICATION OF STRUCTURAL PARAMETERS
+k145e0a | IDENTIFICATION OF
+k68a313 | STRUCTURAL PARAMETERS
+@page 13
+ke10fbb | A RESTRICTED VERSION OF THE MODEL
+k086fb7 [2L] | For simplicity, in this lecture I focus on identification results for a version of the model that imposes two additional restrictions.
+k55e77a | $\mathrm{R}1$: No exogenous state variables $z_{it}$.
+k51700d | $\mathrm{R}2$: Endogenous state variables follow a deterministic transition rule:
+kd6330b | These restrictions have two important implications.
+kb72110 [2L] | The initial condition + choice path $y⟦?⟧_i=\{x_{i1},y_{i1},y_{i2},\ldots,y_{iT}\}$ contains all the information on the path of choices and states.
+k117f4c [2L] | For two pairs of choices and states, $(j,x)$ and $(j',x')$, with $f(j,x)=f(j',x')$, their continuation values are also the same.
+@page 14
+k38e288 | FE – SUFFICIENT STATISTICS APPROACH
+k9b8fc5 | Let $y⟦?⟧=\{x_1,y_1,y_2,\ldots,y_T\}$ be an individual’s observed history
+ka080fd | The log-probability of a choice history has the following form:
+k2c481e | where $S(y⟦?⟧)$ and $C(y⟦?⟧)$ are vectors of statistics.
+ke71989 | For instance:
+k623eb4 | $\sum_{t=1}^T1\{y_t=j\}$ is in $S(y)$.
+kbb8981 | $\sum_{t=2}^T1\{y_{t-1}=k$ and $y_t⟦?⟧=j\}$ is in $C(y⟦?⟧)$.
+@page 15
+k73a62d | FE – SUFFICIENT STATISTICS APPROACH (2)
+ke56546 | This structure has several important implications.
+k3df1bc | $S(y⟦?⟧)$ is a sufficient statistic for $\alpha$.
+kf0db1b [2L] | $\beta$ is identified if conditional on $S(y⟦?⟧)$ the matrix $C(y⟦?⟧)'$ for every $y$ is full-column $\mathrm{rank}$.
+@page 16
+k9b02dd | A MORE INTUITIVE DESCRIPTION OF IDENTIFICATION
+kbf49da | Suppose that there are two choice histories, say $A$ and $B$ For every
+kd199c1 | parameter in the vector $\beta$, say $\beta_k$, there exist two choice histories, say
+kf83bbb | $y⟦?⟧=A$ and $y⟦?⟧=B$ such that:
+k8e1b16 [2L] | $C(A)-C(B)$ is a vector where all the elements are zero except for the element associated with $\beta_k$, which is $C_k\not=0$.
+k1426a2 | Under these conditions, we have that:
+kc3a163 | Parameter $\beta_k$ is identified from the log-odds-ratio of histories $A\&B$.
+@page 17
+ke44eaa | THE CHALLENGE OF THE CONTINUATION VALUES
+kae54cd | The question is whether such histories A \& B exist, or on the
+kac0403 | contrary, $S(A)=S(B)$ implies that there is no variation left in $C(y⟦?⟧)$.
+k23e9a2 [2L] | The continuation value $cv(f(y_t,x_t),\alpha_i)$ depends on $\alpha_i$ in a nonlinear (and unknown) form.
+k765b97 [2L] | To difference out/control for $\alpha_i$, we need to difference out the whole continuation value.
+k3a1a04 [4L] | But the continuation value also depends on the state variables. So, it seems that differencing out continuation values implies controlling for all the variation in the state variables: ⟪there is no variation left to⟫ ⟪identify the structural parameters $\beta$.⟫
+kc3d5b8 | Or there is?
+@page 18
+k6c0c44 | DIFFERENCING OUT CONTINUATION VALUES
+k990e3c [3L] | It turns out that there is a broad and important class of dynamic models where we can difference out continuation values leaving variation in the state variables to identify structural parameters
+k5b24c6 | Remember that:
+k7663f4 [2L] | Suppose that the transition rule $f$ (.) is such that there exist two combinations of choice-state $(y_t,x_t)$ such that $x_{t+1}$ is the same:
+kd25d47 | Then, it is clear that:
+kfaae2d [2L] | Under this condition, we can identify structural parameters $\beta$ using a FE – Sufficient Statistics method.
+@page 19
+k1e3ce6 | EXAMPLE 1: MULTI-ARMED BANDIT MODELS
+ke569df | In these models $x_t=y_{t-1}$ such that:
+kcabd5e | Therefore, $cv(f(j,y_{t-1}),\alpha)$ does not depend on $y_{t-1}$.
+k1a18ec [2L] | The continuation values $cv(j,\alpha)$ are similar as the terms $\alpha(j)$ in the current utility: they do not interact with the state variable $y_{t-1}$.
+k119851 | Switching cost parameters, $\beta(y_t,y_{t-1})$ are identified if $T\geq4$.
+kee4279 | For instance, given choice histories $A=(j,k,j,k)$ and
+kb1933c | $B=(j,j,k,k)$, we have that:
+@page 20
+kbda09b | EXAMPLE 2: OPTIMAL REPLACEMENT MODELS
+kca622b [2L] | In these models $y_t\in\{0,1,2,\ldots \}$ is the investment decision and $x_t$ is the capital stock variable. There is exogenous depreciation:
+k29ba63 | For any two values of the state, say $x$ and $x'$, we have that:
+k15a7c5 [2L] | Taking into account this structure, it is possible to construct pairs of choice histories, A and B, that identify parameters in $\beta$
+@page 21
+kb50aa5 | FUNTIONAL DIFFERENCING APPROACH
+k3cace5 [3L] | Bonhomme (Econometrica, 2012) shows that the Conditional Likelihood-Sufficient Statistics approach is a particular case of a more general method to difference out FEs: ⟪Functional Differencing.⟫
+k8bc1d3 | For some panel data models, Functional Differencing can provide
+k3d72c6 | identifying moment restrictions that cannot be obtained using CML.
+k70870c [2L] | In reduced form dynamic panel data models: Honor´e \& Weidner (REStud, 2024), Dobronyi \& Gu (2021), Pakel \& Weidner (2023).
+k605af1 [2L] | Aguirregabiria \& Carro (REStat, 2025) for Average Marginal Effects in dynamic panel data discrete choice.
+kf7cc7a | Aguirregabiria, Gu, \& Mira (2025) in Dynamic Discrete Games.
+@page 22
+k054e21 | TWO IMPORTANT PROPERTIES (For Our Functional Diff.)
+k231c1e | Property 1
+k160afc | $P(y_i|\alpha_i,\beta)$ is the ratio between polynomials of order $Tin$
+k0ec2ff | variables $e^{\alpha i(j)},e^{cvi(j,x)}$ for $j=1,2,\ldots,J$.
+kfdc4b2 | Property 2
+ke5dd51 | The (Integrated) Bellman Equation can be represented as $a$ ratio
+k4ecae9 | of polynomials in variables in variables $e^{\alpha i(j)},e^{cvi(j,x)}$ for $j=$
+@page 23
+kce950d | PROPOSITION 1
+kb00c51 | $A$ necessary condition for the identification of the
+k1e226d [2L] | structural parameters $\beta$ in this FE model is that there is $a$ ⟪weighting function $\lambda(y_i,\beta)$⟫ such that:
+k00dc4e | for any value $\alpha_i\in R^J$
+k35ff5b | Under this condition, $\beta$ satisfies equation:
+@page 24
+k81e919 | FUNTIONAL DIFFERENCING
+kc15b61 [3L] | The Necessary condition in Proposition 1 implies a system with ⟪infinite restrictions⟫ (i.e., the possible values of $\alpha_i)$ and a ⟪finite number⟫ ⟪of $2^{JT}$ unknowns⟫ (i.e., the weights $\lambda)$.
+k70eb2a | Without a specific structure, this system does not have a solution:
+k9ca633 | the weights do not exist, and there is no identification.
+kfd893f | ⟪Proposition 2⟫ establishes that the model has a specific structure
+ke70bc6 [2L] | such that infinite system is equivalent to a finite system which can have a solution.
+@page 25
+k13fa86 | PROPOSITION 2
+k537179 [2L] | Applying Properties 1 to equation in Proposition 1 we get $a$ polynomial of order $T$ in the variables $e^{\alpha i(j)},e^{cvi(j,x)}$ for
+k906c84 | Since these variables are positive, the equation has $a$ solution
+k05d710 [2L] | for every possible $\alpha_i$ if and only if the coefficients of all the monomials are zero.
+k11103a | $A$ solution for the vector $\lambda_i\equiv\{\lambda_i(y_i):\forall y_i\}isa$ solution of
+ka09cd6 | the following system of JT linear equations with $2^{JT}$
+k831711 | unknowns:
+k493138 | where matrix $C(\beta)$ is known and has closed-form.
+kc2529f | If dimension Null(C $(\beta))>0$, there are $\lambda’s$ solving the system.
+@page 26
+k52e2a3 | FUNCTIONAL DIFFERENCING - SUFFICIENT CONDITIONS
+k3ca342 [3L] | Propositions 1 and 2 provide a simple method to obtain weights $\lambda$ that can provide identification of the structural parameters using moment conditions:
+kc7f435 [2L] | Sufcfiient conditions require that the system satisfies a $\mathrm{rank}$ ⟪condition.⟫
+k185730 | Note that this system can be interpreted as ⟪Moment Conditions⟫
+k3acc69 | that we can use to estimate parameters using GMM.
+@page 27
+k543ab0 | ESTIMATION OF STRUCTURAL PARAMETERS
+k2f7ee2 | ESTIMATION OF
+@page 28
+k3d93c2 | CONDITIONAL MAXIMUM LIKELIHOOD ESTIMATOR
+ke395fb | Remember that the probability of a choice history $y⟦?⟧_i$ has the
+kb6f2fa | following structure:
+k36335d | and that $S(y⟦?⟧_i)$ is a sufficient statistic for $\alpha_i$.
+kf56377 | We estimate $\beta$ by maximizing the Conditional Likelihood function:
+k6d32b6 | which has the following form:
+@page 29
+k80a38f | CONDITIONAL MAXIMUM LIKELIHOOD ESTIMATOR (2)
+k809500 | This Conditional Likelihood Function has several important properties:
+k66e44b | It does not depend on the incidental parameters $\alpha$.
+k23bccb | It is globally concave in $\beta$.
+kc6aa69 [2L] | The continuation values enter only in $g(\alpha_i)$. Controlling for **S** implies removing the continuation values.
+kabfcf9 [2L] | Therefore, the computational cost of the Conditional MLE does not depend on the dimension of the state space.
+@page 30
+k367221 | EMPIRICAL APPLICATION
+k4a501d | Dynamic Demand for Differentiated Product
+k4a0ab7 | Laundry Detergent
+@page 31
+k580393 | DATA
+k4d9a7b | NIELSEN scanner data from Chicago-Kilts center.
+kcb91e2 | Period 2006-2019. Current estimates using only years 2017-2018.
+k2dd2fc | More than $40\mathrm{k}$ participating households all over US.
+k55217f [2L] | Rich demographics $(w_i)$: ZIP code, income, age, education, occupation, race, family size, family composition, type of residence,
+ka246c9 | Data on every shopping trip.
+k310caa | Product: Laundry detergent
+@page 32
+k7bc204 | ESTIMATION OF DEMAND PARAMETERS
+k1ccdc7 | Fixed Effects provide precise enough estimates $(N=19,776)$.
+k4026e1 | Estimates of Structural Parameters
+k624aba | FE Kernel W. CML RE (2 types) + $\mathrm{w}'_i\alpha(j)$
+kfd0f46 | Parameter Estimate
+k235223 | Estimate
+kc63d81 | $\gamma$ Price
+k661e22 [3L] | $\beta^{sc}(habits)$ Brand 1 $\beta^{sc}(habits)$ Brand 2 $\beta^{sc}(habits)$ Brand 3
+k1c46b4 [3L] | $\beta^{dep}(linear)$ Brand 1 $\beta^{dep}(linear)$ Brand 2 $\beta^{dep}(linear)$ Brand 3
+k4358cc | Hausman test (p-value)
+@page 33
+kb151aa | Hausman test clearly rejects the Random Effects model.
+k92a803 | Hausman test (p-val)
+@page 34
+k9e1748 | Random Effects model over-estimates habits parameters.
+@page 35
+k450805 | Random Effects model provides wrong sign for duration dependence.
+@page 36
+k58c61e | Random Effects model under-estimates price-sensitivity of demand.
+@page 37
+k69bae0 | CONCLUSIONS
+k4b148c | EXTENSIONS
+kdba457 [2L] | This paper presents a Fixed Effects dynamic panel data model of demand for different products where consumers are forward looking.
+kabb8dd | Some relevant extensions:
+k9bc73c [2L] | Identification of aggregate price elasticities following Aguirregabiria \& Carro (2023) results on the identification of Average Marginal Effects.
+k897559 | Identification of FE Dynamic games in Aguirregabiria, Gu, and Mira
+k68c72e | Introducing stochastic transitions in endogenous state variables.
+kf24b3a | Counterfactuals

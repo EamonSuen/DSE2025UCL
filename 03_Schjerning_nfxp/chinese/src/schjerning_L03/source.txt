@@ -1,0 +1,781 @@
+# 03_Schjerning_nfxp/equilibrium_trade_autos.pdf  (114 pages)
+# id | English (inline math is a rough reconstruction; check it)
+
+@page 1
+k6857ff | Lecture 3: Nested fixed point (NFXP) algorithm
+k50cfc2 | for estimation of equilibrium models
+#= kdd7074 | Bertel Schjerning, University of Copenhagen  ⇒ Bertel Schjerning，哥本哈根大学
+#= k2aad1e | 2025 Econometric Society Summer School in Dynamic Structural  ⇒ 2025 年计量经济学会动态结构计量经济学
+#= k150909 | Econometrics  ⇒ 暑期学校
+#= kf63ce8 | University College London  ⇒ 伦敦大学学院（UCL）
+#= kca0a10 | June 30th - July 7th , 2025  ⇒ 2025 年 6 月 30 日—7 月 7 日
+@page 2
+k5bcd86 | PART I
+k5b291f | The Nested Fixed Point Algorithm (NFXP)
+k44818f | Rust (ECTA, 1987):
+kd4019a | OPTIMAL REPLACEMENT OF GMC BUS ENGINES:
+k7e7b6d | AN EMPIRICAL MODEL OF HAROLD ZURCHER
+k167d27 | Harold Alois Zuercher June 16, 1926 - June 21, 2020 (age 94)
+@page 3
+kc0aa8e | Who cares about Harold Zurcher?
+k2fd96e | Occupational Choice (Keane and Wolpin, JPE 1997)
+kd219f3 | Retirement (Rust and Phelan, ECMA 1997)
+k260651 | Brand choice and advertising (Erdem and Keane, MaScience 1996)
+kb20935 | Choice of college major (Arcidiacono, JoE 2004)
+k7f0672 | Individual migration decisions (Kennan and Walker, ECMA 2011)
+k59a1d2 | High school attendance and work decisions (Eckstein and Wolpin, ECMA
+ke423b6 [2L] | Sales and dynamics of consumer inventory behavior (Hendel and Nevo, ECMA 2006)
+ke451a7 [2L] | Advertising, learning, and consumer choice in experience good markets (Ackerberg, IER 2003)
+kde523c | Route choice models (Fosgerau et al, Transp. Res. B)
+k7c33d6 | Fertility and labor supply decisions (Francesconi, JoLE 2002)
+kc9c681 | Residential and Work-location choice (Buchinsky et al, ECMA 2015)
+k7f3f9b [2L] | Equilibrium Allocations Under Alternative Waitlist Designs: Evidence From Deceased Donor Kidneys (Argarwal et al, ECMA 2021)
+k482a6e | Equilibrium Trade in Automobiles ⟪(Gillingham et al, JPE 2022)⟫
+kc0df83 | ...and many more
+@page 6
+k03ad3a | Big Mac Index of Dynamic Structural Econometrics
+@page 7
+k345878 | Zurcher’s Bus Engine Replacement Problem
+k90ba25 | ⟪Choice set:⟫ Binary choice set, $C(x_t)=\{0,1\}$.
+k406ab0 | Engine replacement $(d_t$ = 1) or ordinary maintenance $(d_t=0)$
+kd3210e | ⟪State variables:⟫ Harold Zurcher observes $s_t=(x_t,\varepsilon_t)$:
+k619f5f | $x_t$: mileage at time t since last engine overhaul/replacement
+k3dd161 | $\varepsilon_t=[\varepsilon_t(d_t=0),\varepsilon_t(d_t$ = 1)]: decision specific state variable
+ka4a3f6 | ⟪Utility function: $U(x_t,\varepsilon_t,d_t;\theta_1)=$⟫
+#= k958f57 | if  ⇒ 若
+k08b2d1 | State variables process
+ka0b42c | $\varepsilon_t$ is iid with conditional density $q(\varepsilon_t|x_t,\theta_2)$
+k5d43f3 | $x_t$ (mileage since last replacement)
+k21182a | If engine is replaced, state of bus regenerates to $x_t=0$.
+kcd186d | Parameters to be estimated $\theta=(RC,\theta_1,\theta_3)$
+kdcbce4 | (Fixed parameters: $(\beta,\theta_2))$
+@page 8
+kddd849 | Recursive form of the maximization problem
+ka9582d | The Bellman equation
+k1ad021 [2L] | Expectations are taken over the next period values of state $s'=(x',\varepsilon')$ given it’s controlled motion rule, $p(s'|s,d)$
+k98dbf4 | where $\varepsilon=(\varepsilon(1),\ldots,\varepsilon(J))\in R^J$
+k8bf758 | Hard to compute fixed point V such that $T(V)=V$
+kd6d864 | $x$ is continuous and $\varepsilon$ is continuous and J-dimensional
+kff5243 | $V(x,\varepsilon)$ is high dimensional
+k977d3f | Evaluating $E$ may require high dimensional integration
+k352231 [2L] | Evaluating $V(x',\varepsilon')$ may require high dimensional interpolation/approximation
+kae04a9 | $V(x,\varepsilon)$ is non-differentiable
+@page 9
+kd86264 | Rust’s Assumptions
+k5e2457 | Additive separability in preferences **(AS):**
+k9b6a21 | Conditional independence **(CI):**
+k3bdbe4 [2L] | State variables, $s_t=(x_t,\varepsilon_t)$ obeys a (conditional independent) controlled Markov process with probability density
+k0d2326 | Extreme value Type I (EV1) distribution of $\varepsilon$ **(EV)**
+k07d2eb [2L] | Each of the choice specific state variables, $\varepsilon_t(d)$ are assumed to be iid. extreme value distributed with CDF
+k49e4ec | $F(\varepsilon_t(d);\mu,\lambda)=\exp (-\exp (-(\varepsilon_t(d)-\mu)/\lambda))$ for $\varepsilon_t(d)\in R$
+ke1de74 | with $\mu$ = 0 and $\lambda=1$
+@page 10
+kd31665 | Rust’s Assumptions simplifies DP problem
+kd33f13 [2L] | Separate out the deterministic part of choice specific value $v(x,d)$ (assumptions AS and CI)
+k9211e1 [2L] | Reformulate Bellman equation on reduced state space (assumption CI)
+k36c330 [2L] | Compute the expectation of maximum using properties of EV1 (assumption EV)
+@page 11
+kd6cd4b | DP problem under AS and CI
+kd6a8f2 | Separate out the deterministic part of choice specific value $v(x,d)$
+k4366fe | So that
+#= k46148c | where  ⇒ 其中
+@page 12
+k636ba4 | $2\mathrm{a}$. Bellman equation in expected value function space
+kc445ed | Let $EV(x,d)=E⟦?⟧V(x',\varepsilon')⟦?⟧⟦?⟧x,d⟦?⟧$ denote the expected value function.
+ka5cec9 [2L] | Because of CI we can express the Bellman equation in expected value function space
+kb7bc72 | Γ is a contraction mapping with unique fixed point $EV$, i.e.
+k99270f | Global convergence of VFI / SA
+k590b53 | $EV(x,d)$ is lower dimensional: does not depend on $\varepsilon$
+@page 13
+kf3c44a | $2\mathrm{b}$. Bellman equation in integrated value function space
+k75a9e0 | Let $\bar{V}(x)=E⟦?⟧V(x,\varepsilon)⟦?⟧⟦?⟧x⟦?⟧$ denote the integrated value function
+k771930 [2L] | Because of CI we can express Bellman equation in integrated value function space
+k389794 | $\bar{V}(x)$ = Γ¯(V¯)(x) $\equiv⟦?⟧V(x,\varepsilon)q(\varepsilon|x)d\varepsilon$
+k9cbc7e | $\bar{\Gamma}$ is a contraction mapping with unique fixed point $\bar{V}$, i.e.
+k4c9f8e | $\bar{V}(x)$ is lower dimensional: does not depend on $\varepsilon$ and $d$
+@page 14
+k5e8d14 | Compute the expectation of maximum under EV
+ka50d0d [2L] | We can express expectation of maximum using properties of EV1 distribution (assumption EV)
+k5e56c5 | Expectation of maximum, $\bar{V}(x)$, can be expressed as "the log-sum"
+kfcf87e | Conditional choice probability, $P(x,d)$ has closed form logit expression
+k1ad4b3 | HUGE benefits
+ka8ca7d | Avoids $J$ dimensional numerical integration over $\varepsilon$
+ka1e9ee | $P(d|x),\bar{V}(x)$ and $EV(x,d)$ are smooth functions.
+@page 15
+k1c9ac1 | The DP problem under AS, CI and EV
+k39b9d3 | Putting all this together
+kdaa36d | Conditional Choice Probabilities (CCPs) are given by
+k53f6a1 [2L] | The expected value function can be found as the unique fixed point to the contraction mapping $\Gamma_{\theta}$, defined by
+k91f2be [2L] | We have used the subscript $\theta$ to emphasize that the Bellman $\mathrm{operator},\Gamma_{\theta}$ depends on the parameters.
+kba469f [2L] | In turn, the fixed point, $EV_{\theta}$, and the resulting CCPs, $P(d|x,\theta)$ are implicit functions of the parameters we wish to estimate.
+@page 16
+k827ede | How to deal with continuous mileage state?
+k7d0fde | Rust discretize the mileage state space ⟪x into $n$ grid points⟫
+k0e2218 | $X=\{x_1,\ldots,x_n\}$ with $x_1=0$
+k29bbb8 | Mileage transition probability: for $l=0,\ldots,L$
+k8cc886 | where $\theta_3=[\theta_{3,1},\ldots,\theta_{3,L}],\theta_{3,0}=1-⟦?⟧_{l=1}^L\theta_{3,l}$, and $\theta_{3,l}\geq0$
+k46a6de | Mileage in the next period $x'$ can move up at most $L$ grid points.
+k841dce | $L$ is determined by the empirical distribution of mileage.
+@page 17
+ka54936 | State transition matrix for mileage with $\mathrm{L}=2$
+ka1cb3a | Π(d =  «Π(d = $\mathrm{keep})_{nxn}=$»
+@page 18
+k8d3bca | Bellman equation in matrix form
+k6abd6a | Bellman equation in ⟪expected value⟫ function space
+k269eb6 | $EV(d)$ = Γ(EV) = Π(d)ln $⟦?⟧\exp [u(d')+\beta EV(d')]$
+k46b1bc | Bellman equation in ⟪integrated value⟫ function space
+kcadb86 | = Γ¯(V¯) =  «$\bar{V}$ = Γ¯(V¯) = $\ln ⟦?⟧\exp [u(d')+\beta\Pi(d')\bar{V}]$»
+k9cfc44 | Π(d) is a $n\times n$ state transition matrix conditional on decision $d$
+@page 19
+k8b7ce3 | Structural Estimation under Rust’s Assumptions
+k67f076 | ⟪Data: $(d_{i,t},x_{i,t}),t=1,\ldots,T_i$⟫ and $i=1,\ldots,N$
+ka8b93a | Log likelihood function
+#= kcffa50 | and  ⇒ 以及
+@page 20
+kb3400d | The Nested Fixed Point Algorithm
+k1266ec [3L] | Since the contraction mapping $\Gamma_{\theta}$ always has a unique fixed point, the constraint $EV_{\theta}=\Gamma(EV_{\theta})$ implies that the fixed point $EV_{\theta}$ is an implicit function of $\theta$.
+k1f60b2 | Hence, NFXP solves the unconstrained optimization problem
+k236eff | Outer loop (Hill-climbing algorithm):
+k56f27d | Likelihood function $L(\theta,EV_{\theta})$ is maximized w.r.t. $\theta$
+kb2fa34 | Quasi-Newton algorithm: Usually BHHH, BFGS or a combination.
+k1a3b47 | Each evaluation of $L(\theta,EV_{\theta})$ requires solution of $EV_{\theta}$
+ka84c5c | Inner loop (fixed point algorithm):
+k7e66a4 | The implicit function $EV_{\theta}$ defined by $EV_{\theta}=\Gamma(EV_{\theta})$ is solved by:
+kbbb5c7 | Successive Approximations (SA) / Value Function Iterations (VFI)
+k503c60 | Newton-Kantorovich (NK) Iterations
+@page 21
+kc6ef6a | Structural Estimates, $\mathrm{n}=175$
+@page 22
+k81b854 | MATLAB implementation, $\mathrm{n}=175$, (replication of Table X)
+ka6dfe4 | Output from run\_busdata.m:
+@page 23
+kee1b9d | Estimated Hazard Functions
+@page 24
+k4e7be5 | Equilibrium bus mileage and demand for enigines
+k574225 [2L] | Let $\pi$ be the long run stationary (or equilibrium) distribution of the controlled process $\{i_t,x_t\}$
+k0051fc | $\pi$ is then given by the unique solution to the functional equation
+k7d0106 | $\pi$ is the ergodic distribution of the controlled state transition matrix
+kea45af [2L] | Carly the equilibrium distribution of $\pi$ is an implicit function of the structural parameters $\theta$, which we emphasize by the notation $\pi_{\theta}$
+k1eb6ad [2L] | Given $\pi_{\theta}$, we can also obtain the following simple formula for annual equilibrium demand for engines as a function of $RC$
+@page 25
+kea4853 | Equilibrium Bus mileage, bus group 4
+@page 26
+kd74bc7 | Demand Function, bus group 4
+@page 27
+ke631c6 | Mathematical Programming with Equilibrium Constraints
+k5c7be3 | MPEC solves the constrained optimization problem
+#= k39f2d8 | subject to  ⇒ 约束条件
+k216067 | =  «$\max L(\theta,EV)$ subject to $EV$ = $\Gamma_{\theta}(EV)$»
+k00869a | using general-purpose constrained optimization solvers such as KNITRO
+k57de88 | Su and Judd (ECMA, 2012) considers two such implementations:
+k216b3d | MPEC/AMPL:
+k23da7a | AMPL formulates problems and pass it to KNITRO.
+kf1ec3a | Automatic differentiation (Jacobian and Hessian)
+ke0adda | Sparsity patterns for Jacobian and Hessian
+k7ce024 | MPEC/MATLAB:
+k261de2 | User need to supply Jacobians, Hessian, and Sparsity Patterns
+k575bad | Su and Judd do not supply analytical derivatives.
+k5e726c | ktrlink provides link between MATLAB and KNITRO solvers.
+k4b46b6 [2L] | Su, Che-Lin , Kenneth L. Judd (2015): "Constrained Optimization Approaches to Estimation of Structural Models." Econometrica 80-5,
+ka343e5 | pp. 2213-2230.  «pp. 2213-2230.»
+@page 28
+k8916e2 | Monte Carlo: Rust’s Table X - Group 1,2, 3
+k14a60f [2L] | Su and Judd (ECMA, 2012) did a head to head comparison between NFXP and MPEC
+k2eccad | Experimental Design
+keb4187 | Fixed point dimension: $n=175$
+k4b1680 | Maintenance cost function: $c(x,\theta_1)=0.001*\theta_1*x$
+k67eb4c | Mileage transition: stay or move up at most $L$ = 3 grid points
+k104937 | True parameter values:
+kc871c0 | Solve for ⟪EV⟫ at the true parameter values
+k026747 | Simulate 250 datasets of monthly data for 10 years and 50 buses
+@page 29
+ke96731 | Is NFXP a dinosaur method?
+@page 30
+kcb9d05 | CPR for NFXP
+k7f693c [2L] | ⟪Step 1:⟫ Read NFXP manual and print out NFXP pocket guide ⟪Step 2:⟫ Recenter logit and logsum formulas
+k8f4bfd | ⟪Step 3:⟫ Use Fixed Point Poly-Algorithm (SA+NK)
+k0854a1 | ⟪Step 4:⟫ Provide analytical gradients of Bellman operator
+k251873 | ⟪Step 5:⟫ Provide analytical gradients of likelihood
+k9da3df | ⟪Step 6:⟫ Use BHHH (outer product of gradients as hessian approx.)
+kd2b369 | If NFXP heartbeat is still weak:
+k0e6754 | Read NFXP pocket guide until help arrives!
+@page 32
+kf52113 | STEP 1: NFXP documentation
+k5d20d0 | References
+kff7b72 [2L] | Rust (1987): "Optimal Replacement of GMC Bus Engines: An Empirical Model of Harold Zurcher" Econometrica 55-5, pp
+k3636ff [3L] | Rust (2000): “Nested Fixed Point Algorithm Documentation Manual: Version 6” https://editorialexpress.com/jrust/nfxp.html
+ka74fe8 [3L] | Iskhakov, F. , J. Rust, B. Schjerning, L. Jinhyuk, and K. Seo (2015): "Constrained Optimization Approaches to Estimation of Structural Models : Comment." Econometrica 84-1, pp. 365-370.
+@page 33
+k670d22 | Nested Fixed Point Algorithm
+kf259d6 | NFXP Documentation Manual version 6, (Rust 2000, page 18):
+k6e9a0c [2L] | Formally, one can view the nested fixed point algorithm as solving the following constrained optimization problem:
+k0d73f6 | subject to EV =  «$\max L(\theta,EV)$ subject to EV = $\Gamma_{\theta}(EV)$»
+k1483fa [4L] | Since the contraction mapping Γ always has $a$ unique fixed point, the constraint ⟪EV⟫ = $\Gamma_{\theta}(EV)$ implies that the fixed point $EV_{\theta}$ is an implicit function of $\theta$. Thus, the constrained optimization problem (3) reduces to the unconstrained optimization problem
+k8d96e5 | where $EV_{\theta}$ is the implicit function defined by $EV_{\theta}=\Gamma(EV_{\theta})$.
+@page 34
+kbab712 | NFXP pocket guide
+@page 35
+k71cf2c | STEP 2: Recenter to ensure numerical stability
+kc37d35 | Logit formulas must be reentered.
+k0966da | and “log-sum” must be recentered too
+ke74be1 [2L] | If $v_0$ is chosen to be $v_0=\max _jv_j$ we can avoid numerical instability due to overflow/underflow
+@page 36
+k9148e3 | STEP 3: Use Fixed Point Poly-Algorithm (SA+NK)
+k97579e | ⟪Problem:⟫ Find fixed point of the contraction mapping, $\Gamma_{\theta}$
+k17fcc7 | Fixed Point Poly-Algorithm:
+ked9c95 | Successive Approximations (SA) by contraction iteration:
+k59356c | Error bound: $||EV_{k+1}-EV||\leq\beta||EV_k-EV||$
+kb40763 | $\to$ Linear convergence $\to$ slow when $\beta$ close to 1
+kc270bf | Newton-Kantorovich (NK) iteration:
+ka86a28 | Solve $F=[I-\Gamma](EV_{\theta})$ = 0 using Newtons method
+k39cadd | $\Gamma'_{\theta}$ is the Fréchet derivative of $\Gamma_{\theta}$
+k2389ee | $I$ is the identity operator on $B$
+k6cd2f0 | 0 is the zero element of $B$
+k7dfd97 | Error bound: $||EV_{k+1}-EV||\leq A||EV_k-EV||^2$
+k821954 | $\to$ Quadratic convergence around fixed point, $EV$
+@page 37
+k72c104 | Successive Approximations, $\beta=0.9999$
+k6332fd | >> run\_fxp
+ked8fa0 | iter
+ke829f5 | tol
+k02d6df | tol(j)/tol(j-1)
+k0459be [2L] | Maximum number of iterations exceeded without convergence! Elapsed time: 1.44489 (seconds)
+k580a77 | Observations:
+kfdf100 | Tolerance always improves due to contraction property
+k9dc11d | $tol_k$ quickly slow down and declines very slowly for $\beta$ close to 1
+k5af746 | Relative tolerance $tol_{k+1}/tol_k$ approach $\beta$
+@page 38
+k3e9af1 | Successive Approximations - VERY slow when $\beta$ close to 1
+@page 39
+k0ecf8a | Successive Approximations - linear convergence
+@page 40
+kc333fe | Newton-Kantorovich Iterations, $\beta=0.9999$
+k98ed93 | Begin contraction iterations ⟪(for⟫ the 1. time)
+k483efe [2L] | SA stopped prematurely due to rel. tolerance. Begin NK iterations Elapsed time: 0.00147 (seconds)
+k675bcb | Begin Newton-Kantorovich iterations ⟪(for⟫ the 1. time)
+k014f8a [4L] | NaN NaN NaN NaN
+k106eb0 | N-K converged after 4 iterations, tolerance: $2.27374\mathrm{e}-12$
+k3209e7 | Elapsed time: 0.00331 (seconds)
+k0f1f82 | Convergence achieved!
+k06190f | Total elapsed time: 0.00300 (seconds)
+kcb9778 | Quadratic convergence!
+k6e5af0 | Very fast, once in domain of attraction
+@page 41
+k9a5aee | Newton-Kantorovich Iterations - quadratic convergence!
+k637d46 | Error bound vs iteration count
+k9ac706 | log(Error bound)  «rotated»
+keff4e9 [4L] | beta=0.95 beta=0.99 beta=0.999 beta=0.9999
+kc5fd94 | Iteration count
+@page 42
+k188dcc | When to switch to Newton-Kantorovich?
+kaac608 | Suppose that $EV_0=EV+k$.
+k3f501e | (Initial $EV_0$ equals fixed point $EV$ plus an arbitrary constant)
+kb0c467 | Another successive approximation does not solve this:
+k3eadc7 | $tol_0=∥EV_0-\Gamma(EV_0)∥=∥EV+k-$ Γ(EV + $k)∥$
+k71cbcb | $tol_1=∥EV_1-\Gamma(EV_1)∥=∥EV+\beta k-$ Γ(EV + $\beta k)∥$
+k3fad77 | Newton will immediately “strip away” the irrelevant constant $k$
+ka49ae8 | Switch to Newton whenever $tol_1/tol_0$ is sufficiently close to $\beta$
+@page 43
+kac8437 | The Fixed Point (poly) Algorithm
+k95a4f6 | Fixed Point poly Algorithm
+kca25b7 | Successive contraction iterations
+kfee160 | until $EV_k$ is in the domain of attraction
+kec7397 | (i.e. when $tol_{k+1}/tol_k$ is close to $\beta)$
+k8e7bf4 | Newton-Kantorovich (quadratic convergence)
+ka1cf39 | until convergence
+kc807f3 | (i.e. when $∥EV_{k+1}-EV_k∥$ is close to machine precision)
+@page 44
+k5d1cac | STEP 4: Analytical derivative of Bellman operator
+kc84291 | Derivative of Bellman operator, $\bar{\Gamma}'$
+kd43c67 | Needed for the NK iteration
+kf1bedb [3L] | In discretized approximation, $\bar{\Gamma}'$ is a $n\times n$ matrix with partial derivatives of the $n\times1$ vector function $\bar{\Gamma}(V_{\theta})$ with respect to the $n\times1$ vector $\bar{V}_{\theta}$
+k44442f [2L] | $\bar{\Gamma}'_{\theta}$ is simply $\beta$ times the choice probability weighted state transition probability matrix
+kcdb683 | One line of code in MATLAB
+kfaf5ff | A similar matrix can be derived for $\Gamma'$
+@page 45
+k2a1eed | STEP 1-4: MATLAB implementation of $\bar{\Gamma}_{\theta}$ and $\bar{\Gamma}'_{\theta}$
+k6809a8 | ⟪function $[\mathrm{V}1$,⟫ pk, dBellman\_dV]=bellman\_iv(V0, mp, u, P)
+k403bf9 [2L] | vK= $\mathrm{u}(:,1)$ + mp.beta*P\{1\}*V0; vR= $\mathrm{u}(:,2)$ + mp.beta*P\{2\}*V0;
+kb39cc2 | \% Value of keeping
+kbe45f3 | \% Value of replacing
+k238dfb | \% Recenter logsum
+kff9cad | maxV=max(vK, vR);
+kdc9bf9 | V1=(maxV + log(exp(vK-maxV) + exp(vR-maxV)));
+k12f703 | \% If requested, compute keep probability
+kfaa443 | ⟪if⟫ nargout>1
+k3785f7 | pk=1./(1+exp((vR-vK)));
+k7a92f3 | end
+ke26d0b [2L] | \% If requested, compute derivative of Bellman operator ⟪if nargout>2⟫
+k5a3eb9 | dBellman\_dV=mp.beta*(P\{1\}.*pk + P\{2\}.*(1-pk));
+@page 46
+k975210 | STEP 1-4: MATLAB implementation of $\Gamma_{\theta}$ and $\Gamma'_{\theta}$
+k2c85e0 | ⟪function⟫ [ev, pk, dbellman\_dev]=bellman\_ev(ev0, mp, u, P)
+kdc6463 | vK= $\mathrm{u}(:,1)$ + mp.beta*ev0;
+kbd37e5 | \% Value off keep
+k5b95d3 | vR= $\mathrm{u}(:,2)$ + mp.beta*ev0(1);
+k02c175 [2L] | \% Need to recenter logsum by subtracting max(vK, vR) ⟪maxV=max(vK, vR);⟫
+ke1f6bb [2L] | V=(maxV + log(exp(vK-maxV) + exp(vR-maxV))); ev=P\{1\}*V; ⟪\% compute expected value of keeping⟫
+k145125 | \% ev(1) is the expected value of replacing
+k6ec31f | \% If requested, also compute choice probability
+k0a9058 | dbellman\_dev=mp.beta*(P\{1\}.*pk');
+k955575 | \% Add additional term for derivative wrt ev(1),
+kc20235 [2L] | ⟪\% since ev(1) enter logsum for all states⟫ dbellman\_dev(:,1)=dbellman\_dev(:,1)+mp.beta*P\{1\}*(1-pk);
+@page 47
+k747630 | STEP 5: Provide analytical gradients of likelihood
+k536e37 | Simple use of chain rule:
+k4c4f81 | Gradients (wrt utility parameters) - similar to standard logit
+k8dfe46 | Derivative of the choice specific value function
+kf58e88 | $\partial u(j)/\partial\theta_1$, is trivial to compute
+k24e969 | $\partial\bar{V}_{\theta}/\partial\theta$ can be obtained by the implicit function theorem
+k8c34ee | ⟪where $[I-\bar{\Gamma}'_{\theta}]^{-1}$ is a⟫ by-product of the N-K algorithm!!!.
+ke21e4a | Derivative of Bellman operator wrt. $\theta_1$
+k0960f3 | where $\cdot$ is the element by element product
+@page 48
+k31f429 | STEP 5: MATLAB implementation of scores
+kb2ff2b | ⟪function⟫ score = score(data, mp, P, pk, px\_j, $\mathrm{V}0$, du, dBellman\_dV);
+k8e0cd8 | ⟪y\_j=[(1-data.d) data.d];⟫ \% choice dummies [keep replace]
+k7db4ca | \% Compute scores (use chain rule - three steps)
+k767bee [2L] | \% STEP 1: derivative of bellman operator wrt. utility parameters ⟪dbellman=pk.*du(:,:,1) + (1-pk).*du(:,:,2);⟫
+kd7b795 | ⟪if⟫ strcmp(mp.bellman\_type, ⟪'ev');⟫
+k0b923d | dbellman=P\{1\}*dbellman;
+k90d79f [2L] | \% STEP 2: derivative of fixed point, V, wrt. utility parameters ⟪dV=(speye(size(dBellman\_dV)) - dBellman\_dV)\textbackslash{}dbellman;⟫
+k028926 [2L] | \% STEP 3: derivative of log-likelihood wrt. utility parameters ⟪score=0;⟫
+k3e5ce0 | ⟪for⟫ j=1:size(y\_j, 2);
+kbf9f4e | dv= du(:,:,j) + mp.beta*P\{j\}*dV;
+k5ae983 | score = score+ (y\_j(:,j)-px\_j(:,j)).*dv(data.x,:);
+@page 49
+k30724f | STEP 6: BHHH
+k3e16e2 | Recall Newton-Raphson
+k080af7 | Berndt, Hall, Hall, and Hausman, (1974):
+k1e2cdf | Use outer product of scores as approx. to Hessian
+kb85605 | ⟪Why is this valid?⟫ Information identity:
+kb41907 | (valid for MLE if model is well specified)
+@page 50
+kbf16e3 | Some times linesearch may not help Newtons Method
+kba6823 | Non−concave likelihood
+kb48651 | Convex region:
+k0cb808 [2L] | Newton−Raphson moves in the oposite
+k60b24f | direction of the gradient
+ke2b533 [2L] | NR moves DOWNHILL (Wrong, wrong, way)
+k384a1a | Concave region:
+ka4d278 | BHHH: Still good
+k62293d [2L] | Newton−Raphson moves in the same
+k3bffea | NR moves UPHILL
+@page 51
+k98b9cd | Advantages
+kbb006e | $\Sigma_is_is'_i$ is always positive definite
+kdf0f64 | I.e. it always moves uphill for $\lambda$ small enough
+k5f8ddf | Does not rely on second derivatives
+k0fe24d | Disadvantages
+ke6759b | Only a good approximation
+kd83cfa | At the true parameters
+k9cd6ae | for large $N$
+k7d07de | for well specified models (in principle only valid for MLE)
+k32f935 | Only superlinear convergent - not quadratic
+kc3d9a4 [3L] | We can always use BHHH for first iterations and the switch to BFGS to update to get an even more accurate approximation to the hessian matrix as the iterations start to converge.
+@page 52
+k8ed38d [3L] | We can always use BHHH for frist iterations and the switch to BFGS to update to get an even more accurate approximation to the hessian matrix as the iterations start to converge.
+@page 53
+k74b1ca | UseBHHH!
+@page 54
+ke6d0a6 | Convergence!
+k61fee3 | >> run\_busdata
+k743dad [2L] | Structural Estimation using busdata from Rust(1987) Bustypes
+kf03b60 | Beta
+kcb0eeb | Sample size
+ke5a9fa | Method nfxp (mle)
+k66c1ff | Param.
+ke8510e | Estimates
+ke7a325 | s.e.  «s.e.»
+k6e1176 | t-stat
+k57fdad | RC  «RC»
+ka2b635 [3L] | log-likelihood runtime (seconds) = g'*inv(h)*g
+@page 55
+kc80557 | MPEC versus NFXP-NK: sample size 6,000
+k02ec64 | Converged
+k5038fd | CPU Time
+k43abfe | \# of Major
+ke8b492 | \# of Func.
+k0cf025 | \# of Bellm.
+k4eb50a | \# of N-K
+kbbaa43 | (out of 1250)
+kbf767e | (in sec.)
+kc349b5 | Iter.
+k1f81d5 | Eval.
+k6e4a1e | MPEC-Matlab
+k3419e1 | MPEC-AMPL
+kea6e69 | NFXP-NK
+@page 56
+k89d7f2 | Summary remarks
+k3506fe | Su and Judd (Econometrica, 2012) used an inefficient version of NFXP
+kd65cb1 [2L] | that solely relies on the method of successive approximations to solve the fixed point problem.
+ke484b4 | Using the efficient version of NFXP proposed by Rust (1987) we find:
+k1b2907 [2L] | MPEC and NFXP-NK are similar in performance when the sample size is relatively small.
+k73f16b | NFXP does not slow down as $\beta\to1$
+kc11876 | Desirable features of MPEC
+kc1fb32 [2L] | Ease of use by people who are not interested in devoting time to the special-purpose programming necessary to implement NFXP-NK.
+k6fa377 | Can easily be implemented in the intuitive AMPL language.
+kbe561e | Inference
+k007afd [2L] | NFXP: Trivial to compute standard errors by inverting the Hessian from the unstrained likelihood (which is a by-product of NFXP).
+kd0dbf2 [3L] | MPEC: Standard errors can be computed inverting the bordered Hessian Reich and Judd (2019): Develop simple and efficient approach to compute confidence intervals.
+k3ae4e6 | MPEC does not seem appropriate when estimating life cycle models
+@page 57
+k89b22d | PART II
+kaa3da9 | Equilibrium Trade in Automobiles
+ka1e662 | (JPE, 2022)
+k518e5d | The Doubly Nested Fixed Point Algorithm (DNFXP)
+kd95c96 | Kenneth Gillingham, $^{YaleUniversity}$,
+k0ebe67 | Fedor Iskhakov,
+k69fcff | Australian National University  «Australian National University»
+ka03e7c | Anders Munk-Nielsen,
+k5ca464 | University of Copenhagen  «University of Copenhagen»
+k1b4c62 | John Rust,
+kbb3e75 | , and  «, and»
+kbb696a | Georgetown University  «Georgetown University»
+k2624e0 | Bertel Schjerning,
+@page 58
+kaa87d2 | How much is a Volvo in Denmark?
+@page 59
+k200f6e | About \$200,000!
+ka0efb9 | MSRP in US: \$62,350
+@page 61
+k35f63d | Danish car registration tax: 180\%! (plus 25\% VAT)
+@page 62
+k54318b | Car taxes in Denmark
+ka51a27 | **Annual Revenue:** 30–50 billion DKK
+kbff709 | $\sim=2-3$ pct. of GDP
+kd6d9cb | $\sim=4-7$ pct. of total tax revenue
+kda37f3 [2L] | Most revenue originates from taxation of ownership and registration of new cars.
+kc5f592 | Car usage tax (fuel tax) is not unusually high
+ka08f39 [2L] | **Policy question:** What are the effects of switching car taxes from purchase to usage?
+kb39366 [4L] | **Our main empirical finding:** The Danish new car tax is “over the top” of the Laffer curve. We identify welfare improving tax policies that reduce the new car tax and raise the gas tax, generating higher consumer welfare, government tax revenue, and reducing $\mathrm{CO}_2$ emissions.
+@page 63
+k452031 | Equilibrium trade in automobiles
+kdd9fe0 | A tractable dynamic equilibrium model of trading in new and used cars
+k6e3153 | Cars
+kec4a8f [2L] | initially sold as new in the primary market and then traded in (secondary) used-car markets until they are eventually scrapped
+k3941e3 | $j\in\{1,\ldots,J\}$ indexes car types (e.g. makes/models)
+k15dd1c | $a\in\{1,\ldots,\bar{a}\}$ indexes the ages of the traded cars.
+kba38ef | Consumers
+k2d7944 | Driving decision: ⟪how much to drive⟫
+k0d68aa [2L] | ⟪Ownership decisions:⟫ purchase, replacement, trading, and scrapping decisions
+k210ef0 | ⟪infinitely lived⟫ and maximize expected discounted utility
+k8b719c [2L] | ⟪heterogeneous:⟫ choice specific IID EV/GEV taste shocks and discrete types $\tau$
+kf41653 | Equilibrium
+k9a70b9 | ⟪Endogenous⟫ used car prices, $P$, ⟪and⟫ ownership distribution, $q$
+@page 64
+ka6b4b8 | DNFXP algorithm (roadmap)
+k5d22fc | **Outer optimization:** Maximum likelihood search over $\theta$
+k6e2407 | **Inner equilibrium solver:** Find prices, $P^{\star}$, so $ED(P^{\star},q(P^{\star}))=0$
+k6eea41 | **Excess demand:** Each trial value of $P$ requires
+k1853f2 | Solve single agent DP/fixed point given $P$
+k33d5a3 | Compute transition matrices Ω(P) and $Q$
+kcd422c | Find stationary holdings distribution $q(P):q$ = qΩ(P)Q
+kfe98a5 | Evaluate excess demand $ED(P,q(P))$
+@page 67
+k451917 | Utility of car ownership and consumer heterogeneity
+kb30e8d | Utility = $u(i,a)-\mu⟦?⟧\mathrm{operating}$ costs + trade and transaction $\mathrm{costs}⟦?⟧+\epsilon$
+k0d26e7 | Car utility $u(i,a)$ is a decreasing function of car age $a$ that reflects
+k4c2ceb | decreasing utility of car services
+k6ee5a3 | increasing cost of maintenance
+k9319ee | Marginal utility of money $\mu$
+k52e2d7 | Idiosyncratically heterogeneous ⟪consumers⟫
+k008fee | **Extreme value** consumer types (taste shifters)
+k6ef666 [2L] | GEV specification for $\epsilon\to$ nested choices to allow correlation between alternatives
+k63d5cb | Logit choice probabilities and analytic expectations
+@page 68
+k8e28c5 | Consumer choice tree
+k042cef | $j$ = ø (purge)
+k070b95 | $j=\kappa$ (keep)
+k12844b | $j\in\{1\ldots J\}$ (replace)
+k347f76 | $s=1_s$ (scrap)
+k6db5f0 | $s=0_s$ (sell)
+k43a3d8 | $d$ = 0 (new)
+k59a214 | (scrap)
+kf4992c | (sell)
+@page 69
+kd9fd68 | Zurcher on Steroids: Car owners’ trading problem
+k6e6975 | States
+#= k7208e6 | Choices  ⇒ 选择
+k712332 | Existing car $(i,a)$, traded car $(j,d)$
+k4a895b [2L] | When existing car $(i,a)$ is replaced, there is additional scrappage choice $s\in\{0_s,1_s\}$: to sell or to scrap the replaced car.
+k2739f9 [2L] | Similar recursive maximization problems for consumers with no car and owner of car of terminal age $\bar{a}$
+@page 70
+k1ed097 | Choice specific value functions
+kcfcdf5 | = u(ø) +  «$v(i,a,\mathrm{ø},1_s)$ = u(ø) + $\mu P_i+\beta EV(\mathrm{ø})$»
+kcab0da | Current period utility
+k71429d | Future value
+k44f0fe [2L] | Similar expressions for consumers with no car and owner of car of terminal age $\bar{a}$
+@page 71
+kc7395b | Solving the consumers’ problem  «Solving the consumers’ problem»
+kc357fe | Fixed point of Bellman operator in $EV$ space
+k0e8fdb | Conditional choice probabilities are then analytical, similar to
+k8f4d12 | Note: CCPs implicitly depend on car prices, $P$
+k4771e2 | The sell/scrap decision $s$ is separable ⟪(see paper for details)⟫
+k0ff6f0 [2L] | Fixed point solved using gradient-based Newton method with very precise starting values
+@page 75
+k741e85 | Stationary flow market equilibrium framework
+k8b5939 | Assumptions
+k5504af | Infinitely inelastic supply of new cars $P_j$
+k705a82 | Infinitely elastic demand for scrapped cars $P_j$
+k29e96a | $J(\bar{a}-1)$ endogenously determined used car prices $P_{jd}$
+k416357 | Definition: Ownership Distribution
+k61eda1 | $q_{ia}$ is the fraction of consumers holding car $i$ of age $a$
+k0b9fef [2L] | By our timing assumption new cars purchased in any time period are accounted for as one-years-old cars in the next time period
+kb25a9d | (so $q_{j0}$ is undefined)
+@page 77
+kb2238a | Definition: Stationary Equilibrium
+k1972b3 | A pair $q^{\star}\in R^{Ja+1}$ and $P^{\star}\in R^{J(a-1)}$ such that
+k239193 | Consumers maximize expected discounted utility,
+k0f0f45 | Secondary market clears for all tradeable cars,
+k3be3d5 | Ownership distribution is time-invariant.
+k80370d | The dynamics of the ownership distribution $q$ are described by
+k7398fe [2L] | Trade transision probability matrix Ω(P) composed of conditional choice probabilities of trading decisions
+k77a474 [2L] | Physical transition probability matrix $Q$: ageing of cars + stocastic transitions to terminal age $\bar{a}$ (involuntary scrappage)
+k4c2aa4 [3L] | In the paper we also prove the folw property of this stationary equilibrium: all cars scrapped in each period are replenished by the exact amount of new cars bought in the same period
+@page 78
+kf3d717 | Trade transition probability matrix
+k3500d2 | Ω(P) =  «Ω(P) =»
+k3fd653 | Ja¯+ $1\times$ Ja¯+ 1 matrix
+k76e76e | Ω(P)  «$^{Then}q\cdot$ Ω(P)»
+k12a60a | ⟪is⟫ distribution ⟪of cars⟫ after the trading phase
+k08a950 | $\Delta_{ij}(P)$ composed of choice proabbilities of trading car $i$ to car $j$
+k12d082 | $\Lambda_i(P)$ composed of keeping probabilities for car $i$
+k7579f7 | $\Pi(\mathrm{ø}|\mathrm{ø},P)$ is probability to remain in the no car state
+@page 79
+kdc585a | Physical transition probability matrix
+k7d0190 | Aging of cars with probability $1-\alpha_j$
+k3f2fcf | Total loss accidents with probability $\alpha_j$
+kf08934 | Last row in each $Q_j$ block is applies to the purchased new cars
+kce3289 | $q\cdot$ Ω(P)Q
+k5d1dff | ⟪is⟫ ownership distribution ⟪in the⟫ next period
+@page 80
+k743ed1 | The stationary holdings distribution
+keb6ae9 | qΩ(P)
+k308ce0 | qΩ(P)Q
+k471eca | Condition for time invariance of the ownership distribution:
+k6f5db6 | $q$ = qΩ(P)Q
+kcfd448 | Theorem (Uniqueness of stationary ownership distribution)
+k6fd0b0 [2L] | If scale of GEV shocks disctribution is positive then stationary ownership distribution is unique.
+@page 84
+kfaa9ea | Excess demand functions
+k49b975 | **Demand:** Fraction of consumers buying a given car $(j,d)$:
+k515442 | **Supply:** Fraction of owners that sell (not scrap) their car $(j,d)$
+kf0cbe3 [2L] | **Market clearing condition** is the non-linear system of equations in ownership shares $q$ and prices $P$
+k4d9d7f | Given the stationarity condition $q=q(P)$
+k9413ca | $J(\bar{a}-1)$ equations with $J(\bar{a}-1)$ unknowns
+@page 85
+k59be22 | Existence of stationary equilibrium
+k4bf40a | Theorem (Equilibrium existence)
+k15c43a | The stationary equilibrium for the automobile economy with the
+k1176ba | idiosyncratically heterogeneous consumers $(q^{\star},P^{\star})$ exists, and in
+kd62903 | equilibrium it holds:
+k188475 | Only existence: $q^{\star}$ is unique, but unclear about $P^{\star}$
+k4b36f8 | However, have not seen any signs of multiplicity in computations
+@page 87
+k871cbb | How to compute stationary flow equilibrium quickly?
+kcfba89 | Solving non-linear system of equations:
+k0c9250 [2L] | ⟪Gradient-based solver!⟫ (in a series of lemmas show that all major objects in the model are smooth functions of prices, see paper)
+k026bc4 | Analytical derivatives
+k8469f1 [2L] | **Precise starting values** from the solution of the similar problem without transaction costs ⟪(linear system of equations, see appendix)⟫
+kd8a61c | Newton method is therefore applied:
+kde0a15 | When solving the DP problem (Newton-Kantorovich)
+kb09f56 | When solving for equilibrium prices
+k2a795c | When maximizing likelihood
+k2e3a76 [2L] | Chain rule of calculus used everywhere to build up gradients from already computed parts
+kc81e99 [2L] | Run time in seconds for reasonable size problems on a laptop using simple Matlab implementation
+@page 88
+ka1635e | Adding persistent consumer heterogeneity
+kce2aaf | We extend the model to allow for sevel types of consumer heterogeneity:
+k577817 | time-invariant $•$ time-variant $•$ combination of the two
+k1e0e26 | Existence theorems
+k7600f5 | Computational algorithm is ⟪linear in the number of types⟫
+k2c45c7 | Allows for sorting of consumers into the ages and types of cars
+ke05e7c | Rich hold newer better cars, poor hold older worse cars
+k88d9fa | ⟪Gains from trade⟫ and longer surviving cars
+k83fd90 | The equilibrium conditions change only slightly
+k991ae3 | Stationarity by type: $\forall\tau q_{\tau}^{\star}=q_{\tau}^{\star}\mathrm{Ω}_{\tau}(P^{\star})Q$
+k281f6e | Market clearing in a sum: 0 = $⟦?⟧f_{\tau}ED(P^{\star},q_{\tau}^{\star})$.
+k1af972 | Market clearing condition integrated over types
+@page 89
+k7b2f60 | Gains from trade between rich and poor consumers
+k283b75 | Rich mans Volvo
+kf8b998 | Poor mans Volvo
+@page 90
+k31e813 | Illustrative example: ownership by two consumer types
+kc4455c | Normal transactions costs
+kb6bbfa | High transactions costs
+k89041b [2L] | Rich Poor
+kc1efcf | Fraction of the population  «rotated»
+k4cbd25 | No car
+ke4144c | Car age
+k923ddb | Sorting of consumers in each regime
+k4c7a75 | Heterogeneous effects of transaction costs
+k3ffe4f [2L] | Replication code (see run\_illustrations.m) at https://github.com/fediskhakov/EQB
+@page 91
+ke2927f | Illustrative example: equilibrium prices - two consumer types
+k50fdde [3L] | Two-type equilibrium One-type: Rich One-type: Poor
+k3e8248 | Price  «rotated»
+k5be2fd | High transactions costs:
+kb36703 [2L] | Equilibrium prices similar to economy where all consumers are rich (many poor consumers are now driven out of the market)
+kfc3995 | Transactions costs limits gains from trade
+k6b5df2 | $\to$ partially "kills off" the market for used cars.
+keea1ee | (cars are scrapped earlier)
+@page 93
+k6d511b | Doubly Nested Fixed Point MLE estimator
+k24fd70 [3L] | **Data:** counts $N'_{xx\tau}$ of transitions of household from state $x$ (combining ownership and observable characteristics) to $x'$ by the observed types $\tau$
+kdba205 | Let $\theta$ denote the vector of structural parameters
+k9bba97 [2L] | Transition probability $\Pi(x'|x,\tau,\theta)$ of the observed household state $x$ composed of choice and transition probabilities at $\theta$
+k6bc144 | (see paper for details)
+kd0673e | Likelihood function
+k956e9a [2L] | Analytic gradient of the likelihood function again relies on using chain rule of calculus and already computed derivatives
+ka767b4 | BHHH algorithm for approximation of Hessian
+@page 94
+ke3ba53 | Simulating the effects of a hypothetical tax reform
+k10130c | Proposed Danish IRUC reform:
+k6a51c3 | lowers registration taxes, and
+k48b85f | raises usage taxes (road charging or gas tax).
+k1291c8 | Outcomes of interest:
+k270530 | Equilibrium dynamics of car ownership and type choice:
+k90425f | new car sales and trade in secondary markets
+k741e26 | fleet age and scrappage
+kec6be5 | value of the car stock
+kdc022c | Driving, fuel demand, and emissions
+k72ebc3 | Redistribution and welfare
+kf34268 | Need to capture these effects simultaneously
+kc6a858 | To implement the counterfactual simulation:
+kcab871 | Estimate the model using Danish register data
+k74c55d | Cut the registration tax rates for new vehicles by half
+k5cf5a5 | ⟪Increase the fuel tax⟫ rate such that revenue is unchanged
+k627c1e | Compute economic/welfare/environmental implications
+@page 95
+kbe18ac | Utility specification with driving
+kc23528 | Consider a utility function ⟪(indexes $i$ and $\tau$ dropped)⟫
+k4b4927 | $u(a,x)=u_{car}(a)+u_{drive}(a,x)+\mu[\mathrm{trade}$ + transaction cost]
+k1aef97 | Onwership utility: $u_{car}(a)=\alpha_0+\alpha_1a+\alpha_2a^2$
+k4e4ae7 | Utility from driving:  «Utility from driving: $u_{drive}(a,x)=(\gamma_0+\gamma_1a)x-\mu px+x^2$»
+kecdeb4 | $x$ is kilometers driven, $p$ is cost per kilometer inclusive of tax
+k2c7d4a | ⟪parameters⟫ may be specific to car type $i$ and consumer type $\tau$
+kbb8e86 [2L] | See paper and online appendix for the estimated values of parameters
+k1f17bd | Assumption
+k91b8d7 [2L] | The probability of an accident and other physical deterioration in an automobile is independent of the amount of driving $x$.
+kcbe7c1 [2L] | $\Rightarrow$ ⟪driving is a static subproblem⟫ of the overall DP problem that can be solved independently
+@page 96
+kb87291 | Optimal amount of driving
+k2e5966 | Structural driving equation ⟪implied by the F.O.C.⟫
+k549957 | Plugging optimal driving back into $u(a,x)$
+k265b30 | $u⟦?⟧a,x^*(p,a)⟦?⟧-\mu[\mathrm{trade}$ + transaction cost] =
+k852d88 [2L] | $(d_0,d_1,d_2)$ are reduced form parameters that can be estimated separately from data on driving
+kc6a0ea [2L] | $(u_0,u_1,u_2)$ are indirect utility parameters that can be identified from the dynamic model model together with $\mu$
+k9b9e81 | Then structural parameters $(\alpha_0,\alpha_1,\alpha_2,\gamma_0,\gamma_1,\mu,\phi)$ are identified
+@page 97
+ke9d484 | Coefficient specification and estimations stages
+kd69c45 [2L] | Least squares estimation of reduced form parameters of driving equation $(d_0,d_1,d_2)$
+k5f3254 | intercept $d_0=d_0^{\tau}+d_0^i$ with car and consumer fixed effects
+k9d124f | common coefficient with age $d_1$
+k18b1af | coefficient with driving cost $d_2=d_2^{\tau}$ by consumer types
+kce0833 [3L] | DNFXP MLE estimation of indirect utility coefficients $(u_0,u_1,u_2)$ and the remaining parameters $(\mu,\phi)$, transaction costs and accident probabilities
+kb86638 | intercept $u_0^{\tau}$ and age coefficient $u_1^{\tau}$ by consumer type
+k550154 | marginal utility of money $\mu_{\tau}$ by consumer type
+ke30326 | Accident probabilities by car type $i$
+k08492d | Buyer and seller transaction costs ⟪(see paper for details)⟫
+kd18b4c [2L] | Back out structural parameters in order to run counterfactual simulations
+@page 98
+k880652 | Model captures key features of Danish households
+k778faa [2L] | ⟪Poor⟫ households are significantly more likely not to own a car than ⟪rich⟫ ones which are also willing to pay more for any type of car
+k1e8c83 [2L] | ⟪Couples⟫ are more likely to own cars and generally have higher willingness to pay for cars than ⟪singles⟫
+k867ccb [3L] | ⟪High work distance⟫ households are relatively more likely to own cars and have higher willingness to pay for cars than those with ⟪low work⟫ ⟪distance⟫
+kdc5bd4 [2L] | All households preferred the heavy cars to the light ones and brown cars to green ones:
+k461ee8 | heavy brown $\succ$ heavy green $\succ$ light brown $\succ$ light green
+k2fe9b6 [2L] | Households with ⟪high work distance⟫ drive much more than those with ⟪low,⟫ and more so for the rich
+k1f09e9 [2L] | Model implies fuel price elasticities between -0.10 and -0.60 across households, similar to Gillingham and Munk-Nielsen (2015)
+@page 99
+kb07fe3 | Model fit: Household-specific market shares
+kfd486b | Predicted market share (\%)  «rotated»
+k2d1958 | LB  «LB»
+kb4301e | LG  «LG»
+k5b5f25 | HB  «HB»
+k046a03 | HG  «HG»
+ke1220d | no car
+kf404b9 | Actual market share (\%)
+@page 100
+k1f911a | Model fit: Actual and predicted probability purchase
+kc5e836 [2L] | Data Model
+ka2cb54 | Choice probability (\%)  «rotated»
+k1b9e3a | Age of purchased car
+kfe07f7 | Probability of purchase
+@page 101
+k1df4d8 | Model fit: Observed ownership distribution
+kd1df98 [8L] | HWD, S, Rich HWD, S, Poor HWD, C, Rich HWD, C, Poor LWD, S, Rich LWD, S, Poor LWD, C, Rich LWD, C, Poor
+keaf8e1 | Fraction of population (\%)  «rotated»
+@page 102
+k4ec2a0 | Model fit: Predicted ownership distribution
+@page 103
+kfe979c | Model it: Observed sorting
+k1700d6 | light, brown
+k32d05b | light, green
+k039f2b | Fraction of households in groupFraction of households in group  «rotated»
+kdc5454 [8L] | LWD, S, Poor LWD, S, Rich LWD, C, Poor LWD, C, Rich HWD, S, Poor HWD, S, Rich HWD, C, Poor HWD, C, Rich
+k04f722 | Age of car
+k08370a | heavy, brown
+k515d65 | heavy, green
+@page 104
+k6a7646 | Model it: Predicted sorting
+@page 105
+k7348af | Predicted equilibrium prices at secondary market
+k417180 [4L] | light, brown light, green heavy, brown heavy, green
+kbf6ab1 | Price, 1000 DKK  «rotated»
+k35c5dc | Predicted prices similar to used car prices recommended by DAF.
+@page 106
+k9411e3 | Counterfactual simulation
+k3c635e [2L] | ⟪Halving registration tax:⟫ Reduction in new car price between 25.6\% (cheapest car), 28,6\% (most expensive car)
+k000d3f | We consider the following four scenarios:
+k51244e | **Baseline:** Calibration under Danish tax rates from 2008.
+k5642a2 | **Naive, expected:** ⟪Non-equilibrium⟫ simulation:
+kec1ba7 | Assume new and used car prices drops proportionally
+k8ed8c7 | Increase fuel taxes to keep total tax ⟪revenue neutral⟫
+k7591d1 | (Fuel price increase from 56\% to 76\% of the price at the pump)
+k3c581a | **Naive, realized:** ⟪Equilibrium⟫ simulation:
+k4f8b0b | Policy as above + market equilibrium imposed
+k72479b | Not revenue neutral in equilibrium
+keb5a4b | (20\% lower revenue than expected!)
+kbac314 | Sophisticated policy maker:
+kc938dd | Policy revenue-neutral in equilibrium
+k7ff80e [2L] | Fuel tax is lower, but leads to higher total tax revenue (compared to realized tax revenue for naive policymaker)
+@page 107
+k8c3e46 | Policy Simulation Results
+k8add0a | Naive,
+k0abed0 | Baseline expected
+k596e1c | realized Sophisticated
+k738551 | Policy choice variables
+k025f10 [2L] | Registration tax (bottom rate) Registration tax (top rate)
+k97be30 | Fuel tax (share of pump price)
+k3f6ef3 | Prices
+kc5c8d2 [5L] | Price, light, brown (1000 DKK) Price, light, green (1000 DKK) Price, heavy, brown (1000 DKK) Price, heavy, green (1000 DKK) Fuel price (DKK/l)
+k6848ce | Outcomes
+k59feef | Social surplus (1000 DKK)
+k687328 [2L] | Total tax revenue (1000 DKK) Fuel tax revenue (1000 DKK)
+k8376aa [5L] | Car tax revenue (1000 DKK) Non-CO2 externalities (1000 DKK) Externalities (1000 DKK) Consumer surplus (1000 DKK) CO2 (ton)
+k3eb9ab | Driving (1000 km)
+k0dc52d | E(car age)
+k8757f9 | Pr(no car)
+@page 108
+k777646 | Laffer curves for new car registration tax and fuel tax
+kf2b916 | New car registration and the fuel tax relative to the baseline level of 1.
+kfc2a1a | Tax revenue from new car sales tax and fuel tax.
+@page 109
+k5c5a0d | $\mathrm{CO}_2$ emissions vs. new car registration and fuel taxes
+@page 110
+k9b09a9 | Social welfare (ex $\mathrm{CO}_2)$ vs. registration and fuel taxes
+@page 111
+k8456b2 | Trade-offbetween $\mathrm{CO}_2$ emissions and social welfare
+@page 112
+#= ke39262 | Conclusion  ⇒ 结论
+kb260fb [2L] | **Theory contribution:** characterize and prove existence of equilibrium in a tractable model of primary and secondary markets.
+k892545 | **Applied contribution:** tractable model with
+kc66385 | Transactions, scrappage, consumer/car heterogeneity,
+k37def0 [2L] | Flexible utility: estimating 131 parameters with $39\cdot10^6$ observations in under 30 $\min $ on a laptop
+kfd688e | **Conclusion:** High Danish taxes above the Laffer curve’s top point
+k563994 | “naive” model overestimates the strength of this effect,
+kb2d06d [2L] | possibly leading to detrimental policies for tax revenues and the environment
+kec4591 [2L] | Opportunity to reduce $\mathrm{CO}_2$, and increase tax revenues and social welfare

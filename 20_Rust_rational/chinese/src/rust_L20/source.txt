@@ -1,0 +1,699 @@
+# 20_Rust_rational/apr_dse2025_slides_combined.pdf  (117 pages)
+# id | English (inline math is a rough reconstruction; check it)
+
+@page 1
+k191d89 | Are People Rational?
+#= k7ff3c6 | John Rust, Georgetown University  ⇒ John Rust，乔治城大学
+#= kf175c8 | July 6, 2025  ⇒ 2025 年 7 月 6 日
+@page 2
+kc58f76 | I will discuss 3 of my recent papers
+k54e368 [2L] | Disequilibrium Play in Tennis (with Axel Anderson, Jeremy Rosen and Kin-ping Wong)
+kb3dad3 [2L] | Explaining Early Bidding in Informationally Restricted Ascending Bid Auctions (with Sungjin Cho and Harry Paarsch)
+kd99e56 [2L] | Who is More Bayesian? Humans or ChatGPT? (with Tianshi Mu, Pranjal Rawat, Qixuan Zhong and Chengjun Zhang)
+@page 3
+k87aaf9 | Can we do “structural behavioral economics”?
+kaf2739 [2L] | That is, can we relax the rationality assumption? Answer: yes, but strong assumptions are required due to the identification problem
+kcfdb3a [2L] | The structure is the triple $\{\beta,u,p\}$ where $\beta$ is discount factor, $u$ is utility function, and the transition probability $p(s'|s,a)$ are beliefs
+k300b72 [2L] | Under rational expectations we can estimate $p$ from the data on $(s',s,a)$, so only $\{\beta,u\}$ are the remaining “unknowns”
+kff34d5 [3L] | If we impose optimality and relax rationality, then the CCP is $P(a|s,\{\beta^*,u^*,p^*\})$. Then subjective beliefs $p^*$ might not equal $p$, the “objective” or “rational” belief
+k50c4d3 [3L] | Identification problem in discrete state case: is there a unique solution to the system of $(|A|-1)|S|$ equations in the $1+|A||S|+|S|^2|A|$ unknowns $\{\beta,u,p\}?$
+k5f7170 [3L] | Answer generally no: more unknowns than equations, so we have impose prior assumptions to identify subjective beliefs, or else use data that elicits beliefs
+@page 4
+kba929f | Paradox of the “Information Age”
+ke201ba | Justin Smith, Irrationality A History of the Dark Side of Reason 2019
+k5e63c0 [4L] | It is a great paradox of the present age that, even though the totality of all human learning is more accessible than ever before in history, indeed billions of us on earth can now easily access it with a special device we carry in our pockets, nonetheless false beliefs are as epidemic as ever.
+k84f446 [4L] | Of course irrationality/superstitition occurred well before the “information age” but modern information technology may paradoxically exacerbate false/irrational beliefs, overwhelming us with “too much information” i.e. information pollution
+kaee821 [5L] | There is increasing concern that AI and “virtual reality” will only dramatically magnify our current problems of misinformation and the risk it poses for contagious mass irrationality. Examples: automatic creation of fake news and “deepfake” images, even AI-generated newscasters.
+@page 5
+k379ab4 | Herbert Simon: people are “boundedly rational”
+kceb9b9 | Herbert Simon's definition of “bounded rationality” (Wikipedia)
+k0f6a93 [6L] | Bounded rationality is the idea that rationality is limited by computational constraints and limited information and knowledge. In such situations, rational individuals will select a decision that is satisfactory rather than optimal. Decision-makers, in this view, act as satisficers, seeking a satisfactory solution using heuristics or intelligent “rules of thumb” rather than attempting to compute an optimal solution.
+ke4e8cc [3L] | Simon's notion is intended to be a more realistic alternative to the idea that people are perfectly rational (also known as homo economicus) that is so widely adopted among economists.
+k36ef03 [7L] | “by the middle $1950\mathrm{s}$, a theory of bounded rationality had been proposed as an alternative to classical omniscient rationality [and] a significant number of empirical studies had been carried out that showed actual business decision making to conform reasonably well with the assumptions of bounded rationality but not with the assumptions of perfect rationality.” ⟪(from Simon's Nobel Prize⟫ ⟪speech)⟫
+@page 6
+kb7c73d | Herbert Simon
+@page 7
+k72506e | It takes energy to be rational
+k62633e [3L] | The human brain operates on approximately 20 watts of energy, and even though it is 2\% of our body weight, it takes 20\% of our overall energy consumption
+kdb1be0 [4L] | LLMs models, on the other hand, require immense amounts of energy. According to Google AI “It's estimated that training a large language model like GPT-3 can consume up to 10 gigawatt-hours, and daily queries can cost around 1 GWh”
+k2f8f2c [2L] | Maybe evolution did not “design” us to be perfectly individually rational
+kba0170 | Hutchinson and Meyer 1994
+kc3c921 [6L] | From a broader perspective, however, one can argue that optimal solutions are known for a relatively small number of similar, well-specified problems whereas humans evolved to survive in a world filled with a large and diverse set of ill-specified problems. Our `suboptimality' may be a small price to pay for the flexibility and adaptiveness of our intuitive decision processes.
+@page 8
+k5577f0 | Misspecified models and biased learning
+k223c2e | The standard model for “rational learning” is Bayesian updating.
+k77ab0e [2L] | The assumption is that you have the right likelihood function and a possibly subjective prior, and update this via Bayes Rule.
+k661177 [4L] | Bayesian DP adds an exploration/exploitation tradeoff: if it is costly to learn more, sometimes it is optimal to remain less than fully informed (example Easley and Kiefer (1988) “Controlling a stochastic process with unknown parameters”)
+k1de559 [4L] | Frick, Iijima and Ishi (2024) “Welfare Comparisons for Biased Learning” if your “mental model” of the problem is misspecified, your choices will be suboptimal relative to a person with a correctly specified model.
+k928120 [3L] | Insights: 1) misspecified beliefs do not always lead to suboptimal decisions, 2) agents with misspecified likelihoods may outperform agents with correctly specified likelihood but high prior uncertainty
+@page 9
+k597041 | Do humans play perfect chess?
+k98478a [3L] | Do professional chess players (e.g. Magnus Carlson) play perfectly rationally (i.e. play dynamically optimal Nash equilibrium chess strategies)?
+kf2122d [2L] | Answer: obviously not! Ever since Deep Blue beat Garry Kasparov in 1997, the world's best chess players have been computers!
+kb0b27c [2L] | But do computers play “perfect” chess? Answer: not yet, but according to an analysis by Jeremy Rutman they will get there by
+k21869c [4L] | Zermelo's theorem (1913) In an alternating move, two player game of perfect information with no chance moves, if both players play “perfectly” (i.e. both use dynamic Nash equilibrium strategies) then there are only 3 possible outcomes:
+k162706 | the game always ends in a draw
+k924841 | the first mover always wins
+k5ebb3d | the second mover always wins
+k4ea168 | Example: tic tac toe played perfectly always ends in a draw
+@page 10
+kd41b69 | Which outcome holds for perfect chess?
+k7f03a8 [2L] | In 2007 Schaeffer et. al. Science solved checkers and showed that it always ends in a draw.
+kb9a212 [3L] | The combinatorics of chess is still too large for us to “solve” it (though end game solutions with incresing numbers of remaining pieces have been solved).
+k8dfae1 [2L] | The empirical evidence suggests that perfectly played chess will also always end in a draw.
+kaa25d9 [3L] | Jeremy Rutman has compiled data on chess outcomes against the ELO score (a standard measure of ability in chess) and shown as the players' ELO scores improve, the chance of a draw increased.
+kdaa282 [4L] | Given the current technological rate of improvement in ELO score, he predicts that we will achieve “perfect chess” around 2059 with an ELO score of around 5200 (for comparison Magnus Carlson's ELO score is 2840).
+@page 11
+k2c55dd | Draw rating vs ELO score in chess
+@page 12
+kc33d6d | Computer chess ability is increasing faster than humans
+@page 13
+kba6afc | Chess versus tennis
+k9e8f7c | Both are alternating move, two player constant sum games.
+k0d832b [3L] | Does Zermelo's Theorem apply to tennis? No: there is a significant role of “chance” in tennis, both in terms of mixed serve strategies as well as in “imperfect muscle control” (e.g. faulting a first serve)
+kdf83af [3L] | Also there is no possibility of a tie in tennis: the rules of tennis lead to only 2 possible outcome of a game: 1) server wins, or 2) server loses.
+k590d6f [3L] | Brains vs brawn: unlike chess, which is purely a test of mental ability in reasoning and ability to “look ahead”, physical ability plays a huge role in tennis.
+kd2f136 [3L] | Can game theory acommodate differences in physical ability? Is it possible to quantify the relative roles of mental ability versus physical ability in success in tennis?
+@page 14
+k4462ac | Disequilibrium play in tennis
+k2b197a [4L] | Testing whether firm behavior is consistent with MPE is difficult since we don't know their “production function” or their “objective function” (i.e. maximizing stock market value or present discounted value of dividends?)
+kd3c117 [2L] | I have focused on simpler problems where the technology is much simpler and where the objective is known.
+kc51728 [2L] | Example: tennis or chess: objective is to adopt a best response strategy to maximize the probability of winning.
+k0d9148 [3L] | Rewards to winning are very high and the game is played by professionals so we expect to see Nash/MPE behavior in these circumstances
+k997a9c [2L] | Walkers and Wooders (2001) “Minimax Play at Wimbledon” or Palacios-Huerta (2003) “Professionals Play Minimax”
+@page 15
+k56b9c3 | Serve directions: Wide, to the body, and down the T
+@page 16
+k92b9f4 | Serve directions from the returner's perspective
+@page 17
+k11fd8d | Graph of state transitions in the service game
+k662fae | WIN
+kb10014 | DEUCE
+k8df6be | LOSE
+kada85e | AADD-O-IUNT
+k10436f | AD-OUT
+@page 18
+k834846 | Detail on the “deuce endgame”
+@page 19
+kdaa788 | Detail on the “point stage game”
+kda9b87 | First Serve
+k3c8d8b | In:  «In: $\pi(\mathrm{in})$»
+k0c44cf | Fault: $1-\pi(\mathrm{in})$
+kceb0bb | Win rally: $\pi(\mathrm{win})$
+k345eda | Lose rally: $1-\pi(\mathrm{win})$
+k929bfa | Second Serve
+k874824 | Double fault: $1-\pi(\mathrm{in})$
+@page 20
+kbfba59 | Point win vs game win probabilities
+k79bd42 [2L] | Point win probability Game win probability
+kbad641 | Point and game win probabilities  «rotated»
+ka7f34c | Point win probability
+@page 21
+kc4de5c | Two key implications of equilibrium play in tennis
+k6e00eb [3L] | Equal win probabilities In a mixed strategy equilibrium the payoff to server should be the same regardless of which direction he/she serves
+k57114f [3L] | One shot deviation principle At any point in a tennis game, there should be no deviation in the strategy of the server that should increase his/her win probabilities
+@page 22
+k7c74cb | Modeling tennis as a dynamic game
+k9daa53 [2L] | Unlike Walker and Wooders, who focused on the point stage game as their unit of analysis, we focus on the entire service game.
+k3ca303 [3L] | Let $x\in\{1,\ldots,38\}$ denote the score state. Via our numbering of states in the previous graph, $x$ = 1 is the initial node of the game, corresponding to a score of $0-0$.
+k958e0c [4L] | If the server wins the first serve, the state transits to $x=3$ corresponding to a score of 15-0. If the server faults the first serve, the state transits to $x$ = 2, corresponding to a second serve at score 0-0, etc.
+k9a2b81 [2L] | There are two absorbing states: $x$ = 37 (server wins the game) and $x$ = 38 (server loses the game).
+@page 23
+k1690e0 | Server and returner choices in tennis
+kcc833d [3L] | At each state $x$ except the two absorbing states, the server chooses a serve type $t=(s,d)$ where $d\in\{l,r,b\}$ is the serve direction (left, right or to the body), and $s\in\mathcal{S}\subset R^2$ denotes serve speed and spin.
+k2b94e9 [3L] | The returner anticipates the direction choice of the server, and this includes observable choices (i.e. where to stand) and unobservable choices (i.e. where to focus his/her attention).
+kef3fa1 [4L] | We model anticipation with an attention vector $(a_l,a_r,a_b)\geq0$ where $a_d$ is the fraction of the returner's “attention budget” to anticipating a serve to direction $d$. We normalize the attention budget to 1, so 1 = $a_l+a_r+a_b$.
+k1812b2 [2L] | We assume that each serve the returner chooses $a$ and where to stand, and the server moves next, choosing a serve type $t$.
+@page 24
+k72e690 | Accounting for muscle memory
+k2a535a [2L] | We account for an additional dynamic in tennis via a muscle memory state $m$.
+k289fd9 [5L] | We operationalize muscle memory by setting $m=(d_{-2},d_{-1})$, i.e. the vector of the previous two first serve directions. We have two lags because serves alternate between the deuce and ad courts and we hypothesize that the relevant muscle memory is for the previous serve to the same court.
+k411cbe [2L] | At the start of each game muscle memory is null, $m=(\emptyset,\emptyset)$. After a first serve to direction $d$ muscle memory updates from
+k05c51f | We do not update muscle memory after a second serve.
+@page 25
+k162617 | Point Outcome Probabilities (POPs)
+k55dee5 | Definition
+kb9e0c7 [3L] | If the stationarity assumption holds and $(\rho,\alpha)$ are implied by the MPE to the service game, then the point outcome probabilities (POPs) implied by these MPE strategies are given by
+@page 26
+k14e879 | The induced dynamic program
+kd240ac [2L] | Now, assume that the play we observe in tennis is consistent with an MPE, i.e. we observe equilibrium play.
+kb464b5 [3L] | We now show that the server's conditional win probability $W_s(x,m)$ is the solution to a dynamic program, which provides the optimal serve directions as a best response to the returner's strategy.
+kf76486 [3L] | If play is in equilibrium, we can treat the returner's mixed strategy as embodied, in reduced-form, via the POPs, and the server's strategy and win probability will be a “best reply” to these POPs.
+k82e6cf | Bellman's equation for the server is
+k3fdf41 [2L] | where $W_s(x,m,d)$ is the server's conditional win probability from serving to direction $d$ in state $(x,m)$.
+@page 27
+ke61001 | The server's Bellman equation
+k775c0d [3L] | Let $x^+(x)$ and $x^-(x)$ denote the successor point states conditional on the server winning and losing, respectively, the serve at point state $x$. Using these we can express $W_s(x,m,d)$ recursively as
+k042509 [4L] | for a first serve state $x$, where $x$ + 1 denotes the second serve state in the event of a faulted first serve and $m'(d,m)$ is the new muscle memory state after serving to direction $m,m'(d,m)=(d_{-1},d)$ where $m=(d_{-2},d_{-1})$.
+@page 28
+kdb3a79 [2L] | If $x$ is a second serve state (i.e. $x$ is an odd number in our score state numbering), then
+k1b370f [2L] | where we note that following a second serve, the muscle memory state is not updated and remains at $m$.
+k140c9c [2L] | The optimal serve strategy, $\sigma_s(x,m)$ is the set of maximizers of the Bellman equation
+@page 29
+kda297a | Solving the server's DP problem
+ka5cdcc [2L] | We can write the Bellman equation for the server's conditional win probability more compactly as
+ka581b5 [3L] | where Γ is the Bellman operator. Even though there is no discounting in this DP problem, the POPs $(\pi(in|x,m,d),\pi(win|x,m,d))$ (which are generally strictly less than
+k077547 [3L] | play the equivalent role of a discount factor, ensuring the existence of a unique solution to the Bellman equation via the Contraction Mapping Theorem.
+kaa4348 [4L] | In practice, we calculate the server's DP problem by backward induction but the induction is not over time but rather over states using an algorithm Iskhakov, Schjerning and Rust (IRS,2016) refer to as state recursion.
+@page 30
+kc0ca4e | Testable Implications of Nash Equilibrium
+k94429e [3L] | Suppose we could calculate the server's conditional win probabilities $W_s(x,m,d)$. If the equilibrium is in mixed strategies, then a key implication of a mixed strategy Nash equilibrium is
+kc127a5 | Testable Implication of Equilibrium (1)
+k6fbb9d | Equal win probabilities
+k6584db | In all states $(x,m)$ we have:
+@page 31
+k9b7b5d | Valuing disequilibrium serve strategies
+kef071b [3L] | Let $W_P(x,m)$ be the conditional win probability of a server whose potentially disequilibrium Markovian serve direction strategy is $P(d|x,m)$. We have
+kb1099f [2L] | where $W_P(x,m,d)$ is the conditional probability of winning under the strategy $P$ given the server serves to direction $d$ in state $(x,m)$.
+k88e41a [3L] | The values $W_P(x,m,d)$ are given by the same recursive equations as we derived for the optimal (equilibrium) serve strategy above in Bellman's equation.
+@page 32
+kf24ae8 | Linear equation system for conditional win probabilities
+k727612 [2L] | We can show that $W_P(x,m)$ is the solution to the following system of linear equations
+k99ae44 [6L] | where $P=\{P(d|x,m)\},\Pi=\{\pi(in|x,m,d),\pi(win|x,m,d)\}$ and $w_P(P,\Pi)$ is a $298\times1$ vector of probabilities of winning the service game directly (equal to zero for most states except the deuce endgame states and states where the server is within one shot of winning), and $M_P(P,\Pi)$ is a $298\times298$ Markov sub-transition probability matrix.
+k440189 [2L] | Because $∥M_P(P,\Pi)∥<1$, this system will have a unique solution $W_P$ implied by any $(P,\Pi)$.
+kd86610 [3L] | Note there are a total of $894=3\times298$ conditional win probabilities $W_P(x,m,d)$. Thus if we can estimate $(P,\Pi)$ well using fewer parameters, we can derive more efficient estimates of $W_P(x,m,d)$.
+@page 33
+k50fb69 | Non-parametric vs Recursively calculated win probabilities
+@page 34
+ke22323 | Wald Tests for Equal Win Probabilities
+@page 35
+k4dd4cf | Second Testable Implication of Nash Equilibrium
+kd0e029 [3L] | Suppose we could estimate the server's conditional win probabilities $W_P(x,m,d)$ without imposing optimality/equilibrium. Then a key implication of a mixed strategy Nash equilibrium is
+kaa810a | Testable Implication of Equilibrium (2)
+k8bbb64 [2L] | One shot deviation principle directions $d\in\{l,b,r\}$ we have:
+k1baa10 | In all states $(x,m)$ and for all serve
+kb8cad7 [5L] | According to Wikipedia that One shot deviation principle “is the principle of optimality of dynamic programming applied to game theory. It says that a strategy profile of a finite extensive-form game is a subgame perfect equilibrium (SPE) if and only if there exist no profitable one-shot deviations for each subgame and every player.”
+@page 36
+k46d5f6 | Distributions of win probs: Nadal serving to Djokovic
+kf091b8 | Distribution of win probabilities, MM specification
+k4a24ae | Rafael Nadal serving to Novak Djokovic
+kc966e0 | DP serve strategy, RF POPs
+kf34bcb [4L] | Myopic serve strategy, RF POPs Fully myopic serve strategy, RF POPs RF serve strategy, RF POPS Structural DP serve strategy, POPs
+k6c0c0b | Fraction of simulations  «rotated»
+kcca67f | Win probability
+@page 37
+k706a68 | Disequilibrium play for both elite/non-elite pros
+k7421fb | Improvement of win probability: DP strategy - RF strategy under RF POPs: All cases  «Improvement of win probability: DP strategy - RF strategy under RF POPs: All cases»
+kf2232c | Elite -> Elite
+k00e616 | Elite -> Non-Elite
+k93b645 | Non-Elite -> Elite
+k2cb52a | Non-Elite -> Non-Elite
+k7e0582 | Ratio of DP win probability to RF win probability  «rotated»
+k36e118 | Win probability (RF) under RF POPs
+@page 38
+k18d908 | Early Overbidding in Informationally Restricted Auctions
+k21c300 [2L] | We analyze a large number of continuous time ascending bid auctions of rental cars conducted online over 2 minute intervals.
+kd7564b [2L] | Due to concerns about bidder collusion, the rental company designed a unique dynamic auction: the Korean auction.
+kbe708a [2L] | Bidders only know the amount of their own bids and an indicator whether their bid is the highest so far.
+k466a9b [3L] | Bidders cannot observe the identities or bids placed by competing bidders, and thus do not even know the number of other bidders bidding in any given auction.
+k5ce04f [3L] | We are aware of only one other paper that analyzed auctions with informational restrictions similar to the Korean auctions: auctions of certificates of deposit (CDs) by the state of Texas.
+k12d0ea [2L] | Barkley, Groeger and Miller Journal of Econometrics (2021) provide an empirical of analysis bidding in these auctions.
+k6e9472 [3L] | “This market features frequent jump bidding and winning bids well above the highest losing bid, suggesting standard empirical approaches for ascending auctions may not be suitable.”
+@page 39
+k2468d2 | Auction 1, January 26, 2005
+kfc1740 | Plot of individual bids by the 6 bidders in auction 1
+k1ad6cc | Winning bid, 5350, submitted by $\mathrm{B}41$ at 119.421 seconds
+k78640c | 45 bids, $\max $ 14 (by $\mathrm{B}11),\min $ 1 (by $\mathrm{B}8)$, mean 7.5, bids by winner: 2
+k43136f | Bids  «rotated»
+k8e25c6 | High bid
+kc43652 | Auction Time (seconds)
+@page 40
+kffbdab | Auction 394 — bid sniping
+k2e2b3c | Plot of individual bids by the 7 bidders in auction 394
+k69e06c | Winning bid, 9960, submitted by $\mathrm{B}3$ at 118.125 seconds
+k557000 | 37 bids, $\max $ 14 (by $\mathrm{B}6),\min $ 1 (by $\mathrm{B}3)$, mean 5.3, bids by winner: 1
+@page 41
+k999521 | Auction 29 — early high bidder
+ka6a401 | Plot of individual bids by the 8 bidders in auction 29
+kf2d236 | Winning bid, 14690, submitted by $\mathrm{B}28$ at 1.265 seconds
+kcccc84 | 103 bids, $\max $ 32 (by $\mathrm{B}11),\min $ 1 (by $\mathrm{B}28)$, mean 12.9, bids by winner: 1
+@page 42
+k671763 | Auction 32 — a “crazy” bidder $\mathrm{B}11$
+kc80dee | Plot of individual bids by the 10 bidders in auction 32
+k2b0a66 | Winning bid, 6390, submitted by $\mathrm{B}11$ at 118.796 seconds
+k9b59c2 | 99 bids, $\max $ 34 (by $\mathrm{B}11),\min $ 3 (by $\mathrm{B}6)$, mean 9.9, bids by winner: 34
+@page 43
+k1f74a4 | Summary of bidding behaviors
+k178c38 | Bid creeping – most common behavior: due to desire to learn?
+k1cc2d7 | Bid jumping like bid creeping but fewer bids/bigger jumps
+k5ae466 | Bid sniping observed in 5\% of all auctions
+k4916b1 | Pre-emptive early bidding observed in 3\% of all auctions
+k2fb652 | Non-monotonic bidding boredom or stupidity?
+ka6f598 | Key finding and contribution of this paper
+kf8f9ea [6L] | We show that pre-emptive early bidding is an extreme version of something we find much more commonly in these questions, which we refer to as early overbidding. We argue that it is hard to find a rational explanation for early overbidding, but we do find one, by appealing to rational inattention and bidding frictions and a weaker notion of equilibrium we call Anonymous Equilibrium.
+@page 44
+k96e8b5 | Preview of our conclusions
+ka016fa [5L] | We conjecture that early bidding will not occur in a PBE. We provide a simple $2\times2$ example where there is no bidding in the first period. The only PBE is an uninformative PBE where all players snipe, so it is strategically equivalent to an (anonymized version) of a static first price sealed bid auction.
+ke3e3c3 [3L] | We introduce a DP model of rationally inattentive bidding with bidding frictions in Anonymous Equilibrium (AE) that can explain early bidding.
+kd46a1e [2L] | The DP model captures bidders' incentive to bid early to learn the current high bid and try to win the auction without overpaying.
+kecbb8d [5L] | Our theory implies that as a result of a combination of bidding mistakes/inefficiencies and learning that occurs during the auction, human bidders pay less on average, but their profits are also significantly lower compared to what frictionless “bidding robots” could earn in AE.
+@page 45
+k15d649 | Other results
+k62071e [2L] | Our model provides a qualitative explanation for the “informative early bidding” in these auctions, but $\ldots$
+k47ff9e [2L] | Human bidders tend to bid too high, too fast compared to what our model predicts, a phenomenon we call early overbidding.
+k2f40d6 [2L] | We show that our frictionless DP bidding strategies outperform human bidders in terms of expected profits.
+k66f175 [3L] | We blame the rejection of our model on the bounded rationality of the human bidders in the face of the difficult dynamic learning/DP problem in these continuous time auctions.
+k924ca5 [3L] | This creates substantial inefficiencies that result in lower bidder profits and winning auction prices compared to a static first price sealed bid format.
+@page 46
+keec1dc | Gains to computerized trading
+k4946fd | Key prediction
+k566584 [6L] | We show that auction prices and bidder profits would both increase if the human bidders used rational computerized bidding algorithms to serve as their `bidding agents'. In the Anonymous Equilibrium of the Korean market, with rational computerized bidding agents, efficiency is 100\%, bidders' profits nearly double, and auction prices are 13\% higher than in auctions with human bidders.
+kb0221e [3L] | We argue that human traders can achieve approximately the same efficiency and outcomes as above in a simpler static sealed-bid auction mechanism.
+k383d31 [2L] | No good rationale for adopting a more complicated dynamic auction format.
+@page 47
+k70cb0b | Equilibrium bid functions in period 2
+ke84b99 | Equilibrium Bid Functions
+kaf003a | Uninformative equilibrium
+k7965d2 [2L] | High valuation bidder in the informative equilibrium Low valuation bidder in the informative equilibrium
+kd74ec0 | Equilibrium Bid  «rotated»
+k468d50 | Valuation of bidder
+@page 48
+k63727d | Rationally inattentive bidding in Anonymous Equilibrium
+kd0d9ff [4L] | Due to the difficulty of computing PBE and because it is not clear that there is an informative PBE that would be consistent with the bidding behavior we observe in these auctions, we adopt an alternative modeling approach.
+k37e592 [3L] | We develop a behavioral DP bidding model that assumes bidders have rational beliefs about the stochastic process for the high bid price in the auction.
+k58c9e2 [2L] | Using these beliefs, we solve a dynamic program to determine the optimal bidding strategy implied by these beliefs.
+kf5269f [2L] | We define a concept of $\epsilon-\mathrm{Anonymous}$ Equilibrium to define approximately self-confirming beliefs of bidders in these auctions.
+k535034 [4L] | It is similar to a rational expectations equilibrium which is also a self-confirming system of beliefs. In an $\epsilon-\mathrm{AE}$ the actual stochastic process for the highest bid during the auction is approximately equal to bidders' beliefs about this stochastic process.
+@page 49
+k1c7806 | AE vs BNE bids in a static auction with Poisson arrivals
+ka36719 | Optimal bid functions: BNE vs AE for FPA with Poisson bidders
+k0fa50b [3L] | 45 degree line Anonymous equilibrium Bayes-Nash equilibrium
+ke49e43 | Valuation
+@page 50
+k4561c7 | Accounting for learning
+k264f81 [2L] | Our approach involves learning but employs a simpler model of experiential learning rather than full Bayesian updating.
+k8500b3 [3L] | Our model is appropriate for experienced bidders who have participated in many auctions, and thus have well-defined and fixed beliefs about the stochastic process for the high bid in the auction.
+k26fb52 [3L] | If a bidder has the highest bid at $t$, then they know it. But if the bidder does not have the highest bid at $t$, they must predict it based on a rational belief of the probability distribution of the high bid.
+kf167c9 [2L] | We show that there is a significant reduction in uncertainty by learning that one has the high bid prior to the end of the auction.
+k337421 [3L] | Thus the motivation for early bidding is to gather information about the current high bid, helping bidders to win the auction without paying more than necessary.
+@page 51
+kb674d9 | The value of learning via early bidding, frictionless case
+ke2170d | Value functions for bidder 10 in auction 10007 at second 120
+k29b1ce | Value (expected profit)  «rotated»
+kce75bf | Bid
+@page 52
+k1d9eac | The value of learning from early bidding
+k278258 | Bidder obtains valuable information from placing a bid of
+k7ec190 [2L] | $b_{120}$ = 4093 compared to not bidding and being uninformed (i.e. sniping) where $b_{120}=0$.
+k684b30 [2L] | This true even if you you are not the high bidder, so $h_{120}$ = 0. But clearly, the best case is when you know you are the high bidder at
+kdc789c | State $(v=5562)$
+k242f19 | More information: 1) lowers your expectation of the final high bid,
+kd620f3 [2L] | lowers your optimal bid, and 3) significantly increases your expected profits in the auction.
+@page 53
+k488ff0 | What happens if we remove the informational restriction?
+k1f59c0 [3L] | Suppose drop the informational restriction so all bidders can see the high bid in the auction at any moment regardless of whether they hold the high bid or not.
+k427791 [2L] | However bidder identities are still suppressed, so it continues to be an anonymous game.
+kd69618 [2L] | The resulting auction is an anonymized, electronic version of an open outcry auction.
+k18794b | Theorem 2
+k47c56f [4L] | There is no early bidding by rational, frictionless bidders in the AE of an anonymous open outcry auction. All bidders wait to the last instant $T$ to place their bids, so the AE is strategically equivalent to the AE of an anonymous static first price sealed bid auction.
+kfb2b33 [2L] | Intuition: because of informational free-riding no rational bidder has an incentive to bid early in AE.
+@page 54
+kb40faf | We also need bidding frictions to explain early bidding
+k5ec4aa [3L] | Let's return to the Korean auctions, with its informational restrictions. Do these restrictions always succeed in generating the early bidding we observe?
+ka11892 | NO We can find uninformative AE where there is no early bidding.
+ka28e99 | Theorem 3
+kdb1f7d [4L] | Suppose all bidders in the Korean auction are rational and frictionless and the auction has a “hard close.” Then there exists an uninformative AE where all bidders only submit their bids in the last instant $T$ of the auction.
+@page 55
+k905885 | A 4 parameter DP model of rationally inattentive bidding
+kc35b32 [2L] | Discretize the two minute auction into $T$ = 120 one second bidding instants.
+k0a701f [5L] | Let $\tau=(v,c,p,\sigma)$ denote the type of the bidder, where $v$ is the bidder's valuation of the car being auctioned, and $c$ is the bidder's psychic cost of submitting a bid, $p$ is a probability the bidder is distracted and cannot submit a bid, and $\sigma$ is an extreme value scale parameter.
+kd3d551 [5L] | Bidder beliefs $\mathcal{B}$ are captured by a family of conditional probability distributions $\{\lambda_t(b|b_t,h_t)\}$ where $\lambda_t(b|b_t,h_t)$ is a CDF for the high bid at during the interval $(t,t$ + 1] of the auction, conditioned on $b_t$, the bidder's highest bid up to time $t$ (or 0 if the bidder has not bid yet), and $h_t$ is an indicator of whether the bidder holds the high at $t$.
+@page 56
+k1479e6 | 2005 Hyundai Avante Elantra XD $1.6\mathrm{L}$
+@page 57
+k0be67e | Unconditional beliefs about the high bid in the auction
+@page 58
+k6f2636 | Evolution of beliefs of $\mathrm{B}23$ in auction 9810
+@page 59
+kd0eb96 | Evolution of beliefs of $\mathrm{B}23$ in auction 10007
+@page 60
+kc5e1dd | Two Step Estimation Strategy
+k582173 [3L] | Step 1 Using data on 533 auctions of Avante cars, we estimate the family of beliefs $\{\lambda_t\}$ about the stochastic process for the high bids in the auction.
+kfcd006 [6L] | Step 2 Using $\{\hat{\lambda}_t\}$ we solve a discrete dynamic programming problem determining the optimal bidding of the bidder at each second of the auction, resulting in a family of bid functions $\{\beta_t\}$ where $\beta_t(b_t,h_t)$ is the optimal bid at the start of second $t$ in the auction when the bidder's high bid so far is $b_t$ and $h_t$ is an indicator of whether the bidder has the high bid or not.
+k9534c2 [5L] | Note the only unknown parameters in step 2 are $\tau=(v,c,p,\sigma)$. Thus, we form a likelihood $L(\tau)$ for each bidder in each auction resulting in auction-by-auction bidder-specific estimates of valuations, $v$ and other parameters $\tau$ characterizing the bidder's type.
+k122445 [2L] | Our goal is to see if such a model is capable of explaining the early bidding we observe in these auctions.
+@page 61
+k028435 | Actual vs simulated high bid trajectories
+kcc4451 | Actual and simulated mean high bids at each second of Avante auctions
+k432a3b | (dotted lines are 95\%, 50\% and 5\% quantiles of distribution of high bids)
+k78e999 [2L] | Actual Simulated
+k4be32f | Mean High Bid  «rotated»
+kbddf18 | Second in auction
+@page 62
+k0b63b1 | Actual bids by $\mathrm{B}16$ in auction 10007
+k87e925 [2L] | Plot of individual bids by the 4 bidders in auction 10007 Winning bid, 5550, submitted by $\mathrm{B}23$ at 108.451 seconds
+k80828b | 18 bids, $\max $ 10 (by $\mathrm{B}23),\min $ 1 (by $\mathrm{B}16)$, mean 4.5, bids by winner: 10
+@page 63
+kbd6b07 | Counterfactual bids by algorithmic $\mathrm{B}16$ in auction 10007
+kc4b567 | Bids by 4 simulated bidders in auction 10007
+k45802f | Winning bid, 6348.47, submitted by $\mathrm{B}16$ at 120.000 seconds
+k60f058 | 30 bids, $\max $ 13 (by $\mathrm{B}16),\min $ 3 (by $\mathrm{B}11)$, mean 7.5, bids by winner: 13
+kdf1ff3 | $\mathrm{B}10\mathrm{v}=5562,\mathrm{p}=0.981\mathrm{c}=0.0,=1.00$ FPA bid: 4970.14 high bid: 5370
+k56ac44 | $\mathrm{B}11\mathrm{v}=4874,\mathrm{p}=0.991\mathrm{c}=0.9,=0.06$ FPA bid: 4431.26 high bid: 4790
+k4e5dcc | $\mathrm{B}16\mathrm{v}=8449,\mathrm{p}=0.000\mathrm{c}=0.0,=0.00$ FPA bid: 6404.07 high bid: 6348.47
+k4cdb02 | $\mathrm{B}23\mathrm{v}=5551,\mathrm{p}=0.977\mathrm{c}=-0.6,=0.05$ FPA bid: 4961.9 high bid: 5550
+@page 64
+k27ef19 | Convergence of beliefs to anonymous equilibrium
+k0ebb38 | Actual trajectory of human bidders
+ka171e2 [2L] | Frictionless bidders using human bidder beliefs Frictionless bidders using anonymous equilibrium beliefs
+@page 65
+ka270c3 | Empirical Auction Design Under Bounded Rationality
+k3d3a40 [2L] | Could the rental car company do even better by switching to a second price auction?
+kb2bb5c [4L] | By the Corollary to Theorem 1 the answer is no: expected revenues from a second price auction are lower than expected revenues from the AE of a first price sealed bid auction. Bidders are shading their bids less in AE than they do in a BNE.
+k93e7a3 [4L] | In AE bidders do not know the distribution of their opponents, so they have no way of adjusting the probability of winning to only consider the effect of their opponents and not their own impact of the distribution of winning bids.
+kd31192 [2L] | If the average number of bidders in a typical auction is sufficiently large, the impact of failing to make this adjustment is second order.
+k99a295 | ⟪Table:⟫ Expected winning bids under different scenario and auction mechanisms
+ka575a2 | Mean valuations Mean profits Mean winning bid Efficiency
+k7bb2ee | Actual
+k770981 [2L] | First price Second price
+@page 66
+kdedaa9 [2L] | Who is more Bayesian Humans or ChatGPT?
+k9f815a | Tianshi Mu, Pranjal Rawat
+k4dc444 | John Rust, Chengjun Zhang and Qixuan Zhong
+#= kbb696a | Georgetown University  ⇒ 乔治城大学
+@page 67
+k0a108e | Are People Bayesian?
+kcbec57 [3L] | Do untrained humans act like “intuitive statisticians” and make decisions under uncertainty “as if” they knew statistical decision theory and Bayes Rule?
+k2b51e4 [2L] | This question has been subject to vigorous debate for at least the last 6 decades and has motivated dozens of laboratory experiments.
+kc93ba8 | Bottom line answer: it depends
+@page 68
+k629a76 | Daniel Kahneman, 1934-2024
+@page 69
+kc05ce9 | David Grether, 1938-2021
+@page 70
+kd1674c [2L] | Title of the classic 1995 article by El-Gamal and Grether in Journal of American Statistical Association
+k0edc7c [2L] | Experiment with 257 subjects from 4 UCLA, Pasadena Community College, Occidental College and Cal State Univ Los Angeles
+kd2d93a [3L] | Subjects were shown samples of 6 balls drawn at random (with replacement) from one of two cages, A or B, and asked to predict which cage the sample came from.
+@page 71
+k296b47 | Why should people use Bayes Rule?
+k1e7fbc | Because we're greedy
+k1a8937 [2L] | A rational person should use an optimal decision rule for choosing A or B, one that maximizes their expected payoff from the choice.
+k8d6454 [3L] | Mathematically, this can be represented by a function, $\delta(d,\pi)\to\{A,B\}$ that maximizes the probability of selecting the correct cage from which the sample was drawn.
+kc378f9 [2L] | An optimal decision rule can be expressed in terms of Bayes Rule where $\Pi(A|d,\pi)$ is the posterior probability of A given $(d,\pi)$.
+k068112 | Theorem The optimal decision rule is given by
+#= k958f57 | if  ⇒ 若
+k048383 | $B$ otherwise
+k11d247 [2L] | However we will show that you can behave like a Bayesian even if your don't believe like a Bayesian
+@page 72
+kbe7209 | Is ChatGPT Bayesian?
+k6ca80f [8L] | We replicated the experiments of El-Gamal and Grether (using subjects from California and a subsequent experiment at University of Wisconsin in 1999) that involved only binary choices of which bingo cage is more likely as well as experiments by Holt and Smith (2009) that used the Becker-Degroot-Marshak (BDM) mechanism to elicit subjective posterior probabilities of each bingo cage, but instead of using human subjects we used various versions of ChatGPT.
+k5be3a0 | The versions we studied were
+k5d6841 | ChatGPT 3.5 (introduced in November 2022),
+k866924 | ChatGPT 4 (introduced in March 2023),
+kab3144 | ChatGPT $4\mathrm{o}$ (introduced in May 2024).
+ka78dd1 [3L] | We exactly replicated the number of subjects and trials used in El-Gamal and Grether and Holt and Smith to serve as an exact matching control group
+@page 73
+k7ab579 | Which are humans and which is ChatGPT?
+k79b396 | Fraction of subjects choosing cage A in El-Gamal and Grether California Design  «Fraction of subjects choosing cage A in El-Gamal and Grether California Design»
+kf209cf | Fraction of subjects choosing cage A  «rotated»
+kf46e90 [2L] | Subject group 1 Subject group 2
+kdbefe8 | Posterior probability of cage A, P(A|n,
+@page 74
+k6e56e3 | Who is more Bayesian: Humans or ChatGPT?
+k64a0fd | ⟪Table:⟫ Performance of GPTs and humans in the 6-Ball Experiments
+kc0f80a [3L] | Model number Release date Weights
+k9fe75d | GPT 3.5
+k0f813a | GPT-4
+k307c08 | GPT-4o
+kf76cb2 [2L] | Homo sapiens -300,000 BCE
+k5f5027 | 175 billion 1.8 trillion 3 trillion?
+ke27abe | 100 trillion?
+kaf54c0 | Efficiency
+k12a3a4 | Accuracy
+kd1b6bd | No. of Types
+@page 75
+k860910 | Why do we care if ChatGPT is more Bayesian than Humans?
+kb13660 [3L] | Because the rapid improvement in the capability and reasoning power of GPTs is starting to threaten human livelihoods. “The Machines They Will Replace Us!”
+ka54b53 [3L] | The bingo cage example is a simple metaphor or prototype for more complicated, important “high stakes” decision problems where GPT may outperform humans as well.
+kddd6f7 [4L] | For example, consider medical differential diagnoses (DDx) is a name for a diagnostic procedure when multiple different diseases or conditions could be the cause of a set of observed symptoms in a patient.
+kc0a010 [3L] | A good DDx is one where the doctor determine the most likely disease or medical problem that is consistent with observed symptoms
+k0f3d09 [3L] | Recent studies (e.g. Goh et al. (2024) and McDuff et al. (2023)) have demonstrated that LLMs and GPTs can outperform human physicians in the quality and accuracy of their differential diagnoses.
+@page 76
+k0eb4ff | The logit model: the simplest possible neural net
+k75d27e [3L] | A natural alternative but reduced-form model of subject choices is the binary logit model which is a 3 parameter model of the probability that a subject chooses cage A given by
+k1b3f77 [6L] | The logit model can be regarded as flexible functional form for approximating the probability of choosing cage A. But it doesn't have a direct interpretation as a structural model or theory of how people learn. But it is the simplest example of a single layer feedforward neural network with 2 inputs, 1 output, and the “softmax” or logistic “squashing function.”
+k227ced [7L] | The logit/NN model fits the data significantly better than the EG (single type) model: the log-likelihood for the EG model (4 parameters) is $-1942.63$ whereas the logit/NN model results in a log-likelihood of $-1811.31$. A 2 type EG model (7 parameters) fit by EC fits even better: log-likelihood $-1699.39$. A 2 type logit/NN model (6 parameters) also fit by EC fits even better, as is evident from comparing predicted probabilities to non-parametric CCP.
+@page 77
+kb71e76 | Changing decision rules: the Wisconsin experiments
+k9c62ae [3L] | in 1999 El-Gamal and Grether conducted further experiments on learning and decision making at the University of Wisconsin involving 81 subjects.
+ke8ebd6 [2L] | Subjects participated in two different experimental designs over two successive days:
+k4e64c8 [2L] | California design: 6 balls drawn with replacement from either Cage A (4 N balls and 2 G balls) or Cage B (3 N balls and 3 G balls)
+kd500cd [2L] | Wisconsin design: 7 balls drawn with replacement from either Cage A (4 N balls and 6 G balls) or Cage B (6 N balls and 4 G balls)
+kbf13ab [2L] | Cage A was selected based on the draw of a 10 sided die, and $\pi$ was chosen from the 4 values $\pi\in\{.3,.4,.6,.7\}$.
+k2e561d [2L] | Under the California design $p_A=.6667$ and $p_B=.5$, while under the Wisconsin design $p_A=.4$ and $p_B=.6$.
+k33f862 [3L] | This flips the likelihood ratios, so observing large values of $d$ makes cage A more likely under the California design, but less likely under the Wisconsin design.
+@page 78
+ka41554 | Likelihood ratios in Wisconsin experiments
+k067095 | Log-likelihood ratios in the California and Wisconsin experiments
+k8dcc73 [2L] | Wisconsin California
+k96528d | Log-likelihood ratio  «rotated»
+k5f4346 | Number of balls marked N
+@page 79
+k8bd41d | Subject choices under the California design $(D=6)$
+k8c0943 | Decision regions for Bayes Rule for experiments with
+ka734c7 | 6 draws with replacement from cages with 6 balls each
+@page 80
+k48acb1 | Subject choices under the Wisconsin design $(D=7)$
+kab30e3 | 7 IID draws from cages with 10 balls each
+@page 81
+k2c4b5e | Subject choices in the Wisconsin experiments
+k555d9f | Subject choices in Wisconsin experiments
+k2be8d3 | Training sample: blue, Evaluation sample: red
+ka58a06 [2L] | 6 IID draws from cages with 6 balls 7 IID draws from cages with 10 balls
+k455f70 | Predicted fractions of subjects of choosing cage A  «rotated»
+k1d77ca | True posterior
+@page 82
+kebac95 | The structural logit predicts the change in decision rules
+k4c1357 | Structural logit prediction: evaluation sample
+#= ke5e429 | Data  ⇒ 数据
+kbf4812 [2L] | Structural logit prediction Structural logit MLE
+k726b1e | Actual and predicted fractions of subjects of choosing cage A  «rotated»
+@page 83
+kbe4fe5 | But a reduced-form neural net specification does not
+k8c0ba1 | NN predicted vs fitted choices: evaluation sample
+k90e365 [2L] | NN prediction NN fitted
+@page 84
+k5f4c40 | Why does the logit model do so poorly?
+k34d6b6 [2L] | Because subjects pay attention to more than $(d,\pi)$ but the reduced form logit/neural net model only has $(d,\pi)$ as inputs.
+kfdbb4f [2L] | The Wisconsin experiments convincingly demonstrate that human subjects are paying attention to 5 pieces of information
+k8b5691 | In the California design, $D=6,p_A=2/3$ and $p_B=1/2$.
+k8b9c73 | In the Wisconsin design, $D=7,p_A=.4$ and $p_B=.6$.
+k22b221 [3L] | A neural net that does not use all 5 pieces of information cannot approximate human behavior in new experimental designs (policy shifts) where $D,p_A,p_B$ have changed!
+@page 85
+kf7b5b6 | Structural logit model of subjects' choice
+ka291eb [3L] | We posit that subjects' beliefs and therefore their choices are function of transformed inputs $(\mathrm{LLR},\mathrm{LPR})$ where LLR is the $\log $ likelihood ratio and LPR
+kc79222 | LLR = $f(d|p_A,D)/f(d|p_B,D)$
+kf070ee | LPR = $\pi/(1-\pi)$
+k90cde6 [3L] | Notice that $(\mathrm{LLR},\mathrm{LPR})$ are sufficient statistics for all 5 pieces of information needed to make an informed prediction of the cage that was selected to draw the sample.
+k791126 [2L] | We allow for calculational errors in computing $(\mathrm{LLR},\mathrm{LPR})$ from the 5 inputs $(d,\pi,p_A,p_B,D)$.
+k253b52 [2L] | We assume that subjects have a subjective posterior probability that depends on a random calculational error $\nu$ given by
+k368922 [2L] | Notice the correct Bayesian posterior is nested in this specification when $(\beta_0,\beta_1,\beta_2)=(0,1,1)$ and $\nu$ = 0 with probability 1.
+@page 86
+kfbd511 [5L] | Given the subjective posterior beliefs, the choice of A or B depends on which gives the subject a greater expected payoff. Assume the payoff for a correct choice is $R$ but also assume that there are additional idiosyncratic “choice distractions” $(\epsilon(A),\epsilon(B))$ that affect the final choice. Then the decision rule is given by
+ke9e552 [2L] | where $I=(d,\pi,p_A,p_B,D)$ is the observed public information in each trial and $(\nu,\epsilon)$ is private information only observed by the subject.
+k681a66 [3L] | Assuming $\epsilon$ and $\nu$ are independently distributed and $\epsilon$ is bivariate extreme value with scale parameter $\sigma$, we get the following logit CCP or decision rule
+@page 87
+ke9ab45 [3L] | Since $\nu$ is also unobservable we need to integrate it out of the decision rule to get the final CCP or “mixed” decision rule. Assume that $\nu\sim N(0,\eta^2)$. Then we have
+kfd6aa5 [2L] | This is a 5 parameter model where $\theta=(\beta_0,\beta_1,\beta_2,\sigma,\eta)$ are “structural parameters”
+k460f3f [2L] | Let $y_{ts}$ = 1 if subject $s$ chose cage A in trial $t$ in response to information $(d_{ts},\pi_{ts})$. Then the likelihood function is given by
+k9c60cd | where $(p_A,p_B,D)$ are the experimental design parameters.
+@page 88
+k6dc7d2 | The structural logit model is a two layer neural network
+k916b59 [2L] | When $\eta$ = 0, the structural model can be viewed as simple two layer feedforward neural network: a “logit inside a logit”.
+k9f33d1 [3L] | Layer 1 uses the “transformed inputs” $(\mathrm{LLR},\mathrm{LPR})$ to produce the subjective posterior, $\Pi_s(A|\mathrm{LLR},\mathrm{LPR},\beta)$ as output, where $\beta_0$ is the bias term and $(\beta_1,\beta_2)$ are the “input weights”.
+kd99b94 [2L] | Layer 2 uses the output from layer 1 as input and generates the logit CCP as the single output.
+kdf56a1 [2L] | where the 2nd layer bias term is $R/\sigma$ and weight on the layer 1 input is $2R/\sigma$.
+k463c65 [2L] | If we add additional layers, we can use them to approximate the transformed inputs $(\mathrm{LLR},\mathrm{LPR})$ from the “raw inputs”
+@page 89
+kfd1068 | Example classification net for learning Bayes Rule
+@page 90
+kb383d0 | Identification of subjective beliefs
+k6ba02f [3L] | Maximum likelihood estimation of the structural logit model can be viewed as an exercise in “revealed beliefs” using subjects' binary choices only. Are these beliefs identified?
+kbeb4ef [5L] | No, not in general. For example the optimal Bayesian decision rule $\delta^*$ is nested within the structural logit model when $\theta^*=(\beta_0,\beta_1,\beta_2,\sigma,\eta)=(0,1,1,0,0)$. But now consider for any $\lambda>0$ a non-Bayesian decision maker given $\theta_{\lambda}=(0,\lambda,\lambda,0,0)$. Then it is not hard to show that for any $(d,\pi,p_A,p_B,D)$ we have
+k1266de | Thus you don't have to believe like a Bayesian to act like a Bayesian!
+@page 91
+k425e95 | Identification of subjective beliefs when $\sigma>0$
+k0e88ca [3L] | When $\sigma>0$ we can use the random decision mistakes to show that the model is identified if we have enough observations at extreme values of $\pi$ where the true posterior is close to 0 or 1 to identify $\sigma$.
+#= k241143 | Lemma  ⇒ 引理
+k8b307f [6L] | Identification of subject beliefs when $\sigma>0$ Assume that $\eta=0$. When $\sigma>0$, all four parameters of the structural logit model are identified, so the subject's subjective beliefs can be identified from knowledge of their decision rule $P(A|d,\pi,p_A,p_B,D)$, where the latter is identifiable given sufficient experimental data on a subject's choices for different values of $(d,\pi,p_A,p_B,D)$.
+kaab740 [2L] | But this result is unrealistic in practice since cannot do that much experimentation with a given subject.
+@page 92
+ke0d440 | Example of weak identification of beliefs
+k9781bc | Differing subjective posterior probabilities
+k6a8601 | but nearly observationally equivalent structural logit models
+kaa4113 | Subjective Posterior Probability of A  «rotated»
+k98778c | Probability of choosing cage A  «rotated»
+keff5d9 | P(A| ,n, $_1),_1=(.2,0,-.8,-.8)$
+k9bbc2f | P(A| ,n, $_2),_2=(.002,0,-.0008,-.0008)$
+@page 93
+k3084bf | Results from reanalysis of California data
+k3c2d1f [7L] | Model El-Gamal/Grether Structural probit Reduced-form logit Noisy Bayesian Structural logit Neural network
+kccf151 | Parameters Log-likelihood AIC
+@page 94
+k58fa16 | Classification hyperplanes and Loss functions
+k3c8241 | Decision regions in transformed space: Bayes Rule vs implied regions for subjects
+k3ed24b | (Based on finite mixture estimator)
+k645c33 [4L] | Bayes Rule Type 1 Type 2 Type 3
+@page 95
+kbb8ee8 | Subject accuracy/efficiency: Wisconsin 6 ball experiments
+kdc491c | Fraction of Bayesian responses and posterior probability subject is Bayesian
+k6f11d6 | For human subjects in 6 ball training sample experiments using finite mixture estimator
+kd9fdae | Probability  «rotated»
+k908cb5 | Average percent of correct responses: 81.9\% (9.1\%)
+ke14bd7 | Average decision efficiency: 96.5\% (3.7\%)
+ka1d128 | Fraction of correct responses
+k023884 | Decision efficiency
+k93adea [2L] | Posterior probability subject is Bayesian type Average posterior probability subject is Bayesian type
+k583967 | Subjects (sorted by fraction of correct responses)
+@page 96
+kacba47 | Out-of-sample predictive accuracy of structural logit model
+kdcefec [2L] | **Actual vs model, Wisconsin experiments: 6 balls** Training sample, 3 type mixture estimation results
+kf81c67 | Actual vs out-of-sample predictions, Wisconsin experiments with 7 balls
+kf282a3 | Evaluation sample, 3 type mixture estimation results
+k72fad6 | Actual and Predicted fractions of subjects of choosing cage A  «rotated»
+k71e6e9 | Number of draws of balls marked N
+@page 97
+kb8fd35 | Reanalysis of Holt and Smith experiments
+ke04846 [2L] | These experiments directly elicted subjective posterior probabilities using the Becker-Degroot-Marshak (BDM) mechanism.
+k477ae2 [2L] | It involves a second stage gamble to incentivize truthful reporting of the subjective posterior $p$.
+k719db6 [3L] | If subject reports a probability $p_r$ that cage A is the correct cage, this leads to a gamble $\tilde{G}_R(p_r)$ that pays off amount $R$ based on a random draw $\tilde{p}\sim U(0,1)$.
+k8b921e [2L] | if $\tilde{p}\leq p_r$, then the subject receives payment $R$ if the true cage is cage A
+k9e5fcc | if $\tilde{p}>p_r$, then the subject receives $R$ with probability $\tilde{p}$
+k00a379 | The subject's expected payoff from reporting $p_r$ is
+k64cc4b | The optimal report is the subject's true posterior probability
+@page 98
+k212eec | Beliefs and loss functions: Holt and Smith experiment 1
+k045896 | Log-posterior odds regression predictions of subject reports (full sample
+k5fbda7 | human subjects in experiment 1
+ka4d23f | Reported and True posterior probabilities  «rotated»
+k75d63b [5L] | True posterior Predicted, type 1 Median, type 1 Predicted, type 2 Median, type 2
+k445331 | True Bayesian Posterior probability of cup A
+@page 99
+ke0fa72 | Stability of Beliefs: Holt and Smith experiment 1
+kfb1de0 | Predicted vs median reported posteriors: training sample, ndraws=1,2
+k6e1de9 | Predicted vs median reported posteriors: evaluation sample, ndraws=3,4
+@page 100
+k540ce7 | Conclusions from reanalysis of human subject data
+ka85e02 [2L] | We reject the hypothesis that all subjects are Bayesians or even noisy Bayesians
+k7d0fe2 [2L] | However we do find significant subsets of subjects who are noisy Bayesians
+k0f5836 | 49 to 79\% in El-Gamal and Grether's California experiments
+k99c2ee | 32\% in their Wisconsin 6 ball experiments
+k1d8856 | 77\% in their Wisconsin 7 ball experiments
+k1d2ed5 | 45\% in Holt and Smith's experiment 1
+k8d20df | but none in their web-based experiment 2
+k9fa823 | Decision efficiency is high overall
+ka7d013 | 93\% in El-Gamal and Grether's California experiments
+k7f1e60 | 97\% in their Wisconsin 6 ball experiments
+k2abdf5 | 96\% in their Wisconsin 7 ball experiments
+kf3dbbf | 96\% in Holt and Smith's experiment 1
+k29909a | 91\% in their web-based experiment 2
+@page 101
+k163ed3 | Results for ChatGPT in 6 ball design
+k7037a0 [3L] | We created a matching set of trials for GPT subjects using the actual trial outcomes for the 6 ball design of El-Gamal and Grether (1995 and 1999)
+k58e3fa [2L] | We intentionally introduced subject-specific heterogeneity in the GPT subjects by randomly choosing different temperature settings.
+k722d37 [3L] | Higher temperature implies more randomness in the GPT response so it is akin to adding heterogeneity in the $\sigma$ or $\eta$ noise parameters of the structural logit model.
+k232c82 | Unlike human subjects, this is observed heterogeneity.
+k4715cc [3L] | However we analyzed the results using the same methods we used to handle unobserved heterogeneity in human subjects, i.e. the EC algorithm and finite mixture methods for unobserved heterogeneity.
+@page 102
+k2c89a7 | Estimated classification hyperplanes
+k7dd750 | Classification hyperplanes for GPT 3.5, 4 and $4\mathrm{o}$
+k8bc91a | Bayes vs subjective classification thresholds, gpt-3.5-turbo-0125 subjects
+k48133e | Bayes vs subjective classification thresholds, gpt-4 subjects
+k06dfae | Bayes vs subjective classification thresholds, gpt-4o subjects
+kb7d253 | Bayes Rule
+kdf09cb [2L] | Type 1, 42.2\% of subjects Type 2, 57.8\% of subjects
+k68c7d8 [2L] | Bayesian Posterior Subjective Posterior
+@page 103
+kbb5ddc | Loss Funtions
+kab979a | Estimated loss functions for GPT 3.5, 4 and $4\mathrm{o}$
+@page 104
+k3f3d2e | Accuracy and Efficiency
+ka4acc2 | Subject-specific accuracy and efficiency for GPT 3.5, 4 and $4\mathrm{o}$
+kaed8a3 [2L] | **Fraction of Bayesian responses and posterior probability subject is Bayesian** For gpt-4 subjects in 6 ball training sample experiments using finite mixture estimator
+k3fb928 | For gpt-3.5-turbo-0125 subjects in 6 ball training sample experiments using finite mixture estimator
+k9bdf08 | For gpt-4o subjects in 6 ball training sample experiments using finite mixture estimator  «For gpt-4o subjects in 6 ball training sample experiments using finite mixture estimator»
+k007e56 | Average percent correct responses: 85.5\% (6.3\%)
+ke96e6e | Average decision efficiency: 97.5\% (1.8\%)
+k9bcab9 | Average percent correct responses: 77.7\% (7.4\%)
+k02bb8f | Average decision efficiency: 95.6\% (2.7\%)
+k959175 | Average percent of correct responses: 59.4\% (8.4\%)
+kac0adc | Average decision efficiency: 84.9\% (5.0\%)
+kbe1a62 | Posterior probability subject is Bayesian type
+k91d3c2 | Average posterior probability subject is Bayesian type
+@page 105
+kc4f526 | Comparison of Human and GPT performance
+kb5fd18 | GPT 3.5 GPT-4 GPT-4o Humans
+@page 106
+k5de30a | Results for ChatGPT in Holt and Smith design
+k938c3d [2L] | Recall that Holt and Smith directly elicited subjective posterior values using BDM mechanism
+kc5e15c [3L] | Probably they gave human subjects some coaching: “trust us, it is in your best interest (to maximize your payout) to report your best estimate of the probability the sample was from cup A”
+k36139f [3L] | But we did not give ChatGPT this sort of coaching. It had to be able to do the calculus to figure out the optimal report $p_r$ in the second stage gamble $\tilde{G}_R(p_r)$.
+@page 107
+k01c508 | Elicited Subjective Posteriors
+k795c9a | Estimated vs actual elicited posteriors for GPT 3.5, 4 and $4\mathrm{o}$
+kc2002c | Log-posterior odds regression predictions of subject reports (full sampleL)og-posterior odds regression predictions of subject reports (full sampleL)og-posterior odds regression predictions of subject reports (full sample)
+ke9568b | gpt-3.5-turbo-0125 subjects in experiment 1
+k0b7953 | gpt-4 subjects in experiment 1
+k18bad7 | gpt-4o subjects in experiment 1
+kfdfefb [2L] | Predicted, type 1 Median, type 1
+kb4de97 | Predicted, type 1
+kdbc2ec | Median, type 1
+k02d2e4 | Predicted, type 2
+k748d7d [2L] | Predicted, type 2 Median, type 2
+k92a941 | Median, type 2
+@page 108
+kf466e1 | Implied Loss Functions
+k62960b | Implied loss functions for GPT 3.5, 4 and $4\mathrm{o}$
+@page 110
+kb19072 | Testing for context effects in GPT responses
+#= k68c2cc | Model  ⇒ 模型
+k442e75 | Accuracy (Bingo) Accuracy (Pond) t-stat p-value
+k968ebc [3L] | GPT-4o GPT-4 GPT-3.5
+@page 111
+k52b113 | Conclusions from comparison of human and GPT
+k63d5f4 [4L] | We find a rapid improvement in the accuracy and decision efficiency in successive versions of GPT, from sub-human performance for GPT 3.5, to approximately human for GPT-4, and super-human performance for GPT-4o.
+k68effc | Three key aspects are behind this improvement: (i) decreasing bias,
+k6e22ac [2L] | increasingly equal weight on the data and the prior, and (iii) lower levels of idiosyncratic calculational and decision noise.
+k900f49 [3L] | We find less unobserved heterogeneity for GPTs than humans in the Wisconsin experiments, especially for GPT-4 and $4\mathrm{o}$, where we find only one type of subject, noisy Bayesians.
+kb43898 [3L] | In the Holt and Smith experiment, 40\% of subjects are classified as perfectly Bayesian, while the remaining 60\% are best described as noisy Bayesians.
+k94a3a7 [2L] | The structural logit model provides an increasingly good approximation to the behavior of successive generations of GPT.
+@page 112
+ke7bce1 | Error analysis of GPT responses
+kf4a9d8 [3L] | Most econometric models treat humans as black-boxes and apart from some research from neuroscience, we do not know exactly how humans process information.
+k908418 [3L] | However, with GPTs we have the unique advantage of knowing both how their neural “brains" compute information and the textual response which contains their reasoning behind their answers.
+kbe50d6 [3L] | Therefore, it makes logical sense to try to parse this text to understand how and why GPTs made mistakes, create a taxonomy of errors and obtain error distributions across models.
+k28b501 [5L] | There are some complications. There is more than one way to answer the question correctly and even more ways to make mistakes. The approach we adopted was twofold: (1) create a process for automated grading using a superior GPT model, $\mathrm{o}1$, and (2) manual (human) grading of a smaller sample of GPT4o's responses.
+@page 113
+k99a9bf | Automated grading of GPTs by GPTo1
+kde8341 | Start with original prompt and student GPT's response.
+kd07927 | Compute the correct answer.
+k57f19a | Combine original prompt and answer vs correct answer for grader.
+k314826 | Send this to the grader GPT to obtain a grading response.
+k8dad9d | Extract the evaluation from grading response and store results.
+@page 114
+kcdfd37 | Summary of errors in GPT responses
+@page 115
+k9ea156 | Human grading of answers yields similar conclusions
+kbe739f | Automated and manual grading are complementary with each other.
+k8cb025 [3L] | Manual grading was not able to detect reading errors or errors where Bayes rule was not applied. That is because these are rare and so the automated grader was able to detect them in a large sample.
+ke294fb [3L] | Manual grading is able to distinguish between (1) calculation mistakes and (2) calculation interruptions and the relative shares between them, but this was not picked up by the automated grader.
+k4f79d4 [2L] | Manual grading was also able to pick up one instance of decision noise, and this was also confirmed by the automated grading.
+k968abc [2L] | Manual grading was also able to pick up finer details about GPT4o that the automated grading could not
+ka7974a | The overall conclusions from both approaches are broadly similar.
+@page 116
+k4bba33 | Self-correction in ChatGPT-o1
+k7216e5 | GPT-o1 calculates posterior correctly
+k48047c [2L] | To determine the optimal value of P that maximizes your expected payout, we'll break down the problem step by step.
+k2f1109 [3L] | Step 1: Determine Posterior Probabilities Given the sample (D,D,D), we update our beliefs about whether the balls were drawn from Urn A or Urn B using Bayes Theorem:
+k45e70a | P(Urn $\mathrm{A}|\mathrm{D},\mathrm{D},\mathrm{D})=$
+k46fc93 | and correctly calculates BDM payoff
+k3a5d62 [2L] | Step 2: Calculate Expected Payout Your expected payout depends on the value of $P$ you choose and the randomly drawn number $U$.
+k48ea29 | Case 1: $U\leq P$. Expected payout: $_9^1\times1000=111.11$.
+kc19e0c | Case 2: $U>P$. Expected payout: $1000\times_2^{P+1}=500\times(P+1)$
+@page 117
+kb18192 | but transcribes the formula incorrectly to calculate optimal report
+k8c3ef1 | Overall expected payout
+k468d90 [2L] | To maximize $E(P)$, take the derivative with respect to $P$ and set it to zero:
+k55c092 | Solving, we get
+k996dc3 | but at the last instant it recognizes its error and self-corrects
+k4c8859 [2L] | However, upon closer inspection and recalculating, the optimal $P$ that maximizes the expected payout is: $P=_9^1\approx.1111$.

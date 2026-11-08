@@ -1,0 +1,453 @@
+# 18_Iskhakov_games/part1_rls.pdf  (122 pages)
+# id | English (inline math is a rough reconstruction; check it)
+
+@page 1
+k74bcb7 | Lecture 18:
+k3ac10a | Solving directional dynamic games
+k821070 | for all Markov perfect equilibria
+k0b4d84 | Econometric Society Summer Schools in Dynamic Structural
+#= k150909 | Econometrics  ⇒ 暑期学校
+k7e7098 | Fedor Iskhakov, Australian National University
+k7ff3c6 | John Rust, Georgetown University
+#= kdd7074 | Bertel Schjerning, University of Copenhagen  ⇒ Bertel Schjerning，哥本哈根大学
+k926a42 [2L] | UCL, London July 6, 2025
+@page 2
+ke9293c | ROAD MAP
+k89c21d | Collusion of Australian corrugated fibre packaging (CFP) producers
+k0d7b49 | Collusion between Amcor and Visy
+k44f58b | Bertrand pricing and investment game
+k039cae | Solution concept: Markov perfect equilibrium (MPE)
+ka8a0e9 | Experiment with the model
+k1a7295 | State recursion algorithm
+k743eb1 | Theory of directional dynamic games (DDGs)
+k979d72 | Recursive lexicographical search (RLS) algorithm
+kfd2261 | Full solution for the leapfrogging game
+k4ac0ea [2L] | Structural estimation of directional dynamic games with Nested RLS method
+@page 3
+k774084 | Motivation: Collusion on the beach
+@page 4
+k1990d3 | Amcor-Visy price fixing
+kc6518f | Amcor Managing Director: Peter Brown
+k2b2871 | Visy CEO: Harry Debney
+@page 5
+kfb0bb7 | Amcor-Visy collusion case
+kc1dadf | Australian market for ⟪cardboard⟫ is essentially a ⟪duopoly⟫
+kce8a1a [2L] | Between 2000 and 2005 Visy and Amcor ⟪colluded⟫ to divide the market of cardboard and to fix prices
+k38f326 [2L] | 2007: ⟪Visy admits⟫ to have been manipulating the market, issued with \$36 million fine
+kcc5783 [2L] | July 2009: Cadbury vs. Amcor, ⟪damages estimated at \$235.8⟫ ⟪million,⟫ settles out of court
+k34986e [2L] | March 2011: ⟪Class action suit⟫ against both Amcor and Visy settles out of court for \$95 million
+@page 6
+k6187e3 | Cardboard industry in Australia
+k22bee0 [2L] | Bertrand price competition ⟪in the short run, with⟫ leapfrogging investments ⟪by both firms in the longer run⟫
+k965e34 | ⟪Cardboard is a highly⟫ standardized product
+k43c152 | Strong incentives for Bertrand-like price cutting
+k1bf1d9 | Amcor and Visy do ⟪minimal amounts of R\&D⟫ themselves,
+k786218 | Spend considerable amounts on ⟪cost reducing investments⟫
+k95c0ed [2L] | Amcor plans to build state-of-the-art paper mill in Botany Bay ⟪before⟫ the collusion took place
+k04836a | $“\mathrm{B}9”$ plant finally opened on ⟪February 1, 2013⟫
+kde046d [3L] | Amcor and Visy ⟪purchase new technology from other companies⟫ that specialize in doing the R\&D and reduce cost of production of cardboard
+@page 7
+k6c8e55 | Amcor’s New $\mathrm{B}9$ Paper Mill
+k7ddb1d | Main Mill Site, Botany Bay Road, Botany Bay NSW
+ke7055e | Source: Amcor
+@page 8
+k3c657c | $\mathrm{B}9$ is an example of leapfrogging
+k794b9f | Amcor’s existing paper plant was over 50 years old
+k67f5f7 [4L] | “The $\mathrm{B}9$ paper machine, so named as it is the ninth paper machine to operate at the company’s Botany site, will produce more than 400,000 tonnes of paper annually when operating at full capacity and will deliver significant environmental benefits.”
+kb0a614 [3L] | Cost: \$500 million, the largest single investment in Amcor’s 144 year history. “Largest and most innovative recycled paper machine of its kind in Australasia”
+k5ab5b2 [4L] | “The machine is 330 metres long, and 22 metres high, and produces 1.6 km of paper per minute and reduces water consumption by 26\%, energy usage by 34\% and the amount of waste sent to landfill by 75\%” (Nigel Garrard, Amcor CEO)
+@page 9
+k42b1d1 | But collusion caused $\mathrm{B}9$ to be delayed
+k4a35d3 [4L] | Amcor had planned $\mathrm{B}9$ back in 1999, and at that time internal studies estimated huge rate of return for this investment because it would enable it to leapfrog Visy to become the low-cost producer of CFP in Australia.
+k9fa0c1 [2L] | Amcor and Visy were locked in a price war that started in 1999, around the time the Amcor Board authorized the $\mathrm{B}9$ investment.
+k09e685 [4L] | However when Visy and Amcor started to collude in 2000, ⟪the $\mathrm{B}9$⟫ ⟪project was curiously scrapped. $\mathrm{B}9$⟫ was not actually started until 2011, well after the end of the collusion in 2005. $\mathrm{B}9$ only came online in February 2013.
+@page 10
+ka20f0d | Leapfrogging
+k148097 | Leapfrogging equilibrium
+kacf83e | Firms invest in alternating fashion and take turns in cost leadership
+kd6e7bc | Market price makes permanent downward shifts
+k7a4890 | “The Bertrand Investment Paradox”
+k8561a9 | Should Bertrand competitors undertake cost-reducing investments?
+k547f03 [3L] | If both firms acquire state-of-art technology simultaneously, the following Bertrand price competition leads to ⟪zero profits for each⟫ ⟪firm⟫
+kca468e [2L] | Since both frims have access to cost reducing technology, does either of them have ⟪any incentive to invest ex ante?⟫
+@page 11
+k5d712d | Dynamic Bertrand price competition
+ka338ca | Stochastic dynamic game
+k111d31 | Two Bertrand competitors, $n$ ⟪= 2, no entry or exit⟫
+k0d03cf | Discrete time, infinite horizon $(t=1,2,\ldots,\infty)$
+ka889ad [2L] | Each firm maximizes expected discounted profits, common discount factor $\beta\in(0,1)$
+k4e220d | Each firm has two choices in each period:
+k31a43e | Price for the product
+k28d286 | Whether or not to buy the state of the art technology
+k493876 | Static Bertrand price competition in each period
+k365468 | Continuum of consumers make ⟪static⟫ purchase decision
+kca7e47 | No switching costs: buy from the lower price supplier
+@page 12
+k8c2272 | Cost-reducing investments
+kf13db1 | State-of-the-art production cost $c$ process
+k778737 | Initial value $c_0$, lowest value $0:0\leq c\leq c_0$
+ke2ad6b | Discretized with $n$ points
+kbf9e12 | ⟪Follows⟫ exogenous Markov process ⟪and⟫ only improves
+k471a5d | Markov transition probability $\pi(c_{t+1}|c_t)$
+ka9b1ae | = 0 if  «$\pi(c_{t+1}|c_t)$ = 0 if $c_{t+1}>c_t$»
+k11afcf | Investment choice: binary
+k20fef0 | Investment cost of $K(c)$ to obtain marginal cost $c$
+k87bbc0 [2L] | One period construction time: production with technology obtained at $t$ starts at $t+1$
+@page 13
+kf94af4 | State space and information structure
+k264c3d | Common knowledge
+kdf9008 | State of the game: cost structure $(c_1,c_2,c)$
+kfc0803 | ⟪State space is $S=(c_1,c_2,c)\subset R^3:c_1\geq c,c_2\geq c$⟫
+k9f12b0 | Actions are observable
+kd47e94 | Private information
+k7de290 [2L] | In each period each firm incurs additive costs (benefits) from not investing and investing $\eta\epsilon_{i,I}$ and $\eta\epsilon_{i,N}$
+kfc1973 [2L] | $\epsilon_{i,I}$ and $\epsilon_{i,N}$ are ⟪extreme value⟫ distributed, independent across choice, time and firms
+kf23701 | $\eta\geq0$ is a scaling parameter
+k911b3c | Investment choice probabilities have logit form for $\eta>0$
+@page 14
+k7991c9 | Timing of moves
+kf12d25 | Pricing decisions are made ⟪simultaneously⟫
+k9e8ab0 | Expected one period profit of firm $i$ from Bertrand game $(j\not=i)$
+#= k958f57 | if  ⇒ 若
+ke0496f | ⟪Two versions⟫ regarding investment decisions
+k6f7bdb | Simultaneous moves:
+k7aec3e | Investment decisions are made simultaneously
+kb0c418 | Alternating moves:
+ka69c6d | The “right to move” state variable $m\in\{1,2\}$,
+kaac305 | When $m=i$, ⟪only⟫ firm $i$ can make a cost reducing investment
+k1adbab | $m$ follows an own Markov process
+kf40b97 | (deterministic alternation as a special case).
+@page 15
+k8dbaee | Actions and behavior strategies
+ke4628d | Two choices in each period
+kc9215d | $p_i(c_1,c_2,c)=\max (c_1,c_2)$ – Bertrand pricing decision
+k7144eb [2L] | $P_i^I(c_1,c_2,c)$ – probability of firm $i$ to invest in state-of-the-art production technology
+kdc0e14 | $P_i^N(c_1,c_2,c)=1-P_i^I(c_1,c_2,c)$ – probability not to invest
+k053b7e | Strategy profile
+kae9f1c | $\sigma=(\sigma_1,\sigma_2)$ – pair of Markovian behavior strategies
+k588b04 | Pure strategies included as special case
+@page 16
+kfef6fc | Definition of Markov Perfect Equilibium
+k7a8b3b | Definition (Markov perfect equilibrium (MPE))
+k6dd110 | MPE of Bertrand investment stochastic game is a pair of
+k4f911d | strategy profile $\sigma^*=(\sigma_1^*,\sigma_2^*)$, and
+k7f16df | ⟪pair of value functions $V(s)=⟦?⟧V_1(s),V_2(s)⟦?⟧,V_i:S\to R$,⟫
+#= kbbc99a | such that  ⇒ 使得
+k3ef8df | Bellman equations (below) are satisfied for each frim, and
+k329a00 [3L] | strategies $\sigma_1^*$ and $\sigma_2^*$ constitute mutual best responses, and assign positive probabilities only to the actions in the set of maximizers of the Bellman equations.
+@page 17
+k54cd6d | Bellman equations, firm $i$ = 1, simultaneous moves
+k6184e7 | With extreme value shocks, the investment probability is
+@page 18
+k0daa18 | The expected values are given by
+#= k46148c | where  ⇒ 其中
+k895776 | is the “smoothed $\max ”$ or logsum function
+@page 19
+kf7c6c9 | Solving and estimating directional dynamic games:
+kad4368 | Bertrand pricing and investment (leapfrogging) game
+@page 21
+k41dffe | Discretized state space = a “quarter pyramid”
+@page 22
+k65c436 | Game dynamics: example
+k6f5ad7 | The game starts at the apex, as some point technology improves
+@page 23
+k0fddf6 | Both firms buy new technology $c=2⇝(c_1,c_2,c)=(2,2,2)$
+@page 24
+ka53932 | State-of-the-art technology becomes $c=1⇝(c_1,c_2,c)=(2,2,1)$
+@page 25
+k612009 | Firm 1 invests and becomes cost leader $⇝(c_1,c_2,c)=(1,2,1)$
+@page 26
+k498d14 | State-of-the-art technology becomes $c=0⇝(c_1,c_2,c)=(1,2,0)$
+@page 27
+k12f61a | Firm 2 leapfrogs firm 1 to become new cost leader $⇝(c_1,c_2,c)=(1,0,0)$
+@page 28
+kbe0c31 | Firm 1 invests, and the game reaches terminal state $⇝(c_1,c_2,c)=(0,0,0)$
+@page 29
+ka78484 | Transitions due to technological progress
+kc9d370 | As $c$ decreases, the game falls through the layers of the pyramid
+@page 31
+k0a3bdf | Strategy-specific partial order on $S$
+k27244d | Strategy $\sigma_1$ of firm 1: invest at all interior points
+@page 32
+k8c62ee | Strategy $\sigma_2$ of firm 2: invest at all edge points
+@page 33
+kc07936 | Strategy $\sigma=(\sigma_1,\sigma_2)$ of both firms
+@page 34
+k7f8d5a | No loop (anti-cycling) condition
+k2d6971 | Hypothetical strategy profile inducing cycles
+k0bc65f [2L] | ⟪Self-loops⟫ appear when the game remains in the same state for two or more consecutive periods of time
+k45fe15 | But loops between different states are not allowed
+@page 35
+k80c3fb | Consistency of strategy specific partial orders
+k2ad3a6 | Two hypothetical inconsistent strategies
+kac04b4 | Two strategies that induce ⟪opposite⟫ transitions are ⟪inconsistent⟫
+ke2e1f0 | Note that in both cases the no-loop condition is satisfied
+@page 36
+k4ae244 | Definition of the Dynamic Directional Games
+ke799ef | Definition (Dynamic Directional Games, DDG)
+kfbb970 | Finite state Markovian stochastic game is a DDG if it holds:
+kd26c9a | Every feasible Markovian strategy $\sigma$ satisfeis the no loop condition.
+kcda573 [2L] | Every pair of feasible Markovian strategies $\sigma$ and $\sigma'$ induce consistent partial orders on the state space.
+@page 37
+kce7174 | Example of DDG: Martket tipping game
+k6fb176 | Dubè, Hitsch and Chintagunta, 2010 Marketing Science
+k0b20e0 | Tipping and Concentration in Markets with Indirect Network Effects
+k2b8bf9 [2L] | Two competing gaming **platforms** (Xbox vs. Playstation)
+kbfe9e6 [2L] | Number of games for each console depends on market share
+kc23f26 [3L] | Consumers choose product they believe will win the war of the standards, or delay purchase
+k5c77b1 [2L] | Brand choices are absorbing: adoption base can only increase
+k166f1f | $S_6$ (end
+@page 38
+k51e47d | Example of DDG: Patent race game
+k7d847e | Judd, Schmedders and Yeltekin, 2012 IER
+k9733a8 | Optimal Rules for Patent Races
+k539861 [2L] | Two firms are engaged in the N-steps race to acquire a patent
+k532ac5 | $S_{10}$ (end
+k387190 [2L] | Probability a step depends on the chosen R\&D investment
+k9c6e49 [2L] | Only forward steps are possible, no “forgetting”
+k183256 [3L] | Used state dependence structure to speed up computation of MPE by solving non-linear systems
+@page 40
+k1492b1 | DAG recursion to partition $S$ into stages
+k9f4d60 | Identify and then remove terminal states
+@page 60
+k49999d | Total order on the set of stages
+@page 61
+k1a47aa | Subgames of DDG and continuation strategies
+k1a0d5c | Subgames and continuation strategies
+@page 62
+k259826 | Backward induction on stages of DDG
+@page 72
+k9a18e6 | State Recursion versus Backward Induction
+k983d3d | State recursion – generalization of backward induction
+k78f6c4 | Runs on state space instead of time periods
+kf562d0 | Time $(t)$ evolves as $t\to t$ + 1 with probability 1
+k13d312 [2L] | For stages of state space $(\tau)$ transitions are stochastic and not necessarily sequential
+k8567e7 | Yet, probability of going $\tau\to\tau'$ is zero when $\tau'<\tau$
+k467925 [2L] | With multiplicity, state recursion is performed ⟪conditional⟫ of a particular ⟪equilibrium selection rule (ESR)⟫
+@page 73
+k67c990 | State Recursion and Model Transitions
+kf59e8c | Bellman equation in integrated/expected value function form
+k50ad77 | $V_i^{\sigma}(x)$ – value function integrated over taste shocks $\varepsilon_i$ of player $i$
+kdbffb5 | $v_i^{\sigma}(x)$ – choice-specific value function for action $a_i$
+k6b1d16 | Taking expectation over choices with choice probabilities $P_i^{\sigma}(a_i|x)$
+k44a7a4 | $e_i^{\sigma}(x)$ – expectation of taste shock $\varepsilon_i$ conditional on action $a_i$ chosen
+k1f949c | $f_i^{\sigma}(x'|a_i,x)$ – transition probability under $\sigma$ and action $a_i$ by player $i$
+kafd646 | Stacking over the points of state space, in matrix form
+ke56bd5 | Upper block-triangularity of the transision matrix $F$ is directionality
+@page 74
+k827341 | $F$ in simultaneous and alternating move leapfrogging
+k3a7faf | Simultaneous move: 14 points in the state space for $(c_1,c_2,c_3)$
+kb6a9d2 | Alternating move: 28 points with $m\in\{1,2\}\to2\times2$ blocks
+@page 76
+kef06ed | Multiplicity of stage equibiria
+ke61eb8 | Number of equilibria in the higher stages depends on the selected equilibria
+@page 77
+kdb8e23 | Best response correspondences for $\eta=0$
+@page 78
+k6d7d31 | Best response functions for $\eta>0$
+k4e0e5e | Investment probability of firm 1, P  «rotated»
+kc0b625 | Investment probability of firm 2, P  «Investment probability of firm 2, P»
+@page 79
+k198454 | Best response functions as $\eta\to0$
+@page 80
+kb0dade | Recursive Lexicographic Search Algorithm
+k22f96a | Building blocks of RLS algorithm:
+k6542e6 [2L] | State recursion algorithm solves the game ⟪conditional on⟫ equilibrium selection rule (ESR)
+ke5e76e | RLS algorithm efficiently cycles through ⟪all feasible⟫ ESRs
+kd77dc3 | Challenge:
+k2af48b | Choice of a particular MPE for any stage game at any stage
+k806378 [2L] | may alter the ⟪set⟫ and even the ⟪number⟫ of stage equilibria at earlier stages
+k61a01d | Need to find feasible ESRs
+k9dd05a [2L] | ESR = ⟪string of digits⟫ that index the selected stage equilibrium in each point
+@page 81
+k422353 | All possible ESR strings in lexicographic order
+k2d5b9b | Bound the maximum number of equilibria in each stage by $K=3$
+kbf9584 | ESR string
+kf7e463 | Lexicograph 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+@page 82
+k440934 | Indexing of points in the state space
+k03d407 | Lower index for dependent points, highest for terminal stage
+@page 83
+k02da88 | Preserving stage order in ESR strings
+kdf5a92 | Formalization of the ESR as stings of digits
+k1507fd | Digits arranged to preserve the dependence structure
+@page 84
+k447e42 | Recalculation of feasibility condition for new ESR
+k133789 | Avoid recalculation of subgames
+k9edccb | 0 0 0 0 0 0 0 0 0 0 0 0 0 0 always admissible
+kf131e1 | Nr of eqb
+k7ece00 | 0 0 0 0 0 0 0 0 0 0 0 0 **1** 0 admissible, solve
+kd468ec [2L] | No changes in the solution of the game including the number of stage equilibria
+k2fca11 | Might have change
+@page 85
+k7503c7 | Jumping over blocks of infeasibles ESRs
+k17d365 | Iteration:
+@page 86
+k2c7712 | Recursive Lexicographic Search (RLS) Algorithm
+k423e9f | Set ESR = $(0,\ldots,0)$
+k5b05aa | Run ⟪State Recursion⟫ using the current ESR
+k84c99d | Save the number of equilibria in every
+k0733d5 | stage game as ne(ESR)
+kb93c08 | Add 1 to the ESR in bases ne(ESR)
+k6d51e7 | to obtain new feasible ESR
+ke3358d [2L] | Stopping rule: successor function exceeds the maximum number with given number of digits
+k566527 | Return to step 2
+k8855fb | RLS = tree traversal!
+@page 87
+k5951ae | RLS Tree Traversal, step 1
+@page 88
+ke5f167 | RLS Tree Traversal, step 2
+@page 89
+k2dd09c | RLS Tree Traversal, step 3
+@page 90
+kea8cb6 | RLS Tree Traversal, step 4
+@page 91
+k5baee8 | RLS Tree Traversal, step 5
+@page 92
+k93f3c9 | RLS Tree Traversal, step 6
+@page 93
+kfd89c6 | RLS Tree Traversal, step 7
+@page 94
+k13027d | RLS Tree Traversal, step 8
+@page 95
+k743e0b | RLS Tree Traversal, step 9
+@page 96
+kcca13d | RLS Tree Traversal, step 10
+@page 97
+k6904ab | RLS Tree Traversal, step 11
+@page 98
+k0c0940 | RLS Tree Traversal, step 12
+@page 99
+k659624 | RLS Tree Traversal, step 13
+@page 100
+k66cd7c | RLS Tree Traversal, step 14
+@page 101
+k419533 | Main result of the RLS Algorithm
+kb29771 | Theorem (Decomposition theorem, strong)
+k3f98b4 [3L] | Assume there exists an algorithm that can find all MPE of every stage game of the DDG, and that the number of these equilibria is finite in every stage game.
+k902fa2 [2L] | Then the RLS algorithm finds all MPE of the DDG in $a$ finite number of steps, which equals the total number of MPE.
+ka60a97 | Iskhakov, Rust and Schjerning, 2016, ReStud
+kf6df07 [2L] | “Recursive lexicographical search: Finding all markov perfect equilibria of finite state directional dynamic games.”
+@page 102
+k214323 | Theorem (Decomposition theorem, weak)
+kae5bc8 [3L] | Assume there exists an algorithm that can find at least one MPE of every stage game of the DDG, and that the number of these equilibria is finite in every stage game.
+k4000db [2L] | Then the RLS algorithm finds some (at least one) MPE of the DDG in $a$ finite number of steps, which does not exceed the total number of MPE.
+@page 103
+k9433cf | RLS algorithm: running times
+kd7299a | Simultaneous moves
+k735d1e | Upper bound on number of MPE
+k2f5ddb | Actual number of equilibria
+k9003b4 | Time used
+k6e4421 | 0.008 sec.
+kfacc3a | 0.334 sec.
+k32108d [2L] | Upper bound on number of MPE 174,449,211,009,120,166,087,753,728 Actual number of equilibria
+kba9191 | Alternating moves
+kda433c | 0.006 sec.
+@page 104
+k1555b3 | Resolution to the Bertrand investment paradox
+k79990a | Theorem (Solution to Bertrand investment paradox)
+k1d468e | If investment is socially optimal at $a$ state point $(c_1,c_2,c)\in S$, then
+k82a883 [3L] | ⟪no investment by both firms cannot be an MPE outcome⟫ in the subgame starting from $(c_1,c_2,c)$ in either the simultaneous or alternating move versions of the dynamic game.
+k83c36e | We show:
+k260fc0 | Many types of endog. coordination is possible in equilibrium
+kad70f5 | ⟪Leapfrogging⟫ (alternating investments)
+k92782d | ⟪Preemption⟫ (investment by cost leader)
+k744883 | ⟪Duplicative⟫ (simultaneous investments)
+kde02fd | The equilibria are generally ⟪inefficient⟫ due to ⟪over-investment⟫
+k993687 | Duplicative ⟪or⟫ excessively frequent ⟪investments⟫
+@page 105
+kaa3bc4 | Multiplicity of equilibria
+k5763aa | Theorem (Sufficient conditions for uniqueness)
+kd78f34 | In the dynamic Bertrand investment and pricing game $a$ sufficient
+kbedbcf | condition for the MPE to be unique is that
+k076abd | firms move in alternating fashion (i.e. $m\not=0)$, and,
+k2d44b4 | for each $c>0$ in the support of $\pi$ we have $\pi(c|c)=0$.
+kac7d7e | If firms move simultaneously,
+k91eac3 | equilibrium is generally ⟪not unique.⟫
+k94ec80 | If technological change is stochastic,
+k8eb313 | Iskhakov, Rust and Schjerning, 2018, IER
+k8876bb [2L] | “The dynamics of Bertrand price competition with cost-reducing investments.”
+@page 106
+k7a2177 | Pay-offs in the simultaneous move game
+k5e31d7 | Theorem (Triangular payoffs in the simultaneous move game)
+kd77335 | Suppose that the $\{c_t\}$ process has fniite support, that there are no
+kbf2041 [2L] | idiosyncratic shocks to investment (i.e. $\eta$ = 0) and that firms move simultaneously
+kc91f5e [2L] | The (convex hull of the) set of the expected discounted equilibrium payoffs at the apex state $(c_0,c_0,c_0)\in Sisa$ triangle
+k00524b [4L] | The vertices of this triangle are at the points $(0,0),(0,V_M)$ and $(V_M,0)$ where $V_M=v_{N,i}(c_0,c_0,c_0)$ is the expected discounted payoffto firm $i$ in the monopoly equilibrium where firm $i$ is the monopolist investor.
+@page 107
+k65e4e1 | Pay-offmap
+@page 108
+k710248 | Pay-offs: alternating vs simultaneous move games
+kf08d1d | Panel (b): Simultaneous move
+kaf96d1 | Panel (a): Non−monotonic tech. progress
+k683c8e | 28528484 equilibria, 16510 distinct pay−off points
+k8b07c0 [2L] | 17826 equilibria, 792 distinct pay−off points Size: number of repetitions Color: efficiency
+k5d33c7 | Size: number of repetitions Color: efficiency
+@page 109
+k61b1fa | Efficiency of equilibria
+k364d53 | Simultaneous move game
+ke20889 | Theorem (Inefficiency of mixed strategy equilibria)
+k3745f7 [3L] | $A$ necessary condition for efficiency in the dynamic Bertrand investment and pricing game is that along MPE path only pure strategy stage equilibria are played.
+@page 110
+k72a8f3 | Efficiency: alternating vs simultaneous move games
+ka96e33 | Panel (c): Non−monotonic tech. progress
+k4af8be | Panel (d): Simultaneous move
+ke89453 | 8913 equilibria, 7817 leapfrog, 2752 mixed strategy
+ke04c18 | 14264242 equilibria, 2040238 leapfrog, 2730910 mixed strategy
+kc67268 [3L] | all equilibria leapfrog mixed strategy
+@page 111
+k3244e0 | Riordan and Salant: Full Preemption
+kd082e7 | Theorem (Riordan and Salant, 1994)
+kf549b4 | The continuous time investment game where
+k8ea0f8 | right to move alternates deterministically.
+ka061f1 | $K(c)=K$ and is not prohibitively high.
+kfcfe44 [2L] | technological progress is deterministic: $c(t)isa$ continuous, decreasing function
+k7c0801 | ⟪has $a$⟫ unique MPE ⟪with⟫
+k155a2a [2L] | ⟪preemptive investments:⟫ by only one frim and no investment in equilibrium by its opponent.
+k34553e [3L] | ⟪rent dissipation:⟫ discounted payoffs of both frims in equilibrium is 0, so the entire surplus is wasted on excessively frequent investments by the preempting frim.
+@page 112
+k42cb51 | We show by computing examples and counterexamples
+ke6c966 | ⟪Confirm⟫ R\&S the result with high Kand small $dt$
+k8df99f [2L] | ⟪Underinvestment:⟫ Rent dissapation is not a general outcome disappears when $K$ is low relative $dt$
+k3b0c89 [2L] | ⟪Leapfrogging:⟫ Preemption is not the general outcome - disappears when $K$ is even lower
+k608e05 | Random move alternation $\to$ ⟪Leapfrogging⟫
+kc187e1 | Random onestep technology $\to$ ⟪Leapfrogging⟫
+k3a6389 | Random multistep technology $\to$ ⟪Leapfrogging⟫
+kfd8706 | Simultaneous moves $\to$ ⟪Leapfrogging⟫
+@page 113
+k9a3c49 | Full preemption and rent dissipation
+kd811ad | Panel (a): Preemption and rent−dissipation
+kc07291 | monopoly  «monopoly»
+kd12b33 | Marginal Costs, Prices  «rotated»
+k6c82e6 | Time
+@page 114
+kc8f828 | Underinvestment
+k0fad7b | Rent-dissapation is not a general outcome - disappears when $K$ is low relative $dt$
+k6e60f3 | Panel (b): Underinvestment
+@page 115
+kaa258c | Leap-frogging
+kedd5ab | Preemption is not the general outcome - disappears when K is even lower
+k27b4ac | Panel (c): Leap−frogging
+@page 116
+k046239 | Random alternation $\to$ Leapfrogging
+k7ec40b | Riordan and Salant’s result is not robust
+ka87417 | Panel (a): Random alternating moves
+@page 117
+k7ca4eb | Panel (b): Non−monotonic tech. progress
+@page 118
+keba376 | Panel (c): Non−monotonic multistep tech. progress
+@page 119
+k3312d7 | Symmetric equilibria: $V_1(c_1,c_2,c)=V_2(c_2,c_1,c)$
+@page 120
+k7517cf | Failure of homotopy approach in leapfrogging game
+k05b5c9 | Homotopy parameter: $\eta$
+k61a86d [2L] | In each period each firm incurs additive random costs/benefit from not investing and investing
+kc5d4a4 [2L] | $\eta$ is a scaling parameter that index variance of idiosyncratic shocks to investment
+k7e3be0 | High $\eta\to$ unique equilibrium $\eta\to0\to$ multiple equilibria
+k6b776d | Problems:
+k046c2d | Multiplicity of equilibria $\to$ too many bifurcations along the path
+k19724d | Equilibrium correspondence is not lower hemi-continuous
+@page 121
+kba06c6 | Equilibrium correspondance, alternating move game: $V_{N,1}(c_0,c_0,c_0)$ vs. $\eta$
+@page 122
+kb999d3 | Video: Set of equilibrium outcomes as variance of shocks decreases to zero

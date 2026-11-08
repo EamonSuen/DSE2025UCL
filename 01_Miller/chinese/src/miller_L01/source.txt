@@ -1,0 +1,301 @@
+# 01_Miller/1 Introduction to dynamic structural econometrics.pdf  (36 pages)
+# id | English (inline math is a rough reconstruction; check it)
+
+@page 1
+kc26be0 | Introduction to Dynamic Structural Econometrics
+k2e9fff | Robert A. Miller
+k7c394f | DSE at UCL
+k0defa6 | June 2025
+kb5ef73 | Miller **(DSE at UCL** )
+k2473e9 | Introduction
+@page 2
+k4a713f | Some Context
+k1a1ac4 | Why structural econometrics?
+k2e57da | Internal consistency . . .
+k993c53 | rational individuals facing constraints
+k54b83c | uncertainty is treated as a probability distribution
+kb398e2 | equilibrium (competitive, Nash refinement, optimal contract)
+kd7613e | data generating process (as if sample comes from model population)
+ka2f817 | estimation (founded on LLN and CLT)
+kf2a886 | Elegance and transparency . . .
+k01ba0b | steps can be independently verified
+k3c3f61 | less discretion (but what is numerical zero?)
+k80aa76 | Causality . . .
+k59c4cf | a model based concept
+k63fcd0 | economic framework based on explicit assumptions
+kbe2378 | causal econometrics: open ended question about valid instruments
+k934baf | Counterfactual predictions . . .
+k24697a | derived from the model
+kff33ab | strictly applies only to the model
+@page 3
+k37e657 | Heterogeneity . . .
+k9bcc5a | Heterogeneity inspires, enriches and complicates **theory** . . .
+kc5f256 | specialization and trade
+k41da6f | social interactions within a homogeneous population seem limited
+kb49f0a | Heterogeneity in **dynamic** environments . . .
+k407dc5 | physical investment . . . and consumption/saving decision
+kad2945 | investment in human capital
+k6214c0 | atrophy and death
+k587c14 | sequential revelation of information
+k28cbca | **Inference** with heterogeneous populations . . .
+k52f0aa | complicates interpretation of aggregated data
+k848faa | aids identification if observed
+k9b9b94 | complicates estimation if unobserved
+@page 4
+k55fa27 | Policy evaluation . . .
+k335450 | How can we conduct **policy evaluation** without a model?
+kc1b855 | $(I$ don’t know.)
+ke74636 [2L] | Should the model’s **parameters be determined by the population** under consideration?
+kbe7bf5 | (At least wouldn’t that be the ideal?)
+k9b75bb | Can a model be useful **without being realistic?**
+k20f546 | (Are lab rats and mice really human?)
+k3c6d1f | What is realism . . . . accepting received **orthodoxy?**
+k3405b7 | (Who decides what is realistic?)
+k7b1078 | What is research . . **challenging** orthodoxy?
+k32acf4 | (in order to create value . . perhaps?)
+@page 5
+kc5925b | Where to Start
+ke5e429 | Data
+k0be2d3 [2L] | The data typically comprise a sample of individuals for which there are records on some of their:
+kfe44df | background characteristics
+k153eb4 | choices
+k264166 | outcomes from those choices.
+k03ccac [2L] | What are the challenges to making predictions and testing hypotheses when we take this approach?
+kb1b72d [2L] | The choices and outcomes of economic models are typically nonlinear in the underlying parameters of the model we wish to estimate.
+k4f6cbd [2L] | The data variables on background, choices and outcomes might be an incomplete description about what is relevant to the model.
+@page 6
+k705722 | Prototype Model
+k7208e6 | Choices
+k144330 [2L] | Each period $t\in\{1,2,\ldots,T\}$ for $T\leq\infty$, an individual chooses among $J$ mutually exclusive actions.
+k04dcf6 [2L] | Let $d_{jt}$ equal one if action $j\in\{1,\ldots,J\}$ is taken at time $t$ and zero otherwise:
+k563a6a [3L] | At an abstract level assuming that choices are mutually exclusive is innocuous, because two combinations of choices sharing some features but not others can be interpreted as two different choices.
+@page 7
+kd4890f | Information and states
+ke40cd2 [2L] | Suppose that actions taken at time $t$ can potentially depend on the state $z_t\in Z$.
+k473213 [2L] | For $Z$ finite denote by $f_{jt}(z_{t+1}|z_t)$, the probability of $z_{t+1}$ occurring in period $t$ + 1 when action $j$ is taken at time $t$.
+k0329a8 | For example in the example above, suppose $z_t=(w_t,k_t)$ where:
+kd93334 | $k_t\in\{0,1,\ldots \}$ are the number of births before $t$
+k88ee59 [2L] | $w_t\equiv d_{1,t-1}+d_{2,t-1}$, so $w_t$ = 1 if the female worked in period $t-1$, and $w_t$ = 0 otherwise.
+kbec249 [4L] | With up to 5 offspring, 3 levels of experience, the number of states including age (say 50 years) is 750. Add in 4 levels of education (less than high school, high school, some college and college graduate) and 3 racial categories, increases this number to 9000.
+@page 8
+k5d440d | Large but sparse matrices
+kbe817d | When $Z$ is finite there is a $Z\times Z$ transition matrix for each $(j,t)$.
+k0d1d2f | In the example above they have $9,000^2$ = 81 million cells.
+k5b0454 | In many applications the matrices are sparse.
+k85de6c | Suppose households can only increase the number of kids one at time.
+k4eb0f5 | They can only change their work experience by one unit at most.
+k286d79 | Hence there are at most six cells they can move from $(w_t,k_t)$:
+k776c9b [2L] | Therefore a transition matrix has at most 54,000 nonzero elements, and all the nonzero elements are one.
+k9e25db [2L] | Modeling the state space is an art . . . or $a$ task for machine learning?
+@page 9
+k5a960a | Preferences and expected utility
+k527a1d [3L] | The individual’s current period payoff from choosing $j$ at time $t$ is determined by $z_t$, which is revealed to the individual at the beginning of the period $t$.
+kd14190 | The current period payoff at time $t$ from taking action $j$ is $u_{jt}(z_t)$.
+k2c348b [2L] | Given choices $(d_{1t},\ldots,d_{Jt})$ in each period $t\in\{1,2,\ldots,T\}$ and each state $z_t\in Z$ the individual’s expected utility is:
+k8088d8 [2L] | where $\beta\in(0,1)$ is the subjective discount factor, and at each period $t$ the expectation is taken over $z_2,\ldots,z_T$.
+kafc3e0 | Formally $\beta$ is redundant if $u$ is subscripted by $t$.
+kd7ccf1 [2L] | We typically include a geometric discount factor to bound infinite sums of utility so that the optimization problem is well posed.
+@page 10
+ke5fa33 | Value Function
+kfa1583 [2L] | Write the optimal decision at period $t$ as a decision rule denoted by $d_t^o(z_t)$ formed from its elements $d_{jt}^o(z_t)$.
+k8cc146 [2L] | Let $V_t(z_t)$ denote the value function in period $t$, conditional on behaving according to the optimal decision rule:
+ke00315 | In terms of period $t+1$:
+@page 11
+k167a22 | Recursive Representation
+k22fc25 | Appealing to Bellman’s (1958) principle we obtain, when $Z$ is finite:
+@page 12
+kfdf5e0 | Optimization
+k3648b2 [2L] | To compute the optimum for $T$ finite, we first solve a static problem in the last period to obtain $d_T^o(z_T$ ) for all $z_T\in Z$.
+k263589 | Applying backwards induction $i\in\{1,\ldots,J\}$ is chosen to maximize:
+kbab569 [2L] | In the stationary infinite horizon case we might assume $u_{jt}(z)\equiv u_j(z)$ and that $u_j(z)<\infty$ for all $(j,z)$.
+kd62ef3 [3L] | Consequently expected utility each period is bounded and the contraction mapping theorem applies, proving $d_t^o(z)\to d^o(z)$ for large $T$.
+@page 13
+k4d4b82 | Heterogeneity and Inference
+k624c38 | Estimating a model when all heterogeneity is observed
+k129d29 [2L] | Let $v_{jt}(z_t)$ denote the flow payoff of any action $j\in\{1,\ldots,J\}$ plus the expected future utility of behaving optimally from period $t$ + 1 on:
+k427e71 | By definition:
+k3a0178 [2L] | Suppose we observe the states $z_{nt}$ and decisions $d_{nt}\equiv(d_{n1t},\ldots,d_{nJt})$ of individuals $n\in\{1,\ldots,N\}$ over time periods $t\in\{1,\ldots,T\}$.
+k545647 | Could we use such data to infer the primitives of the model:
+ke030fe [2L] | A consistent estimator of $f_{jt}(z_{t+1}|z_t)$ can be obtained from the proportion of observations in the $(t,j,z_t)$ cell transitioning to $z_{t+1}$.
+ke981b9 [3L] | There are $(J-1)\sum_{n=1}^NI\{z_{nt}=z_t\}$ inequalities relating the pairs of mappings $v_{jt}(z_t)$ and $v_{kt}(z_t)$ for each observation on $d_{nt}$ at $(t,z_t)$. Can we recursively derive the values of $u_{jt}(z_t)$ from the $v_{jt}(z_t)$ values?
+@page 14
+k0257e7 | Why unobserved heterogeneity is introduced into data analysis
+kf9da50 [3L] | Note that if two people in the data set with the same $(t,z_t)$ made different decisions, say $j$ and $k$, then $v_{jt}(z_t)=v_{kt}(z_t)$. This raises two potential problems for modeling data this way:
+k3fc234 [2L] | In a large data set it is easy to imagine that for every choice $j\in\{1,\ldots,J\}$ and every $(t,z_t)$ at least one sampled person $n$ sets
+k31fc33 [3L] | $d_{njt}$ = 1. If so, we would conclude that the population was indifferent between all the choices, and hence the model would have no empirical content because no behavior could be ruled out.
+k10d3fd [4L] | This approach does not make use of the information that some choices are more likely than others; that is the proportions of the sample taking different choices at $(t,z_t)$ might vary, some choices being observed often, others perhaps very infrequently.
+k408f14 [3L] | For these two reasons, treating all heterogeneity as observed, and trying to predict the decisions of individuals, is not a very promising approach to analyzing data.
+@page 15
+k4a362e | Unobserved heterogeneity
+k9eac31 [3L] | A more modest objective is to predict the probability distribution of choices margined over factors that individuals observe, but data analysts do not.
+k53551b [3L] | Predicting the behavior of a population (rather than individuals), essentially obliterates the difference between macroeconomics and microeconomics.
+k337f73 [2L] | We now assume the states can be partitioned into those which are observed, $x_t$, and those that are not, $\epsilon_t$.
+kfd149d | Thus $z_t\equiv(x_t,\epsilon_t)$.
+k12cd63 [2L] | Suppose the data consist of $N$ independent and identically distributed draws from the string of random variables $(X_1,D_1,\ldots,X_T,D_T)$.
+k90da60 | The $n^{th}$ observation is given by $⟦?⟧x_1^{(n)},d_1^{(n)},\ldots,x_T^{(n)},d_T^{(n)}⟦?⟧$ for
+@page 16
+kdcb483 | Data generating process
+keac182 [2L] | Denote the mixed probability (density) of the pair $(x_{t+1},\epsilon_{t+1})$, conditional on $(x_t,\epsilon_t)$ and the optimal action is $j$, as:
+ka77bf8 | The probability of $\{d_1,x_2,\ldots,d_{T-1},x_T,d_T\}$ given $x_1$ is:
+k4fe78d | where $g(\epsilon_1|x_1$ ) is the density of $\epsilon_1$ conditional on $x_1$.
+@page 17
+kd5158b | Maximum Likelihood Estimation
+k21c3dc [2L] | Let $\theta\in\Theta$ uniquely index a specification of $u_{jt}(z_t),f_{jt}(z_{t+1}|z_t)$ and $\beta$ under consideration.
+kf88609 | Conditional on  «Conditional on $x_1^{(n)}$ suppose $⟦?⟧d_1^{(n)},x_2^{(n)},\ldots,,d_T^{(n)}⟦?⟧^N$»
+ke78b52 | suppose  «Conditional on $x_1^{(n)}$ suppose $⟦?⟧d_1^{(n)},x_2^{(n)},\ldots,,d_T^{(n)}⟦?⟧^N$»
+k0b2a31 | was generated
+k408158 | by  «by $\theta_0\in\Theta$.»
+k90a2b2 [3L] | The maximum likelihood (ML) estimator, $\theta_{ML}$, selects $\theta\in\Theta$ to maximize the joint probability of observed occurrences conditional on the initial conditions:
+kd119c8 | The first applications followed this route:
+k8b9613 [2L] | **Robert Miller** (JPE 1984) on job turnover . . . updating beliefs about nonpecuniary benefits of job match
+k7b1271 [2L] | **Kenneth Wolpin** (JPE 1984) on fertility . . . different unobserved types of females
+@page 18
+kfdd3c5 | Integration or simulation
+k19bb3c [2L] | **Ariel Pakes** (Econometrica 1986) introduced simulation to substitute for numerical integration in his work on patent renewal.
+k8feb02 [2L] | There has been considerable amount of work devoted to handling multiple integration, some of which I will discuss tomorrow.
+ke26f4d [2L] | **Victor Aguirregaberia’s** lecture on fixed effects tomorrow is a new approach to this challenge.
+@page 19
+k0a9d04 | A Framework with Conditional Independence
+kc86c22 | Conditional Independence Assumption
+kdd0383 [3L] | **John Rust** (Econometrica 1987) dispensed with the integration altogether by introducing the conditional independence assumption in Harold Zurcher paper.
+kc4f313 [3L] | The joint mixed density function for the state in period $t+1$ conditional on $(x_t,\epsilon_t)$, denoted by $g_{t,x,\epsilon}(x_{t+1},\epsilon_{t+1}|x_t,\epsilon_t$ ), satisfies the conditional independence assumption:
+k365862 | where:
+k92f09b | $g_t(\epsilon_t|x_t)$ is a conditional density for the disturbances
+k199210 | $f_{jt}(x_{t+1}|x)$ is a transition probability for $x$ conditional on $(j,t)$.
+kda0a80 [2L] | This assumption is widely used in the estimation of dynamic discrete choice models.
+@page 20
+k246c5d | Bounded additively separable preferences
+k8a9f06 [2L] | Denote the discount factor by $\beta\in(0,1)$ and the current payoff from taking action $j$ at $t$ given $(x_t,\epsilon_t)$ by $u_{jt}(x_t)+\epsilon_{jt}$.
+k423227 [3L] | To ensure a transversality condition is satisfied, assume $\{u_{jt}(x)\}_{t=1}^T$ is a bounded sequence for each $(j,x)\in\{1,\ldots,J\}\times\{1,\ldots,X\}$, and so is:
+k22a47c [2L] | At the beginning of each period $t$ the agent observes the realization $(x_t,\epsilon_t)$ chooses $d_t$ to sequentially maximize:
+kedd85f | where the expectation is taken over future realized values
+k12d0be | $x_{t+1},\ldots,x_T$ and $\epsilon_{t+1},\ldots,\epsilon_T$ conditional on $(x_t,\epsilon_t)$.
+@page 21
+kb7154c [2L] | Denote the optimal decision rule at $t$ as $d_t^o(x_t,\epsilon_t)$, with $j^{th}$ element $d_{jt}^o(x_t,\epsilon_t)$, and define the social surplus function as:
+k744d18 | The conditional value function, $v_{jt}(x_t)$, is defined as:
+k6fa94c [2L] | Integrating $d_{jt}^o(x_t,\epsilon)$ over $\epsilon\equiv(\epsilon_1,\ldots,\epsilon_J)$ define the conditional choice probabilities CCPs by:
+@page 22
+k624057 | Extension to Dynamic Markov Games
+keca84d | Players, choices and state variables
+k67b2ef | Consider a dynamic game for $I$ countable players:
+k8d7123 | $d_t^{(i)}\equiv⟦?⟧d_{t1}^{(i)},\ldots,d_{tJ}^{(i)}⟦?⟧$ choice of player $i$ in period $t$.
+k3bac03 | $d_t\equiv⟦?⟧d_t^{(1)},\ldots,d_t^{(I)}⟦?⟧$ choices of all the players in period $t$.
+kfdae47 | $d_t^{(-i)}\equiv⟦?⟧d_t^{(1)},\ldots,d_t^{(i-1)},d_t^{(i+1)},\ldots,d_t^{(I)}⟦?⟧$ choices of all but $i$ in $t$.
+kf7a576 | $x_t$ value of state variables of the game in period $t$.
+ka3d394 | $F(x_{t+1}|x_t,d_t$ ) transition probability for $x_{t+1}$ given $(x_t,d_t)$.
+k5c145a | $F_j⟦?⟧x_{t+1}⟦?⟧⟦?⟧⟦?⟧x_t,d_t^{(-i)}⟦?⟧\equiv F⟦?⟧x_{t+1}⟦?⟧⟦?⟧⟦?⟧x_t,d_t^{(-i)},d_{jt}^{(i)}=1⟦?⟧$ transition
+kd9b81a | probability for $x_{t+1}$ given $x_t,i$ choosing $j$, and everyone else $d_t^{(-i)}$.
+@page 23
+k5c14f4 | Payoffs, information and CCPs
+k5be172 | The summed discounted payoff to $i$ from playing the game is:
+kb6090d | $U_j^{(i)}⟦?⟧x_t,d_t^{(-i)}⟦?⟧$ depends on the choices of all the players.
+kbb08b2 | $\epsilon_t^{(i)}\equiv⟦?⟧\epsilon_{1t}^{(i)},\ldots,\epsilon_{Jt}^{(i)}⟦?⟧$ is iid across $i$ with density $g⟦?⟧\epsilon_t^{(i)}|x_t⟦?⟧$.
+k12b33b | neither $d_t^{(-i)}$ nor $\epsilon_t^{(-i)}$ are observed by $i$.
+k64e089 | Analogous to the single agent setup define:
+k0b1ea4 | $p_j^{(i)}(x_t)=⟦?⟧d_j^{(i)}⟦?⟧x_t,\epsilon_t^{(i)}⟦?⟧g⟦?⟧\epsilon_t^{(i)}⟦?⟧d\epsilon_t^{(i)}$ as the CCP for the $i$
+k7ccd73 | choosing $j$ in period $t$.
+k88b1ea | $P⟦?⟧d_t^{(-i)}|x_t⟦?⟧=\prod_{i'=1,i'\not=i}^I⟦?⟧\sum_{j=1}^Jd'_{jt}^{(i)}p'_j^{(i)}(x_t)⟦?⟧$ as the CCP for all
+k98efb5 | the other players choosing $d_t^{(-i)}$ in period $t$.
+@page 24
+k550018 | Equilibrium defined
+k03f0c9 | Then $⟦?⟧p_1^{(i)}(x_t),\ldots,p_J^{(i)}(x_t)⟦?⟧$ is an equilibrium if $d_j^{(i)}⟦?⟧x_t,\epsilon_t^{(i)}⟦?⟧$ solves
+k87743c | the individual optimization problem (1) for each $⟦?⟧i,x_t,\epsilon_t^{(i)}⟦?⟧$ when:
+ka5230b | and:
+kc5570f | To analyze dynamic games taking this form:
+k43a0b9 | interpret $u_j^{(i)}(x_t)$ with (2) and $f_j^{(i)}⟦?⟧x_{t+1}⟦?⟧⟦?⟧⟦?⟧x_t^{(i)}⟦?⟧$ with (3)
+kb79ad7 [3L] | in estimation treat the best reply function as the solution to a dynamic discrete choice optimization problem within the equilibrium played out by the data generating process DGP.
+ke0bbbb | Vi tor Aguir g b i  «Vi tor Aguir g b i»
+k3eb477 | ⟪ill $\mathrm{le}^{In}\mathrm{c}^{tro}\mathrm{t}^d\mathrm{u}^u\mathrm{r}^{ct}\mathrm{e}^{ion}$⟫
+kd78a18 | ti g h
+@page 25
+k99719e | "1000 flowers bloom . . . 100 schools of thought contend"
+k2da713 | How should we solve and estimate dynamic models?
+k34039c [2L] | Nesting the equilibrium solution within the estimation algorithm:
+k6a48ff [2L] | integrate the model solution into the estimation routine with a nested fixed point algorithm, for example NFXP
+k63fd56 | yields the maximum likelihood estimator.
+k103d72 | is a way to achieve asymptotic effi ciency.
+k18589f [2L] | and the fixed point algorithm doubles as the solution to counterfactuals.
+kea4525 [2L] | **Bertel Schjerning** and later **Fedor Iskhakov** will lecture on this approach later today.
+@page 26
+k00be63 | Separating inference from the model solution:
+k8a078f [2L] | exploit model data generating process (without solving it) to determine identification and obtain estimates
+k73a93d | gives the identification conditions.
+k7a861d | yields less effi cient but much faster estimates.
+k7d8f42 | requires the model solution to compute counterfactuals.
+kc9b0d6 | I take this approach in the next lecture.
+@page 27
+k8c887d | Calibration methods:
+k22d29b | typically disconnects sample variation from population probabilities.
+k673813 | can dispense with the estimation step altogether.
+keff975 [2L] | use numerical values drawn from published empirical work to quantify model solution, sometimes called calibration.
+kf4d96a | do not typically gives estimates of precision.
+kcbea1b | focuses on key restrictions and model moments.
+@page 28
+k3d9010 | Academics squabble . . .
+kcb2a79 | Relevant factors for this debate might be:
+k428064 | the kind of data including how much
+kba5808 | the complexity of the model
+k2f212e | the sensitivity of the estimates to the underlying assumptions
+kb936c1 | is sample variation an important factor in assessing precision
+kc98f8f | what is the specific policy question
+kee1e98 [2L] | Let’s postpone that discussion until we see more clearly what each approach entails.
+@page 29
+ka06f11 | Bus Engines (Rust,1987)
+k3e33a8 | A renewal problem
+k2ce305 | Mr Zurcher maximizes the expected discounted sum of payoffs:
+k6ecf9b | $d_{t1}$ = 1 and $x_{t+1}$ = 1 if Zurcher replaces the engine
+kcb8762 [2L] | $d_{t2}$ = 1 and bus mileage advances to $x_{t+1}=x_t$ + 1 if he keeps the engine
+k9a2285 | buses are also differentiated by a fixed characteristic $s\in\{0,1\}$.
+k9e8e74 | the choice-specific shocks $\epsilon_{tj}$ are iid Type 1 extreme value (T1EV).
+kc90cf3 | Define the conditional value function for each choice as:
+k958f57 | if  «if $j=1$»
+k36384e | where $V(x,s)$ denotes the social surplus function.
+@page 30
+k9b444b | Bus Engines
+k3d15c7 | The DGP and the CCPs
+kbfd441 [2L] | We suppose the data comprises a cross section of $N$ observations of buses $n\in\{1,\ldots,N\}$ reporting their:
+k18f9b5 | fixed characteristics $s_n$,
+k7e6ce9 | engine miles $x_n$,
+ke06ab0 | and maintenance decision $(d_{n1},d_{n2})$.
+ka4e763 [2L] | Let $p_1(x,s)$ denote the conditional choice probability (CCP) of replacing the engine given $x$ and $s$.
+k324531 | Stationarity and T1EV imply that for all $t$:
+ke374d9 [2L] | An ML estimator could be formed off this equation following the steps described above.
+@page 31
+ke7e6c4 | Exploiting the renewal property
+k3550e4 | The previous lecture implies that if $\epsilon_{jt}$ is T1EV, then for all $(x,s,j)$:
+k2ba4ee | Therefore the conditional value function of not replacing is:
+kab81ad | Similarly:
+kb7102d | Because bus engine miles is the only factor affecting bus value given $s$:
+@page 32
+k8feb42 | Using CCPs to represent differences in continuation values
+k8a275f | Hence:
+ke24943 | Therefore:
+k2e68b5 [2L] | Intuitively the CCP for current replacement is the CCP for a static model with an offset term.
+kad5e97 [2L] | The offset term accounts for differences in continuation values using future CCPs that characterize optimal future replacements.
+@page 33
+k60fcf4 | CCP estimation
+k5f8458 | Consider the following CCP estimator:
+ka4ea10 | Form a first stage estimator for $p_1(x,s)$ from the relative frequencies:
+k1f80ff [2L] | Substitute $\hat{p}_1(x,s)$ into the likelihood as incidental parameters to estimate $(\theta_1,\theta_2,\beta)$ with a logit:
+k8e08b3 [2L] | Correct the standard errors for $(\theta_1,\theta_2,\beta)$ induced by the first stage estimates of $p_1(x,s)$.
+ke92c33 | Note that in the second stage $\ln ⟦?⟧_{p1(xn+1,sn)}^{p1(1,sn)}⟦?⟧$ enters the logit as an
+k15e145 [2L] | individual specific component of the data, the $\beta$ coeffi cient entering in the same way as $\theta_1$ and $\theta_2$.
+@page 34
+k4f05ee | Monte Carlo Study (Arcidiacono and Miller, 2011)
+kf22e43 | Modifying the bus engine problem
+k3567d4 | Suppose bus type $s\in\{0,1\}$ is equally weighted.
+k0b25cd | Two state variables affect wear and tear on the engine:
+k33eeee | total accumulated mileage:
+k3ab265 [2L] | a permanent route characteristic for the bus, $x_2$, that systematically affects miles added each period.
+k5ee079 | More specifically we assume:
+k63302a [2L] | $\Delta_t\in\{0,0.125,\ldots,24.875,25\}$ is drawn from a discretized truncated exponential distribution, with:
+k3ddc3d [2L] | $x_2$ is a multiple 0.01 drawn from a discrete equi-probability distribution between 0.25 and 1.25.
+@page 35
+k40588d | Monte Carlo Study
+k9d4498 | Including the age of the bus in panel estimation
+kb022ad | Let $\theta_{0t}$ denote other bus maintenance costs tied to its vintage.
+kf06fe3 | This modification renders the optimization problem nonstationary.
+k020134 | The payoff difference from retaining versus replacing the engine is:
+k66c959 | Denoting $x_t\equiv(x_{1t},x_2)$ , this implies:
+@page 36
+k6a3172 | Extract from Table 1 of Arcidiacono and Miller (2011)

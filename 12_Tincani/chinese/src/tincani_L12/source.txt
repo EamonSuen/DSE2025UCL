@@ -1,0 +1,401 @@
+# 12_Tincani/Tincani_ES_summer_school_2025.pdf  (63 pages)
+# id | English (inline math is a rough reconstruction; check it)
+
+@page 1
+k6623ac | Econometric Society Summer School in Dynamic Structural Econometrics 2025
+k104ce8 | Michela Tincani (UCL)
+k426afc | Using Subjective Expectations Data to Estimate
+k8f533a | Educational Choice Models
+k84aa7e | Michela M. Tincani
+#= kf63ce8 | University College London  ⇒ 伦敦大学学院（UCL）
+@page 2
+k5497ee | Education Choices and Forward-Looking Agents
+k155258 | Education choices are dynamic in nature :
+kc1154c [2L] | Higher-ed : lost earnings today vs labor market returns tomorrow
+k80a8fa [2L] | School choice : private school fees (or location-premium) today vs achievement tomorrow
+k1f4215 [2L] | College admissions : effort cost today vs higher admission chances tomorrow
+k2000bf | Let us characterize the future state of nature as $\gamma^*$.
+@page 3
+k6533cd | The problem of identification
+k549cdf [2L] | A student wants to make the education choice that maximizes her utility given a state of nature $\gamma^*$:
+kf1c391 | $\gamma^*$ are the future returns to each choice $c$
+@page 4
+k6b2018 | **Problem :** the student does not observe $\gamma^*$
+@page 5
+kb2ad89 [3L] | Assume the student holds a subjective probability function over the states of nature, $Q(\gamma;\beta)$, and maximizes subjective expected utility :
+k875071 [2L] | With data on choices but not on $Q(\gamma;\beta),\theta$ and $\beta$ are not separately identified without further assumptions.
+@page 6
+ka2e11a | Typical assumption : $Q(\gamma;\beta)$ is determined by rational
+k78be7f | expectations
+ke58cfe | Specify a model for the Data Generating Process
+kb7bac4 [2L] | Assume $Q(\gamma;\beta)$ coincides with the objective probability distribution of $\gamma^*$
+@page 7
+k3e86bb | Is the assumption of Rational Expectations reasonable?
+k3a0c56 [11L] | “I would particularly stress that decision makers and empirical economists alike must contend with the logical unobservability of counterfactual outcomes. Much as economists attempt to infer the returns to schooling on schooling choices and outcomes, youth may attempt to learn through observation of the outcomes experienced by family, friends, and others who have made their own past schooling decisions. However, youth cannot observe the outcomes that these people would have experienced had they made other decisions. The possibilities for inference, and the implications for decision making, depend fundamentally on the assumptions that youth maintain about these counterfactual outcomes."
+k4abdd7 | Measuring Expectations, Manski, Econometrica 2004
+@page 8
+kb1a362 | Subjective Belief Data
+k69bc9d [2L] | One solution to the problem of identification is to use subjective belief data on :
+k27f9a3 [2L] | Stated choices, i.e., probability of making various choices in future
+k03e148 | See Giustinelli (2022) for a survey.
+@page 9
+k1b9ca1 [2L] | These data can serve various purposes when estimating educational choice models :
+ka5a581 | Inform the model (Arcidiacono, Hotz, Maurel, and Romano
+k9acefb [2L] | Validate the model (Delavande and Zafar (2019); Van der Klaauw (2012); Wolpin and Gonul (1985))
+k40cf72 [2L] | Model learning using panel of beliefs (Stinebrickner and Stinebrickner (2014); Wiswall and Zafar (2015))
+k65a7fb [3L] | Separately identify $\theta$ and $\beta$, and compare outcomes/welfare to rational expectations benchmark (Kapor, Neilson, and Zimmerman (2020); Tincani, Miglino, and Kosse (2025))
+@page 10
+k4fe3b6 | I will give an overview of 1-3, and focus on 4.
+@page 11
+kfd0cbb | Purpose 1 : Inform the Model
+k48dac0 | Belief Data Collection
+k4a74e0 | Arcidiacono et al. (2020) elicit, for each student $i$,
+k5c3139 | $\gamma_i(c)$ : expected earnings in occupation $c\in\{0,1\}$
+kfbb5d9 | $\pi_i(c)$ : stated probability of choosing $c$ in the future
+k6876c8 | Defining Returns
+kc3b947 | Key Insights
+k4d6beb | ATT $>$ ATE
+k5391a5 [3L] | $\Rightarrow$ Students positively sort into occupations offering higher perceived returns.
+kc8ff99 | Average Treatment Effects
+k8b69c6 [3L] | But 73\% of students did not place all mass on the highest-return occupation.
+k682181 | ATE =
+k8cd2df | $⟦?⟧\Delta\gamma_i$, ATT = $⟦?⟧\pi_i(1)\Delta\gamma_i$.
+@page 12
+kfb76ee [2L] | Roy-Model of occupational choice based on expected earnings and non-pecuniary factors.
+@page 13
+ke934c9 | Purpose 1 : Test of Sorting on Gains
+kb90e78 | **Inversion :** Under Type I Extreme-Value shocks,
+kf911df | Relate utilities to expected earnings and other factors :
+k38c5f6 [3L] | where $X_i$ are controls for demographics and major. Assume error orthogonal to earnings term conditional on $X_i\to$ violated if beliefs and preferences not captured by $X_i$ correlate.
+k0c35ee [4L] | **Key estimates : $\alpha>0$,** implying sorting into occupations based on ex-ante gains, $\mathrm{but}⟦?⟧\beta\not=0$, implying sorting also on other factors. Mean elasticity across occupations : $\to$ 10\% in expected earnings $\to\uparrow7.9\%$ subj $\mathrm{prob}$ of choosing that occupation.
+k406928 [4L] | **Conclusion : $\alpha>0$** confirms positive sorting on perceived returns, but $\beta\not=0$ and large share who “leave money on the table” show that non-pecuniary considerations (credentials, tastes, switching-costs) play a quantitatively important role.
+@page 14
+k92af11 | Purpose 2 : Model Validation
+kc81fda | Let the (random) utility that student $i$ attaches to choice
+k986b1b | be  «$c\in C=\{0,1\}$ be»
+k912d49 [2L] | where $v(c,\gamma^*;\theta)$ is the deterministic payofffor choice $c$ under state $\gamma^*$, and $\varepsilon_i$ an i.i.d. shock.
+k23d7d7 | The student does not know the true $\gamma^*$, but holds subjective beliefs
+k8b9d4c | Then the probability she chooses $c$ = 1 is
+@page 15
+k0b3119 | If $\varepsilon\sim$ Type I EV, this becomes
+kf51ea0 [3L] | $\Rightarrow$ The expected choice probabilities $P_i(c|\theta,\beta)$ depend on both the structural utility parameters $\theta$ and on what we assumed about the belief distribution $(Q(\gamma;\beta))$.
+@page 16
+k76229c [3L] | If we have data $\pi(c)$ on the subjective choice probabilities, a.k.a. stated (probabilistic) choices, we can validate our model (Wolpin and Gonul (1985)) :
+@page 17
+kbec184 | If model and expectations are not consistent with each other :
+k96cd0f [2L] | Check if expectations are better than model at predicting actual future choices
+k1f9d23 [3L] | If so, expectation data contain information about choice determinants not captured in the model (e.g. biased beliefs if model assumed RE)
+@page 18
+k35f5ce [3L] | Delavande and Zafar (2019) is a recent example using stated choices to validate a model of university choice in Pakistan. In the model :
+k075cd0 [2L] | Monetary returns, non-pecuniary factors, and financial constraints determine choice
+kb5a90e [2L] | Elicit stated choices at baseline and in a hypothetical choice scenario in which students do not have financial constraints
+k1de129 [2L] | Estimate life-cycle model using stated choices under baseline financial situation
+kd3449a [2L] | Use model to predict choice probabilities in counterfactual without credit constraints
+kc53bf2 [2L] | Compare predicted choice probabilities to elicited stated choices to validate the model
+@page 19
+k828be2 | Purpose 3 : Modelling Learning
+k57c766 [3L] | **Beliefs evolve :** Students start with priors on their own ability and on returns to different educational choices, then revise these as they gain information.
+k7c1cf6 | Empirical examples :
+k26e058 [3L] | Process of choosing $a$ major : Stinebrickner and Stinebrickner (2014) use 12 surveys per year to show how beliefs about graduating in STEM vs. non-STEM evolve over time.
+k32f42b [4L] | Information shocks on earnings : Wiswall and Zafar (2015) randomly provide undergraduates with true population earnings distributions and document how their beliefs and stated major-choice probabilities update pre- vs. post-treatment
+k76cde7 [3L] | Key idea : With a panel of beliefs $\{Q_{i,t}\}_{t=1}^T$, we can explicitly model and estimate belief updating within our structural choice framework $\to$ shed light on how beliefs evolve.
+@page 20
+kb937ba | Recall for binary choices $C=\{0,1\}$ at time $t=1$:
+kfd5d35 | Observing repeated beliefs $\{Q_{i,t}\}$ allows us to write
+@page 21
+k68cdcc [2L] | **Stinebrickner and Stinebrickner (2014) : $Q_t$** evolves as students take courses and observe grades.
+#= k68c2cc | Model  ⇒ 模型
+k149a79 [3L] | Only grades in STEM courses affect beliefs about STEM performance, hence, students revise science graduation probabilities more slowly than in other courses.
+k326801 [3L] | **Wiswall and Zafar (2015) :** Experimental information treatment provides exogenous shocks to beliefs ; within-individual pre/post comparisons identify the causal $\Delta Q\to\Delta\pi$ mapping.
+k75c1fa | Student-specific taste parameters are the main driver of major choices.
+@page 22
+k3837d5 | Purpose 4 : Comparisons to the RE Benchmark
+k246578 [2L] | With data on $Q(\gamma;\beta)$, we can separately identify beliefs and preferences.
+k230b4f [3L] | If we reject Rational Expectations (RE), we can do counterfactual simulations that replace $Q(\gamma;\beta)$ with its RE counterpart
+kfff223 | By comparing counterfactual to baseline model simulations, we
+k9e48df | can quantify :
+kf604ca | effect of belief errors on choices and outcomes
+kb6d859 | interaction of beliefs with effects of policies
+k6cd637 | welfare cost from belief biases
+k9ee882 | interaction of beliefs with welfare assessment of policies
+@page 23
+kaeb806 [4L] | **Kapor, Neilson, and Zimmerman (2020)** use a school-choice model and data on subjective admission likelihoods to show how the presence of belief errors can reverse the welfare assessment of two alternative policies
+kfc6bbe [4L] | **Tincani, Miglino, and Kosse (2025)** use a model of pre-college effort and college admissions and data on perceived returns to pre-college efofrt to measure how belief errors shape the incentive response to preferential college admissions.
+@page 24
+k6a656a | Purpose 4 : School-Choice with Subjective Admission Beliefs
+k77c226 [3L] | Students submit a rank-order list $a$ to a Boston-style mechanism (= get admission advantage at schools you $\mathrm{rank}$ higher) in New Haven. Let $j$ index a school. Define :
+k297c0f | $p_{ija}^s$ = student i’s subjective belief of admission at $j$ under application $a$,
+ka84e03 | $\mathrm{p}_{ija}^r$ = true (RE) admission probability at $j$ under application $a$.
+k20ee34 | Student i’s decision solves :
+ked56f8 | $\to$ Trade-offbetween admission $\mathrm{prob}$ and preference : a strategic
+k1d38c2 [2L] | applicant may not want to $\mathrm{rank}$ truly most preferred choice first if chances of admission there are low.
+@page 25
+k618137 | Define optimism :
+kcf8a76 | Evidence of errors in beliefs :
+k90fa38 [2L] | ⟪Figure –⟫ Distribution of optimism in the New haven Boston-style mechanism (Kapor, Neilson, and Zimmerman (2020))
+kfbda45 | Beliefs are offby 30-40 p.p. on average.
+@page 26
+k26756d | Evidence of strategic play based on biased beliefs :
+k99e283 [2L] | ⟪Figure –⟫ Fraction listing truly most-preferred first by subjective and RE beliefs (Kapor, Neilson, and Zimmerman (2020))
+@page 27
+kb71a5c | Purpose 4 : Welfare Under Subjective Beliefs vs. RE
+k0c6a56 [3L] | Define aggregate welfare under mechanism $M$ using realized allocation probabilities $\pi_{ij}^M$ and utilities $\nu_{ij}$. Consider $M=\{Boston,DA\}$. Under $DA$, truthfulness is a dominant strategy.
+kb7d932 | Then
+kf4efe8 | Findings :
+kc99e94 | Under observed subjective beliefs, $W^{DA}>W^{Boston}$ (DA gains
+k1b4bfb | Under RE, $W^{Boston}>W^{DA}$ (Boston gains $\approx3\%)$
+k5f550b | Ignoring belief errors reverses the policy ranking.
+@page 28
+k45f084 | Purpose 4 : Subjective Beliefs and Affirmative Action
+k900098 [2L] | Preferential admissions to college for disadvantaged students are adopted to reduce SES-gaps in college enrollment
+k17218f [3L] | They change the incentives to exert pre-college effort by changing the admission rules (e.g. waive entrance exam requirement)
+kcdef66 [4L] | Tincani, Miglino, and Kosse (2025) ask : How do students’ subjective beliefs about their admissions chances and their future college success shape these incentive effects and, ultimately, these policies’ college enrollment impacts?
+@page 29
+k1f79af | Empirical Context : PACE (Chile)
+kca31a0 | Program Overview
+k471afb [2L] | **PACE** (Programa de Acompañamiento y Acceso Efectivo a la Educación Superior) targets disadvantaged high schools.
+k8078ab [2L] | Graduates in the top 15\% of their cohort receive guaranteed college admission.
+ka2df46 [2L] | Students may take the national exam and apply via the regular selection process.
+k5bc33e | Study Population Characteristics
+kb8ab86 [2L] | Academic preparedness : Grade-10 test scores on average $1.5$ SD below those of regular admittees.
+k6d8fe5 [2L] | Socioeconomic status : Household income $\approx33\%$ of the mean for regular admitees.
+kaa6b88 | Policy Rollout \& Identification of Incentive Effects
+k89a140 | Random introduction of PACE across eligible schools in 2016.
+k3d0bea | Creates exogenous variation in guaranteed admission incentives.
+@page 30
+kd470eb | Impacts of PACE on Effort and Enrollment
+k461ec9 | College Enrollment Effects
+ke5b7ab | ∆ First-year enrollment $:+3.0$ pp (+35\% of control)
+kfe2334 | ∆ Fifth-year enrollment $:+1.5$ pp (+30\% of control)
+kcfb960 | $\Rightarrow$ college entrants from PACE schools drop out at higher rate
+k10f25c | Pre-College Effort \& Achievement
+ka7ca52 | ∆ Grade 12 test scores $:-0.10$ SD
+k67d293 [2L] | ∆ Self-reported study efofrt $:-0.9$ SD (for national exam prep and school work)
+k26b0fc | Source : Administrative and survey data.
+@page 31
+k111f80 | Impact Mechanisms
+k1eb33e | Waning College Enrollment Effects
+kc2c114 | ∆ college match (major, geographic location, selectivity) : ✗
+k241c42 | Worse measured ability of college entrants : ✗
+k58a519 | Worse college preparedness due to lower pre-college effort :
+ka7e7ec | Worse unmeasured ability of college entrants : ✓
+k8f3207 | Negative Pre-College Effort \& Achievement Effects
+kbf3051 [2L] | Teacher and school factors (grading, teaching effort, focus of instruction, support classes) : ✗
+k9a1ed7 | Lower perceived returns to college : ✗
+kbcfcac | Response to perceived incentives :
+kc31698 | Perception that pre-college effort does not matter for college success :
+@page 32
+k120e57 | Dynamic Structural Model of Education Choices
+k24d505 | Objectives
+k775b78 | Key Model Mechanisms
+kf0693c | Replicate experimental
+k6be4e4 | Pre-College Effort
+kf56229 | findings via a tractable model
+k477550 [2L] | Affects true admission \& persistence probabilities
+k9f02ac | Quantify mechanism
+k9d5b6e | contributions
+k7dd997 | Selection into college
+k18f989 | Evaluate counterfactual
+kff7c04 [2L] | Based on observed and unobserved characteristics
+k1d93a9 | policy designs
+kb4b743 | Subjective Beliefs
+k6c8a74 [2L] | Perceived link between efofrt and admission/persistence chances
+k7a95d7 | Allocation Rule
+kc1a8ac [2L] | Objective admission likelihoods determine seat assignment
+@page 33
+kc76b60 | Next : Formalize these mechanisms in $a$ dynamic programming
+k2cec28 | framework.
+@page 34
+k95042a | Model Sketch : Beliefs about Regular Channel Admissions
+k6fd7e1 | At time 0, students form beliefs about :
+ka9f7c0 | The entrance exam score $PSU_i^b$:
+k9a9337 | The chances of regular admission :
+k6dbd07 | where $c_i^{Rb}\sim N(\bar{c}^{Rb},\sigma_{cRb}^2)$.
+@page 35
+kb48a74 | Model Sketch : Beliefs about Preferential Admissions
+kdf099e | The GPA $GPA_i^b$:
+kffb310 | The chances of preferential admission :
+kca44a9 | where $c_i^{15b}\sim N(\bar{c}^{15b},\sigma_{c15b}^2)$.
+k61249d [2L] | Assume students best-respond to elicited perceived cutoffwithout imposing equilibrium beliefs (Stahl and Wilson (1995)).
+@page 36
+k49aba7 | Estimate Perceived Production Functions
+k055628 [3L] | We exploit linked survey-administrative data to estimate the perceived production functions of PSU and GPA outside of the model.
+kae662d | From admin data, we observe $X_i$.
+k52788f | From survey data, we measure :
+kdc3dec | Details
+@page 37
+k24be0e | As a function of observed effort $e_i^o=e_i+\epsilon_i^{mee},\bar{Y}_i^b$ is equal to :
+k38b4e9 | Define the expected score net of the measured contribution of
+k8f9357 | effort : $\bar{Y}_i^{b,net}=\bar{Y}_i^b-\beta_1^be_i^o$, which is data, then :
+kc73162 | Under orthogonality of $\epsilon_i^{mee}$, OLS estimation of (1) gives us
+k785c78 | consistent estimates of $\beta_0^b,\beta_2^b$.
+@page 38
+k28ba41 | Figure –
+k00c0ca | Goodness of fit of perceived PSU and GPA production functions at exerted
+kedbe9e | effort levels.
+@page 39
+kca6004 | Model Periods
+kad79c3 | Students characterized by baseline characteristics $X_i$ and unobserved type
+k68c173 | Time 1 : choose effort, $u_{i1}(d_{i1},\mathrm{Ω}_{i1})$
+k14f392 | Time 2 : choose whether to take the entrance exam, $u_{i2}(d_{i2},\mathrm{Ω}_{i2})$
+k742bfd | Time 3 : admissions occur, based on actual admission chances
+kf4ab03 | Time 4 : choose whether to enroll, $u_{i4}(d_{i4},\mathrm{Ω}_{i4})$
+k96f8c7 | if $d_{i4}$ = “Enroll, regular"
+k5a8883 | $u_{i4}(d_{i4},\mathrm{Ω}_{i4})=⟦?⟧⟦?⟧\lambda_{0ki}+\delta+pgrad_i^b(\lambda_0^G+q_i^P)+\nu_i^P$ if $d_{i4}$ = “Enroll, preferential"
+ka2bdfe | if $d_{i4}$ = “Do not enroll"
+k67f8c3 | Time 5 : actual persistence realizes according to
+ka16474 | Subjective value function with objective laws of motion :
+@page 40
+#= k5ec976 | Estimation  ⇒ 估计
+k92be1b [2L] | We estimate the model by Indirect Inference (34 structural parameters, 52 auxiliary model parameters), and achieve good model fit.
+k4d85ae | Model fit—targeted moments.
+k275bef | Model fit—untargeted moments.
+@page 41
+k2d0f58 | Model Results I : Role of Effort
+k689f54 [2L] | ⟪Table –⟫ Returns to pre-college effort in persistence and omitted variable bias
+k533c04 | Simulated college persistence probability
+kf727b3 [3L] | Simulated study hours Unobserved type 1 Outcome mean
+k9c6d54 | Note.– The coefficients are OLS estimates of regressions of the simulated persistence
+kce148c | probability on baseline Simce test scores and on simulated weekly study hours in high
+k070cb9 | school. The second column includes a dummy for the unobserved student type as
+k6cfb39 | control variable. Simulations are performed using the structural-model estimation
+kd6170c | sample and the estimated model parameters. Outcome mean for this sample reported.
+kca2f9f [2L] | 77\% of the correlational returns to effort represent a causal effect.
+@page 42
+k641072 | Model Results II : Role of Beliefs
+k2ecf93 | Counterfactual with Rational Expectations
+k7725cc [2L] | If beliefs were accurate (RE) in both the treatment and the control group, PACE would not have reduced pre-college effort because :
+k41d698 | PACE $\uparrow$ returns to effort for admission
+k59e88c | RE $\downarrow$ utility of enrolling in both groups since
+kc957b1 | True persistence rate (mean) : 37\%
+kddf37d | Perceived persistence rate (mean) : 77\%
+@page 43
+k65fdf5 | Belief errors are the key driver of PACE’s effort
+kb72f5f | disincentives.
+@page 44
+kfdfc59 | Model Results III : Effects of Information Add-ons
+k4154a4 [3L] | **All beliefs :** Correcting beliefs in treatment group $\Rightarrow$ further reductions in pre-college effort and compressed PACE enrollment take-ups.
+k92cc12 [3L] | **Beliefs about effort returns in persistence :** Correcting beliefs about persistence returns in treatment group $\Rightarrow$ avoids effort reductions without dampening the enrollment gains of PACE.
+@page 45
+k479ac8 | Model Results IV : Alternative PACE cutoffs
+kc21704 | We simulate the effects of PACE under alternative cutoffs.
+k8bdd24 [5L] | **Problem :** we elicited beliefs about the within-school GPA distribution under the current policy (top 15\% cutoff). Under a different policy cutoff, students would exert different efforts and, presumably, they would perceive a difefrent within-school GPA distribution.
+@page 46
+k6b029c | How can we build counterfactual beliefs ?
+@page 47
+k47ec51 | Model Results IV : Detour on Counterfactual Beliefs
+k150573 [2L] | We need to make some assumptions about how beliefs would be formed in the counterfactual.
+@page 48
+kcdbf6c | We assume that belief errors are constant in the counterfactuals.
+k0c8c92 | Errors with respect to which benchmark?
+k237f5d | $\bar{c}_i^{15b}$ vs. the actual cutoffthat is realized at baseline?
+k73352b | $\bar{c}_i^{15b}$ vs. the RE cutoff?
+@page 49
+ka8213f [2L] | The RE cutoff, because we must be able to simulate the benchmark also in the counterfactual policy!
+@page 50
+k873bab [2L] | Algorithm to construct counterfactual beliefs and solve the model under counterfactual cutofsf :
+kb7d25a [2L] | Assume students would exhibit same belief bias relative to the RE cutoffas they do under the top 15\% rule.
+k4f3556 [2L] | Compute this bias as the difefrence between the perceived and the RE cutoffin the baseline.
+kc77039 [2L] | For each alternative cutoffrule, first solve for the RE equilibrium to obtain the corresponding RE cutoff.
+kd5c9a2 [2L] | Construct the counterfactual beliefs by adding the estimated belief bias (from point 2) to this RE cutof.f
+k18a995 | Solve the model under these counterfactual beliefs.
+@page 51
+k57b481 | ⟪Figure –⟫ Simulated effects of PACE with alternative cutoffs.
+@page 52
+k481817 | References I
+k4cc050 | Arcidiacono, Peter, V Joseph Hotz, Arnaud Maurel, and Teresa
+k4db09f [2L] | Romano. 2020. “Ex ante returns and occupational choice.” Journal of Political Economy 128 (12) :4475–4522.
+kee2795 | Delavande, Adeline and Basit Zafar. 2019. “University choice : The
+k769de0 [2L] | role of expected earnings, nonpecuniary outcomes, and financial constraints.” Journal of Political Economy 127 (5) :2343–2393.
+k0ca285 | Giustinelli, Pamela. 2022. Expectations in Education, chap. 7,
+kdee27c | Handbook of Economic Expectations. Elsevier.
+k36ec5f | Kapor, Adam J, Christopher A Neilson, and Seth D Zimmerman.
+k7854dc [2L] | 2020. “Heterogeneous beliefs and school choice mechanisms.” American Economic Review 110 (5) :1274–1315.
+kb9440f | Stahl, Dale O and Paul W Wilson. 1995. “On players’ models of
+k2b3cd3 [2L] | other players : Theory and experimental evidence.” Games and Economic Behavior 10 (1) :218–254.
+@page 53
+kb3ab67 | References II
+kbe181c | Stinebrickner, Ralph and Todd R Stinebrickner. 2014. “A major in
+k106dd6 [2L] | science? Initial beliefs and final outcomes for college major and dropout.” Review of Economic Studies 81 (1) :426–472.
+k73d62b | Tincani, Michela M, Enrico Miglino, and Fabian Kosse. 2025.
+k611b17 [2L] | “Beliefs and the Incentive Efefcts of Preferential Admissions : Evidence from an Experiment and a Structural Model.” CEPR
+k37bcea | Van der Klaauw, Wilbert. 2012. “On the use of expectations data
+k448f50 [2L] | in estimating structural dynamic choice models.” Journal of Labor Economics 30 (3) :521–554.
+k10a1fe | Wiswall, Matthew and Basit Zafar. 2015. “Determinants of college
+k39bbd0 [2L] | major choice : Identification using an information experiment.” The Review of Economic Studies 82 (2) :791–824.
+@page 54
+k2b060f | References III
+k95e42a | Wolpin, Kenneth I and Fusun Gonul. 1985. “On the Use of
+k23f23f [2L] | Expectations Data in Micro Surveys : The Case of Retirement.” ERIC .
+@page 55
+k9d06c7 | Belief Updating in Stinebrickner and Stinebrickner (2014)
+k09a33e [2L] | $E⟦?⟧\mathrm{AGPA}_{i,j}^{t*}⟦?⟧$ : posterior mean belief of student i’s average GPA in major $j$ once outcomes are fully “resolved”
+k42f126 | $E⟦?⟧\mathrm{AGPA}_{i,j}^1⟦?⟧$ : prior mean belief at initial survey (upon entry)
+k07b87e | $\mathrm{Sig}_{i,j}$ : imperfect signal (e.g. realized GPA in early major $j$ courses)
+k53d2cf | $\alpha_j$ : major-specific intercept capturing systematic bias in priors
+kf0f38b | $\beta_j$ : weight on the prior belief (persistence of initial expectations)
+kb7367b | $\gamma_j$ : weight on the new signal (speed of learning)
+k8884bc | $u_{i,j}$ : mean-zero idiosyncratic error term
+kaf07b4 [2L] | $\to$ Parameters $\alpha_j,\beta_j,\gamma_j$ identified from observations of prior and posterior beliefs and signals.
+k24f096 | Return
+@page 56
+k04f614 | Belief Updating in Wiswall and Zafar (2015)
+k58a075 | Assume two majors $j\in\{0,1\}$. Student i’s utility from major $j$ is
+#= k46148c | where  ⇒ 其中
+k02b3c4 | $x_{ij}$ : observed covariates (e.g. demographics, non-major tastes)
+k9436ad | $\gamma_{ij}$ : student i’s perceived future earnings in major $j$
+kcd5b81 | $\theta_e$ : preference weight on (perceived) earnings
+kd55ab8 | $\theta_{ij}$ : time-invariant taste shock for major $j$
+k193fad | $\epsilon_{ij}\sim$ Type I EV i.i.d. across $i,j$
+k84a58a | Taking log-odds of choosing major 1 vs. 0 :
+k59e8a2 [3L] | Where $\epsilon_{i1}$ is an additional orthogonal error. We observe $\pi_{ij}$ and $\gamma_{ij}$, but not $\theta_{ij}$. OLS estimation of (1) would give biased estimates of $\theta_e$ if $\Delta\theta_i$ is correlated with $\ln \gamma_{i1}-\ln \gamma_{i0}$.
+@page 57
+kb16a50 [2L] | **Experimental fix :** Randomize an information treatment at time $t$ to shift $\gamma_{ij}$ exogenously, and measure $\gamma_{ij}$ pre- and post.
+kc518d6 | Define pre- and post-treatment log-odds $L_i^{pre}$ and $L_i^{post}$. Then
+ka69f7a [3L] | where the terms containing $\theta_{ij}$ cancel out, so $\theta_e$ is identified from the slope on $\Delta\ln \gamma$, which is uncorrelated with the error term. Where :
+kbfd8b5 [3L] | **Key estimate : $\uparrow$** 10\% in beliefs about self-earnings in a major $\uparrow3.6-6.2\%$ subjective probability of choosing that major, older students have lower elasticities.
+kb52b36 | Back
+@page 58
+k1958c2 | Pre-college Effort Predicts College Persistence
+k7566bc | ⟪Table –⟫ Pre-college Outcomes and Persistence in Selective Colleges
+ka7975b | College persistence or graduation
+k0070e0 | five years after high school graduation
+k955208 | GPA in $12^{th}$ grade (std)
+kf804b1 | GPA in $12^{th}$ grade tested subjects (std)
+k9bda06 | GPA in $12^{th}$ grade untested subjects (std)
+kfcef04 | PSU score (std)
+kfeae17 | Study effort in last high school year (std)
+ke8ddf0 | Hours of study per week in last high school year
+kf14010 | Baseline test score in $10^{th}$ grade (std)
+k461eba | Observations
+@page 59
+k73b14d | Over-optimism about absolute and relative ability
+kde8f5d | ⟪Table –⟫ Description of Subjective Beliefs
+k51cda5 | Mean
+k2833c3 | Std. Deviation
+k1babaf | Believed entrance exam score $(\sigma)$
+k932f87 [3L] | Believed minus actual entrance exam score $|$ took exam $(\sigma)$ Believed minus actual $12^{th}$ grade GPA (GPA points) Expected top 15\% cutoff
+k293cbd [2L] | Actual minus believed top 15\% cutoffin school (GPA points) Believes is in top 15\% of school
+k2da200 | Effort reductions concentrated among those who believed they were well
+k5e8517 | above the PACE admission cutoff.
+@page 60
+k250f7a | Perceived persistence likelihood across treatment groups
+kabbed2 | Distribution of survey responses regarding beliefs about the likelihood of
+k1fb70e [5L] | graduating from a selective college conditional on enrolling, by treatment status (i.e., being in a PACE or control school). The figure includes 95\% confidence intervals for the difference between the proportion of treated and of control students giving each answer. The confidence intervals were obtained from standard errors clustered at high school level.
+k942c9d [2L] | $\to$ No effects on perceived graduation likelihood even among those who experienced considerable reductions in efofrt.
+@page 61
+k980047 | Measuring perceived returns to effort in achievement
+kc6c3a6 | We use hypothetical efofrt scenarios to measure perceived returns :
+k9a8823 | Distribution of answers to survey questions on perceived returns to effort. The reported
+k9d520f [3L] | perceived top 15 cutoffis on average 5.85 in the sample used to construct these histograms. The sample sizes for the left-side graph are : 5,344 for $\mathrm{X}=350,5,442$ for $\mathrm{X}=450,5,469$ for $\mathrm{X}=600$. The sample sizes for the right-side graph are : 5,451 for $\mathrm{X}=5.5,5,443$ for X=reported perceived top 15 cutof.f
+@page 62
+k2aed21 | Measuring effort
+k57b55a | We use the following survey question :
+kcf20eb [2L] | “On average, how many hours a week did you study or do homework outside of class time during the first semester of this school year?"
+ke1f1fd [2L] | We assume we measure $e_i^o=e_i+\epsilon_i^{mee}\epsilon_i^{mee}\sim N(0,\sigma_{mee}^2)$ i.i.d. and independent of all model initial conditions and shocks.
+@page 63
+k4373df | Measuring perceived achievement
+ke1a34e | We use the following survey questions :
+kdea12b [2L] | $PSU_i^b$ “Suppose that you will take the PSU entrance exam this year. What do you think your PSU score will be?"
+k4425d3 [2L] | $GPA_i^b$ “Thinking of yourself, what do you think your grade point average (GPA) will be at the end of high school?"
+kd56d2c | We assume we measure $\bar{Y}_i^b$.
